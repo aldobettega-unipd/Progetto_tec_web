@@ -1,0 +1,30 @@
+Target: utenti (maggiormente mobile) neofiti musicisti o esperti
+
+
+Funzionalità generali
+
+
+- aprire i dettagli di una canzone
+    - visualizzare accordi
+    - ingrandire/rimpicciolire testo
+    - autoscroll
+    - optional -> traspositore (cambiare accordi)
+    - optionale -> vedere real time note della canzone ascoltandola
+
+
+- stampa di canzoni
+
+
+- area utente
+    - cronologia canzoni
+    - mie playlist
+    - optional -> configurazioni personali (preferenze)
+    - artisti preferiti
+    - canzoni preferite
+
+- area home
+    - ricerca
+        - per testo
+        - per filtri
+            - anno/autore/genere
+    - optional -> algoritmo suggeriti

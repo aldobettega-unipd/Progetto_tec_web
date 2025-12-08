@@ -20,10 +20,15 @@
   </head>
   <body>
     <header>
-      <span id="easyguitar" lang="en">EasyGuitar</span>
-      <a id="impara">Impara</a>
-      <a id="esplora">Esplora</a>
-      <button id="accedi">Accedi</button>
+      <img
+        id="logo"
+        src="./asssets/logo.jpg"
+        alt="logoeasyguitar"
+        tabindex="0"
+      />
+      <a id="impara" tabindex="0">Impara</a>
+      <a id="esplora" tabindex="0">Esplora</a>
+      <button id="accedi" tabindex="0">Accedi</button>
     </header>
 
     <main>
@@ -37,65 +42,79 @@
         <button id="advancedfilter">Avanzato</button>
       </section>
       <section id="piusuonate">
-        <h2>Canzioni piu suonate</h2>
-        <div class="scroller" style="display: flex; flex-wrap: wrap">
-          <div
-            style="
-              background-color: white;
-              width: 15%;
-              margin-right: 2%;
-              padding-bottom: 15%;
-            "
-          ></div>
-          <div
-            style="
-              background-color: white;
-              width: 15%;
-              margin-right: 2%;
-              padding-bottom: 15%;
-            "
-          ></div>
-          <div
-            style="
-              background-color: white;
-              width: 15%;
-              margin-right: 2%;
-              padding-bottom: 15%;
-            "
-          ></div>
+        <h2>Canzioni più suonate</h2>
+
+        <div class="carousel-wrapper">
+          <img
+            class="carrbutton"
+            id="carrbuttonl"
+            src="./asssets/carrouselbuttonl.png"
+            alt="scroll to left"
+            tabindex="0"
+          />
+          <img
+            class="carrbutton"
+            id="carrbuttonr"
+            src="./asssets/carrouselbuttonr.png"
+            alt="scroll to right"
+            tabindex="0"
+          />
+
+          <div class="scroller">
+            <div
+              class="cover-item"
+              style="background-image: url(./asssets/stairway.jpg)"
+            ></div>
+            <div
+              class="cover-item"
+              style="background-image: url(./asssets/useyourilusion2.jpg)"
+            ></div>
+            <div
+              class="cover-item"
+              style="background-image: url(./asssets/otherside-red-hot.jpg)"
+            ></div>
+          </div>
         </div>
-        <div class="separator"></div>
       </section>
-      <section id="piufamosi">
-        <h2>Artisti piu famosi</h2>
-        <div class="scroller" style="display: flex; flex-wrap: wrap">
-          <div
-            style="
-              background-color: white;
-              width: 15%;
-              margin-right: 2%;
-              padding-bottom: 15%;
-            "
-          ></div>
-          <div
-            style="
-              background-color: white;
-              width: 15%;
-              margin-right: 2%;
-              padding-bottom: 15%;
-            "
-          ></div>
-          <div
-            style="
-              background-color: white;
-              width: 15%;
-              margin-right: 2%;
-              padding-bottom: 15%;
-            "
-          ></div>
+
+      <div class="separator"></div>
+      <section id="piusuonate">
+        <h2>Canzioni più suonate</h2>
+
+        <div class="carousel-wrapper">
+          <img
+            class="carrbutton"
+            id="carrbuttonl"
+            src="./asssets/carrouselbuttonl.png"
+            alt="scroll to left"
+            tabindex="0"
+          />
+          <img
+            class="carrbutton"
+            id="carrbuttonr"
+            src="./asssets/carrouselbuttonr.png"
+            alt="scroll to right"
+            tabindex="0"
+          />
+
+          <div class="scroller">
+            <div
+              class="cover-item"
+              style="background-image: url(./asssets/stairway.jpg)"
+            ></div>
+            <div
+              class="cover-item"
+              style="background-image: url(./asssets/useyourilusion2.jpg)"
+            ></div>
+            <div
+              class="cover-item"
+              style="background-image: url(./asssets/otherside-red-hot.jpg)"
+            ></div>
+          </div>
         </div>
-        <div class="separator"></div>
       </section>
+      <div class="separator"></div>
+
       <section id="potrebbepiacerti">
         <h2>Potrebbe piacerti</h2>
         <div id="deviregistrarti">
@@ -109,3 +128,4 @@
     </footer>
   </body>
 </html>
+

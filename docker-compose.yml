@@ -1,12 +1,33 @@
 version: '3.8'
 
 services:
-  tecweb:
-    build: ./src
-    container_name: "tecweb-server"
+  # Servizio Web (PHP + Apache)
+  web:
+    build: .
+    ports:
+      - "${APP_PORT}:80"  # Usa la variabile dal .env
     volumes:
-      - ./src:/var/www/html
-    ports: 
-      - "8080:80"
-    restart: unless-stopped
+      - ./:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html/public
+      # Passa le variabili al container PHP
+      - DB_HOST=${DB_HOST}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
 
+  # Servizio Database (MySQL)
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"

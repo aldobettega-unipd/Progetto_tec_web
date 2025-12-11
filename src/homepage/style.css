@@ -1,0 +1,104 @@
+html, body{
+    background-color: rgb(222, 253, 230);
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 
+
+###############################################
+
+HEADER
+
+###############################################
+
+*/
+
+header{
+    width:70%;
+    background-color: green;
+    border-radius: 10px;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    margin-top: 1%;
+}
+
+header > :first-child {
+    margin-right: auto;
+}
+
+header > :not(:first-child) {
+    margin-right: 1em;
+}
+
+/* Spingi gli elementi da 3 in poi a height: 100%;destra
+.header > :nth-child(2) {
+    margin-right: auto;
+}
+
+Spaziatura tra quelli di destra
+.header > :nth-child(n+3) {
+    margin-left: 15px;
+} */
+
+/* 
+
+###############################################
+
+MAIN
+
+###############################################
+
+*/
+
+h1{
+    margin-top: 4%;
+    text-align: center;
+}
+
+#descr{
+    text-align: center;
+}
+
+#barraricerca{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    margin-top: 2%;
+}
+
+#barracanzone{
+    width:15%;
+}
+
+
+
+#proposte{
+    width: 65%;
+    margin: auto;
+    margin-top: 4%;
+}
+
+h2{
+    text-align: center;
+}
+
+
+/* 
+
+###############################################
+
+FOOTER
+
+###############################################
+
+*/
+
+footer{
+    background-color: rgb(0, 102, 0);
+}

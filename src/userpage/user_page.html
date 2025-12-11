@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EasyGuitar è un sito web che permette agli appassionati di chitarra di imparare gli accordi delle canzoni">
+    <meta name="keywords" content="chitarra, imparare, suonare, accordi, musica, canzoni">
+     <title>Utente - EasyGuitar</title>
+</head>
+<body>
+    <header>
+        <h1>Profilo Utente</h1>
+    </header>
+    <main>
+        <section class="dati-profilo">
+            <h2>Informazioni Personali</h2>
+            <img src="../../src/frontend/assets/icona_utente.png" alt="Foto profilo utente" width="90" height="90">
+            <dl>
+                <dt>Nome:</dt>
+                <dd>Mario</dd>
+                <dt>Cognome:</dt>
+                <dd>Rossi</dd>
+                <dt>Email:</dt>
+                <dd>mario.rossi@gmail.com</dd>
+            </dl>
+            <div class="sezione-bottoni">
+                <button type="button">Modifica</button>
+                <button type="button">Elimina</button>
+                <a href="/settings">Settings</a>
+            </div>
+        </section>
+        <hr>
+
+        <section class="sezione-lista" id="le-tue-playlist">
+            <h2>Le tue playlist</h2>
+            <div class="bottone" id="crea-playlist">
+                <button>Crea</button>
+            </div>
+            <ul class="lista-playlist">
+                <li class="card-playlist">
+                    <a href="/playlist/1">
+                        <h3>Playlist 1</h3>
+                        <p>10 canzoni</p>
+                    </a>
+                </li>
+                <li class="card-playlist">
+                    <a href="/playlist/2">
+                        <h3>Playlist 2</h3>
+                        <p>10 canzoni</p>
+                    </a>
+                </li>
+                <li class="card-playlist">
+                    <a href="/playlist/3">
+                        <h3>Playlist 3</h3>
+                        <p>10 canzoni</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <hr>
+
+        <section class="sezione-lista" id="canzoni-recenti">
+            <h2>Le tue canzoni</h2>
+            <ul class="lista-canzoni">
+                <li class="card-canzone">
+                    <a href="/canzone/1">
+                        <h3>Canzone 1</h3>
+                    </a>
+                </li>
+                <li class="card-canzone">
+                    <a href="/canzone/2">
+                        <h3>Canzone 2</h3>
+                    </a>
+                </li>
+                <li class="card-canzone">
+                    <a href="/canzone/3">
+                        <h3>Canzone 3</h3>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+    <hr>
+
+    <footer>
+        Sito creato da EasyGuitarGroup
+    </footer>
+</body>
+</html>

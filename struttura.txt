@@ -1,4 +1,4 @@
-Target: utenti (maggiormente mobile) neofiti musicisti o esperti
+Target: utenti (maggiormente mobile) neofiti musicisti o esperti  -> definire meglio il target e mission del sito, da lì definire la grafica
 
 
 Funzionalità generali

@@ -22,6 +22,11 @@ switch ($action) {
         $pagina_corrente = 'Login Page';
         break;
     
+    case 'registrati':
+        $view_file = '../src/Views/pages/registraForm.php';
+        $pagina_corrente = 'Crea account';
+        break;
+    
     case 'esplora':
         $view_file = '../src/Views/pages/esplora.php';
         $pagina_corrente = 'Esplora';

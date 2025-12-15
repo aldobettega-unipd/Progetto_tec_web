@@ -1,0 +1,1 @@
+Accedere a mysql:  $ docker exec -it 86595465796f mysql -u root -

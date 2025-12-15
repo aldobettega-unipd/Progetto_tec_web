@@ -28,3 +28,23 @@ Funzionalità generali
         - per filtri
             - anno/autore/genere
     - optional -> algoritmo suggeriti
+
+
+
+Operazioni db:
+
+User:
+- login (ricerca utente, controllo password)
+- creare/eliminare playlist -> INSERT su playlist
+- aggiungere/togliere canzone a playlist -> INSERT su canzoni_playlist
+- aggiungere canzoni a preferiti (playlist)
+- registrazione
+- ricerca canzoni/artisti
+- cambiare password
+- modificare username(?)
+- ricerca per tag(?)
+
+Admin:
+- aggiungere/togliere/modificare artisti/canzoni
+- eliminare acocunt
+

@@ -1,14 +1,15 @@
 html,
 body {
-  background-color: rgb(222, 253, 230);
+  background-color: #efffe9;
   margin: 0px;
   padding: 0px;
   height: 100%;
 }
 
 header {
+  font-family: "Helvetica Neue", Arial, sans-serif;
   display: flex;
-  background-color: green;
+  background-color: #72b986;
   border-radius: 10px;
   padding: 1em;
   align-items: center;
@@ -37,6 +38,7 @@ MAIN
 */
 
 #barraricerca {
+  font-family: "Helvetica Neue", Arial, sans-serif;
   margin-top: 3em;
   display: flex;
   justify-content: center;
@@ -45,30 +47,40 @@ MAIN
   margin-top: 2%;
 }
 #barracanzone {
+  font-family: "Helvetica Neue", Arial, sans-serif;
   width: 65%;
 }
 #cercacanzone {
+  font-family: "Helvetica Neue", Arial, sans-serif;
   cursor: pointer;
 }
 #advancedfilter {
+  font-family: "Helvetica Neue", Arial, sans-serif;
   cursor: pointer;
 }
 #piufamosi > h2 {
+  font-weight: 700;
   display: flex;
   align-items: end;
   justify-content: end;
   margin-right: 2em;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 #piusuonate > h2 {
+  font-weight: 700;
   margin-left: 2em;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 #potrebbepiacerti h2 {
+  font-weight: 700;
   margin-left: 2em;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 #potrebbepiacerti p {
+  font-family: "Helvetica Neue", Arial, sans-serif;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -91,13 +103,12 @@ CAROUSELES
 }
 .scroller {
   display: flex;
-
   padding-left: 12em;
   padding-right: 12em;
-  padding-bottom: 2.3em;
-  padding-top: 1.5em;
+  padding-bottom: 1.5em;
   scroll-behavior: smooth;
 }
+/*
 .cover-item {
   flex-shrink: 0;
   width: 11em;
@@ -107,7 +118,7 @@ CAROUSELES
   background-repeat: no-repeat;
   margin-right: 2.5%;
   cursor: pointer;
-}
+}*/
 .carrbutton {
   position: absolute;
   top: 30%;
@@ -117,6 +128,7 @@ CAROUSELES
   height: 4.5em;
   border-radius: 18%;
   border-style: solid;
+  border-width: 0.1em;
 }
 
 #carrbuttonl {
@@ -126,12 +138,65 @@ CAROUSELES
 #carrbuttonr {
   right: 5em;
 }
+/*
+####################################################################
+
+
+TARJETAS
+
+
+####################################################################
+*/
+
+.spotify-card {
+  display: flex;
+  flex-direction: column;
+  width: 11em;
+  height: auto;
+  padding-top: 2.5em;
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+
+  background-color: #efffe9;
+  border-radius: 2em;
+  transition: background-color 0.3s ease;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  cursor: pointer;
+}
+
+.spotify-card:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.card-image {
+  width: 100%;
+  height: 11em;
+  aspect-ratio: 1/1;
+  border-radius: 5%; /* Spotify usa bordes ligeramente redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave para profundidad */
+}
+
+.card-text {
+  text-align: left;
+}
+.song-title {
+  margin-bottom: 0em;
+}
+.artist-name {
+  opacity: 0.78;
+  margin-top: 0.2em;
+}
+
+/*##########################################################
+
+EXTRAS
+
+#############################################################*/
 
 .separator {
   width: 100%;
   height: 2px;
   background: #000;
-  margin: 5px 0;
 }
 
 #logo {
@@ -142,5 +207,10 @@ CAROUSELES
 }
 
 footer {
-  background-color: rgb(0, 102, 0);
+  background-color: green;
+}
+
+*:focus-visible {
+  /* Puedes usar el outline de nuevo, o border/box-shadow */
+  outline: 3px solid red; /* Remarcado rojo y visible */
 }

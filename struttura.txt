@@ -30,6 +30,12 @@ Funzionalità generali
     - optional -> algoritmo suggeriti
 
 
+Template:
+- utente
+- canzone
+- playlist
+- artista
+
 
 Operazioni db:
 

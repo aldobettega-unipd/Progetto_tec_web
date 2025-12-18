@@ -3,6 +3,8 @@
 // Carica configurazione
 require_once __DIR__ . '/../config.php';
 
+require_once '../src/Controllers/ArtistaController.php';
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -26,7 +28,12 @@ switch ($action) {
         $view_file = '../src/Views/pages/registraForm.php';
         $pagina_corrente = 'Crea account';
         break;
-    
+
+    case 'artista':
+        $controller = new ArtistaController();
+        $controller->index();
+        break;
+
     case 'esplora':
         $view_file = '../src/Views/pages/esplora.php';
         $pagina_corrente = 'Esplora';

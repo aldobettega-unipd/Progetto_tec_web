@@ -1,4 +1,5 @@
 <?php
+// Questa classe si limita seplicemente a sostituire i placeholder del html con i dati presi dal Controller
 
 class Template {
     private $contenuto;

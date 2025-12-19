@@ -1,5 +1,7 @@
 <?php
 
+// Classe Controller di artista: crea il Model, prende i dati e lo mette in comunicazione con la View grazie al template
+
 require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../Models/Artista.php';
 

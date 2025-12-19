@@ -1,4 +1,6 @@
 <?php
+// Model di artista: si occupa di connettersi al db e comunicare con lui con la query, poi prepara i dati in un
+// formato pronto per il Controller
 class Artista {
     private $db;
 

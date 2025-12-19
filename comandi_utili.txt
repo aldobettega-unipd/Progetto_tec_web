@@ -1,0 +1,3 @@
+Accedere a mysql:  $ docker exec -it 86595465796f mysql -u root -p
+    - USE miosito -> accedere al db mysql
+    - DESCRIBE tabella -> descrive la tabella

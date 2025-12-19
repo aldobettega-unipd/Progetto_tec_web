@@ -1,13 +1,8 @@
 <?php
 
-// Carica configurazione
 require_once __DIR__ . '/../config.php';
-
-require_once '../src/Controllers/ArtistaController.php';
-
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+require_once __DIR__ . '/../src/Core/Template.php';
+require_once __DIR__ . '/../src/Controllers/ArtistaController.php';
 
 $action = $_GET['action'] ?? 'home';
 $view_file='';
@@ -30,8 +25,9 @@ switch ($action) {
         break;
 
     case 'artista':
-        $controller = new ArtistaController();
-        $controller->index();
+        $nome = $_GET['nome'] ?? 'Zucchero';
+        $controller = new ArtistaController($conn);
+        echo $controller->visualizza($nome);
         break;
 
     case 'esplora':

@@ -4,26 +4,18 @@ require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../Models/Artista.php';
 
 class ArtistaController {
+    private $db;    
 
-    public function index() {
+    public function __construct($db) {
+        $this->db = $db;
+    }
 
-        $artistaHTML = file_get_contents(
-            __DIR__ . '/../Views/pages/artistaPage.html'
-        );
+    public function visualizza($nome) {
+        $model = new Artista($this->db);
+        $datiArtista = $model->getById($nome);
 
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-
-        $model = new Artista();
-        $artista = $model->getById(1);
-
-        $output = str_replace(
-            '[Nome]',
-            htmlspecialchars($artista['nome']),
-            $artistaHTML
-        );
-
-        echo $output;
+        $template = new Template(__DIR__ . '/../Views/pages/artistaPage.html');
+        $template->inserisciDatiPagina($datiArtista);
+        return $template->render();
     }
 }

@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../src/Core/Template.php';
 require_once __DIR__ . '/../src/Controllers/ArtistaController.php';
+require_once __DIR__ . '/../src/Controllers/CanzoneController.php';
 require_once __DIR__ . '/../src/Controllers/HomeController.php';
 
 $action = $_GET['action'] ?? 'home';
@@ -41,6 +42,24 @@ switch ($action) {
     case 'artista':
         $nome = $_GET['nome'] ?? 'Zucchero';
         $controller = new ArtistaController($conn);
+        $corpoHTML = $controller->visualizza($nome);
+
+        $headerHTML = file_get_contents('../src/Views/layouts/header.html');
+        $footerHTML = file_get_contents('../src/Views/layouts/footer.html');
+
+        $layout = new Template('../src/Views/layout.html');
+        $layout->inserisciDatiPagina([
+            'header' => $headerHTML,
+            'corpo'  => $corpoHTML,
+            'footer' => $footerHTML
+        ]);
+        
+        echo $controller->visualizza($nome);
+        break;
+
+    case 'canzone':
+        $nome = $_GET['nome'] ?? 'T.N.T.';
+        $controller = new CanzoneController($conn);
         $corpoHTML = $controller->visualizza($nome);
 
         $headerHTML = file_get_contents('../src/Views/layouts/header.html');

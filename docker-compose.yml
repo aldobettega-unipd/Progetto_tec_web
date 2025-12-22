@@ -1,24 +1,21 @@
-version: '3.8'
+version: '3.8' # Puoi lasciarlo, è solo un avviso di obsolescenza
 
 services:
-  # Servizio Web (PHP + Apache)
   web:
     build: .
     ports:
-      - "${APP_PORT}:80"  # Usa la variabile dal .env
+      - "${APP_PORT}:80"
     volumes:
       - ./:/var/www/html
     depends_on:
       - db
     environment:
       - APACHE_DOCUMENT_ROOT=/var/www/html/public
-      # Passa le variabili al container PHP
-      - DB_HOST=${DB_HOST}
+      - DB_HOST=db # Assicurati che PHP usi il nome del servizio 'db'
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=${DB_NAME}
 
-  # Servizio Database (MySQL)
   db:
     image: mysql:8.0
     restart: always
@@ -30,4 +27,4 @@ services:
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - "3306:3306"
+      - "3307:3306" # Evita il conflitto con il MySQL locale

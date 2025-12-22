@@ -18,7 +18,7 @@ class Template {
         }
 
         foreach ($arrayDati as $key => $value) {
-            $this->contenuto = str_replace("[$key]", htmlspecialchars($value ?? ''), $this->contenuto);
+            $this->contenuto = str_replace("[$key]", $value ?? '', $this->contenuto);
         }
     }
 

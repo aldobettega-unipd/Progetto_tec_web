@@ -1,3 +1,12 @@
-Accedere a mysql:  $ docker exec -it 86595465796f mysql -u root -p
-    - USE miosito -> accedere al db mysql
-    - DESCRIBE tabella -> descrive la tabella
+Accedere a mysql:  
+    $ docker exec -it [id_database] mysql -u root -p
+
+Accedere al dbysql 'miosito':
+    USE miosito
+
+Vedere info tabella:
+    DESCRIBE [nome_tabella]
+
+Inserire dati:
+    INSERT INTO [tabella] ([colonna_1], [colonna_2]) VALUES ([valore_1], [valore_2])
+    

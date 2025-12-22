@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../src/Core/Template.php';
 require_once __DIR__ . '/../src/Controllers/ArtistaController.php';
+require_once __DIR__ . '/../src/Controllers/HomeController.php';
 
 $action = $_GET['action'] ?? 'home';
 $view_file='';
@@ -10,8 +11,21 @@ $pagina_corrente= '';
 
 switch ($action) {
     case 'home':
-        $view_file = '../src/Views/pages/home.php';
-        $pagina_corrente = 'Home';
+        $homeController = new HomeController($conn);
+        $corpoHTML = $homeController->visualizzaHome();
+
+        $headerHTML = file_get_contents('../src/Views/layouts/header.html');
+        $footerHTML = file_get_contents('../src/Views/layouts/footer.html');
+
+        $layout = new Template('../src/Views/layout.html');
+        $layout->inserisciDatiPagina([
+            'header' => $headerHTML,
+            'corpo'  => $corpoHTML,
+            'footer' => $footerHTML
+        ]);
+        
+        echo $layout->render();
+        $view_file = '';
         break;
 
     case 'login':
@@ -27,6 +41,18 @@ switch ($action) {
     case 'artista':
         $nome = $_GET['nome'] ?? 'Zucchero';
         $controller = new ArtistaController($conn);
+        $corpoHTML = $controller->visualizza($nome);
+
+        $headerHTML = file_get_contents('../src/Views/layouts/header.html');
+        $footerHTML = file_get_contents('../src/Views/layouts/footer.html');
+
+        $layout = new Template('../src/Views/layout.html');
+        $layout->inserisciDatiPagina([
+            'header' => $headerHTML,
+            'corpo'  => $corpoHTML,
+            'footer' => $footerHTML
+        ]);
+        
         echo $controller->visualizza($nome);
         break;
 
@@ -42,14 +68,12 @@ switch ($action) {
 
 
 // Carica il contenuto specifico della pagina (il body)
-if (file_exists($view_file)) {
+if ($view_file !== '' && file_exists($view_file)) {
     require_once $view_file;
-} else {
-    // Gestione errore se il file della vista non esiste
+} elseif ($view_file !== '') {
     http_response_code(404);
     echo "<h1>404 - Pagina non trovata!</h1>";
 }
-
 
 
 ?>

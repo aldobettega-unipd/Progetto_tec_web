@@ -15,4 +15,9 @@ class Artista {
         $result = $stmt->get_result();
         return $result->fetch_assoc();  
     }
+
+    public function getAll() {
+        $result = $this->db->query("SELECT nome FROM artista");
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }

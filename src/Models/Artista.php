@@ -1,6 +1,5 @@
 <?php
-// Model di artista: si occupa di connettersi al db e comunicare con lui con la query, poi prepara i dati in un
-// formato pronto per il Controller
+
 class Artista {
     private $db;
 
@@ -8,16 +7,16 @@ class Artista {
         $this->db = $db;
     }
 
-    public function getById($nome) {
-        $stmt = $this->db->prepare("SELECT nome, descrizione FROM artista WHERE nome=?");
-        $stmt->bind_param("s", $nome);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_assoc();  
+    public function get_dati_artista($artista) {
+        $prepared_stmt = $this->db->prepare("SELECT nome, descrizione FROM artista WHERE nome=?");
+        $prepared_stmt->bind_param("s", $artista);
+        $prepared_stmt->execute();
+        $risultato_query = $prepared_stmt->get_result();
+        return $risultato_query->fetch_assoc();  
     }
 
     public function getAll() {
-        $result = $this->db->query("SELECT nome FROM artista");
-        return $result->fetch_all(MYSQLI_ASSOC);
+        $risultato_query = $this->db->query("SELECT nome FROM artista");
+        return $risultato_query->fetch_all(MYSQLI_ASSOC);
     }
 }

@@ -10,12 +10,12 @@ class CanzoneController {
         $this->db = $db;
     }
 
-    public function visualizza($nome) {
-        $model = new Canzone($this->db);
-        $datiCanzone = $model->getById($nome);
+    public function visualizza_canzone($canzone) {
+        $modello = new Canzone($this->db);
+        $datiCanzone = $modello->get_dati_canzone($canzone);
 
         $template = new Template(__DIR__ . '/../Views/pages/canzonePage.html');
-        $template->inserisciDatiPagina($datiCanzone);
-        return $template->render();
+        $template->setDatiPagina($datiCanzone);
+        return $template->getPagina();
     }
 }

@@ -5,39 +5,39 @@ require_once __DIR__ . '/../Models/Home.php';
 
 class HomeController {
     private $db;
-    private $artistaModel; 
-    private $canzoneModel;
+    private $modelloArtista; 
+    private $modelloCanzone;
 
     public function __construct($db) {
         $this->db = $db;
-        $this->artistaModel = new Artista($this->db);
-        $this->canzoneModel = new Canzone($this->db);
+        $this->modelloArtista = new Artista($this->db);
+        $this->modelloCanzone = new Canzone($this->db);
     }
 
-    public function visualizzaHome() {
-        $artisti = $this->artistaModel->getAll() ?? [];
-        $canzoni = $this->canzoneModel->getAll() ?? [];
+    public function visualizza_home() {
+        $artisti = $this->modelloArtista->getAll() ?? [];
+        $canzoni = $this->modelloCanzone->getAll() ?? [];
 
         $artistiHTML = "";
         foreach ($artisti as $artista) {
             $templateCard = new Template(__DIR__ . '/../Views/pages/artistaCard.html');
-            $templateCard->inserisciDatiPagina($artista);
-            $artistiHTML .= $templateCard->render();
+            $templateCard->setDatiPagina($artista);
+            $artistiHTML .= $templateCard->getPagina();
         }
 
         $canzoniHTML = "";
         foreach ($canzoni as $canzone) {
             $templateCard = new Template(__DIR__ . '/../Views/pages/canzoneCard.html');
-            $templateCard->inserisciDatiPagina($canzone);
-            $canzoniHTML .= $templateCard->render();
+            $templateCard->setDatiPagina($canzone);
+            $canzoniHTML .= $templateCard->getPagina();
         }
 
         $homeTemplate = new Template(__DIR__ . '/../Views/pages/homePage.html');
-        $homeTemplate->inserisciDatiPagina([
+        $homeTemplate->setDatiPagina([
             'lista_artisti' => $artistiHTML,
             'lista_canzoni' => $canzoniHTML
         ]);
 
-        return $homeTemplate->render();
+        return $homeTemplate->getPagina();
     }
 }

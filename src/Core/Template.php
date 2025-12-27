@@ -1,5 +1,5 @@
 <?php
-// Questa classe si limita seplicemente a sostituire i placeholder del html con i dati presi dal Controller
+// Questa classe si limita seplicemente a sostituire i placeholder dell' html con i dati presi dal Controller
 
 class Template {
     private $contenuto;
@@ -12,17 +12,17 @@ class Template {
         }
     }
 
-    public function inserisciDatiPagina($arrayDati) {
-        if (!is_array($arrayDati)) {
+    public function setDatiPagina($array_assoc_dati) {
+        if (!is_array($array_assoc_dati)) {
             return;
         }
 
-        foreach ($arrayDati as $key => $value) {
-            $this->contenuto = str_replace("[$key]", $value ?? '', $this->contenuto);
+        foreach ($array_assoc_dati as $chiave => $valore) {
+            $this->contenuto = str_replace("[$chiave]", $valore ?? '', $this->contenuto);
         }
     }
 
-    public function render() {
+    public function getPagina() {
         return $this->contenuto;
     }
 }

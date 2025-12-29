@@ -5,6 +5,7 @@ require_once __DIR__ . '/../src/Controllers/ArtistaController.php';
 require_once __DIR__ . '/../src/Controllers/CanzoneController.php';
 require_once __DIR__ . '/../src/Controllers/HomeController.php';
 require_once __DIR__ . '/../src/Controllers/AuthController.php';
+require_once __DIR__ . '/../src/Controllers/RegistraController.php';
 require_once __DIR__ . '/../src/Controllers/RicercaController.php';
 
 $action = $_GET['action'] ?? 'home';
@@ -15,14 +16,22 @@ switch ($action) {
         $corpoHTML = $homeController->visualizza_home();
         break;
 
-    case 'login':
+    case 'mostra_login_form':
+        $corpoHTML = file_get_contents(__DIR__ . "/../src/Views/pages/loginForm.html");
+        break;
+
+    case 'mostra_register_form':
+        $corpoHTML = file_get_contents(__DIR__ . "/../src/Views/pages/registraForm.html");
+        break;
+
+    case 'do_login':
         $authController = new AuthController($conn);
         $corpoHTML = $authController->login(); 
         break;
     
-    case 'registrati':
-        $view_file = '../src/Views/pages/registraForm.html';
-        $pagina_corrente = 'Crea account';
+    case 'do_register':
+        $registraController = new RegistraController($conn);
+        $corpoHTML = $registraController->registrazione($_POST['username'], $_POST['password']);
         break;
 
     case 'artista':

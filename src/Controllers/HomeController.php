@@ -1,7 +1,6 @@
 <?php
 
 require_once __DIR__ . '/../../config.php';
-require_once __DIR__ . '/../Models/Home.php';
 
 class HomeController {
     private $db;

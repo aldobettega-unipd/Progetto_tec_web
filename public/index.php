@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../src/Core/Template.php';
 require_once __DIR__ . '/../src/Controllers/ArtistaController.php';
@@ -26,7 +27,7 @@ switch ($action) {
 
     case 'do_login':
         $authController = new AuthController($conn);
-        $corpoHTML = $authController->login(); 
+        $corpoHTML = $authController->login($_POST['username'], $_POST['password']); 
         break;
     
     case 'do_register':

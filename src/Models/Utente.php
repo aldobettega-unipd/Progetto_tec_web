@@ -23,8 +23,9 @@ class Utente {
 
     public function crea_utente($username, $password) {
         if (empty($this->cerca_username($username))) {
+            $hash_password = password_hash($password, PASSWORD_DEFAULT);
             $prepared_stmt = $this->db->prepare("INSERT INTO utente (username, hash_password) VALUES (?, ?)");
-            $prepared_stmt->bind_param("ss", $username, $password);
+            $prepared_stmt->bind_param("ss", $username, $hash_password);
             $prepared_stmt->execute();
             $prepared_stmt->close();
             return true;

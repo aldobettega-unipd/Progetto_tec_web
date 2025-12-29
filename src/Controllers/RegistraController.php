@@ -15,7 +15,8 @@ class RegistraController {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $modelloUtente = new Utente($this->db);
             if ($modelloUtente->crea_utente($username, $password)) {
-
+                header('Location: index.php?action=mostra_login_form');
+                exit;
             } else {
                 $messaggioErrore = "Nome utente non disponibile";
             }

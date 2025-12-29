@@ -23,6 +23,7 @@ class Template {
     }
 
     public function getPagina() {
-        return $this->contenuto;
+        $contenuto_pulito = preg_replace('/\[[^\]]+\]/', '', $this->contenuto);  // rimuove placeholder non sostituiti
+        return $contenuto_pulito;
     }
 }

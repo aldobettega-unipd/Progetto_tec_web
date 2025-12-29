@@ -10,3 +10,5 @@ Vedere info tabella:
 Inserire dati:
     INSERT INTO [tabella] ([colonna_1], [colonna_2]) VALUES ([valore_1], [valore_2])
     
+Eliminare tutti i dati di una tabella:
+    TRUNCATE TABLE [nome_tabella];

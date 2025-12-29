@@ -9,15 +9,16 @@ class AuthController {
         $this->db = $db;
     }
 
-    public function login() {
+    public function login($username, $password) {
         $messaggioErrore = "";
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $modelloUtente = new Utente($this->db);
-            $username = $modelloUtente->cerca_username($_POST['username']);
+            $dati_utente = $modelloUtente->cerca_username($username);
 
-            if ($username && $_POST['password'] == $username['hash_password']) {
-                $_SESSION['username'] = $username['username'];
+            if ($dati_utente && password_verify($password, $dati_utente['hash_password'])) {
+                $_SESSION['username'] = $dati_utente['username'];
+                session_regenerate_id(true);
                 header('Location: index.php?action=home');
                 exit;
             } else {

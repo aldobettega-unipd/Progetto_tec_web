@@ -12,11 +12,35 @@ class Artista {
         $prepared_stmt->bind_param("s", $artista);
         $prepared_stmt->execute();
         $risultato_query = $prepared_stmt->get_result();
-        return $risultato_query->fetch_assoc();  
+        $dati_artista = $risultato_query->fetch_assoc();  
+
+        $risultato_query->free();
+        $prepared_stmt->close();
+
+        return $dati_artista;
+    }
+
+    public function cerca($artista) {
+        $artista = "%$artista%";
+        $prepared_stmt = $this->db->prepare("SELECT * FROM artista WHERE nome LIKE ?");
+        $prepared_stmt->bind_param("s", $artista);
+        $prepared_stmt->execute();
+
+        $risultato_query = $prepared_stmt->get_result();
+        $dati_ricerca = $risultato_query->fetch_all(MYSQLI_ASSOC);
+
+        $prepared_stmt->close();
+        $risultato_query->free();
+
+        return $dati_ricerca;
     }
 
     public function getAll() {
         $risultato_query = $this->db->query("SELECT nome FROM artista");
-        return $risultato_query->fetch_all(MYSQLI_ASSOC);
+        $dati_artisti = $risultato_query->fetch_all(MYSQLI_ASSOC);
+        
+        $risultato_query->free();
+
+        return $dati_artisti;
     }
 }

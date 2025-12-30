@@ -1,7 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../../config.php';
-
 class HomeController {
     private $db;
     private $modelloArtista; 

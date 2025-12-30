@@ -8,6 +8,7 @@ require_once __DIR__ . '/../src/Controllers/HomeController.php';
 require_once __DIR__ . '/../src/Controllers/AuthController.php';
 require_once __DIR__ . '/../src/Controllers/RegistraController.php';
 require_once __DIR__ . '/../src/Controllers/RicercaController.php';
+require_once __DIR__ . '/../src/Controllers/UtenteController.php';
 
 $action = $_GET['action'] ?? 'home';
 
@@ -17,11 +18,11 @@ switch ($action) {
         $corpoHTML = $homeController->visualizza_home();
         break;
 
-    case 'mostra_login_form':
+    case 'login_form':
         $corpoHTML = file_get_contents(__DIR__ . "/../src/Views/pages/loginForm.html");
         break;
 
-    case 'mostra_register_form':
+    case 'register_form':
         $corpoHTML = file_get_contents(__DIR__ . "/../src/Views/pages/registraForm.html");
         break;
 
@@ -50,19 +51,37 @@ switch ($action) {
         $corpoHTML = $controller->esegui_ricerca();
         break;
 
+    case 'profilo':
+        $controller = new UtenteController($conn);
+        $corpoHTML = $controller->visualizza_profilo();
+        break;
+
+    case 'logout':
+        session_unset();
+        session_destroy();
+        header('Location: index.php?action=home');
+        exit; // da capire quando usare break e quando exit per non far andare esecuzioni fantasma
+
     default:
         //$view_file = '../src/Views/pages/404.php';
         break;
 }
 
-$headerHTML = file_get_contents('../src/Views/layouts/header.html');
-$footerHTML = file_get_contents('../src/Views/layouts/footer.html');
+if (isset($_SESSION['username'])) {
+    $nav = new Template('../src/Views/components/nav_loggato.html');
+    $nav->setDatiPagina(['username' => $_SESSION['username']]);
+} else {
+    $nav = new Template('../src/Views/components/nav_ospite.html');
+}
+
+$header = new Template('../src/Views/layouts/header.html');
+$header->setDatiPagina(['bottone_accesso' => $nav->getPagina()]);
 
 $layout = new Template('../src/Views/layout.html');
 $layout->setDatiPagina([
-    'header' => $headerHTML,
+    'header' => $header->getPagina(),
     'corpo'  => $corpoHTML,
-    'footer' => $footerHTML
+    'footer' => file_get_contents('../src/Views/layouts/footer.html')
 ]);
         
 echo $layout->getPagina();

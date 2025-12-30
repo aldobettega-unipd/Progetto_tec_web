@@ -8,7 +8,7 @@ class Artista {
     }
 
     public function get_dati_artista($artista) {
-        $prepared_stmt = $this->db->prepare("SELECT nome, descrizione FROM artista WHERE nome=?");
+        $prepared_stmt = $this->db->prepare("SELECT nome AS nome_artista, descrizione FROM artista WHERE nome=?");
         $prepared_stmt->bind_param("s", $artista);
         $prepared_stmt->execute();
         $risultato_query = $prepared_stmt->get_result();
@@ -22,7 +22,7 @@ class Artista {
 
     public function cerca($artista) {
         $artista = "%$artista%";
-        $prepared_stmt = $this->db->prepare("SELECT * FROM artista WHERE nome LIKE ?");
+        $prepared_stmt = $this->db->prepare("SELECT nome AS nome_artista FROM artista WHERE nome LIKE ?");
         $prepared_stmt->bind_param("s", $artista);
         $prepared_stmt->execute();
 
@@ -35,8 +35,8 @@ class Artista {
         return $dati_ricerca;
     }
 
-    public function getAll() {
-        $risultato_query = $this->db->query("SELECT nome FROM artista");
+    public function get_all() {
+        $risultato_query = $this->db->query("SELECT nome AS nome_artista FROM artista");
         $dati_artisti = $risultato_query->fetch_all(MYSQLI_ASSOC);
         
         $risultato_query->free();

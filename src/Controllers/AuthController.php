@@ -9,11 +9,11 @@ class AuthController {
     }
 
     public function login($username, $password) {
-        $messaggioErrore = "";
+        $messaggio_errore = "";
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $modelloUtente = new Utente($this->db);
-            $dati_utente = $modelloUtente->cerca_username($username);
+            $modello_utente = new Utente($this->db);
+            $dati_utente = $modello_utente->cerca_username($username);
 
             if ($dati_utente && password_verify($password, $dati_utente['hash_password'])) {
                 $_SESSION['username'] = $dati_utente['username'];
@@ -21,13 +21,13 @@ class AuthController {
                 header('Location: index.php?action=home');
                 exit;
             } else {
-                $messaggioErrore = "Credenziali non valide.";
+                $messaggio_errore = "Credenziali non valide.";
             }
         }
 
         $template = new Template(__DIR__ . '/../Views/pages/loginForm.html');
-        $template->setDatiPagina(['ERRORE' => $messaggioErrore]);
+        $template->set_dati_pagina(['ERRORE' => $messaggio_errore]);
         
-        return $template->getPagina();
+        return $template->get_pagina();
     }
 }

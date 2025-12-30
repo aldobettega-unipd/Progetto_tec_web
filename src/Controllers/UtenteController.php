@@ -16,25 +16,25 @@ class UtenteController {
         }
         $username = $_SESSION['username'];
 
-        $modelloPlaylist = new Playlist($this->db);
-        $playlist_utente = $modelloPlaylist->get_all_playlist($username) ?? [];
+        $modello_playlist = new Playlist($this->db);
+        $playlist_utente = $modello_playlist->get_all_playlist($username) ?? [];
 
         $playlistHTML = "";
 
         foreach($playlist_utente as $playlist) {
-            $templateCard = new Template(__DIR__ . "/../Views/components/playlistCard.html");
-            $templateCard->setDatiPagina($playlist);
-            $playlistHTML .= $templateCard->getPagina();
+            $template_card = new Template(__DIR__ . "/../Views/components/playlistCard.html");
+            $template_card->set_dati_pagina($playlist);
+            $playlist_HTML .= $templateCard->get_pagina();
         }
 
 
-        $profiloTemplate = new Template(__DIR__ . '/../Views/pages/userPage.html');
-        $profiloTemplate->setDatiPagina([
+        $profilo_template = new Template(__DIR__ . '/../Views/pages/userPage.html');
+        $profilo_template->set_dati_pagina([
             'username' => htmlspecialchars($username),
-            'lista_playlist' => $playlistHTML
+            'lista_playlist' => $playlist_HTML
         ]);
 
-        return $profiloTemplate->getPagina();
+        return $profilo_template->get_pagina();
     }
 }
 

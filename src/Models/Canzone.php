@@ -19,7 +19,7 @@ class Canzone {
         return $dati_canzone;
     }
 
-    public function getAll() {
+    public function get_all() {
         $risultato_query = $this->db->query("SELECT nome AS nome_canzone FROM canzone");
         $dati_canzoni = $risultato_query->fetch_all(MYSQLI_ASSOC);
 
@@ -30,7 +30,7 @@ class Canzone {
 
     public function cerca($canzone) {
         $canzone = "%$canzone%";
-        $prepared_stmt = $this->db->prepare("SELECT * FROM canzone WHERE nome LIKE ?");
+        $prepared_stmt = $this->db->prepare("SELECT nome AS nome_canzone FROM canzone WHERE nome LIKE ?");
         $prepared_stmt->bind_param("s", $canzone);
         $prepared_stmt->execute();
         

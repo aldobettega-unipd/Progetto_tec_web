@@ -9,34 +9,34 @@ class RicercaController {
 
     public function esegui_ricerca() {
         $termine = $_POST['ricerca'];
-        $risultatiHTML = '';
+        $risultati_HTML = '';
 
         if ($termine !== '') {
-            $modelloCanzone = new Canzone($this->db);
-            $canzoni_trovate = $modelloCanzone->cerca($termine);
+            $modello_canzone = new Canzone($this->db);
+            $canzoni_trovate = $modello_canzone->cerca($termine);
 
             foreach($canzoni_trovate as $canzone) {
                 $template = new Template(__DIR__ . "/../Views/components/canzoneCard.html");
-                $template->setDatiPagina($canzone);
-                $risultatiHTML .= $template->getPagina();
+                $template->set_dati_pagina($canzone);
+                $risultati_HTML .= $template->get_pagina();
             }
 
-            $modelloArtista = new Artista($this->db);
-            $artisti_trovati = $modelloArtista->cerca($termine);
+            $modello_artista = new Artista($this->db);
+            $artisti_trovati = $modello_artista->cerca($termine);
 
             foreach($artisti_trovati as $artista) {
                 $template = new Template(__DIR__ . "/../Views/components/artistaCard.html");
-                $template->setDatiPagina($artista);
-                $risultatiHTML.= $template->getPagina();
+                $template->set_dati_pagina($artista);
+                $risultati_HTML.= $template->get_pagina();
             }
         }
 
         $template = new Template(__DIR__ . "/../Views/components/risultatiRicerca.html");
-        $template->setDatiPagina([
+        $template->set_dati_pagina([
             'termine' => htmlspecialchars($termine),
-            'risultati_ricerca' => $risultatiHTML ?: "Nessun risultato trovato."
+            'risultati_ricerca' => $risultati_HTML ?: "Nessun risultato trovato."
         ]);
 
-        return $template->getPagina();
+        return $template->get_pagina();
     }
 }

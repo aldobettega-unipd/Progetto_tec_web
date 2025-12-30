@@ -12,7 +12,7 @@ class Template {
         }
     }
 
-    public function setDatiPagina($array_assoc_dati) {
+    public function set_dati_pagina($array_assoc_dati) {
         if (!is_array($array_assoc_dati)) {
             return;
         }
@@ -22,7 +22,7 @@ class Template {
         }
     }
 
-    public function getPagina() {
+    public function get_pagina() {
         $contenuto_pulito = preg_replace('/\[[^\]]+\]/', '', $this->contenuto);  // rimuove placeholder non sostituiti
         return $contenuto_pulito;
     }

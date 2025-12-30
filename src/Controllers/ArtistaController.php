@@ -11,11 +11,11 @@ class ArtistaController {
 
     public function visualizza_artista($artista) {
         $modello = new Artista($this->db);
-        $datiArtista = $modello->get_dati_artista($artista);
+        $dati_artista = $modello->get_dati_artista($artista);
 
         $template = new Template(__DIR__ . '/../Views/pages/artistaPage.html');
-        $template->setDatiPagina($datiArtista);
+        $template->set_dati_pagina($datiArtista);
 
-        return $template->getPagina();
+        return $template->get_pagina();
     }
 }

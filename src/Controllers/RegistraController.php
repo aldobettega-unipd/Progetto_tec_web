@@ -9,22 +9,22 @@ class RegistraController {
     }
 
     public function registrazione($username, $password) {
-        $messaggioErrore = '';
+        $messaggio_errore = '';
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $modelloUtente = new Utente($this->db);
-            if ($modelloUtente->crea_utente($username, $password)) {
+            $modello_utente = new Utente($this->db);
+            if ($modello_utente->crea_utente($username, $password)) {
                 header('Location: index.php?action=mostra_login_form');
                 exit;
             } else {
-                $messaggioErrore = "Nome utente non disponibile";
+                $messaggio_errore = "Nome utente non disponibile";
             }
         }
 
         $template = new Template(__DIR__ . '/../Views/pages/registraForm.html');
-        $template->setDatiPagina(['ERRORE' => $messaggioErrore]);
+        $template->set_dati_pagina(['ERRORE' => $messaggio_errore]);
         
-        return $template->getPagina();
+        return $template->get_pagina();
         
     }
 }

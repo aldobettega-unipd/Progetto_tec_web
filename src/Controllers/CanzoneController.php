@@ -14,7 +14,7 @@ class CanzoneController {
         $datiCanzone = $modello->get_dati_canzone($canzone);
 
         $template = new Template(__DIR__ . '/../Views/pages/canzonePage.html');
-        $template->setDatiPagina($datiCanzone);
-        return $template->getPagina();
+        $template->set_dati_pagina($datiCanzone);
+        return $template->get_pagina();
     }
 }

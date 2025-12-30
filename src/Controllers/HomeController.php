@@ -2,39 +2,39 @@
 
 class HomeController {
     private $db;
-    private $modelloArtista; 
-    private $modelloCanzone;
+    private $modello_artista; 
+    private $modello_canzone;
 
     public function __construct($db) {
         $this->db = $db;
-        $this->modelloArtista = new Artista($this->db);
-        $this->modelloCanzone = new Canzone($this->db);
+        $this->modello_artista = new Artista($this->db);
+        $this->modello_canzone = new Canzone($this->db);
     }
 
     public function visualizza_home() {
-        $artisti = $this->modelloArtista->getAll() ?? [];
-        $canzoni = $this->modelloCanzone->getAll() ?? [];
+        $artisti = $this->modello_artista->get_all() ?? [];
+        $canzoni = $this->modello_canzone->get_all() ?? [];
 
-        $artistiHTML = "";
+        $artisti_HTML = "";
         foreach ($artisti as $artista) {
-            $templateCard = new Template(__DIR__ . '/../Views/components/artistaCard.html');
-            $templateCard->setDatiPagina($artista);
-            $artistiHTML .= $templateCard->getPagina();
+            $template_card = new Template(__DIR__ . '/../Views/components/artistaCard.html');
+            $template_card->set_dati_pagina($artista);
+            $artisti_HTML .= $template_card->get_pagina();
         }
 
-        $canzoniHTML = "";
+        $canzoni_HTML = "";
         foreach ($canzoni as $canzone) {
-            $templateCard = new Template(__DIR__ . '/../Views/components/canzoneCard.html');
-            $templateCard->setDatiPagina($canzone);
-            $canzoniHTML .= $templateCard->getPagina();
+            $template_card = new Template(__DIR__ . '/../Views/components/canzoneCard.html');
+            $template_card->set_dati_pagina($canzone);
+            $canzoni_HTML .= $template_card->get_pagina();
         }
 
-        $homeTemplate = new Template(__DIR__ . '/../Views/pages/homePage.html');
-        $homeTemplate->setDatiPagina([
-            'lista_artisti' => $artistiHTML,
-            'lista_canzoni' => $canzoniHTML
+        $home_template = new Template(__DIR__ . '/../Views/pages/homePage.html');
+        $home_template->set_dati_pagina([
+            'lista_artisti' => $artisti_HTML,
+            'lista_canzoni' => $canzoni_HTML
         ]);
 
-        return $homeTemplate->getPagina();
+        return $home_template->get_pagina();
     }
 }

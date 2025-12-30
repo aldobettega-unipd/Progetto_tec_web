@@ -81,7 +81,7 @@ switch ($action) {
         $controller = new PlaylistController($conn);
         $controller->elimina_playlist($_GET['id']);
         break;
-
+    
     default:
         //$view_file = '../src/Views/pages/404.php';
         break;
@@ -89,22 +89,22 @@ switch ($action) {
 
 if (isset($_SESSION['username'])) {
     $nav = new Template('../src/Views/components/nav_loggato.html');
-    $nav->setDatiPagina(['username' => $_SESSION['username']]);
+    $nav->set_dati_pagina(['username' => $_SESSION['username']]);
 } else {
     $nav = new Template('../src/Views/components/nav_ospite.html');
 }
 
 $header = new Template('../src/Views/layouts/header.html');
-$header->setDatiPagina(['bottone_accesso' => $nav->getPagina()]);
+$header->set_dati_pagina(['bottone_accesso' => $nav->get_pagina()]);
 
 $layout = new Template('../src/Views/layout.html');
-$layout->setDatiPagina([
-    'header' => $header->getPagina(),
+$layout->set_dati_pagina([
+    'header' => $header->get_pagina(),
     'corpo'  => $corpoHTML,
     'footer' => file_get_contents('../src/Views/layouts/footer.html')
 ]);
         
-echo $layout->getPagina();
+echo $layout->get_pagina();
 
 
 

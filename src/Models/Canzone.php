@@ -20,7 +20,7 @@ class Canzone {
     }
 
     public function getAll() {
-        $risultato_query = $this->db->query("SELECT nome FROM canzone");
+        $risultato_query = $this->db->query("SELECT nome AS nome_canzone FROM canzone");
         $dati_canzoni = $risultato_query->fetch_all(MYSQLI_ASSOC);
 
         $risultato_query->free();

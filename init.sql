@@ -9,7 +9,7 @@ CREATE TABLE artista (
 );
 
 CREATE TABLE canzone (
-    id VARCHAR(3) PRIMARY KEY,
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(50) NOT NULL,
     artista VARCHAR(50) NOT NULL REFERENCES artista(nome),
     descrizione TEXT NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE canzone (
 );
 
 CREATE TABLE playlist (
-    id VARCHAR(3) PRIMARY KEY,
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(50) NOT NULL,
     username VARCHAR(20) NOT NULL REFERENCES utente(username)
 );

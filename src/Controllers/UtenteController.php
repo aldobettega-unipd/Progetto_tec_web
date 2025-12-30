@@ -22,7 +22,7 @@ class UtenteController {
         $playlistHTML = "";
 
         foreach($playlist_utente as $playlist) {
-            $templateCard = new Template(__DIR__ . "/../Views/pages/playlistCard.html");
+            $templateCard = new Template(__DIR__ . "/../Views/components/playlistCard.html");
             $templateCard->setDatiPagina($playlist);
             $playlistHTML .= $templateCard->getPagina();
         }

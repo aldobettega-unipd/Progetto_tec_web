@@ -16,7 +16,7 @@ class RicercaController {
             $canzoni_trovate = $modelloCanzone->cerca($termine);
 
             foreach($canzoni_trovate as $canzone) {
-                $template = new Template(__DIR__ . "/../Views/pages/canzoneCard.html");
+                $template = new Template(__DIR__ . "/../Views/components/canzoneCard.html");
                 $template->setDatiPagina($canzone);
                 $risultatiHTML .= $template->getPagina();
             }
@@ -25,13 +25,13 @@ class RicercaController {
             $artisti_trovati = $modelloArtista->cerca($termine);
 
             foreach($artisti_trovati as $artista) {
-                $template = new Template(__DIR__ . "/../Views/pages/artistaCard.html");
+                $template = new Template(__DIR__ . "/../Views/components/artistaCard.html");
                 $template->setDatiPagina($artista);
                 $risultatiHTML.= $template->getPagina();
             }
         }
 
-        $template = new Template(__DIR__ . "/../Views/pages/risultatiRicerca.html");
+        $template = new Template(__DIR__ . "/../Views/components/risultatiRicerca.html");
         $template->setDatiPagina([
             'termine' => htmlspecialchars($termine),
             'risultati_ricerca' => $risultatiHTML ?: "Nessun risultato trovato."

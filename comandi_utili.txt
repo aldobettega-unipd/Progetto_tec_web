@@ -16,3 +16,7 @@ Eliminare tutti i dati di una tabella:
 Modificare una colonna:
     ALTER TABLE nome_tabella
     MODIFY nome_colonna NUOVO_TIPO;
+
+Eliminare una riga:
+    DELETE FROM nome_tabella
+    WHERE condizione;

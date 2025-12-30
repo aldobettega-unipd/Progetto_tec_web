@@ -12,8 +12,7 @@ VALUES
     (
         "Linkin Park",
         "I Linkin Park sono una band rock statunitense nata negli anni Novanta, famosa per aver unito rock, rap ed elettronica. Con album come Hybrid Theory e Meteora hanno segnato una generazione. La loro musica affronta emozioni profonde, conflitti interiori e cambiamento"
-    )
-;
+    );
 
 INSERT INTO
     canzone (id, nome, artista, descrizione, testo_canzone)
@@ -38,5 +37,9 @@ VALUES
         "Linkin Park",
         "In The End dei Linkin Park è un brano simbolo del nu metal, che parla di fallimento, frustrazione e perseveranza, unendo rap ed emozione in un ritornello memorabile intenso universale.",
         "It starts with one One thing, I don't know why It doesn't even matter how hard you try Keep that in mind, I designed this rhyme to explain in due time All I know time is a valuable thing Watch it fly by as the pendulum swings Watch it count down to the end of the day, the clock ticks life away It's so unreal, didn't look out below Watch the time go right out the window Tryna hold on, d-didn't even know I wasted it all just to watch you go I kept everything inside And even though I tried, it all fell apart What it meant to me will eventually be a memory of a time when I tried so hard and got so far But in the end, it doesn't even matter I had to fall to lose it all But in the end, it doesn't even matter One thing, I don't know why It doesn't even matter how hard you try Keep that in mind, I designed this rhyme to remind myself how I tried so hard In spite of the way you were mockin' me Actin' like I was part of your property Rememberin' all the times you fought with me I'm surprised it got so far Things aren't the way they were before You wouldn't even recognize me anymore Not that you knew me back then, but it all comes back to me in the end You kept everything inside And even though I tried, it all fell apart What it meant to me will eventually be a memory of a time when I tried so hard and got so far But in the end, it doesn't even matter I had to fall to lose it all But in the end, it doesn't even matter I've put my trust in you Pushed as far as I can go For all this, there's only one thing you should know I've put my trust in you Pushed as far as I can go For all this, there's only one thing you should know I tried so hard and got so far But in the end, it doesn't even matter I had to fall to lose it all But in the end, it doesn't even matter"
-    )
-;
+    );
+
+INSERT INTO
+    canzoni_playlist (playlist, canzone)
+VALUES
+    (1, 001), (1, 002);

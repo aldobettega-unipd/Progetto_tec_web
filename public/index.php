@@ -72,6 +72,16 @@ switch ($action) {
         $corpoHTML = $controller->crea_playlist($_POST['nome_playlist'], $_SESSION['username']);
         break;
 
+    case 'apri_playlist':
+        $controller = new PlaylistController($conn);
+        $corpoHTML = $controller->visualizza_playlist($_GET['id']);
+        break;
+
+    case 'elimina_playlist':
+        $controller = new PlaylistController($conn);
+        $controller->elimina_playlist($_GET['id']);
+        break;
+
     default:
         //$view_file = '../src/Views/pages/404.php';
         break;

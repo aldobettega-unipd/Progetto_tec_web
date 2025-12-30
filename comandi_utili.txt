@@ -12,3 +12,7 @@ Inserire dati:
     
 Eliminare tutti i dati di una tabella:
     TRUNCATE TABLE [nome_tabella];
+
+Modificare una colonna:
+    ALTER TABLE nome_tabella
+    MODIFY nome_colonna NUOVO_TIPO;

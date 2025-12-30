@@ -9,6 +9,7 @@ require_once __DIR__ . '/../src/Controllers/AuthController.php';
 require_once __DIR__ . '/../src/Controllers/RegistraController.php';
 require_once __DIR__ . '/../src/Controllers/RicercaController.php';
 require_once __DIR__ . '/../src/Controllers/UtenteController.php';
+require_once __DIR__ . '/../src/Controllers/PlaylistController.php';
 
 $action = $_GET['action'] ?? 'home';
 
@@ -35,6 +36,22 @@ switch ($action) {
         $registraController = new RegistraController($conn);
         $corpoHTML = $registraController->registrazione($_POST['username'], $_POST['password']);
         break;
+    
+    case 'profilo':
+        $controller = new UtenteController($conn);
+        $corpoHTML = $controller->visualizza_profilo();
+        break;
+
+    case 'logout':
+        session_unset();
+        session_destroy();
+        header('Location: index.php?action=home');
+        exit; // da capire quando usare break e quando exit per non far andare esecuzioni fantasma
+
+    case 'cerca':
+        $controller = new RicercaController($conn);
+        $corpoHTML = $controller->esegui_ricerca();
+        break;
 
     case 'artista':
         $controller = new ArtistaController($conn);
@@ -46,21 +63,14 @@ switch ($action) {
         $corpoHTML = $controller->visualizza_canzone($_GET['nome_canzone']);
         break;
 
-    case 'cerca':
-        $controller = new RicercaController($conn);
-        $corpoHTML = $controller->esegui_ricerca();
+    case 'playlist_form':
+        $corpoHTML = file_get_contents(__DIR__ . "/../src/Views/pages/playlistForm.html");
         break;
 
-    case 'profilo':
-        $controller = new UtenteController($conn);
-        $corpoHTML = $controller->visualizza_profilo();
+    case 'crea_playlist':
+        $controller = new PlaylistController($conn);
+        $corpoHTML = $controller->crea_playlist($_POST['nome_playlist'], $_SESSION['username']);
         break;
-
-    case 'logout':
-        session_unset();
-        session_destroy();
-        header('Location: index.php?action=home');
-        exit; // da capire quando usare break e quando exit per non far andare esecuzioni fantasma
 
     default:
         //$view_file = '../src/Views/pages/404.php';

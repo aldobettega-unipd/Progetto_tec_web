@@ -1,40 +1,21 @@
 <section class="dati-profilo">
     <h2>Informazioni Personali</h2>
-    <!-- <img src="../../src/frontend/assets/icona_utente.png" alt="Foto profilo utente" width="90" height="90"> -->
+    <img src="img/[username].jpeg" alt="Foto profilo [username]" width="120" height="180">
     <dl>
         <dt>Username:</dt>
         <dd>[username]</dd>
     </dl>
-    <div class="sezione-bottoni">
-        <button type="button">Modifica</button>
-        <button type="button">Elimina</button>
-        <a href="/settings">Settings</a>
-    </div>
 </section>
 <hr>
 
 <section class="sezione-lista" id="le-tue-playlist">
     <h2>Le tue playlist</h2>
     <div class="bottone" id="crea-playlist">
-        <button>Crea</button>
+        <a href="index.php?action=playlist_form"><button>Crea playlist</button></a>
     </div>
-    <ul class="lista-playlist">
-        <li class="card-playlist">
-            <a href="/playlist/1">
-                <h3>Playlist 1</h3>
-                <p>10 canzoni</p>
-            </a>
-    </ul>
+    [lista_playlist]
 </section>
 <hr>
 
 <section class="sezione-lista" id="canzoni-recenti">
-    <h2>Le tue canzoni</h2>
-    <ul class="lista-canzoni">
-        <li class="card-canzone">
-            <a href="/canzone/1">
-                <h3>Canzone 1</h3>
-            </a>
-        </li>
-    </ul>
 </section>

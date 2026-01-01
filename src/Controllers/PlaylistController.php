@@ -25,7 +25,11 @@ class PlaylistController {
         $canzoni_HTML = "";
         foreach ($canzoni_playlist as $canzone) {
             $template_card = new Template(__DIR__ . '/../Views/components/canzoneCard.html');
-            $template_card->set_dati_pagina($canzone);
+            $template_card->set_dati_pagina([
+                'nome_canzone' => $canzone['nome_canzone'],
+                'link_azione' => 'index.php?action=rimuovi_canzone_da_playlist&id_playlist='. $id . '&id_canzone=' . $canzone['id_canzone'],
+                'testo_azione' => "rimuovi"
+            ]);
             $canzoni_HTML .= $template_card->get_pagina();
         }
 
@@ -76,6 +80,12 @@ class PlaylistController {
         $modello_playlist = new Playlist($this->db);
         $modello_playlist->insert_canzone_in_playlist($id_playlist, $id_canzone);
         header('Location: index.php?action=profilo');
+    }
+
+    public function rimuovi_canzone($id_playlist, $id_canzone) {
+        $modello_playlist = new Playlist($this->db);
+        $modello_playlist->delete_canzone_da_playlist($id_playlist, $id_canzone);
+        header('Location: index.php?action=apri_playlist&id=' . $id_playlist);
     }
 
 }

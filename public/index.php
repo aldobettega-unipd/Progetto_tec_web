@@ -91,6 +91,11 @@ switch ($action) {
         $controller = new PlaylistController($conn);
         $controller->aggiungi_canzone($_GET['id_playlist'], $_GET['id_canzone']);
         break;
+
+    case 'rimuovi_canzone_da_playlist';
+        $controller = new PlaylistController($conn);
+        $controller->rimuovi_canzone($_GET['id_playlist'], $_GET['id_canzone']);
+        break;
     
     default:
         //$view_file = '../src/Views/pages/404.php';

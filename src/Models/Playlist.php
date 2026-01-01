@@ -38,7 +38,7 @@ class Playlist {
     }
 
     public function get_canzoni_playlist($id_playlist) {
-        $prepared_stmt = $this->db->prepare("SELECT p.nome AS nome_playlist, c.nome AS nome_canzone FROM playlist p JOIN canzoni_playlist cp ON p.id = cp.playlist JOIN canzone c ON cp.canzone = c.id WHERE p.id = ?");
+        $prepared_stmt = $this->db->prepare("SELECT p.nome AS nome_playlist, c.nome AS nome_canzone, c.id AS id_canzone FROM playlist p JOIN canzoni_playlist cp ON p.id = cp.playlist JOIN canzone c ON cp.canzone = c.id WHERE p.id = ?");
         $prepared_stmt->bind_param("i", $id_playlist);
         $prepared_stmt->execute();
         $risultato_query = $prepared_stmt->get_result();
@@ -65,6 +65,14 @@ class Playlist {
 
     public function insert_canzone_in_playlist($id_playlist, $id_canzone) {
         $prepared_stmt = $this->db->prepare("INSERT INTO canzoni_playlist (playlist, canzone) VALUES (?, ?)");
+        $prepared_stmt->bind_param("ii", $id_playlist, $id_canzone);
+        $prepared_stmt->execute();
+        
+        $prepared_stmt->close();
+    }
+
+    public function delete_canzone_da_playlist($id_playlist, $id_canzone) {
+        $prepared_stmt = $this->db->prepare("DELETE FROM canzoni_playlist WHERE playlist = ? AND canzone = ?");
         $prepared_stmt->bind_param("ii", $id_playlist, $id_canzone);
         $prepared_stmt->execute();
         

@@ -81,6 +81,16 @@ switch ($action) {
         $controller = new PlaylistController($conn);
         $controller->elimina_playlist($_GET['id']);
         break;
+
+    case 'mostra_selezione_playlist':
+        $controller = new PlaylistController($conn);
+        $corpoHTML = $controller->mostra_selezione_playlist($_GET['id_canzone']);
+        break;
+
+    case 'aggiungi_canzone_in_playlist':
+        $controller = new PlaylistController($conn);
+        $controller->aggiungi_canzone($_GET['id_playlist'], $_GET['id_canzone']);
+        break;
     
     default:
         //$view_file = '../src/Views/pages/404.php';

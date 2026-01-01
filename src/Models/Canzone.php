@@ -7,7 +7,7 @@ class Canzone {
     }
 
     public function get_dati_canzone($canzone) {
-        $prepared_stmt = $this->db->prepare("SELECT * FROM canzone WHERE nome=?");
+        $prepared_stmt = $this->db->prepare("SELECT id AS id_canzone, nome AS nome_canzone, artista AS nome_artista, descrizione, testo_canzone FROM canzone WHERE nome=?");
         $prepared_stmt->bind_param("s", $canzone);
         $prepared_stmt->execute();
         $risultato_query = $prepared_stmt->get_result();

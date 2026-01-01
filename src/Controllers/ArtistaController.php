@@ -14,7 +14,7 @@ class ArtistaController {
         $dati_artista = $modello->get_dati_artista($artista);
 
         $template = new Template(__DIR__ . '/../Views/pages/artistaPage.html');
-        $template->set_dati_pagina($datiArtista);
+        $template->set_dati_pagina($dati_artista);
 
         return $template->get_pagina();
     }

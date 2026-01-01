@@ -20,7 +20,7 @@ class PlaylistController {
         $canzoni_playlist = $modello_playlist->get_canzoni_playlist($id);
 
         $risultato_ricerca = $modello_playlist->get_nome_playlist($id);
-        $nome_playlist = $risultato_ricerca['nome'] ?? 'Playlist sconosciuta';
+        $nome_playlist = $risultato_ricerca['nome_playlist'] ?? 'Playlist sconosciuta';
         
         $canzoni_HTML = "";
         foreach ($canzoni_playlist as $canzone) {
@@ -45,6 +45,39 @@ class PlaylistController {
 
         header('Location: index.php?action=profilo');
     }
+
+    public function mostra_selezione_playlist($id_canzone) {
+        $modello_playlist = new Playlist($this->db);
+        $playlist_utente = $modello_playlist->get_all_playlist($_SESSION['username']);
+
+        $playlist_HTML = "";
+
+        foreach($playlist_utente as $playlist) {
+            $template_card = new Template(__DIR__ . "/../Views/components/playlistCard.html");
+            $template_card->set_dati_pagina([
+                'nome_playlist' => $playlist['nome_playlist'],
+                'id' => $playlist['id'],
+                'testo_azione' => 'aggiungi qui',
+                'link_azione' => "index.php?action=aggiungi_canzone_in_playlist&id_canzone=$id_canzone&id_playlist=" . $playlist['id']
+            ]);
+            $playlist_HTML .= $template_card->get_pagina();
+        }
+
+        $template = new Template(__DIR__ . '/../Views/components/selezionePlaylist.html');
+        $template->set_dati_pagina([
+            'lista_playlist' => $playlist_HTML
+        ]);
+
+        return $template->get_pagina();
+
+    }
+
+    public function aggiungi_canzone($id_playlist, $id_canzone) {
+        $modello_playlist = new Playlist($this->db);
+        $modello_playlist->insert_canzone_in_playlist($id_playlist, $id_canzone);
+        header('Location: index.php?action=profilo');
+    }
+
 }
 
 

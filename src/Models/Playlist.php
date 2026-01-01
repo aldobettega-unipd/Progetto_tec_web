@@ -24,7 +24,7 @@ class Playlist {
     }
 
     public function get_all_playlist($username) {
-        $prepared_stmt = $this->db->prepare("SELECT id, nome FROM playlist WHERE username=?");
+        $prepared_stmt = $this->db->prepare("SELECT id, nome AS nome_playlist FROM playlist WHERE username=?");
         $prepared_stmt->bind_param("s", $username);
         $prepared_stmt->execute();
         $risultato_query = $prepared_stmt->get_result();
@@ -51,7 +51,7 @@ class Playlist {
     }
 
     public function get_nome_playlist($id_playlist) {
-        $prepared_stmt = $this->db->prepare("SELECT nome FROM playlist WHERE id = ?");
+        $prepared_stmt = $this->db->prepare("SELECT nome AS nome_playlist FROM playlist WHERE id = ?");
         $prepared_stmt->bind_param("i", $id_playlist);
         $prepared_stmt->execute();
         $risultato_query = $prepared_stmt->get_result();
@@ -61,6 +61,14 @@ class Playlist {
         $prepared_stmt->close();
 
         return $nome_playlist;
+    }
+
+    public function insert_canzone_in_playlist($id_playlist, $id_canzone) {
+        $prepared_stmt = $this->db->prepare("INSERT INTO canzoni_playlist (playlist, canzone) VALUES (?, ?)");
+        $prepared_stmt->bind_param("ii", $id_playlist, $id_canzone);
+        $prepared_stmt->execute();
+        
+        $prepared_stmt->close();
     }
 }
 

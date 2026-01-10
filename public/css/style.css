@@ -1,0 +1,86 @@
+html, body{
+    background-color: rgb(255, 255, 255);
+    margin: 0px;
+    padding: 0px;
+}
+
+/**************************************************
+
+HEADER
+
+**************************************************/
+
+header{
+    width: 70%;
+    background-color: green;
+    border-radius: 10px;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 1%;
+}
+
+nav {
+    font-weight: bold;
+    display: flex;
+    gap: 1em;
+}
+
+nav > a{
+    color: white;
+}
+
+
+/**************************************************
+
+CANZONE PAGE
+
+**************************************************/
+
+#img_title_artist{
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-left: 15%;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+#songImage{
+    width: 20%;
+    flex-shrink: 0;
+}
+
+#info_section{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#songTitle{
+    font-size: 3em;
+    margin: 0;
+}
+
+#artistName{
+    font-size: 1.5em;
+    margin: 0;
+}
+
+#addToPlaylist, #addToLiked{
+    align-self: flex-start;
+}
+
+#descr_text{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+#lyrics {
+    margin-top: 30px;
+    line-height: 1.7;
+    white-space: pre-line;
+}

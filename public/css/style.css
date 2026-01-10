@@ -1,35 +1,53 @@
-html, body{
-    background-color: rgb(255, 255, 255);
-    margin: 0px;
-    padding: 0px;
+html,
+body {
+  background-color: #efffe9;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-/**************************************************
+/*########################################################
 
-HEADER
+  HEADER
 
-**************************************************/
+#######################################################*/
 
-header{
-    width: 70%;
-    background-color: green;
-    border-radius: 10px;
-    padding: 1em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: auto;
-    margin-top: 1%;
+.header {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  background-color: #72b986;
+  border-radius: 10px;
+  padding: 1em;
+  align-items: center;
+  margin: auto;
+  margin-top: 1%;
+  width: 70%;
+}
+.header a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-nav {
-    font-weight: bold;
-    display: flex;
-    gap: 1em;
+.header a:visited {
+  color: #000000;
+}
+.active {
+  font-weight: 700;
+}
+.header a:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+.header > :first-child {
+  margin-right: auto;
+  cursor: pointer;
 }
 
-nav > a{
-    color: white;
+.header > :not(:first-child) {
+  margin-right: 1em;
+  cursor: pointer;
 }
 
 
@@ -84,3 +102,354 @@ CANZONE PAGE
     line-height: 1.7;
     white-space: pre-line;
 }
+
+
+/*###################################
+ PER IL LAYOUT
+ ####################################*/
+
+.pagecontent {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.maincontent {
+  flex: 1;
+}
+
+
+/* 
+
+###############################################
+
+ESPLORA PAGE (ALCUNI ELEMENTI ANCHE USATI NEL HOME)
+
+###############################################
+
+*/
+
+.caption {
+  justify-items: center;
+}
+
+.barraricerca {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin-top: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  margin-top: 2%;
+}
+#barracanzone {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  width: 65%;
+}
+#cercacanzone {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  cursor: pointer;
+}
+
+#headerfamosi {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+#headersuonante {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#headerfamosi > h2 {
+  font-weight: 700;
+  align-items: end;
+  justify-content: end;
+  margin-right: 2em;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+#headersuonante > h2 {
+  font-weight: 700;
+  margin-left: 2em;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+#potrebbepiacerti h2 {
+  font-weight: 700;
+  margin-left: 2em;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+#potrebbepiacerti p {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-weight: 700;
+  padding-bottom: 2em;
+  font-size: xx-large;
+}
+
+#headersuonante button {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: small;
+  margin-right: 6em;
+}
+
+#headersuonante button:hover {
+  text-decoration: underline;
+}
+
+#headerfamosi button {
+  cursor: pointer;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  font-size: small;
+  margin-left: 6em;
+}
+#headerfamosi button:hover {
+  text-decoration: underline;
+}
+/*
+############################################
+CAROUSELES E ARTISTI E CANZONI CARDS (USATO ANCHE NEL HOME)
+############################################
+*/
+.carousel-wrapper {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+.scroller {
+  display: flex;
+
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1em 0.5em;
+
+  /* Ocultar la barra de scroll nativa fea */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.scroller::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.carrbutton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  background-color: white;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  width: 3.2em;
+  height: 3.2em;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.2s, background-color 0.2s;
+}
+
+#carrbuttonl {
+  left: 3em;
+}
+
+#carrbuttonr {
+  right: 3em;
+}
+
+.carrbutton img {
+  width: 1.5em;
+  height: auto;
+  display: block;
+}
+
+.carousel-wrapper:hover .carrbutton {
+  opacity: 1;
+}
+
+.carrbutton:active {
+  transform: translateY(-50%) scale(0.9); /* Mantiene el centrado vertical al pulsar */
+  background-color: #f0f0f0;
+}
+
+.spotify-card {
+  flex: 0 0 auto;
+
+  width: 10em;
+  min-width: 180px;
+
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em;
+  background-color: #efffe9;
+  border-radius: 1em;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  margin-right: 0.8em;
+  margin-left: 0.8em;
+}
+
+.card-text {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+.spotify-card:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.canzone-image {
+  width: 100%;
+  height: 11em;
+  aspect-ratio: 1/1;
+  border-radius: 5%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.artist-image {
+  width: 100%;
+  height: 11em;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card-text {
+  text-align: left;
+}
+.song-title {
+  margin-bottom: 0em;
+}
+.artist-name {
+  opacity: 0.78;
+  margin-top: 0.2em;
+}
+
+.image-canzonepage {
+  margin-left: 3em;
+  margin-top: 3em;
+
+  height: 20em;
+  width: 20em;
+  border-radius: 5%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.image-artistpage {
+  margin-left: 3em;
+  margin-top: 3em;
+
+  height: 20em;
+  width: 20em;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.separator {
+  width: 100%;
+  height: 2px;
+  background: #000;
+}
+
+#logo {
+  width: 5em;
+  height: 5em;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.footer {
+  background-color: #72b986;
+}
+
+*:focus-visible {
+  outline: 3px solid red;
+}
+
+dialog {
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+dialog[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+}
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: #efffe9;
+  padding: 20px;
+  border-radius: 15px;
+  width: 75em;
+  max-height: 70vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+.modal-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.modal h2 {
+  font-weight: 700;
+  margin-left: 2em;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.cercato {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 3em;
+}
+
+#risultatih2 {
+  font-weight: 700;
+  margin-left: 2em;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/*##########################################################
+
+LOGIN E REGISTRA FORM
+
+#############################################################*/
+
+.login-form {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  width: 90%;
+  max-width: 350px;
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d1e7d3;
+}
+

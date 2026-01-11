@@ -12,6 +12,20 @@ VALUES
     (
         "Linkin Park",
         "I Linkin Park sono una band rock statunitense nata negli anni Novanta, famosa per aver unito rock, rap ed elettronica. Con album come Hybrid Theory e Meteora hanno segnato una generazione. La loro musica affronta emozioni profonde, conflitti interiori e cambiamento"
+    ),
+      (
+        "Guns N' Roses",
+        "I Guns N' Roses sono un gruppo hard rock statunitense formatosi a Hollywood , Los Angeles , nella zona di Sunset Strip , nel 1985. Fu fondato dal cantante e pianista Axl Rose e dal chitarrista Izzy Stradlin . [ 7 ] [ 8 ]
+
+        I Guns N' Roses sono una delle rock band di maggior successo di tutti i tempi, con oltre cento milioni di dischi venduti. Sono considerati un'icona musicale mondiale e sono stati inseriti nella prestigiosa Rock and Roll Hall of Fame . Inoltre, la band è uno degli artisti più premiati, influenti e di impatto globale fino ad oggi. I Guns N' Roses sono anche considerati da molti una delle band più influenti della storia grazie alla loro immensa eredità musicale."
+    ),
+      (
+        "Oasis",
+        "Gli Oasis sono un gruppo rock inglese formatosi a Manchester nel 1991. In precedenza , nel 1990, erano conosciuti come The Rain . Il gruppo era composto dal cantante Chris Hutton , dal chitarrista Paul Arthurs , dal bassista Paul McGuigan e dal batterista Tony McCarroll , a cui si unì poi nel 1991 Liam Gallagher alla voce. L'ultimo a unirsi al gruppo fu il fratello maggiore di Liam, Noel Gallagher (su richiesta del fratello), che assunse i ruoli di autore principale delle canzoni , chitarrista solista, frontman e corista."
+    ),  
+    (
+        "Led Zeppelin",
+        "I Led Zeppelin sono stati un gruppo rock britannico formato a Londra nel 1968 dal chitarrista Jimmy Page , ex membro degli Yardbirds . La band era composta da Jimmy Page alla chitarra, John Paul Jones al basso e alle tastiere, il cantante Robert Plant e John Bonham alla batteria. Sono considerati una delle band più importanti e influenti degli anni '70 e nella storia del rock."
     );
 
 INSERT INTO
@@ -34,4 +48,135 @@ VALUES
         "Linkin Park",
         "In The End dei Linkin Park è un brano simbolo del nu metal, che parla di fallimento, frustrazione e perseveranza, unendo rap ed emozione in un ritornello memorabile intenso universale.",
         "It starts with one One thing, I don't know why It doesn't even matter how hard you try Keep that in mind, I designed this rhyme to explain in due time All I know time is a valuable thing Watch it fly by as the pendulum swings Watch it count down to the end of the day, the clock ticks life away It's so unreal, didn't look out below Watch the time go right out the window Tryna hold on, d-didn't even know I wasted it all just to watch you go I kept everything inside And even though I tried, it all fell apart What it meant to me will eventually be a memory of a time when I tried so hard and got so far But in the end, it doesn't even matter I had to fall to lose it all But in the end, it doesn't even matter One thing, I don't know why It doesn't even matter how hard you try Keep that in mind, I designed this rhyme to remind myself how I tried so hard In spite of the way you were mockin' me Actin' like I was part of your property Rememberin' all the times you fought with me I'm surprised it got so far Things aren't the way they were before You wouldn't even recognize me anymore Not that you knew me back then, but it all comes back to me in the end You kept everything inside And even though I tried, it all fell apart What it meant to me will eventually be a memory of a time when I tried so hard and got so far But in the end, it doesn't even matter I had to fall to lose it all But in the end, it doesn't even matter I've put my trust in you Pushed as far as I can go For all this, there's only one thing you should know I've put my trust in you Pushed as far as I can go For all this, there's only one thing you should know I tried so hard and got so far But in the end, it doesn't even matter I had to fall to lose it all But in the end, it doesn't even matter"
+    ),
+        (
+        "Otherside",
+        "Red Hot Chili Peppers",
+        "Uno dei brani più famosi dei Red Hot Chili Peppers, contenuto nell'album Californication.",
+        "How long, how long will I slide?
+Well, separate my side
+I don't, I don't believe it's bad
+Slittin' my throat, it's all I ever
+I heard your voice through a photograph
+I thought it up and brought up the past
+Once you know you can never go back
+I gotta take it on the otherside
+Well, centuries are what it meant to me
+A cemetery where I marry the sea
+A stranger thing could never change my mind
+I gotta take it on the otherside
+Take it on the otherside
+Take it on, take it on
+How long, how long will I slide?
+A-separate my side
+I don't, I don't believe it's bad
+A-slittin' my throat, it's all I ever
+Pour my life into a paper cup
+The ashtray's full and I'm spillin' my guts
+She want to know am I still a slut?
+I gotta take it on the otherside
+A scarlet starlet and she's in my bed
+A candidate for the soulmate bled
+Mm, push the trigger and I pull the thread
+I gotta take it on the otherside
+Take it on the otherside
+Take it on, take it on
+How long, how long will I slide?
+Separate my side
+I don't, I don't believe it's bad
+A-slittin' my throat, it's all I ever
+Turn me on, take me for a hard ride
+Burn me out, leave me on the otherside
+I yell and tell it that it's not my friend
+I tear it down, I tear it down, and then it's born again
+How long, how long will I slide?
+Separate my side
+I don't, I don't believe it's bad
+A-slittin' my throat, it's all I ever had
+I don't, I don't believe it's bad
+A-slittin' my throat, is all I ever"
+    ),
+        (
+        "Knockin' On Heaven's Door",
+        "Guns N' Roses",
+        "Uno dei brani più famosi dei Guns N' Roses, contenuto nell'album Use Your Illusion.",
+        "Mama take this badge from me
+I can't use it anymore
+It's getting dark too dark to see
+Feels like I'm knockin' on Heaven's door
+Knock-knock-knockin' on Heaven's door
+Knock-knock-knockin' on Heaven's door
+Knock-knock-knockin' on Heaven's door
+Knock-knock-knockin' on Heaven's door
+Mama put my guns in the ground
+I can't shoot them anymore
+That cold black cloud is comin' down
+Feels like I'm knockin' on Heaven's door
+Knock-knock-knockin' on Heaven's door
+Knock-knock-knockin' on Heaven's door
+Knock-knock-knockin' on Heaven's door
+Knock-knock-knockin' on Heaven's door
+You just better start sniffin' your own rank subjugation jack
+'Cause it's just you against your tattered libido
+The bank and the mortician, forever man
+And it wouldn't be luck if you could get out of life alive
+Knock-knock-knockin' on Heaven's door
+(Knock-knock-knockin' on Heaven's door)
+Knock-knock-knockin' on Heaven's door
+(Knock-knock-knockin' on Heaven's door)
+Knock-knock-knockin' on Heaven's door
+(Knock-knock-knockin' on Heaven's door)
+Knock-knock-knockin' on Heaven's door
+(Knock-knock-knockin' on Heaven's door)
+Knock-knock-knockin' on Heaven's door
+Knock-knock-knockin' on Heaven's door
+Knock-knock-knockin' on Heaven's door
+Knock-knock-knockin' on Heaven's door"
+    ),
+        (
+        "Stairway To Heaven",
+        "Led Zeppelin",
+        "Uno dei brani più famosi di Led Zeppelin, une dei piu grandi canzioni di rock.",
+        "There's a lady who's sure all that glitters is gold
+And she's buying a stairway to Heaven
+When she gets there she knows, if the stores are all closed
+With a word she can get what she came for
+Ooh, ooh, and she's buying a stairway to Heaven
+There's a sign on the wall, but she wants to be sure
+'Cause you know sometimes words have two meanings
+In a tree by the brook, there's a songbird who sings
+Sometimes all of our thoughts are misgiven
+Ooh, it makes me wonder
+Ooh, makes me wonder
+There's a feeling I get when I look to the West
+And my spirit is crying for leaving
+In my thoughts I have seen rings of smoke through the trees
+And the voices of those who stand looking
+Ooh, it makes me wonder
+Ooh, really makes me wonder
+And it's whispered that soon if we all call the tune
+Then the piper will lead us to reason
+And a new day will dawn for those who stand long
+And the forests will echo with laughter
+Oh-oh-oh-oh-whoa
+If there's a bustle in your hedgerow, don't be alarmed now
+It's just a spring clean for the May queen
+Yes, there are two paths you can go by, but in the long run
+There's still time to change the road you're on
+And it makes me wonder
+Ohh, whoa
+Your head is humming, and it won't go, in case you don't know
+The piper's calling you to join him
+Dear lady, can you hear the wind blow? And did you know
+Your stairway lies on the whispering wind?
+And as we wind on down the road
+Our shadows taller than our soul
+There walks a lady we all know
+Who shines white light and wants to show
+How everything still turns to gold
+And if you listen very hard
+The tune will come to you at last
+When all are one, and one is all
+To be a rock and not to roll
+And she's buying a stairway to Heaven"
     );

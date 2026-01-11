@@ -1,21 +1,18 @@
 <?php
 
+namespace App\Controllers;
+
+use App\Core\Controller;
+use App\Models\ArtistaModel;
+
 require_once __DIR__ . '/../Models/Artista.php';
 
-class ArtistaController {
-    private $db;    
+Class ArtistaController extends Controller { 
 
-    public function __construct($db) {
-        $this->db = $db;
-    }
+    public function view_artista_page($artista) {
+        $artista = new ArtistaModel();
+        $dati_artista = $artista->get_dati_artista($artista);
 
-    public function visualizza_artista($artista) {
-        $modello = new Artista($this->db);
-        $dati_artista = $modello->get_dati_artista($artista);
-
-        $template = new Template(__DIR__ . '/../Views/pages/artistaPage.html');
-        $template->set_dati_pagina($dati_artista);
-
-        return $template->get_pagina();
+        $this->render('artista', $dati_artista);
     }
 }

@@ -3,3 +3,9 @@ Funzionalità da implementare:
 - aggiungere canzone a preferiti
 - modificare foto playlist
 - modificare foto utente
+
+
+
+Refactoring query
+- funzione di query generale -> get all 
+- classe base controller con metodo di replace (placehoder ##lista##)

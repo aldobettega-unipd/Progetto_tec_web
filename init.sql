@@ -1,6 +1,7 @@
 CREATE TABLE utente (
     username VARCHAR(20) PRIMARY KEY,
-    hash_password VARCHAR(255) NOT NULL
+    hash_password VARCHAR(255) NOT NULL,
+    is_admin TINYINT(1) NOT NULL DEFAULT 0
 );
 
 CREATE TABLE artista (

@@ -1,47 +1,78 @@
 <?php
+namespace App\Controllers;
 
-require_once __DIR__ . '/../Models/Playlist.php';
+use App\Core\Controller;
+use App\Models\UserModel;
 
-class UtenteController {
-    private $db;
+Class UserController extends Controller{
 
-    public function __construct($db) {
-        $this->db = $db;
+    public function view_register_form(){
+        $this->render('user/register');
     }
 
-    public function visualizza_profilo() {
-        if (!isset($_SESSION['username'])) {
-            header('Location: index.php?action=login');
-            exit;
-        }
-        $username = $_SESSION['username'];
+    public function register(){
+        $username = $this->post('username');
+        $password = $this->post('password');
 
-        $modello_playlist = new Playlist($this->db);
-        $playlist_utente = $modello_playlist->get_all_playlist($username) ?? [];
-
-        $playlist_HTML = "";
-
-        foreach($playlist_utente as $playlist) {
-            $template_card = new Template(__DIR__ . "/../Views/components/playlistCard.html");
-            $template_card->set_dati_pagina([
-                'id' => $playlist['id'],
-                'nome_playlist' => $playlist['nome_playlist'],
-                'testo_azione' => "apri playlist",
-                'link_azione' => "index.php?action=apri_playlist&id=" . $playlist['id']
-            ]);
-            $playlist_HTML .= $template_card->get_pagina();
+        if(!$username || !$password){
+            $this->redirect('/register?error=empty_field');
         }
 
+        $model = new UserModel();
 
-        $profilo_template = new Template(__DIR__ . '/../Views/pages/userPage.html');
-        $profilo_template->set_dati_pagina([
-            'username' => htmlspecialchars($username),
-            'lista_playlist' => $playlist_HTML
-        ]);
-
-        return $profilo_template->get_pagina();
+        if($model->insert_user($username, $password)){
+            $this->redirect('/login?msg=registrato');
+        } else {
+            $this->redirect('/register?error=existing_username');
+        }
     }
+
+    public function view_login(){
+        $error = $_SESSION['flash_error'] ?? null;
+        unset($_SESSION['flash_error']);
+
+        $this->render('user/login', ['errore' => $error]);
+    }
+
+    public function login() {
+        $username = $this->post('username');
+        $password = $this->post('password');
+
+        $model = new UserModel();
+        $user = $model->find_user($username);
+
+        if ($user && password_verify($password, $user['hash_password'])) {
+            $_SESSION['user_username'] = $user['username'];
+            $_SESSION['is_admin'] = (bool)$user['is_admin'];
+            
+            $this->redirect('/?msg=benvenuto'); 
+
+        } else {
+            http_response_code(401);
+            $_SESSION['flash_error'] = "Username o password errati!";
+            $this->redirect('/login');
+        }
+    }
+
+    public function logout(){
+        session_unset();
+        session_destroy();
+        $this->redirect('/login');
+    }
+
+    public function view_profile($username){
+        $this->require_owner($username);
+
+        $model = new UserModel();
+        $user = $model->find_user($username);
+
+        if(!$user['is_admin']) {
+            $this->render('user/profilo', $user);
+        }else{
+            $this->render('user/admin', $user);
+        }
+        
+    }
+
+
 }
-
-
-?>

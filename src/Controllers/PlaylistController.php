@@ -1,22 +1,19 @@
 <?php
 
-require_once __DIR__ . '/../Models/Playlist.php';
+namespace App\Controllers;
 
-class PlaylistController {
-    private $db;
+use App\Core\Controller;
+use App\Models\PlaylistModel;
 
-    public function __construct($db) {
-        $this->db = $db;
+Class PlaylistController extends Controller {
+
+    public function create_playlist($nome_playlist, $username) {
+        $playlist = new Playlist();
+        $playlist->insert_playlist($nome_playlist, $username);
     }
 
-    public function crea_playlist($nome_playlist, $username) {
-        $modello_playlist = new Playlist($this->db);
-        $modello_playlist->insert_playlist($nome_playlist, $username);
-        header('Location: index.php?action=profilo');
-    }
-
-    public function visualizza_playlist($id) {
-        $modello_playlist = new Playlist($this->db);
+    public function view_playlist_page($id_playlist) {
+        $playlist = new Playlist($this->db);
         $canzoni_playlist = $modello_playlist->get_canzoni_playlist($id);
 
         $risultato_ricerca = $modello_playlist->get_nome_playlist($id);
@@ -46,8 +43,7 @@ class PlaylistController {
     public function elimina_playlist($id_playlist) {
         $modello_playlist = new Playlist($this->db);
         $modello_playlist->delete_playlist($id_playlist);
-
-        header('Location: index.php?action=profilo');
+        redirect("/profilo");
     }
 
     public function mostra_selezione_playlist($id_canzone) {

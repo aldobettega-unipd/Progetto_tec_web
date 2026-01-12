@@ -1,20 +1,16 @@
 <?php
 
-require_once __DIR__ . '/../Models/Canzone.php';
+namespace App\Controllers;
 
-class CanzoneController {
-    private $db;    
+use App\Core\Controller;
+use App\Models\CanzoneModel;
 
-    public function __construct($db) {
-        $this->db = $db;
-    }
+class CanzoneController extends Controller {
 
-    public function visualizza_canzone($canzone) {
-        $modello = new Canzone($this->db);
-        $dati_canzone = $modello->get_dati_canzone($canzone);
+    public function view_canzone_page($nome_canzone) {
+        $canzone = new CanzoneModel();
+        $dati_canzone = $canzone->get_dati_canzone($nome_canzone);
 
-        $template = new Template(__DIR__ . '/../Views/pages/canzonePage.html');
-        $template->set_dati_pagina($dati_canzone);
-        return $template->get_pagina();
+        $this->render('canzone', $dati_canzone);
     }
 }

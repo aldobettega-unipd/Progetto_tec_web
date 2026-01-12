@@ -6,7 +6,8 @@ CREATE TABLE utente (
 
 CREATE TABLE artista (
     nome VARCHAR(50) PRIMARY KEY,
-    descrizione TEXT NOT NULL
+    descrizione TEXT NOT NULL,
+    slug VARCHAR(25) NOT NULL
 );
 
 CREATE TABLE canzone (
@@ -15,6 +16,7 @@ CREATE TABLE canzone (
     artista VARCHAR(50) NOT NULL,
     descrizione TEXT NOT NULL,
     testo_canzone TEXT NOT NULL,
+    slug VARCHAR(25) NOT NULL,
     FOREIGN KEY (artista) REFERENCES artista(nome) ON DELETE CASCADE
 );
 

@@ -8,4 +8,4 @@ Funzionalità da implementare:
 
 Refactoring query
 - funzione di query generale -> get all 
-- classe base controller con metodo di replace (placehoder ##lista##)
+- classe base controller con metodo di replace (placehoder ##PLACEHOLDER## in masiuscolo)

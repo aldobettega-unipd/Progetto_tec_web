@@ -1,4 +1,5 @@
 <?php
+namespace App\Core;
 // Questa classe si limita seplicemente a sostituire i placeholder dell' html con i dati presi dal Controller
 
 class Template {
@@ -8,7 +9,7 @@ class Template {
         if (file_exists($filePath)) {
             $this->contenuto = file_get_contents($filePath);
         } else {
-            $this->contenuto = "Errore: File template non trovato.";
+            throw new \Exception("File template non trovato: $filePath");
         }
     }
 
@@ -18,12 +19,16 @@ class Template {
         }
 
         foreach ($array_assoc_dati as $chiave => $valore) {
-            $this->contenuto = str_replace("[$chiave]", $valore ?? '', $this->contenuto);
+            $this->contenuto = str_replace("##$chiave##", $valore ?? '', $this->contenuto);
         }
     }
 
-    public function get_pagina() {
-        $contenuto_pulito = preg_replace('/\[[^\]]+\]/', '', $this->contenuto);  // rimuove placeholder non sostituiti
-        return $contenuto_pulito;
+    public function get_pagina($keep_placeholder = false) {
+
+        if(!$keep_placeholder){
+            return preg_replace('/##.*?##/', '', $this->contenuto);
+        }else{
+            return $this->contenuto;
+        }
     }
 }

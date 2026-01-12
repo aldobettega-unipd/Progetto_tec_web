@@ -33,11 +33,7 @@ try {
     $router = new Router();
 
 
-    $router->add('/', HomeController::class, 'visualizza_Home');
-
-    $router->add('/register', UserController::class, 'viewRegister');
-
-    $router->add('/artista/{artista:alphanum}', ArtistaController::class, 'view_artista_page');
+    $router->add('/', HomeController::class, 'visualizza_home');
 
     $router->dispatch($_SERVER['REQUEST_URI']);
 
@@ -45,30 +41,5 @@ try {
     $error = new ErrorController();
     $error->index(500, $e->getMessage());
 }
-
-
-
-
-
-if (isset($_SESSION['username'])) {
-    $nav = new Template('../src/Views/components/nav_loggato.html');
-    $nav->set_dati_pagina(['username' => $_SESSION['username']]);
-} else {
-    $nav = new Template('../src/Views/components/nav_ospite.html');
-}
-
-$header = new Template('../src/Views/layouts/header.html');
-$header->set_dati_pagina(['bottone_accesso' => $nav->get_pagina()]);
-
-$layout = new Template('../src/Views/layout.html');
-$layout->set_dati_pagina([
-    'header' => $header->get_pagina(),
-    'corpo'  => $corpoHTML,
-    'footer' => file_get_contents('../src/Views/layouts/footer.html')
-]);
-        
-echo $layout->get_pagina();
-
-
 
 ?>

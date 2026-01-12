@@ -6,6 +6,7 @@ use App\Core\Database;
 abstract class Model{
 
     protected $db;
+    protected $table;
 
     public function __construct(){
         $this->db = Database::getInstance();
@@ -21,9 +22,21 @@ abstract class Model{
         }
     }
 
-    protected function get_all(){
-        $sql = "SELECT * FROM" . $this->table;
-        return query($sql);
+
+    protected function fetchOne($sql, $params = []) {
+        return $this->query($sql, $params)->fetch();
+    }
+
+
+    protected function fetchAll($sql, $params = []) {
+        return $this->query($sql, $params)->fetchAll();
+    }
+
+
+
+    public function get_all(){
+        $sql = "SELECT * FROM " . $this->table;
+        return $this->fetchAll($sql);
     }
 
 }

@@ -1,19 +1,19 @@
 <?php
+namespace App\Controllers;
 
-class HomeController {
-    private $db;
-    private $modello_artista; 
-    private $modello_canzone;
+use App\Core\Controller;
+use App\Core\Template;
+use App\Models\ArtistaModel;
+use App\Models\CanzoneModel;
 
-    public function __construct($db) {
-        $this->db = $db;
-        $this->modello_artista = new Artista($this->db);
-        $this->modello_canzone = new Canzone($this->db);
-    }
+class HomeController extends Controller{
 
     public function visualizza_home() {
-        $artisti = $this->modello_artista->get_all() ?? [];
-        $canzoni = $this->modello_canzone->get_all() ?? [];
+        $modello_artista = new ArtistaModel(); 
+        $modello_canzone = new CanzoneModel();
+
+        $artisti = $modello_artista->get_all() ?? [];
+        $canzoni = $modello_canzone->get_all() ?? [];
 
         $artisti_HTML = "";
         foreach ($artisti as $artista) {
@@ -29,12 +29,10 @@ class HomeController {
             $canzoni_HTML .= $template_card->get_pagina();
         }
 
-        $home_template = new Template(__DIR__ . '/../Views/pages/homePage.html');
-        $home_template->set_dati_pagina([
-            'lista_artisti' => $artisti_HTML,
-            'lista_canzoni' => $canzoni_HTML
+        $this->render('homePage', [
+            'LISTA_ARTISTI' => $artisti_HTML,
+            'LISTA_CANZONI' => $canzoni_HTML
         ]);
 
-        return $home_template->get_pagina();
     }
 }

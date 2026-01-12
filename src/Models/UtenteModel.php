@@ -3,24 +3,19 @@ namespace App\Models;
 use App\Core\Model;
 
 class Utente extends Model {
-    private $db;
-    private $table;
+    protected $table = 'utente';
 
-    public function __construct($db) {
-        $this->db = $db; 
-        $this->table = "utente";
-    }
 
     public function find_user($username) {
         $sql = "SELECT * FROM utente WHERE username = ?";
-        return $this->query($sql, [$username])->fetch();
+        return $this->fetchOne($sql, [$username]);
     }
 
-    public function insert_user($username, $password) {
+    public function insert_user($username, $password, $admin = 0) {
         $hash = password_hash($password, PASSWORD_DEFAULT);
         try {
-            $sql = "INSERT INTO utente (username, hash_password, is_admin) VALUES (?, ?, 0)";
-            $this->query($sql, [$username, $hash]);
+            $sql = "INSERT INTO utente (username, hash_password, is_admin) VALUES (?, ?, ?)";
+            $this->query($sql, [$username, $hash, $admin]);
             return true;
         } catch (\PDOException $e) {
             if ($e->getCode() == 23000 ) {

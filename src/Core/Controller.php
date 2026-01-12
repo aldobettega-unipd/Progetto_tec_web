@@ -1,17 +1,37 @@
 <?php
 namespace App\Core;
+use App\Core\Template;
 
 abstract class Controller {
 
-    public function render($view, $data = []){
-        extract($data);
+    protected $layout_data = [
+        "PULSANTI_UTENTE" => '<li><a href="/login">Login</a></li>
+                    <li><a href="/register">Registrati</a></li>'
+    ];
 
-        $view_file = __DIR__ . "/../Views/pages/{$view}.php";
+    public function render($view, $data = [], $layout = 'main' ){
 
-        if(file_exists(__DIR__ . "/../Views/layouts/main.php")){
-            require_once __DIR__ . "/../Views/layouts/main.php";
-        } else {
-            require_once $viewFile;
+        try{        
+            $view_file = new Template(__DIR__ . "/../Views/pages/{$view}.html");
+
+            $view_file->set_dati_pagina($data);
+
+            $contenuto_vista = $view_file->get_pagina();
+
+            if($layout){
+                $layout_file = new Template(__DIR__ . "/../Views/layouts/{$layout}.html");
+
+                $layout_file->set_dati_pagina(['CONTENUTO_PRINCIPALE'=> $contenuto_vista]);
+
+                $layout_file->set_dati_pagina($this->layout_data);
+
+                echo $layout_file->get_pagina();
+
+            }else{
+                echo $contenuto_vista;
+            }
+        } catch (\Exception $e) {
+            die("Errore Render: " . $e->getMessage());
         }
     }
 

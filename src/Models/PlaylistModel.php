@@ -3,13 +3,9 @@ namespace App\Models;
 use App\Core\Model;
 
 class PlaylistModel extends Model {
-    private $db;
-    private $table;
 
-    public function __construct($db) {
-        $this->db = $db;
-        $this->model = "playlist";
-    }
+    protected $table = "playlist";
+
 
     public function insert_playlist($nome_playlist, $nome_utente) {
         // TODO: aggiungere controlli di lunghezza input
@@ -35,12 +31,12 @@ class PlaylistModel extends Model {
 
     public function get_canzoni_playlist($id_playlist) {
         $sql = "SELECT p.nome AS nome_playlist, c.nome AS nome_canzone, c.id AS id_canzone FROM playlist p JOIN canzoni_playlist cp ON p.id = cp.playlist JOIN canzone c ON cp.canzone = c.id WHERE p.id = ?";
-        return $this->query($sql, [$id_playlist]);
+        return $this->fetchAll($sql, [$id_playlist]);
     }
 
     public function get_nome_playlist($id_playlist) {
         $sql = "SELECT nome AS nome_playlist FROM playlist WHERE id = ?";
-        return $this->query($sql, [$id_playlist]);
+        return $this->fetchOne($sql, [$id_playlist]);
     }
 
     public function insert_canzone_in_playlist($id_playlist, $id_canzone) {

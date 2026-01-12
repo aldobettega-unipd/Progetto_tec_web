@@ -13,6 +13,6 @@ Class ArtistaController extends Controller {
         $artista = new ArtistaModel();
         $dati_artista = $artista->get_dati_artista($artista);
 
-        $this->render('artista', $dati_artista);
+        $this->render('artistaPage', $dati_artista);
     }
 }

@@ -1,106 +1,54 @@
 <?php
+
 session_start();
+
 require_once __DIR__ . '/../config.php';
-require_once __DIR__ . '/../src/Core/Template.php';
-require_once __DIR__ . '/../src/Controllers/ArtistaController.php';
-require_once __DIR__ . '/../src/Controllers/CanzoneController.php';
-require_once __DIR__ . '/../src/Controllers/HomeController.php';
-require_once __DIR__ . '/../src/Controllers/AuthController.php';
-require_once __DIR__ . '/../src/Controllers/RegistraController.php';
-require_once __DIR__ . '/../src/Controllers/RicercaController.php';
-require_once __DIR__ . '/../src/Controllers/UtenteController.php';
-require_once __DIR__ . '/../src/Controllers/PlaylistController.php';
 
-$action = $_GET['action'] ?? 'home';
+spl_autoload_register(function ($class) {
+    $prefix = 'App\\';
+    $base_dir = __DIR__ . '/../src/';
 
-switch ($action) {
-    case 'home':
-        $homeController = new HomeController($conn);
-        $corpoHTML = $homeController->visualizza_home();
-        break;
-
-    case 'login_form':
-        $corpoHTML = file_get_contents(__DIR__ . "/../src/Views/pages/loginForm.html");
-        break;
-
-    case 'register_form':
-        $corpoHTML = file_get_contents(__DIR__ . "/../src/Views/pages/registraForm.html");
-        break;
-
-    case 'do_login':
-        $authController = new AuthController($conn);
-        $corpoHTML = $authController->login($_POST['username'], $_POST['password']); 
-        break;
     
-    case 'do_register':
-        $registraController = new RegistraController($conn);
-        $corpoHTML = $registraController->registrazione($_POST['username'], $_POST['password']);
-        break;
-    
-    case 'profilo':
-        $controller = new UtenteController($conn);
-        $corpoHTML = $controller->visualizza_profilo();
-        break;
+    $len = strlen($prefix);
+    if (strncmp($prefix, $class, $len) !== 0) return;
 
-    case 'logout':
-        session_unset();
-        session_destroy();
-        header('Location: index.php?action=home');
-        exit; // da capire quando usare break e quando exit per non far andare esecuzioni fantasma
 
-    case 'cerca':
-        $controller = new RicercaController($conn);
-        $corpoHTML = $controller->esegui_ricerca();
-        break;
+    $relative_class = substr($class, $len);
+    $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
 
-    case 'artista':
-        $controller = new ArtistaController($conn);
-        $corpoHTML = $controller->visualizza_artista($_GET['nome_artista']);
-        break;
 
-    case 'canzone':
-        $controller = new CanzoneController($conn);
-        $corpoHTML = $controller->visualizza_canzone($_GET['nome_canzone']);
-        break;
+    if (file_exists($file)) {
+        require $file;
+    }
+});
 
-    case 'playlist_form':
-        $corpoHTML = file_get_contents(__DIR__ . "/../src/Views/pages/playlistForm.html");
-        break;
+// 4. USIAMO LE CLASSI NECESSARIE
+use App\Core\Router;
+use App\Controllers\UserController;
+use App\Controllers\ErrorController;
+use App\Controllers\HomeController;
 
-    case 'crea_playlist':
-        $controller = new PlaylistController($conn);
-        $corpoHTML = $controller->crea_playlist($_POST['nome_playlist'], $_SESSION['username']);
-        break;
+// 5. GESTIONE DELLE ROTTE
+try {
+    $router = new Router();
 
-    case 'apri_playlist':
-        $controller = new PlaylistController($conn);
-        $corpoHTML = $controller->visualizza_playlist($_GET['id']);
-        break;
 
-    case 'elimina_playlist':
-        $controller = new PlaylistController($conn);
-        $controller->elimina_playlist($_GET['id']);
-        break;
+    $router->add('/', HomeController::class, 'visualizza_Home');
 
-    case 'mostra_selezione_playlist':
-        $controller = new PlaylistController($conn);
-        $corpoHTML = $controller->mostra_selezione_playlist($_GET['id_canzone']);
-        break;
+    $router->add('/register', UserController::class, 'viewRegister');
 
-    case 'aggiungi_canzone_in_playlist':
-        $controller = new PlaylistController($conn);
-        $controller->aggiungi_canzone($_GET['id_playlist'], $_GET['id_canzone']);
-        break;
+    $router->add('/artista/{artista:alphanum}', ArtistaController::class, 'view_artista_page');
 
-    case 'rimuovi_canzone_da_playlist';
-        $controller = new PlaylistController($conn);
-        $controller->rimuovi_canzone($_GET['id_playlist'], $_GET['id_canzone']);
-        break;
-    
-    default:
-        //$view_file = '../src/Views/pages/404.php';
-        break;
+    $router->dispatch($_SERVER['REQUEST_URI']);
+
+} catch (\Exception $e) {
+    $error = new ErrorController();
+    $error->index(500, $e->getMessage());
 }
+
+
+
+
 
 if (isset($_SESSION['username'])) {
     $nav = new Template('../src/Views/components/nav_loggato.html');

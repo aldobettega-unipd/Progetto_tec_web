@@ -13,7 +13,7 @@ Class Database{
     public static function getInstance() {
 
         if(self::$instance === null) {
-            $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset" . DB_CHAR;
+            $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHAR;
             
             $options = [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

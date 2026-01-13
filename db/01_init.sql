@@ -5,24 +5,24 @@ CREATE TABLE utente (
 );
 
 CREATE TABLE artista (
-    nome VARCHAR(50) PRIMARY KEY,
-    descrizione TEXT NOT NULL,
-    slug VARCHAR(25) NOT NULL
+    nome_artista VARCHAR(50) PRIMARY KEY,
+    descrizione_artista TEXT NOT NULL,
+    slug_artista VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE canzone (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL,
-    artista VARCHAR(50) NOT NULL,
-    descrizione TEXT NOT NULL,
+    id_canzone INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    titolo_canzone VARCHAR(50) NOT NULL,
+    autore_canzone VARCHAR(50) NOT NULL,
+    descrizione_canzone TEXT NOT NULL,
     testo_canzone TEXT NOT NULL,
-    slug VARCHAR(25) NOT NULL,
-    FOREIGN KEY (artista) REFERENCES artista(nome) ON DELETE CASCADE
+    slug_canzone VARCHAR(30) NOT NULL,
+    FOREIGN KEY (autore_canzone) REFERENCES artista(nome_artista) ON DELETE CASCADE
 );
 
 CREATE TABLE playlist (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL,
+    id_playlist INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nome_playlist VARCHAR(50) NOT NULL,
     username VARCHAR(20) NOT NULL,
     FOREIGN KEY (username) REFERENCES utente(username) ON DELETE CASCADE
 );
@@ -31,8 +31,8 @@ CREATE TABLE canzoni_playlist (
     playlist INT UNSIGNED, 
     canzone INT UNSIGNED,
     PRIMARY KEY (playlist, canzone),
-    FOREIGN KEY (playlist) REFERENCES playlist(id) ON DELETE CASCADE,
-    FOREIGN KEY (canzone) REFERENCES canzone(id) ON DELETE CASCADE
+    FOREIGN KEY (playlist) REFERENCES playlist(id_playlist) ON DELETE CASCADE,
+    FOREIGN KEY (canzone) REFERENCES canzone(id_canzone) ON DELETE CASCADE
 );
 
 

@@ -5,7 +5,8 @@ namespace App\Core;
 class Template {
     private $contenuto;
 
-    public function __construct($filePath) {
+    public function __construct($page) {
+        $filePath = __DIR__ . "/../Views/{$page}.html";
         if (file_exists($filePath)) {
             $this->contenuto = file_get_contents($filePath);
         } else {

@@ -6,8 +6,13 @@ use App\Models\UserModel;
 
 Class UserController extends Controller{
 
-    public function view_register_form(){
-        $this->render('user/register');
+
+
+    public function view_register(){
+        $error = $_SESSION['flash_error'] ?? null;
+        unset($_SESSION['flash_error']);
+
+        $this->render('user/register', ['FLASH_ERROR' => $error]);
     }
 
     public function register(){
@@ -15,15 +20,16 @@ Class UserController extends Controller{
         $password = $this->post('password');
 
         if(!$username || !$password){
-            $this->redirect('/register?error=empty_field');
+            $this->redirect('/register');
         }
 
         $model = new UserModel();
 
         if($model->insert_user($username, $password)){
-            $this->redirect('/login?msg=registrato');
+            $this->redirect('/login');
         } else {
-            $this->redirect('/register?error=existing_username');
+            $_SESSION['flash_error'] = "Username gia` in uso"; //implementare controllo instantaeno in frontend con js
+            $this->redirect('/register');
         }
     }
 
@@ -31,7 +37,7 @@ Class UserController extends Controller{
         $error = $_SESSION['flash_error'] ?? null;
         unset($_SESSION['flash_error']);
 
-        $this->render('user/login', ['errore' => $error]);
+        $this->render('user/login', ['FLASH_ERROR' => $error]);
     }
 
     public function login() {
@@ -42,10 +48,13 @@ Class UserController extends Controller{
         $user = $model->find_user($username);
 
         if ($user && password_verify($password, $user['hash_password'])) {
-            $_SESSION['user_username'] = $user['username'];
-            $_SESSION['is_admin'] = (bool)$user['is_admin'];
+            $_SESSION['user'] = [
+                'username' => $user['username'],
+                'is_admin' => (bool)$user['is_admin']
+            ];
             
-            $this->redirect('/?msg=benvenuto'); 
+            
+            $this->redirect('/'); 
 
         } else {
             http_response_code(401);
@@ -66,7 +75,7 @@ Class UserController extends Controller{
         $model = new UserModel();
         $user = $model->find_user($username);
 
-        if(!$user['is_admin']) {
+        if(!$user['user']['is_admin']) {
             $this->render('user/profilo', $user);
         }else{
             $this->render('user/admin', $user);

@@ -17,14 +17,14 @@ class HomeController extends Controller{
 
         $artisti_HTML = "";
         foreach ($artisti as $artista) {
-            $template_card = new Template(__DIR__ . '/../Views/components/artistaCard.html');
+            $template_card = new Template("components/artistaCard");
             $template_card->set_dati_pagina($artista);
             $artisti_HTML .= $template_card->get_pagina();
         }
 
         $canzoni_HTML = "";
         foreach ($canzoni as $canzone) {
-            $template_card = new Template(__DIR__ . '/../Views/components/canzoneCard.html');
+            $template_card = new Template("components/canzoneCard");
             $template_card->set_dati_pagina($canzone);
             $canzoni_HTML .= $template_card->get_pagina();
         }

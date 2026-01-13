@@ -1,13 +1,13 @@
 <section id="img_title_artist">
-    <img src="img/[nome_canzone].jpeg" alt="[nome_canzone]" id="songImage">
+    <img src="/img/##slug_canzone##.jpeg" alt="##titolo_canzone##" id="songImage">
     <div id="info_section">
-        <h1 id="songTitle">[nome_canzone]</h1>
-        <h2 id="artistName">Nome artista: <a href="index.php?action=artista&nome_artista=[nome_artista]">[nome_artista]</a></h2>
+        <h1 id="songTitle">##titolo_canzone##</h1>
+        <h2 id="artistName">Nome artista: <a href="/artisti/##slug_artista##">##autore_canzone##</a></h2>
         <button id="addToPlaylist" onclick="window.location.href='index.php?action=mostra_selezione_playlist&id_playlist=[id_playlist]&id_canzone=[id_canzone]'">Aggiungi a playlist</button>
         <button id="addToLiked" onclick="">Aggiungi a preferiti</button>
     </div>
 </section>
 <section id="descr_text">
-    <p>Descrizione: [descrizione]</p>
-    <p id="lyrics">Testo: [testo_canzone]</p>    
+    <p>Descrizione: ##descrizione_canzone##</p>
+    <p id="lyrics">Testo: ##testo_canzone##</p>    
 </section>

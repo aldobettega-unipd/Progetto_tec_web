@@ -8,13 +8,14 @@ class CanzoneModel extends Model {
 
 
     public function get_dati_canzone($canzone) {
-        $sql = "SELECT id AS id_canzone, nome AS nome_canzone, artista AS nome_artista, descrizione AS descrizione_canzone, testo_canzone, slug AS slug_canzone FROM canzone WHERE nome=?";
+        $sql = "SELECT c.*, a.slug_artista FROM artista a INNER JOIN canzone c ON a.nome_artista = c.autore_canzone WHERE c.slug_canzone = ?";
         return $this->fetchOne($sql, [$canzone]);
     }
 
     public function cerca($canzone) {
         $canzone = "%$canzone%";
-        $sql = "SELECT nome AS nome_canzone FROM canzone WHERE nome LIKE ?";
-        return $this->fetchAll($sql, $canzone);        
+        $sql = "SELECT titolo_canzone FROM canzone WHERE titolo_canzone LIKE ?";
+        return $this->fetchAll($sql, [$canzone]);        
     }
+
 }

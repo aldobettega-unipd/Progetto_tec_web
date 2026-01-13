@@ -13,13 +13,10 @@ abstract class Model{
     }
 
     protected function query($sql, $params = []){
-        try{
         $stmt = $this->db->prepare($sql);
         $stmt->execute($params);
         return $stmt;
-        } catch(\PDOException $e){
-            die("Error in query: " . $e->getMessage());
-        }
+
     }
 
 

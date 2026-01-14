@@ -1,6 +1,6 @@
 <?php
 namespace App\Core;
-//use App\Controllers\ErrorController;
+use App\Controllers\ErrorController;
 
 
 
@@ -36,8 +36,8 @@ Class Router {
             }
         }
 
-        /*$err_controller = new ErrorController();
-        $err_controller->index(404, '404_notfound', 'pagina non trovata'); */
+        $err_controller = new ErrorController();
+        $err_controller->index(404, '404_notfound'); 
     }
 
 }   

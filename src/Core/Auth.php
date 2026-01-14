@@ -4,8 +4,17 @@ namespace App\Core;
 class Auth {
 
     public static function isLogged() {
-        // Assicurati che session_start() sia nel index.php
         return isset($_SESSION['user']);
+    }
+
+    public static function isAdmin() {
+        if (!self::isLogged()) return false;
+        return !empty($_SESSION['user']['is_admin']);
+    }
+
+    public static function isOwner($username) {
+        if (!self::isLogged()) return false;
+        return $_SESSION['user']['username'] === $username;
     }
 
     public static function getUser() {
@@ -23,32 +32,4 @@ class Auth {
         }
     }
 
-
-    public function require_login(){
-        if(!isset($_SESSION['user'])){
-            $_SESSION['flash_error'] = "Non sei loggato. Accedi per continuare";
-            $this->redirect('/login');
-            exit;
-        }
-    }
-
-    public function require_owner($username){
-        $this->require_login();
-
-        if($_SESSION['user']['username'] !== $username){
-            $_SESSION['flash_error'] = "Non hai il permesso, esegui l'accesso!";
-            $this->redirect('/login');
-            exit;
-        }
-    }
-
-    public function check_admin(){
-        $this->require_login();
-
-        if($_SESSION['user']['is_admin'] !== true){
-            $_SESSION['flash_error'] = "Non hai il permesso, esegui l'accesso come amministratore!";
-            $this->redirect('/login');
-            exit;
-        }
-    }
 }

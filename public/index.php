@@ -31,6 +31,7 @@ use App\Controllers\ErrorController;
 use App\Controllers\HomeController;
 use App\Controllers\ArtistaController;
 use App\Controllers\CanzoneController;
+use App\Controllers\PlaylistController;
 
 
 try {
@@ -52,6 +53,11 @@ try {
 
     $router->add('/profilo/{username:alphanum}', UserController::class, 'view_profile');
 
+    $router->add('/profilo/{username:alphanum}/playlist/new', PlaylistController::class, 'view_playlist_form');
+    $router->add('/profilo/{username:alphanum}/playlist/create', PlaylistController::class, 'create_playlist');
+    $router->add('/profilo/{username:alphanum}/playlist/{id_playlist:num}', PlaylistController::class, 'view_playlist_page');
+    $router->add('/profilo/{username:alphanum}/playlist/{id_playlist:num}/delete', PlaylistController::class, 'elimina_playlist');
+    $router->add('/profilo/{username:alphanum}/playlist/{id_playlist:num}/add', PlaylistController::class, 'addto_playlist');
 
     
 

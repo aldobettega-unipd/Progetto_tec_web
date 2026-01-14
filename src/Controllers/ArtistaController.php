@@ -5,22 +5,25 @@ namespace App\Controllers;
 use App\Core\Controller;
 use App\Models\ArtistaModel;
 use App\Core\Template;
+use App\Helpers\CarouselHelper;
 
 Class ArtistaController extends Controller {
+    private $Artista;
+
+    public function __construct(){
+        $this->Artista = new ArtistaModel();
+    }
 
     public function view_artista($slug) {
-        $artista = new ArtistaModel();
-        $dati_artista = $artista->get_dati_artista($slug);
+        $dati_artista = $this->Artista->get_dati_artista($slug);
 
-        $canzoni = $artista->get_canzoni($slug);
+        $canzoni = $this->Artista->get_canzoni($slug);
+        $dati_artista["LISTA_CANZONI"] = CarouselHelper::carousel($canzoni, 'canzoneCard');;
 
-        $canzoni_HTML = "";
-        foreach ($canzoni as $canzone) {
-            $template_card = new Template("components/canzoneCard");
-            $template_card->set_dati_pagina($canzone);
-            $canzoni_HTML .= $template_card->get_pagina();
-        }
-        $dati_artista["LISTA_CANZONI"] = $canzoni_HTML;
         $this->render('artistaPage', $dati_artista);
+    }
+
+    public function carosello_artista(){
+
     }
 }

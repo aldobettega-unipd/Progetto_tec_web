@@ -5,34 +5,22 @@ use App\Core\Controller;
 use App\Core\Template;
 use App\Models\ArtistaModel;
 use App\Models\CanzoneModel;
+use App\Helpers\CarouselHelper;
 
 class HomeController extends Controller{
 
     public function visualizza_home() {
-        $modello_artista = new ArtistaModel(); 
-        $modello_canzone = new CanzoneModel();
+        $Artista = new ArtistaModel(); 
+        $Canzone = new CanzoneModel();
 
-        $artisti = $modello_artista->get_all() ?? [];
-        $canzoni = $modello_canzone->get_all() ?? [];
-
-        $artisti_HTML = "";
-        foreach ($artisti as $artista) {
-            $template_card = new Template("components/artistaCard");
-            $template_card->set_dati_pagina($artista);
-            $artisti_HTML .= $template_card->get_pagina();
-        }
-
-        $canzoni_HTML = "";
-        foreach ($canzoni as $canzone) {
-            $template_card = new Template("components/canzoneCard");
-            $template_card->set_dati_pagina($canzone);
-            $canzoni_HTML .= $template_card->get_pagina();
-        }
+        $artisti = $Artista->get_all() ?? [];
+        $canzoni = $Canzone->get_all() ?? [];
 
         $this->render('homePage', [
-            'LISTA_ARTISTI' => $artisti_HTML,
-            'LISTA_CANZONI' => $canzoni_HTML
+            'LISTA_ARTISTI' => CarouselHelper::carousel($artisti, 'artistaCard'),
+            'LISTA_CANZONI' => CarouselHelper::carousel($canzoni, 'canzoneCard')
         ]);
-
     }
+
+
 }

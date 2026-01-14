@@ -6,38 +6,36 @@ class PlaylistModel extends Model {
 
     protected $table = "playlist";
 
-
-    public function insert_playlist($nome_playlist, $nome_utente) {
-        // TODO: aggiungere controlli di lunghezza input
-        // TODO: creare playlistException
-        try {
-            $sql = "INSERT INTO playlist (nome, username) VALUES (?, ?)";
-            $this->query($sql, [$nome_playlist, $nome_utente]);
-        } catch (\PDOException $e) {
-            error_log("Errore nell'inserimento della playlist: " . $e->getMessage());
-            throw new Exception("Impossibile creare la playlist in questo momento");
-        }
+     public function get_dati_playlist($id_playlist) {
+        $sql = "SELECT * FROM playlist WHERE id_playlist = ?";
+        return $this->fetchOne($sql, [$id_playlist]);
     }
 
-    public function delete_playlist($id_playlist) {
-        try {
-            $sql = "DELETE FROM playlist WHERE id = ?";
-            $this->query($sql, [$id_playlist]);
-        } catch (\PDOException $e) {
-            error_log("Errore nell'eliminazione della playlist: " . $e->getMessage());
-            throw new Exception("Impossibile eliminare la playlist in questo momento");
-        }
+    public function get_user_playlist($username){
+        $sql = "SELECT * FROM playlist WHERE username = ?";
+        return $this->fetchAll($sql, [$username]);
+    }
+
+
+    public function insert_playlist($nome_playlist, $username) {
+            $sql = "INSERT INTO playlist (nome_playlist, username) VALUES (?, ?)";
+            return $this->query($sql, [$nome_playlist, $username]);
     }
 
     public function get_canzoni_playlist($id_playlist) {
-        $sql = "SELECT p.nome AS nome_playlist, c.nome AS nome_canzone, c.id AS id_canzone FROM playlist p JOIN canzoni_playlist cp ON p.id = cp.playlist JOIN canzone c ON cp.canzone = c.id WHERE p.id = ?";
-        return $this->fetchAll($sql, [$id_playlist]);
+        $sql = "SELECT p.nome_playlist, c.* FROM playlist p JOIN canzoni_playlist cp ON p.id_playlist = cp.playlist JOIN canzone c ON cp.canzone = c.id_canzone WHERE p.id_playlist = ?";
+        return $this->fetchAll($sql, [$id_playlist]) ?? [];
     }
 
-    public function get_nome_playlist($id_playlist) {
-        $sql = "SELECT nome AS nome_playlist FROM playlist WHERE id = ?";
-        return $this->fetchOne($sql, [$id_playlist]);
+
+    public function delete_playlist($id_playlist) {
+
+        $sql = "DELETE FROM playlist WHERE id_playlist = ?";
+        return $this->query($sql, [$id_playlist]);
+
     }
+
+/*
 
     public function insert_canzone_in_playlist($id_playlist, $id_canzone) {
         try {
@@ -58,6 +56,7 @@ class PlaylistModel extends Model {
             throw new Exception("Impossibile rimuovere la canzone dalla playlist in questo momento");
         }   
     }
+    */    
 }
 
 

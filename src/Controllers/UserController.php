@@ -3,16 +3,19 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Models\UserModel;
+use App\Models\PlaylistModel;
+use App\Helpers\CarouselHelper;
 
 Class UserController extends Controller{
+    private $User;
 
-
+    public function __construct(){
+        $this->User = new UserModel();
+    }
 
     public function view_register(){
-        $error = $_SESSION['flash_error'] ?? null;
-        unset($_SESSION['flash_error']);
-
-        $this->render('user/register', ['FLASH_ERROR' => $error]);
+        $this->require_guest();
+        $this->render('user/register');
     }
 
     public function register(){
@@ -23,9 +26,9 @@ Class UserController extends Controller{
             $this->redirect('/register');
         }
 
-        $model = new UserModel();
 
-        if($model->insert_user($username, $password)){
+
+        if($this->User->insert_user($username, $password)){
             $this->redirect('/login');
         } else {
             $_SESSION['flash_error'] = "Username gia` in uso"; //implementare controllo instantaeno in frontend con js
@@ -34,20 +37,20 @@ Class UserController extends Controller{
     }
 
     public function view_login(){
-        $error = $_SESSION['flash_error'] ?? null;
-        unset($_SESSION['flash_error']);
-
-        $this->render('user/login', ['FLASH_ERROR' => $error]);
+        $this->require_guest();
+        $this->render('user/login');
     }
 
     public function login() {
         $username = $this->post('username');
         $password = $this->post('password');
 
-        $model = new UserModel();
-        $user = $model->find_user($username);
+        $user = $this->User->find_user($username);
 
         if ($user && password_verify($password, $user['hash_password'])) {
+
+            session_regenerate_id(true);
+
             $_SESSION['user'] = [
                 'username' => $user['username'],
                 'is_admin' => (bool)$user['is_admin']
@@ -72,12 +75,19 @@ Class UserController extends Controller{
     public function view_profile($username){
         $this->require_owner($username);
 
-        $model = new UserModel();
-        $user = $model->find_user($username);
+        $user = $this->User->find_user($username);
+        
 
-        if(!$user['user']['is_admin']) {
+        if(!$user['is_admin']) {
+
+            $Playlist = new PlaylistModel();
+            $user_playlists = $Playlist->get_user_playlist($username);
+            error_log("questa e` la lista delle playlists " . print_r(['ciao'], true));
+            $user["LISTA_PLAYLIST"] = CarouselHelper::carousel($user_playlists, 'playlistCard');
+
             $this->render('user/profilo', $user);
         }else{
+
             $this->render('user/admin', $user);
         }
         

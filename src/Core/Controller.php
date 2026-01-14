@@ -9,6 +9,11 @@ abstract class Controller {
     public function render($view, $data = [], $layout = 'main' ){
 
         try{        
+            if (isset($_SESSION['flash_error'])) {
+            $data['FLASH_ERROR'] = $_SESSION['flash_error'];
+            unset($_SESSION['flash_error']);
+            }
+
             $view_file = new Template("pages/{$view}");
 
             $view_file->set_dati_pagina($data);
@@ -21,11 +26,8 @@ abstract class Controller {
                 ];
 
                 $layout_file = new Template("layouts/{$layout}");
-
                 $layout_file->set_dati_pagina(['CONTENUTO_PRINCIPALE'=> $contenuto_vista]);
-
                 $layout_file->set_dati_pagina($layout_data);
-
                 echo $layout_file->get_pagina();
 
             }else{
@@ -56,28 +58,36 @@ abstract class Controller {
     }
 
     protected function require_login(){
-        if(!isset($_SESSION['user'])){
+        if(!Auth::isLogged()){
             $_SESSION['flash_error'] = "Non sei loggato. Accedi per visualizzare il profilo!";
             $this->redirect('/login');
             exit;
         }
     }
 
+    protected function require_guest(){
+        if(Auth::isLogged()){
+            $_SESSION['flash_error'] = "Disconettiti dal tuo account per continuare";
+            $this->redirect('/');
+            exit;
+        }
+    }
+
     protected function require_owner($username){
-
         $this->require_login();
-
-        if($_SESSION['user']['username'] !== $username){
+        if(!Auth::isOwner($username)){
             $_SESSION['flash_error'] = "Non hai il permesso, esegui l'accesso!";
             $this->redirect('/login');
             exit;
         }
     }
 
+    
+
     protected function check_admin(){
         $this->require_login();
 
-        if($_SESSION['user']['is_admin'] !== true){
+        if(!Auth::isAdmin()){
             $_SESSION['flash_error'] = "Non hai il permesso, esegui l'accesso come amministratore!";
             $this->redirect('/login');
             exit;

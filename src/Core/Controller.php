@@ -2,6 +2,9 @@
 namespace App\Core;
 use App\Core\Template;
 use App\Core\Auth;
+use App\Controllers\ErrorController;
+use App\Exceptions\NotFoundException;
+use App\Exceptions\ForbiddenException;
 
 abstract class Controller {
 
@@ -93,4 +96,16 @@ abstract class Controller {
             exit;
         }
     }
+
+    protected function abort($code = 404, $message = '') {
+            switch ($code) {
+                case 404:
+                    throw new NotFoundException($message);
+                case 403:
+                    throw new ForbiddenException($message);
+                case 500:
+                default:
+                    throw new \Exception($message, 500);
+            }
+        }
 }

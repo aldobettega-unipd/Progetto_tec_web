@@ -12,10 +12,21 @@ class CanzoneModel extends Model {
         return $this->fetchOne($sql, [$canzone]);
     }
 
-    public function cerca($canzone) {
+    public function cerca_titolo($canzone) {
         $canzone = "%$canzone%";
         $sql = "SELECT titolo_canzone FROM canzone WHERE titolo_canzone LIKE ?";
         return $this->fetchAll($sql, [$canzone]);        
     }
+
+    public function cerca_canzoni($testo) {
+
+    $sql = "SELECT id_canzone, titolo_canzone, autore_canzone, slug_canzone 
+            FROM canzone 
+            WHERE titolo_canzone LIKE ? OR autore_canzone LIKE ? 
+            LIMIT 10"; // Limitiamo per performance
+            
+    $param = "%" . $testo . "%";
+    return $this->fetchAll($sql, [$param, $param]);
+}
 
 }

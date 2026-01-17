@@ -28,6 +28,11 @@ Class PlaylistController extends Controller {
     public function view_playlist_page($username, $id_playlist) {
         $dati_playlist = $this->Playlist->get_dati_playlist($id_playlist);
 
+        if (!$dati_playlist) {
+
+            $this->abort(404, "Ci dispiace, la playlist #$id_playlist non esiste o e` stata cancellata.");
+        }
+
         $canzoni_playlist = $this->Playlist->get_canzoni_playlist($id_playlist);
 
         $dati_playlist["LISTA_CANZONI"] = CarouselHelper::carousel($canzoni_playlist, 'canzoneCard');
@@ -41,6 +46,13 @@ Class PlaylistController extends Controller {
         
         $this->Playlist->delete_playlist($id_playlist);
         $this->redirect("/profilo/". $username);
+    }
+
+        public function view_playlist_search($username, $id_playlist) {
+        $dati_playlist = $this->Playlist->get_dati_playlist($id_playlist);
+
+        $this->render('playlistSearchSong', $dati_playlist);
+        //capire gli errori 404 derivati dal db
     }
 
     /*

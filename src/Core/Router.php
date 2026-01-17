@@ -37,7 +37,7 @@ Class Router {
         }
 
         $err_controller = new ErrorController();
-        $err_controller->index(404, '404_notfound'); 
+        $err_controller->index(404, '404_notfound', "ti sei perso? la pagina che cerchi non esiste, controlla di aver scritto bene l'URL  :)"); 
     }
 
 }   

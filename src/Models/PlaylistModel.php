@@ -35,6 +35,24 @@ class PlaylistModel extends Model {
 
     }
 
+    public function add_song_to_playlist($playlistId, $songId) {
+        // Usa INSERT IGNORE se vuoi evitare errori su duplicati, 
+        // oppure gestisci l'eccezione nel controller
+        $sql = "INSERT INTO canzoni_playlist (playlist, canzone) VALUES (?, ?)";
+        try {
+            $this->query($sql, [$playlistId, $songId]);
+            return true;
+        } catch (\PDOException $e) {
+            // Errore 23000 = Duplicate entry (già presente)
+            return false;
+        }
+    }
+
+    public function is_playlist_owner($playlistId, $username) {
+        $sql = "SELECT 1 FROM playlist WHERE id_playlist = ? AND username = ?";
+        return (bool) $this->fetchOne($sql, [$playlistId, $username]);
+    }
+
 /*
 
     public function insert_canzone_in_playlist($id_playlist, $id_canzone) {

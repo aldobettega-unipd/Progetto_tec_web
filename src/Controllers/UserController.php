@@ -76,6 +76,10 @@ Class UserController extends Controller{
         $this->require_owner($username);
 
         $user = $this->User->find_user($username);
+        if (!$user) {
+
+            $this->abort(404, "Ci dispiace, l'utente #$username non esiste nel nostro database.");
+        }
         
 
         if(!$user['is_admin']) {

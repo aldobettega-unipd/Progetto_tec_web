@@ -1,6 +1,5 @@
 <?php
 namespace App\Core;
-use App\Controllers\ErrorController;
 
 
 
@@ -8,39 +7,88 @@ Class Router {
     
     private $routes = [];
 
-    public function add($uri, $controller, $method){
+    public function add($uri, $controller, $method, $middleware = []){
 
         $this->routes[$uri] = [
             'controller' => $controller,
-            'method' => $method
+            'method' => $method,
+            'middleware' => $middleware
         ];
     }
-
     public function dispatch($requestedUri){
-        $uri = parse_url($requestedUri, PHP_URL_PATH);
 
-        foreach($this->routes as $routePath => $routeData){
+    $uri = parse_url($requestedUri, PHP_URL_PATH);
+    
+    $matchedRoute = null;
+    $params = [];
 
-            $pattern = preg_replace('/\{[a-zA-Z0-9-_]+:num\}/', '([0-9]+)', $routePath);
-            $pattern = preg_replace('/\{[a-zA-Z0-9-_]+:alpha\}/', '([a-zA-Z-_]+)', $pattern);
-            $pattern = preg_replace('/\{[a-zA-Z0-9-_]+:alphanum\}/', '([a-zA-Z0-9-_]+)', $pattern);
-            $pattern = preg_replace('/\{[a-zA-Z0-9-_]+\}/', '([a-zA-Z0-9-_]+)', $pattern);
-            $pattern = '#^' . $pattern . '$#';
+    foreach($this->routes as $routePath => $routeData){
+        $pattern = preg_replace('/\{[a-zA-Z0-9-_]+:num\}/', '([0-9]+)', $routePath);
+        $pattern = preg_replace('/\{[a-zA-Z0-9-_]+:alpha\}/', '([a-zA-Z-_]+)', $pattern);
+        $pattern = preg_replace('/\{[a-zA-Z0-9-_]+:alphanum\}/', '([a-zA-Z0-9-_]+)', $pattern);
+        $pattern = preg_replace('/\{[a-zA-Z0-9-_]+\}/', '([a-zA-Z0-9-_]+)', $pattern);
+        $pattern = '#^' . $pattern . '$#';
 
-            if (preg_match($pattern, $uri, $matches)) {
-                array_shift($matches);
+        if (preg_match($pattern, $uri, $matches)) {
+            array_shift($matches); 
 
-                $controller = new $routeData['controller']();
-                call_user_func_array([$controller, $routeData['method']], $matches);
-                return;
-            }
+            $matchedRoute = $routeData;
+            $matchedRoute['pattern_originale'] = $routePath;
+            $params = $matches;
+            break; 
         }
-
-        $err_controller = new ErrorController();
-        $err_controller->index(404, '404_notfound', "ti sei perso? la pagina che cerchi non esiste, controlla di aver scritto bene l'URL  :)"); 
     }
 
-}   
+    if (!$matchedRoute) {
+        throw new \App\Exceptions\NotFoundException("Pagina non trovata");
+    }
+
+    $namedParams = $this->getNamedParams($matchedRoute['pattern_originale'], $params);
+
+    $this->handleMiddleware($matchedRoute['middleware'], $namedParams);
+    $controller = new $matchedRoute['controller']();
+    call_user_func_array([$controller, $matchedRoute['method']], $params);
+}
+
+
+private function getNamedParams($routePath, $matches) {
+    $namedParams = [];
+    if (!empty($matches)) {
+        preg_match_all('/\{([a-zA-Z0-9-_]+)(?::\w+)?\}/', $routePath, $paramKeys);
+        $keys = $paramKeys[1];
+        if (count($keys) === count($matches)) {
+            $namedParams = array_combine($keys, $matches);
+        }
+    }
+    return $namedParams;
+}
+
+private function handleMiddleware($middleware, $params) {
+    if (in_array('auth', $middleware)) {
+        if (!\App\Core\Auth::isLogged()) {
+            header('Location: /login');
+            exit;
+        }
+    }
+
+    if (in_array('owner', $middleware)) {
+        $currentUser = \App\Core\Auth::getUser()['username'] ?? null;
+        $urlUser = $params['username'] ?? null;
+
+        if ($urlUser && $currentUser !== $urlUser) {
+             throw new \App\Exceptions\ForbiddenException("Non hai i permessi.");
+        }
+    }
+
+    if (in_array('admin', $middleware)) {
+        $currentUser = \App\Core\Auth::getUser()['is_admin'] ?? null;
+
+        if (!$currentUser) {
+             throw new \App\Exceptions\ForbiddenException("Non hai i permessi da amministratore");
+        }
+    }
+}
+} 
 
 /** 
  * aggiungo le pagine su index.php con $controller->add(<url>, <controller>, <metodo> )

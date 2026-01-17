@@ -16,6 +16,7 @@ Class ArtistaController extends Controller {
 
     public function view_artista($slug) {
         $dati_artista = $this->Artista->get_dati_artista($slug);
+        
         if (!$dati_artista) {
 
             $this->abort(404, "Ci dispiace, l'Artista #$slug non esiste nel nostro database.");

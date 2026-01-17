@@ -55,8 +55,6 @@ set_exception_handler(function ($e) {
     exit;
 });
 
-
-try {
     $router = new Router();
 
 
@@ -75,24 +73,19 @@ try {
 
     $router->add('/search', CanzoneController::class, 'view_search');
 
-    $router->add('/profilo/{username:alphanum}', UserController::class, 'view_profile');
+    $router->add('/profilo/{username:alphanum}', UserController::class, 'view_profile', ['auth', 'owner']);
 
-    $router->add('/profilo/{username:alphanum}/playlist/new', PlaylistController::class, 'view_playlist_form');
-    $router->add('/profilo/{username:alphanum}/playlist/create', PlaylistController::class, 'create_playlist');
-    $router->add('/profilo/{username:alphanum}/playlist/{id_playlist:num}', PlaylistController::class, 'view_playlist_page');
-    $router->add('/profilo/{username:alphanum}/playlist/{id_playlist:num}/delete', PlaylistController::class, 'elimina_playlist');
-    $router->add('/profilo/{username:alphanum}/playlist/{id_playlist:num}/add', PlaylistController::class, 'view_playlist_search');
+    $router->add('/profilo/{username:alphanum}/playlist/new', PlaylistController::class, 'view_playlist_form', ['auth', 'owner']);
+    $router->add('/profilo/{username:alphanum}/playlist/create', PlaylistController::class, 'create_playlist', ['auth', 'owner']);
+    $router->add('/profilo/{username:alphanum}/playlist/{id_playlist:num}', PlaylistController::class, 'view_playlist_page', ['auth', 'owner']);
+    $router->add('/profilo/{username:alphanum}/playlist/{id_playlist:num}/delete', PlaylistController::class, 'elimina_playlist', ['auth', 'owner']);
+    $router->add('/profilo/{username:alphanum}/playlist/{id_playlist:num}/add', PlaylistController::class, 'view_playlist_search', ['auth', 'owner']);
 
     $router->add('/api/search/songs', ApiCanzoneController::class, 'search');
 
-    $router->add('/api/playlist/add-song', ApiPlaylistController::class, 'add_song');
+    $router->add('/api/playlist/add-song', ApiPlaylistController::class, 'add_song', ['auth', 'owner']);
     
 
     $router->dispatch($_SERVER['REQUEST_URI']);
-
-} catch (\Exception $e) {
-    $error = new ErrorController();
-    $error->index(500, $e->getMessage());
-}
 
 ?>

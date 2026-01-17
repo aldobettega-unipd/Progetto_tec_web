@@ -73,7 +73,6 @@ Class UserController extends Controller{
     }
 
     public function view_profile($username){
-        $this->require_owner($username);
 
         $user = $this->User->find_user($username);
         if (!$user) {

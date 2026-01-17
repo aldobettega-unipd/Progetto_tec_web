@@ -79,8 +79,7 @@ abstract class Controller {
     protected function require_owner($username){
         $this->require_login();
         if(!Auth::isOwner($username)){
-            $_SESSION['flash_error'] = "Non hai il permesso, esegui l'accesso!";
-            $this->redirect('/login');
+            $this->abort(403, "Accesso negato! Non hai il permesso di visitare questa pagina");
             exit;
         }
     }
@@ -97,7 +96,7 @@ abstract class Controller {
         }
     }
 
-    protected function abort($code = 404, $message = '') {
+    protected function abort($code = 404, $message = "") {
             switch ($code) {
                 case 404:
                     throw new NotFoundException($message);

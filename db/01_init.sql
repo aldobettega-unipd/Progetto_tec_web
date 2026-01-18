@@ -1,5 +1,11 @@
+CREATE DATABASE IF NOT EXISTS miosito;
+
+ALTER DATABASE miosito CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE miosito;
+
 CREATE TABLE utente (
-    username VARCHAR(20) PRIMARY KEY,
+    username VARCHAR(30) PRIMARY KEY,
     hash_password VARCHAR(255) NOT NULL,
     is_admin TINYINT(1) NOT NULL DEFAULT 0
 );
@@ -16,7 +22,7 @@ CREATE TABLE canzone (
     autore_canzone VARCHAR(50) NOT NULL,
     descrizione_canzone TEXT NOT NULL,
     testo_canzone TEXT NOT NULL,
-    slug_canzone VARCHAR(30) NOT NULL,
+    slug_canzone VARCHAR(50) NOT NULL,
     FOREIGN KEY (autore_canzone) REFERENCES artista(nome_artista) ON DELETE CASCADE
 );
 

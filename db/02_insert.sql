@@ -1,3 +1,5 @@
+SET NAMES 'utf8mb4';
+
 INSERT INTO 
     utente (username, hash_password, is_admin)
 VALUES  
@@ -38,15 +40,12 @@ VALUES
         "led_zeppelin"
     );
 
-INSERT INTO
-    canzone (titolo_canzone, autore_canzone, descrizione_canzone, testo_canzone, slug_canzone)
-VALUES
-    (
-        "Un diavolo in me",
-        "Zucchero",
-        "Uno dei brani più famosi di Zucchero, contenuto nell'album Blue's.",
-        "
-I've got a devil in [MI7]me  [LA7]     [MI7]    [LA7]    
+INSERT INTO canzone (titolo_canzone, autore_canzone, descrizione_canzone, testo_canzone, slug_canzone)
+VALUES (
+    "Un diavolo in me",
+    "Zucchero",
+    "Uno dei brani più famosi di Zucchero, contenuto nell'album Blue's.",
+    "I've got a devil in [MI7]me  [LA7]     [MI7]    [LA7]    
 
 [MI7]    [LA7]     [MI7]    [LA7]    
 [MI7]Gloria nell'[LA7]alto dei[MI7] cieli [LA7]    
@@ -56,7 +55,7 @@ I've got a devil in [MI7]me  [LA7]     [MI7]    [LA7]
 
 che accendi un [LA7]Diavolo in [MI7]me    [LA7]    
 [MI7]  accendi un [LA7]Diavolo in [MI7]me    [LA7]    
-[MI7]  perchè c’è un [LA7]Diavolo in [MI7]me    [LA7]baby 
+[MI7]  perché c'è un [LA7]Diavolo in [MI7]me    [LA7]baby 
 [MI7]  forse c'è un [LA7]Diavolo in [MI7]me!   [LA7]    
 
 [MI7]Le strade [LA7]delle si[MI7]gnore [LA7]    
@@ -66,7 +65,7 @@ che accendi un [LA7]Diavolo in [MI7]me    [LA7]
 
 accendi un [LA7]Diavolo in [MI7]me    [LA7]    
 [MI7]  accendi un [LA7]Diavolo in [MI7]me    [LA7]    
-[MI7]  perchè c’è un [LA7]Diavolo in [MI7]me    [LA7]baby 
+[MI7]  perché c'è un [LA7]Diavolo in [MI7]me    [LA7]baby 
 [MI7]  forse c'è un [LA7]Diavolo in [MI7]me!   [LA7]    
 
 [MI7]T-R, saluta i tuoi   [LA7]O-U, e bacia i miei 
@@ -81,7 +80,7 @@ accendi un [LA7]Diavolo in [MI7]me    [LA7]
 
 accendi un[LA7] Diavolo in[MI7] me   [LA7]    
 [MI7]  accendi un [LA7]Diavolo in [MI7]me    [LA7]    
-[MI7]  perchè c’è un [LA7]Diavolo in [MI7]me    [LA7]baby 
+[MI7]  perché c'è un [LA7]Diavolo in [MI7]me    [LA7]baby 
 [MI7]  forse c'è un [LA7]Diavolo in [MI7]me!   [LA7]    
 Bridge:
 MI   RE
@@ -98,14 +97,13 @@ MI   RE
 
 che accendi un [LA7]Diavolo in [MI7]me    [LA7]    
 [MI7]  accendi un [LA7]Diavolo in [MI7]me    [LA7]    
-[MI7]  perchè c’è un [LA7]Diavolo in [MI7]me    [LA7]baby 
+[MI7]  perché c'è un [LA7]Diavolo in [MI7]me    [LA7]baby 
 [MI7]  forse c'è un [LA7]Diavolo in [MI7]me!   [LA7]    
 Fine:
 MI   RE
-[MI]     [RE]   
-",
-        "un_diavolo_in_me"
-    ),
+[MI]     [RE]",
+    "un-diavolo-in-me"
+),
     (
         "Can't stop",
         "Red Hot Chili Peppers",

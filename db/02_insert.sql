@@ -45,7 +45,65 @@ VALUES
         "Un diavolo in me",
         "Zucchero",
         "Uno dei brani più famosi di Zucchero, contenuto nell'album Blue's.",
-        "... I've got a message for you From my heavenly father Everybody out there united for peace, love, joy, happiness Let it in your soul this morning, brothers and sisters Let him come on out, let him come on in Everybody knows he's there, come on and listen to me Come on brothers and sisters Sanctify, sanctify, sanctify your soul, sanctify, amen ... I've got the devil in me ... Gloria nell'alto dei cieli Ma non c'è pace quaggiù Non ho bisogno di veli Sei già un angelo tu Che accendi un diavolo in me Accendi un diavolo in me Perché c'è un divaolo in me Forse c'è un diavolo in me ... Ooh, your eyes hypnotize me You're lips took control You put your arms around me And you shook my soul Every night I thought about what could I do Baby I find myself in love with you, oh ... I've got the devil in me Perché c'è un diavolo in me, babe Forse c'è un diavolo in me ... Saluta i tuoi (O-U) E bacia i miei (B-L) Che sensazione (E) Yeah ... You take my love (O-U) Turn me around (B-L-E) Put my feet ... Dai che non siamo dei santi Oh what you're trying to do Le tentazioni del suolo What you're trying to put me through Sono cose piccanti Release me Belle da prendere al volo E accendi un diavolo in me I got the devil in me Perché c'è un diavolo in me, babe Everybody can see I've got the devil, go Loose here, loose here Oh Break that, break that spell ... You made me cry (B-L) (E) You told me a lie ... Gave me pain (B-L-E) From the very start I've got the devil in me ... Gloria nell'alto dei cieli Ma non c'è pace quaggiù (Help me somebody) È una questione di peli Sei proprio un angelo tu Che accendi un diavolo in me ... I've got the devil in me Perché c'è un diavolo in me, babe I've got the devil in me Accendi un diavolo in me I've got the devil, devil Accendi un diavolo in me Devil devil devil in me Perché c'è un diavolo in me Can you see, can you see? Forse c'è un diavolo in me Can you tell, can you tell? Let's go Release me Devil Set me free I've got, ooh, devil in me",
+        "
+I've got a devil in [MI7]me  [LA7]     [MI7]    [LA7]    
+
+[MI7]    [LA7]     [MI7]    [LA7]    
+[MI7]Gloria nell'[LA7]alto dei[MI7] cieli [LA7]    
+[MI7]  ma non c'è [LA7]pace quag[MI7]giù    [LA7]    
+[MI7]non ho bi[LA7]sogno di [MI7]veli   [LA7]    
+[MI7]  sei già un [LA7]angelo [MI7]tu  
+
+che accendi un [LA7]Diavolo in [MI7]me    [LA7]    
+[MI7]  accendi un [LA7]Diavolo in [MI7]me    [LA7]    
+[MI7]  perchè c’è un [LA7]Diavolo in [MI7]me    [LA7]baby 
+[MI7]  forse c'è un [LA7]Diavolo in [MI7]me!   [LA7]    
+
+[MI7]Le strade [LA7]delle si[MI7]gnore [LA7]    
+[MI7]  sono infi[LA7]nite lo [MI7]sai   [LA7]    
+[MI7]anch'io ti [LA7]sono nel [MI7]cuore [LA7]    
+[MI7]  e allora [LA7]cosa mi [MI7]fai 
+
+accendi un [LA7]Diavolo in [MI7]me    [LA7]    
+[MI7]  accendi un [LA7]Diavolo in [MI7]me    [LA7]    
+[MI7]  perchè c’è un [LA7]Diavolo in [MI7]me    [LA7]baby 
+[MI7]  forse c'è un [LA7]Diavolo in [MI7]me!   [LA7]    
+
+[MI7]T-R, saluta i tuoi   [LA7]O-U, e bacia i miei 
+[MI7]B-L, che sensazione   [LA7]E... 
+[MI7]T-R, spengo cicche   [LA7]O-U, tu accendi me 
+[MI7]B-L-E, che confusione,   [LA7]I've got the Devil in me! 
+
+[MI7]Dai che non [LA7]siamo dei [MI7]santi [LA7]    
+[MI7]  le tenta[LA7]zioni del [MI7]suolo [LA7]    
+[MI7]sono [LA7]cose pic[MI7]canti [LA7]    
+[MI7]  belle da [LA7]prendere al [MI7]volo  [LA7]    
+
+accendi un[LA7] Diavolo in[MI7] me   [LA7]    
+[MI7]  accendi un [LA7]Diavolo in [MI7]me    [LA7]    
+[MI7]  perchè c’è un [LA7]Diavolo in [MI7]me    [LA7]baby 
+[MI7]  forse c'è un [LA7]Diavolo in [MI7]me!   [LA7]    
+Bridge:
+MI   RE
+[MI]     [RE]   
+[MI7]T-R      [LA7]O-U 
+[MI7]B-L      [LA7]E... 
+[MI7]T-R      [LA7]O-U 
+[MI7]B-L-E    [LA7]I've got the Devil in me! 
+
+[MI7]Gloria nell'[LA7]alto dei[MI7] cieli [LA7]    
+[MI7]  ma non c'è [LA7]pace quag[MI7]giù    [LA7]    
+[MI7]è una ques[LA7]tione di [MI7]peli   [LA7]    
+[MI7]  sei già un [LA7]angelo [MI7]tu  
+
+che accendi un [LA7]Diavolo in [MI7]me    [LA7]    
+[MI7]  accendi un [LA7]Diavolo in [MI7]me    [LA7]    
+[MI7]  perchè c’è un [LA7]Diavolo in [MI7]me    [LA7]baby 
+[MI7]  forse c'è un [LA7]Diavolo in [MI7]me!   [LA7]    
+Fine:
+MI   RE
+[MI]     [RE]   
+",
         "un_diavolo_in_me"
     ),
     (
@@ -114,38 +172,36 @@ A-slittin' my throat, is all I ever",
         "Knockin' On Heaven's Door",
         "Guns N' Roses",
         "Uno dei brani più famosi dei Guns N' Roses, contenuto nell'album Use Your Illusion.",
-        "Mama take this badge from me
-I can't use it anymore
-It's getting dark too dark to see
-Feels like I'm knockin' on Heaven's door
-Knock-knock-knockin' on Heaven's door
-Knock-knock-knockin' on Heaven's door
-Knock-knock-knockin' on Heaven's door
-Knock-knock-knockin' on Heaven's door
-Mama put my guns in the ground
-I can't shoot them anymore
-That cold black cloud is comin' down
-Feels like I'm knockin' on Heaven's door
-Knock-knock-knockin' on Heaven's door
-Knock-knock-knockin' on Heaven's door
-Knock-knock-knockin' on Heaven's door
-Knock-knock-knockin' on Heaven's door
-You just better start sniffin' your own rank subjugation jack
-'Cause it's just you against your tattered libido
-The bank and the mortician, forever man
-And it wouldn't be luck if you could get out of life alive
-Knock-knock-knockin' on Heaven's door
-(Knock-knock-knockin' on Heaven's door)
-Knock-knock-knockin' on Heaven's door
-(Knock-knock-knockin' on Heaven's door)
-Knock-knock-knockin' on Heaven's door
-(Knock-knock-knockin' on Heaven's door)
-Knock-knock-knockin' on Heaven's door
-(Knock-knock-knockin' on Heaven's door)
-Knock-knock-knockin' on Heaven's door
-Knock-knock-knockin' on Heaven's door
-Knock-knock-knockin' on Heaven's door
-Knock-knock-knockin' on Heaven's door",
+        "
+[SOL]   Mamma [RE]take this badge off of [LAm]me  
+[SOL]   I can't [RE]use it any[DO]more 
+[SOL]   It's getting [RE]dark, too dark to [LAm]see 
+[SOL]   Feels like I'm [RE]knockin' on heaven's [DO]door. 
+
+[SOL]   Knock, knock, [RE]knockin' on heaven's [LAm]door 
+[SOL]   Knock, knock, [RE]knockin' on heaven's [DO]door 
+[SOL]   Knock, knock, [RE]knockin' on heaven's [LAm]door 
+[SOL]   Knock, knock, [RE]knockin' on heaven's [DO]door 
+
+[SOL]   Mamma [RE]wipe the blood from my [LAm]face 
+[SOL]   I'm sick and [RE]tired of the [DO]war 
+[SOL]   Got a [RE]feeling that's hard to [LAm]trace    
+[SOL]   I feel I'm [RE]knocking on heaven's [DO]door 
+
+[SOL]   Knock, knock, [RE]knockin' on heaven's [LAm]door 
+[SOL]   Knock, knock, [RE]knockin' on heaven's [DO]door 
+[SOL]   Knock, knock, [RE]knockin' on heaven's [LAm]door 
+[SOL]   Knock, knock, [RE]knockin' on heaven's [DO]door 
+
+[SOL]   Mama [RE]put my guns in the [LAm7]ground 
+[SOL]   I can't [RE]shoot them any[DO]more 
+[SOL]   That long black [RE]cloud is coming [LAm7]down 
+[SOL]   Feels like I'm [RE]knockin' on heaven's [DO]door. 
+
+[SOL]   Knock, knock, [RE]knockin' on heaven's [LAm]door 
+[SOL]   Knock, knock, [RE]knockin' on heaven's [DO]door 
+[SOL]   Knock, knock, [RE]knockin' on heaven's [LAm]door 
+[SOL]   Knock, knock, [RE]knockin' on heaven's [DO]door ",
 "knockin_on_heavens_door"
     ),
         (

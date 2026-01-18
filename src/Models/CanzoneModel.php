@@ -20,13 +20,18 @@ class CanzoneModel extends Model {
 
     public function cerca_canzoni($testo) {
 
-    $sql = "SELECT id_canzone, titolo_canzone, autore_canzone, slug_canzone 
-            FROM canzone 
-            WHERE titolo_canzone LIKE ? OR autore_canzone LIKE ? 
-            LIMIT 10"; // Limitiamo per performance
-            
-    $param = "%" . $testo . "%";
-    return $this->fetchAll($sql, [$param, $param]);
-}
+        $sql = "SELECT id_canzone, titolo_canzone, autore_canzone, slug_canzone 
+                FROM canzone 
+                WHERE titolo_canzone LIKE ? OR autore_canzone LIKE ? 
+                LIMIT 10"; // Limitiamo per performance
+                
+        $param = "%" . $testo . "%";
+        return $this->fetchAll($sql, [$param, $param]);
+    }
+
+    public function get_artista($canzone){
+        $sql = "SELECT a.* FROM artista a JOIN canzone c ON a.nome_artista = c.autore_canzone WHERE slug_canzone LIKE ?";
+        return $this->fetchOne($sql, [$canzone]);
+    }
 
 }

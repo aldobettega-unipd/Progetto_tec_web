@@ -1,12 +1,41 @@
-html,
-body {
-  background-color: #efffe9;
-  margin: 0px;
-  padding: 0px;
-  height: 100%;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+:root {
+  --bg-main: #efffe9;
+  --text-color: black;
+  --container-bg: #ffffff;
+  --accent-color: #1a1a1a;
+  --card-background: #f0f0f0;
+  --card-hover: rgba(0, 0, 0, 0.05);
+  --header-background: #72b986;
+  --footer-background: #72b986;
+}
+html.dark-mode {
+  --bg-main: #121212; /* Negro muy oscuro */
+  --text-color: #e0e0e0; /* Gris claro para que no canse la vista */
+  --container-bg: #c2c2c2; /* Gris oscuro para capas */
+  --accent-color: #bb86fc; /* Un color suave para accesibilidad */
+  --card-background: #121212;
+  --card-hover: rgba(149, 143, 143, 0.36);
+  --header-background: #6f6d76;
+  --footer-background: #6f6d76;
 }
 
+html,
+body {
+  background-color: var(--bg-main);
+  color: var(--text-color);
+  transition:
+    background-color 0.3s,
+    color 0.3s; /* Transición suave */
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  min-height: 100vh;
+}
+
+.container {
+  margin-bottom: auto;
+  min-height: 70vh;
+}
 /*########################################################
 
   HEADER
@@ -16,7 +45,7 @@ body {
 .header {
   font-family: "Helvetica Neue", Arial, sans-serif;
   display: flex;
-  background-color: #72b986;
+  background-color: var(--header-background);
   border-radius: 10px;
   padding: 1em;
   align-items: center;
@@ -24,32 +53,45 @@ body {
   margin-top: 1%;
   width: 70%;
 }
-.header a {
-  color: #000000;
+.header .logo {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  font-weight: 500;
+  color: var(--text-color);
+  font-weight: 700; /* O el peso que prefieras */
+}
+.header .menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em; /* Espacio entre los enlaces */
 }
 
-.header a:visited {
-  color: #000000;
+.header a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5em 1em;
+  transition: color 0.3s;
 }
-.active {
-  font-weight: 700;
+.header .nav-links a.active {
+  font-weight: 700; /* Enlace activo en negrita */
 }
 .header a:hover {
-  color: #000000;
+  color: var(--accent-color);
   text-decoration: underline;
 }
 .header > :first-child {
   margin-right: auto;
-  cursor: pointer;
 }
 
-.header > :not(:first-child) {
+#dark-mode-toggle {
+  border-radius: 50%;
+  border-width: 0cm;
   margin-right: 1em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
   cursor: pointer;
 }
-
 
 /**************************************************
 
@@ -57,68 +99,52 @@ CANZONE PAGE
 
 **************************************************/
 
-#img_title_artist{
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
-    margin-left: 15%;
-    margin-top: 3em;
-    margin-bottom: 3em;
+#img_title_artist {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  margin-left: 15%;
+  margin-top: 3em;
+  margin-bottom: 3em;
 }
 
-#songImage{
-    width: 20%;
-    flex-shrink: 0;
+#songImage {
+  width: 20%;
+  flex-shrink: 0;
 }
 
-#info_section{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-
-#songTitle{
-    font-size: 3em;
-    margin: 0;
-}
-
-#artistName{
-    font-size: 1.5em;
-    margin: 0;
-}
-
-#addToPlaylist, #addToLiked{
-    align-self: flex-start;
-}
-
-#descr_text{
-    margin-left: 15%;
-    margin-right: 15%;
-}
-
-#lyrics {
-    margin-top: 30px;
-    line-height: 1.7;
-    white-space: pre-line;
-}
-
-
-/*###################################
- PER IL LAYOUT
- ####################################*/
-
-.pagecontent {
+#info_section {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  gap: 1em;
+}
+
+#songTitle {
+  font-size: 3em;
   margin: 0;
 }
 
-.maincontent {
-  flex: 1;
+#artistName {
+  font-size: 1.5em;
+  margin: 0;
 }
 
+#addToPlaylist,
+#addToLiked {
+  align-self: flex-start;
+}
+
+#descr_text {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+#lyrics {
+  margin-top: 30px;
+  line-height: 1.7;
+  white-space: pre-line;
+}
 
 /* 
 
@@ -130,19 +156,44 @@ ESPLORA PAGE (ALCUNI ELEMENTI ANCHE USATI NEL HOME)
 
 */
 
-.caption {
+#ricerca {
   justify-items: center;
 }
 
-.barraricerca {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  margin-top: 3em;
+#barraricerca {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 2px;
-  margin-top: 2%;
+  background-color: var(--container-bg);
+  border-radius: 50px;
+  padding: 5px;
+  width: fit-content;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+.search-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  width: 300px;
+  color: #333;
+  font-family: inherit;
+}
+
+.submit-imput {
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: inherit;
+  transition: background 0.3s ease;
+}
+
 #barracanzone {
   font-family: "Helvetica Neue", Arial, sans-serif;
   width: 65%;
@@ -220,13 +271,13 @@ ESPLORA PAGE (ALCUNI ELEMENTI ANCHE USATI NEL HOME)
 CAROUSELES E ARTISTI E CANZONI CARDS (USATO ANCHE NEL HOME)
 ############################################
 */
-.carousel-wrapper {
+.carosello-artisti {
   position: relative;
   width: 90%;
   margin: auto;
   overflow: hidden;
 }
-.scroller {
+.carosello-container {
   display: flex;
 
   overflow-x: auto;
@@ -262,7 +313,10 @@ CAROUSELES E ARTISTI E CANZONI CARDS (USATO ANCHE NEL HOME)
   justify-content: center;
 
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.2s, background-color 0.2s;
+  transition:
+    opacity 0.3s ease,
+    transform 0.2s,
+    background-color 0.2s;
 }
 
 #carrbuttonl {
@@ -279,7 +333,7 @@ CAROUSELES E ARTISTI E CANZONI CARDS (USATO ANCHE NEL HOME)
   display: block;
 }
 
-.carousel-wrapper:hover .carrbutton {
+.carosello-artisti:hover .carrbutton {
   opacity: 1;
 }
 
@@ -288,7 +342,7 @@ CAROUSELES E ARTISTI E CANZONI CARDS (USATO ANCHE NEL HOME)
   background-color: #f0f0f0;
 }
 
-.spotify-card {
+.card {
   flex: 0 0 auto;
 
   width: 10em;
@@ -297,7 +351,7 @@ CAROUSELES E ARTISTI E CANZONI CARDS (USATO ANCHE NEL HOME)
   display: flex;
   flex-direction: column;
   padding: 1.5em;
-  background-color: #efffe9;
+  background-color: --card-background;
   border-radius: 1em;
   transition: background-color 0.3s ease;
   cursor: pointer;
@@ -308,8 +362,8 @@ CAROUSELES E ARTISTI E CANZONI CARDS (USATO ANCHE NEL HOME)
 .card-text {
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
-.spotify-card:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+.card:hover {
+  background-color: var(--card-hover);
 }
 
 .canzone-image {
@@ -356,6 +410,9 @@ CAROUSELES E ARTISTI E CANZONI CARDS (USATO ANCHE NEL HOME)
   width: 20em;
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-width: 0.5em;
+  border-style: solid;
+  border-color: white;
 }
 
 .separator {
@@ -372,7 +429,10 @@ CAROUSELES E ARTISTI E CANZONI CARDS (USATO ANCHE NEL HOME)
 }
 
 .footer {
-  background-color: #72b986;
+  margin-top: auto;
+  background-color: var(--footer-background);
+  min-height: 10em;
+  width: 100%;
 }
 
 *:focus-visible {
@@ -452,4 +512,3 @@ LOGIN E REGISTRA FORM
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
   border: 1px solid #d1e7d3;
 }
-

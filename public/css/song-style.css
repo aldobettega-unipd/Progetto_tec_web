@@ -1,64 +1,152 @@
+:root {
+  --bg-main: #efffe9;
+  --text-color: black;
+  --container-bg: #ffffff;
+  --accent-color: #1a1a1a;
+  --card-background: #f0f0f0;
+  --card-hover: rgba(0, 0, 0, 0.05);
+  --header-background: #72b986;
+  --footer-background: #72b986;
+}
+html.dark-mode {
+  --bg-main: #121212; /* Negro muy oscuro */
+  --text-color: #e0e0e0; /* Gris claro para que no canse la vista */
+  --container-bg: #c2c2c2; /* Gris oscuro para capas */
+  --accent-color: #bb86fc; /* Un color suave para accesibilidad */
+  --card-background: #121212;
+  --card-hover: rgba(149, 143, 143, 0.36);
+  --header-background: #6f6d76;
+  --footer-background: #6f6d76;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-main);
+  color: var(--text-color);
+  transition:
+    background-color 0.3s,
+    color 0.3s; /* Transición suave */
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  min-height: 100vh;
+}
+
+.container {
+  margin-bottom: auto;
+  min-height: 70vh;
+}
+/*########################################################
+
+  HEADER
+
+#######################################################*/
+
+.header {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  background-color: var(--header-background);
+  border-radius: 10px;
+  padding: 1em;
+  align-items: center;
+  margin: auto;
+  margin-top: 1%;
+  width: 70%;
+}
+.header a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.header a:visited {
+  color: var(--text-color);
+}
+.active {
+  font-weight: 700;
+}
+.header a:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+.header > :first-child {
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.header > :not(:first-child) {
+  margin-right: 1em;
+  cursor: pointer;
+}
+
+.footer {
+  flex: 1;
+  background-color: var(--footer-background);
+}
+
 /* --- CONTENITORE PRINCIPALE --- */
 .song-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 18px; /* Dimensione base leggibile */
-    line-height: 1.5;
-    background-color: #fff;
-    color: #333;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px; /* Dimensione base leggibile */
+  line-height: 1.5;
+  background-color: #fff;
+  color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 /* --- RIGA DELLA CANZONE --- */
 .song-line {
-    display: flex;
-    flex-wrap: wrap; /* Fondamentale: va a capo se la riga è lunga (mobile friendly) */
-    align-items: flex-end; /* Allinea tutto in basso (linea del testo) */
-    margin-bottom: 1.5rem; /* Spazio tra le righe della canzone */
-    min-height: 3rem; /* Altezza minima per non far collassare le righe vuote */
+  display: flex;
+  flex-wrap: wrap; /* Fondamentale: va a capo se la riga è lunga (mobile friendly) */
+  align-items: flex-end; /* Allinea tutto in basso (linea del testo) */
+  margin-bottom: 1.5rem; /* Spazio tra le righe della canzone */
+  min-height: 3rem; /* Altezza minima per non far collassare le righe vuote */
 }
 
 .song-line.empty-line {
-    margin-bottom: 0.5rem;
-    min-height: 1rem;
+  margin-bottom: 0.5rem;
+  min-height: 1rem;
 }
 
 /* --- GRUPPO ATOMICO (Accordo + Sillaba) --- */
 .chord-group {
-    display: flex;
-    flex-direction: column; /* Impila verticale: Accordo su, Testo giù */
-    align-items: flex-start; /* Allinea a sinistra */
-    margin-right: 0; /* Lo spazio è gestito dai caratteri spazio nel testo */
+  display: flex;
+  flex-direction: column; /* Impila verticale: Accordo su, Testo giù */
+  align-items: flex-start; /* Allinea a sinistra */
+  margin-right: 0; /* Lo spazio è gestito dai caratteri spazio nel testo */
 }
 
 /* --- L'ACCORDO --- */
 .chord {
-    font-family: 'Courier New', monospace; /* Monospace per chiarezza simboli */
-    font-weight: 700;
-    color: #e74c3c; /* Rosso acceso */
-    font-size: 0.85em;
-    margin-bottom: 2px; /* Un po' di aria tra accordo e testo */
-    cursor: pointer; /* Opzionale: se in futuro vuoi cliccarci per sentire il suono */
-    user-select: none; /* Evita che venga selezionato copiando il testo */
+  font-family: "Courier New", monospace; /* Monospace per chiarezza simboli */
+  font-weight: 700;
+  color: #e74c3c; /* Rosso acceso */
+  font-size: 0.85em;
+  margin-bottom: 2px; /* Un po' di aria tra accordo e testo */
+  cursor: pointer; /* Opzionale: se in futuro vuoi cliccarci per sentire il suono */
+  user-select: none; /* Evita che venga selezionato copiando il testo */
 }
 
 .chord.spacer {
-    height: 1em; /* Occupa spazio verticale anche se vuoto */
+  height: 1em; /* Occupa spazio verticale anche se vuoto */
 }
 
 /* --- IL TESTO (LYRIC) --- */
 .lyric {
-    white-space: pre; /* FONDAMENTALE: Rispetta gli spazi vuoti tra le parole! */
-    color: #2c3e50;
+  white-space: pre; /* FONDAMENTALE: Rispetta gli spazi vuoti tra le parole! */
+  color: #2c3e50;
 }
 
 /* --- MODALITÀ LETTURA (Nascondi Accordi) --- */
 /* Questa classe viene aggiunta via JS al container padre */
 .song-body.hide-chords .chord {
-    display: none; /* Rimuove visivamente e per screen reader */
+  display: none; /* Rimuove visivamente e per screen reader */
 }
 
 .song-body.hide-chords .song-line {
-    margin-bottom: 0.5rem; /* Riduce lo spazio tra le righe quando è solo testo */
+  margin-bottom: 0.5rem; /* Riduce lo spazio tra le righe quando è solo testo */
 }

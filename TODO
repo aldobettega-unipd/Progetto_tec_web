@@ -5,3 +5,8 @@ Funzionalità da implementare:
 - modificare foto utente
 - breadcrumb
 
+aggiungi canzone a playlist 
+
+per le classi css:
+naming convention BEM -> per le classi: .blocco__elemento--modificatore
+formato kebab-casing (minuscolo con trattini)  es: .btn-primary

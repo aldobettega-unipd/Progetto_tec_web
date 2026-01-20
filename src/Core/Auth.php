@@ -24,11 +24,9 @@ class Auth {
     public static function getMenuLinks() {
         if (self::isLogged()) {
             $user = self::getUser();
-            return '<li><a href="/profilo/' . $user['username'] . '">Profilo ' . $user['username'] . '</a></li>
-                    <li><a href="/logout">Logout</a></li>';
+            return '<li><a class="btn-login" href="/profilo/' . $user['username'] . '">Profilo ' . $user['username'] . '</a></li>';
         } else {
-            return '<li><a href="/login">Login</a></li>
-                    <li><a href="/register">Registrati</a></li>';
+            return '<li><a class="btn-login" href="/login">Login</a></li>';
         }
     }
 

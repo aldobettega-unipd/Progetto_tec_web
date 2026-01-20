@@ -1,455 +1,327 @@
-html,
+/* =========================================
+   1. VARIABILI & PALETTE "GUITAR WARMTH"
+   ========================================= */
+:root {
+    /* --- COLORI (Warm Acoustic Guitar Theme - Light) --- */
+    /* Mogano Chiaro (Header/Footer) */
+    --wood-dark: #5C4033;  
+    /* Oro/Rame Caldo (Accent & Bottoni) */
+    --wood-accent: #E8A76F; 
+    /* Beige Luminoso (Sfondo Pagina) */
+    --wood-light: #FBF8F3; 
+    /* Bianco Puro (Card) */
+    --paper: #FFFFFF;
+    
+    /* --- TESTI --- */
+    --text-main: #4A3728;    /* Marrone caloroso */
+    --text-muted: #A89080;   /* Beige grigio */
+    --text-on-dark: #FBF8F3; /* Bianco luminoso */
+
+    /* --- LAYOUT & UI --- */
+    --radius: 12px;          /* Angoli arrotondati (stile App giovane) */
+    --shadow: 0 4px 12px rgba(45, 27, 21, 0.08);
+    --container-width: 1200px;
+    
+    /* Touch Target per Mobile (Minimo 44px) */
+    --touch-height: 48px;
+    
+    /* --- FOOTER --- */
+    --footer-bg: #4A3728;
+    --footer-accent: #E8A76F;
+}
+
+/* =========================================
+   2. RESET & BASE (Desktop Default)
+   ========================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-  background-color: #efffe9;
-  margin: 0px;
-  padding: 0px;
-  height: 100%;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-}
-
-/*########################################################
-
-  HEADER
-
-#######################################################*/
-
-.header {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  display: flex;
-  background-color: #72b986;
-  border-radius: 10px;
-  padding: 1em;
-  align-items: center;
-  margin: auto;
-  margin-top: 1%;
-  width: 70%;
-}
-.header a {
-  color: #000000;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.header a:visited {
-  color: #000000;
-}
-.active {
-  font-weight: 700;
-}
-.header a:hover {
-  color: #000000;
-  text-decoration: underline;
-}
-.header > :first-child {
-  margin-right: auto;
-  cursor: pointer;
-}
-
-.header > :not(:first-child) {
-  margin-right: 1em;
-  cursor: pointer;
-}
-
-
-/**************************************************
-
-CANZONE PAGE
-
-**************************************************/
-
-#img_title_artist{
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--wood-light);
+    color: var(--text-main);
+    line-height: 1.6;
     display: flex;
-    gap: 30px;
-    align-items: flex-start;
-    margin-left: 15%;
-    margin-top: 3em;
-    margin-bottom: 3em;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-#songImage{
-    width: 20%;
+a { text-decoration: none; color: inherit; transition: 0.2s ease; }
+ul { list-style: none; }
+img { max-width: 100%; height: auto; }
+
+/* =========================================
+   3. HEADER (Desktop First)
+   ========================================= */
+header {
+    background-color: var(--wood-dark);
+    color: var(--text-on-dark);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+/* Logo */
+.logo a {
+    font-weight: 800;
+    font-size: 2.8rem;
+    color: var(--wood-accent);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
     flex-shrink: 0;
 }
 
-#info_section{
-    flex: 1;
+.logo img {
+    width: 322px;
+    height: 32px;
+    object-fit: contain;
+}
+
+/* Menu Desktop */
+.menu {
     display: flex;
-    flex-direction: column;
-    gap: 1em;
+    align-items: center;
+    gap: 0.8rem;
+    width: auto;
+    flex-wrap: nowrap;
 }
 
-#songTitle{
-    font-size: 3em;
-    margin: 0;
+.menu li {
+    flex: 0 0 auto;
 }
 
-#artistName{
-    font-size: 1.5em;
-    margin: 0;
+/* Link Menu */
+.menu a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 1.2rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
 }
 
-#addToPlaylist, #addToLiked{
-    align-self: flex-start;
+.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    transform: translateY(-1px);
 }
 
-#descr_text{
-    margin-left: 15%;
-    margin-right: 15%;
+.menu a:active {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(0.98);
 }
 
-#lyrics {
-    margin-top: 30px;
-    line-height: 1.7;
-    white-space: pre-line;
+/* Bottone Login */
+.btn-login {
+    background-color: var(--wood-accent) !important;
+    color: #fff !important;
+    height: 40px !important;
+    padding: 0 1.5rem !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    box-shadow: 0 3px 8px rgba(232, 167, 111, 0.3);
+    transition: all 0.3s ease;
 }
 
-
-/*###################################
- PER IL LAYOUT
- ####################################*/
-
-.pagecontent {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
+.btn-login:hover {
+    background-color: #D99660 !important;
+    box-shadow: 0 4px 12px rgba(232, 167, 111, 0.4);
+    transform: translateY(-2px);
 }
 
-.maincontent {
-  flex: 1;
+.btn-login:active {
+    transform: translateY(0px);
+    box-shadow: 0 2px 4px rgba(232, 167, 111, 0.2);
 }
 
-
-/* 
-
-###############################################
-
-ESPLORA PAGE (ALCUNI ELEMENTI ANCHE USATI NEL HOME)
-
-###############################################
-
-*/
-
-.caption {
-  justify-items: center;
+/* Bottone Accent */
+.btn-accent {
+    background-color: var(--wood-accent) !important;
+    color: #fff !important;
+    height: 40px !important;
+    padding: 0 1.5rem !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    box-shadow: 0 3px 8px rgba(232, 167, 111, 0.3);
+    transition: all 0.3s ease;
 }
 
-.barraricerca {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  margin-top: 3em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2px;
-  margin-top: 2%;
-}
-#barracanzone {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  width: 65%;
-}
-#cercacanzone {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  cursor: pointer;
+.btn-accent:hover {
+    background-color: #D99660 !important;
+    box-shadow: 0 4px 12px rgba(232, 167, 111, 0.4);
+    transform: translateY(-2px);
 }
 
-#headerfamosi {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-}
-#headersuonante {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.btn-accent:active {
+    transform: translateY(0px);
+    box-shadow: 0 2px 4px rgba(232, 167, 111, 0.2);
 }
 
-#headerfamosi > h2 {
-  font-weight: 700;
-  align-items: end;
-  justify-content: end;
-  margin-right: 2em;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+/* =========================================
+   4. BREADCRUMB
+   ========================================= */
+.breadcrumb-bar {
+    background-color: rgba(45, 27, 21, 0.05);
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    white-space: nowrap;      /* Non andare a capo */
+    overflow-x: auto;         /* Se è lungo, scorri orizzontalmente col dito */
+    -webkit-overflow-scrolling: touch;
 }
 
-#headersuonante > h2 {
-  font-weight: 700;
-  margin-left: 2em;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+/* =========================================
+   5. FOOTER (Navigazione Adattiva + Copyright)
+   ========================================= */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--text-on-dark);
+    margin-top: auto;  /* Spinge il footer in fondo */
+    padding: 2rem 1rem 1rem;
+    border-top: 3px solid var(--footer-accent);
 }
 
-#potrebbepiacerti h2 {
-  font-weight: 700;
-  margin-left: 2em;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+.footer-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
 }
 
-#potrebbepiacerti p {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  font-weight: 700;
-  padding-bottom: 2em;
-  font-size: xx-large;
+.footer-section {
+    margin-bottom: 1.5rem;
 }
 
-#headersuonante button {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: small;
-  margin-right: 6em;
+/* Link nel Footer */
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
 }
 
-#headersuonante button:hover {
-  text-decoration: underline;
+.footer-links a {
+    font-size: 0.9rem;
+    color: var(--text-on-dark);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.3s ease;
+    opacity: 0.85;
 }
 
-#headerfamosi button {
-  cursor: pointer;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-weight: 500;
-  font-size: small;
-  margin-left: 6em;
-}
-#headerfamosi button:hover {
-  text-decoration: underline;
-}
-/*
-############################################
-CAROUSELES E ARTISTI E CANZONI CARDS (USATO ANCHE NEL HOME)
-############################################
-*/
-.carousel-wrapper {
-  position: relative;
-  width: 90%;
-  margin: auto;
-  overflow: hidden;
-}
-.scroller {
-  display: flex;
-
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 1em 0.5em;
-
-  /* Ocultar la barra de scroll nativa fea */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-}
-.scroller::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+.footer-links a:hover {
+    color: var(--footer-accent);
+    opacity: 1;
+    transform: translateY(-2px);
 }
 
-.carrbutton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-
-  background-color: white;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-
-  width: 3.2em;
-  height: 3.2em;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.2s, background-color 0.2s;
+/* Bottom Footer */
+.footer-bottom {
+    border-top: 1px solid rgba(232, 167, 111, 0.3);
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    opacity: 0.8;
 }
 
-#carrbuttonl {
-  left: 3em;
+.footer-bottom p {
+    margin: 0.3rem 0;
 }
 
-#carrbuttonr {
-  right: 3em;
+/* Responsive Footer */
+@media (min-width: 768px) {
+    footer {
+        padding: 2rem 1rem 1.5rem;
+    }
+    
+    .footer-links {
+        gap: 1.5rem;
+    }
 }
 
-.carrbutton img {
-  width: 1.5em;
-  height: auto;
-  display: block;
+/* =========================================
+   MEDIA QUERY - MOBILE (max-width: 768px)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Header Mobile */
+    header {
+        padding: 0.65rem 1rem;
+    }
+
+    header nav {
+        gap: 0.8rem;
+    }
+
+    .logo a {
+        font-size: 1rem;
+        gap: 0.25rem;
+    }
+
+    .logo img {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Menu Mobile */
+    .menu {
+        gap: 0.3rem;
+    }
+
+    .menu a {
+        height: 36px;
+        padding: 0 0.8rem;
+        font-size: 0.85rem;
+        border-radius: 5px;
+    }
+
+    .btn-login,
+    .btn-accent {
+        height: 36px !important;
+        padding: 0 0.9rem !important;
+        font-size: 0.85rem;
+    }
+
+    /* Breadcrumb Mobile */
+    .breadcrumb-bar {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    /* Footer Mobile */
+    footer {
+        padding: 1.5rem 1rem 1rem;
+    }
+
+    .footer-links {
+        gap: 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .footer-bottom {
+        font-size: 0.8rem;
+    }
 }
 
-.carousel-wrapper:hover .carrbutton {
-  opacity: 1;
-}
-
-.carrbutton:active {
-  transform: translateY(-50%) scale(0.9); /* Mantiene el centrado vertical al pulsar */
-  background-color: #f0f0f0;
-}
-
-.spotify-card {
-  flex: 0 0 auto;
-
-  width: 10em;
-  min-width: 180px;
-
-  display: flex;
-  flex-direction: column;
-  padding: 1.5em;
-  background-color: #efffe9;
-  border-radius: 1em;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-  margin-right: 0.8em;
-  margin-left: 0.8em;
-}
-
-.card-text {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-}
-.spotify-card:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.canzone-image {
-  width: 100%;
-  height: 11em;
-  aspect-ratio: 1/1;
-  border-radius: 5%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-.artist-image {
-  width: 100%;
-  height: 11em;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.card-text {
-  text-align: left;
-}
-.song-title {
-  margin-bottom: 0em;
-}
-.artist-name {
-  opacity: 0.78;
-  margin-top: 0.2em;
-}
-
-.image-canzonepage {
-  margin-left: 3em;
-  margin-top: 3em;
-
-  height: 20em;
-  width: 20em;
-  border-radius: 5%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.image-artistpage {
-  margin-left: 3em;
-  margin-top: 3em;
-
-  height: 20em;
-  width: 20em;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.separator {
-  width: 100%;
-  height: 2px;
-  background: #000;
-}
-
-#logo {
-  width: 5em;
-  height: 5em;
-  border-radius: 1em;
-  cursor: pointer;
-}
-
-.footer {
-  background-color: #72b986;
-}
-
-*:focus-visible {
-  outline: 3px solid red;
-}
-
-dialog {
-  border: none;
-  background: transparent;
-  padding: 0;
-  max-width: 100%;
-  max-height: 100%;
-}
-
-dialog[open] {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  background-color: transparent;
-}
-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
-}
-
-.modal-content {
-  background-color: #efffe9;
-  padding: 20px;
-  border-radius: 15px;
-  width: 75em;
-  max-height: 70vh;
-  overflow-y: auto;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  position: relative;
-}
-.modal-body {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.modal h2 {
-  font-weight: 700;
-  margin-left: 2em;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-}
-
-.cercato {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 3em;
-}
-
-#risultatih2 {
-  font-weight: 700;
-  margin-left: 2em;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-}
-
-/*##########################################################
-
-LOGIN E REGISTRA FORM
-
-#############################################################*/
-
-.login-form {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 3em;
-  margin-bottom: 3em;
-  width: 90%;
-  max-width: 350px;
-  background-color: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
-  border: 1px solid #d1e7d3;
-}
-
+/* =========================================
+   5. MAIN CONTENT (Mobile: Colonna Unica)

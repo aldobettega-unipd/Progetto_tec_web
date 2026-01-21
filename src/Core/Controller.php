@@ -2,6 +2,7 @@
 namespace App\Core;
 use App\Core\Template;
 use App\Core\Auth;
+use App\Core\Breadcrumb;
 use App\Controllers\ErrorController;
 use App\Exceptions\NotFoundException;
 use App\Exceptions\ForbiddenException;
@@ -25,7 +26,8 @@ abstract class Controller {
 
             if($layout){
                 $layout_data = [
-                'PULSANTI_UTENTE' => Auth::getMenuLinks() 
+                'PULSANTI_UTENTE' => Auth::getMenuLinks(),
+                'BREADCRUMB' => Breadcrumb::build()
                 ];
 
                 $layout_file = new Template("layouts/{$layout}");

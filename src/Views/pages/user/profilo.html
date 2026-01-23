@@ -1,28 +1,65 @@
-<link rel="stylesheet" href="/css/style.css" />
-<section class="dati-profilo">
-  <h2>Informazioni Personali</h2>
-  <img
-    src="img/##username##.jpeg"
-    alt="Foto profilo ##username##"
-    width="120"
-    height="180"
-  />
-  <dl>
-    <dt>Username:</dt>
-    <dd>##username##</dd>
-  </dl>
-</section>
-<hr />
+<div class="profilo-container">
+  <aside class="dati-profilo">
+    <h2 id="personalInfo">##username##</h2>
+    <img
+      src="/img/##username##.jpeg"
+      alt="Foto profilo ##username##"
+    />
+    
+    <nav class="profilo-menu">
+      <button class="menu-btn active" data-section="playlist">
+        <span>📋</span> Playlist
+      </button>
+      <button class="menu-btn" data-section="mi-piace">
+        <span>❤️</span> Mi Piace
+      </button>
+      <button class="menu-btn" data-section="recenti">
+        <span>🕐</span> Recenti
+      </button>
+      <button class="menu-btn" data-section="modifica-profilo">
+        <span>⚙️</span> Modifica profilo
+      </button>
+    </nav>
+  </aside>
 
-<section class="sezione-lista" id="le-tue-playlist">
-  <h2>Le tue playlist</h2>
-  <div class="bottone" id="crea-playlist">
-    <a href="/profilo/##username##/playlist/new"
-      ><button>Crea playlist</button></a
-    >
-  </div>
-  ##LISTA_PLAYLIST##
-</section>
-<hr />
+  <main class="profilo-content">
+    <section class="sezione-lista active" id="le-tue-playlist" data-content="playlist">
+      <div class="section-header">
+        <h2>Le tue playlist</h2>
+        <a href="/profilo/##username##/playlist/new">
+          <button class="btn-crea">+ Crea playlist</button>
+        </a>
+      </div>
+      <div class="content-grid">
+        ##LISTA_PLAYLIST##
+      </div>
+    </section>
 
-<section class="sezione-lista" id="canzoni-recenti"></section>
+    <section class="sezione-lista" id="canzoni-mi-piace" data-content="mi-piace">
+      <div class="section-header">
+        <h2>Canzoni con "Mi Piace"</h2>
+      </div>
+      <div class="content-grid">
+        ##LISTA_MIPIACE##
+      </div>
+    </section>
+
+    <section class="sezione-lista" id="canzoni-recenti" data-content="recenti">
+      <div class="section-header">
+        <h2>Canzoni recenti</h2>
+      </div>
+      <div class="content-grid">
+        ##LISTA_RECENTI##
+      </div>
+    </section>
+
+    <section class="sezione-lista" id="modifica-profilo" data-content="modifica-profilo">
+      <div class="section-header">
+        <h2>Modifica profilo</h2>
+      </div>
+      <div class="content-grid">
+        ##LISTA_RECENTI##
+      </div>
+    </section>
+  </main>
+</div>

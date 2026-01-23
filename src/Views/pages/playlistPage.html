@@ -1,28 +1,10 @@
-<link rel="stylesheet" href="/css/style.css" />
-<section class="dati-profilo">
-  <h2>Informazioni Personali</h2>
-  <img
-    src="img/##username##.jpeg"
-    alt="Foto profilo ##username##"
-    width="120"
-    height="180"
-  />
-  <dl>
-    <dt>Username:</dt>
-    <dd>##username##</dd>
-  </dl>
-</section>
-<hr />
-
-<section class="sezione-lista" id="le-tue-playlist">
-  <h2>Le tue playlist</h2>
-  <div class="bottone" id="crea-playlist">
-    <a href="/profilo/##username##/playlist/new"
-      ><button>Crea playlist</button></a
-    >
+<!-- Non so bene cosa si volebva mettere qui ma sinceramente quello che c'era non aveva molto senso e l'ho tolto, ho messo robe un po a caso feel free to cambiare tutto-->
+<section class="listaCanzoniInPlaylist">
+  <div class="section-header">
+    <h2>##NOME_PLAYLIST##</h2>
+    <p>##DESCRIZIONE_PLAYLIST##</p>
   </div>
-  ##LISTA_PLAYLIST##
+  <div class="content-grid">
+    ##LISTA_CANZONI##
+  </div>
 </section>
-<hr />
-
-<section class="sezione-lista" id="canzoni-recenti"></section>

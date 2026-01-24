@@ -1,29 +1,42 @@
 <section id="ricerca">
-    <h1>Cerca la canzone e inizia a suonare</h1>
-    <p id="descr">Puoi cercare tra migliaia di canzoni e autori da tutto il mondo</p>
-    <div id="barraricerca">
-        <form action="index.php?action=cerca" method="POST">
-            <input type="text" name="ricerca">
-            <input type="submit" value="Cerca">
-        </form>
-    </div>
+  <h1>Cerca la canzone e inizia a suonare</h1>
+  <p id="descr">
+    Puoi cercare tra migliaia di canzoni e autori da tutto il mondo
+  </p>
+  <div id="barraricerca">
+    <form action="index.php?action=cerca" method="POST">
+      <input type="text" name="ricerca" />
+      <input type="submit" value="Cerca" />
+    </form>
+  </div>
 </section>
 
 <section class="carosello-group">
-    <div class="carosello-wrapper">
-        <h2>Artisti in evidenza</h2>
-        <ul class="carosello-scroll" aria-label="Lista artisti in evidenza">
-            ##LISTA_ARTISTI##
-        </ul>
-    </div>
+  <div class="carosello-wrapper">
+    <h2>Artisti in evidenza</h2>
+    <button class="carrbutton prev">
+      <img src="./img/icone/carrouselbuttonl.webp" alt="scroll to left" />
+    </button>
+    <button class="carrbutton next">
+      <img src="./img/icone/carrouselbuttonr.webp" alt="scroll to right" />
+    </button>
+    <ul class="carosello-scroll" aria-label="Lista artisti in evidenza">
+      ##LISTA_ARTISTI##
+    </ul>
+  </div>
 
-    <hr class="separator">
+  <hr class="separator" />
 
-    <div class="carosello-wrapper">
-        <h2>Canzoni in evidenza</h2>
-        <ul class="carosello-scroll" aria-label="Lista canzoni in evidenza">
-            ##LISTA_CANZONI##
-        </ul>
-    </div>
-
+  <div class="carosello-wrapper">
+    <h2>Canzoni in evidenza</h2>
+    <button class="carrbutton prev">
+      <img src="./img/icone/carrouselbuttonl.webp" alt="scroll to left" />
+    </button>
+    <button class="carrbutton next">
+      <img src="./img/icone/carrouselbuttonr.webp" alt="scroll to right" />
+    </button>
+    <ul class="carosello-scroll" aria-label="Lista canzoni in evidenza">
+      ##LISTA_CANZONI##
+    </ul>
+  </div>
 </section>

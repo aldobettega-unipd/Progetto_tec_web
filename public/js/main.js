@@ -47,4 +47,30 @@ function initBackToTop() {
             behavior: 'smooth'
         });
     });
+
+    
+const wrappers = document.querySelectorAll(".carosello-wrapper");
+
+wrappers.forEach((wrapper) => {
+  const scroller = wrapper.querySelector(".carosello-scroll");
+  
+  const btnLeft = wrapper.querySelector(".carrbutton.prev");
+  const btnRight = wrapper.querySelector(".carrbutton.next");
+
+  const scrollAmount = 600;
+
+  if (scroller) {
+    if (btnRight) {
+      btnRight.addEventListener("click", () => {
+        scroller.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      });
+    }
+
+    if (btnLeft) {
+      btnLeft.addEventListener("click", () => {
+        scroller.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      });
+    }
+  }
+});
 }

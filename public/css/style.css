@@ -35,6 +35,7 @@ html.dark-mode, body.dark-mode {
     --layout-text-color-accent: #1a1a20;
 }
 
+
 /* --- BASE & STICKY FOOTER SETUP --- */
 html {
     background-color: var(--footer-bg);
@@ -48,7 +49,7 @@ body {
     margin: 0;
     padding: 0;
     background-image: 
-        linear-gradient(rgba(246, 238, 196, 0.75), rgba(246, 238, 196, 0.75)), 
+        linear-gradient(rgba(246, 238, 196, 0.65), rgba(246, 238, 196, 0.65)),
         url('../img/wood-texture-light.webp'); 
     
 
@@ -63,6 +64,13 @@ body {
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
+}
+
+body.dark-mode {
+
+    background-image: 
+        linear-gradient(rgba(17, 16, 21, 0.65), rgba(17, 16, 21, 0.65)), /* Filtro scuro quasi totale */
+        url('../img/wood-texture-light.webp');
 }
 
 a {
@@ -263,7 +271,8 @@ body.homepage .breadcrumb-nav {
     padding: 2px 1rem;
     margin: 0;
     gap: 0.5rem;
-    background-color: RGB(0, 0, 0, 0.2);
+    background-color: #573524;
+    opacity: 0.8;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 
@@ -432,7 +441,7 @@ footer {
 
 #ricerca {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), 
-                url('../img/hero-guitar.jpg');
+                url('../img/hero-guitar.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -535,6 +544,19 @@ footer {
 #barraricerca input[type="submit"]:hover {
     background-color: var(--wood-accent);
 }
+/* =========================================
+   TITOLO "ISPIRAZIONE" (Il Ponte)
+   ========================================= */
+.inspiration-title {
+    text-align: center; 
+    font-size: 2.3rem;
+    letter-spacing: 1.2px;     /* Molto elegante e spaziato */
+    font-weight: 700;
+    color: var(--main-text); /* O usa var(--layout-text-color) con opacity 0.6 */
+    margin: 0 0 4rem 0;      /* Spazio sotto prima del primo carosello */
+    opacity: 0.9;
+    line-height: 1.2;
+}
 
 /* =========================================
    CAROSELLI & CARDS
@@ -543,19 +565,18 @@ footer {
 /* Contenitore generale per distanziare dal bordo */
 .carosello-group {
     position: relative;
-    /* Diamo un po' di aria sopra e sotto */
-    padding: 4rem 0;
-    /* Stacchiamo la sezione dalla Hero e dal footer */
-    margin: 2rem 0;
+    
+    padding: 2.5rem 0; 
 
-
+    margin: 0; /* Rimuovo il margine esterno, così si attacca quasi alla Hero */
+    
+    /* Mantieni le tue ombre/bordi */
     box-shadow: inset 0 10px 20px -10px rgba(0,0,0,0.15),
                 inset 0 -10px 20px -10px rgba(0,0,0,0.15);
-                
-    /* Bordini sottili per definire lo stacco */
     border-top: 1px solid rgba(0,0,0,0.05);
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
+
 .carosello-group h2 {
     text-shadow: 0 1px 1px rgba(255,255,255,0.8); /* Leggero bordino chiaro per staccare */
     /* Se il legno è scuro, forse serve text-shadow scuro: 0 1px 2px rgba(0,0,0,0.2); */
@@ -579,15 +600,17 @@ body.dark-mode .carosello-group h2 {
 } 
 
 .carosello-wrapper {
+    position: relative;
     width: var(--container-width);
-    margin: 3rem auto;
-    padding: 1.5rem 2rem;
-
+    
+    /* MODIFICA QUI: Riduco spazio tra i vari caroselli (era 3rem) */
+    margin: 1.5rem auto; 
+    padding: 0 2rem; /* Togliamo il padding verticale interno superfluo */
 }
 
 .carosello-wrapper h2 {
     font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     border-left: 5px solid var(--wood-accent);
     padding-left: 1rem;
     color: var(--main-text); /* Usa il colore del testo globale */
@@ -598,7 +621,7 @@ body.dark-mode .carosello-group h2 {
     display: flex;
     gap: 1.5rem;
     overflow-x: auto;
-    padding: 1rem 0.5rem 2.5rem 0.5rem; /* Padding sotto per l'ombra hover */
+    padding: 0.5rem 0.5rem 2rem 0.5rem; /* Padding sotto per l'ombra hover */
     
     /* Scroll fluido e "magnetico" */
     scroll-snap-type: x mandatory;
@@ -616,7 +639,7 @@ body.dark-mode .carosello-group h2 {
     scroll-snap-align: start;
     
     /* COLORI & SFONDO: Qui creiamo il distacco */
-    background-color: #fff; /* Bianco puro su sfondo beige */
+    background-color: var(--main-bg); /* Bianco puro su sfondo beige */
     border-radius: 16px;
     
     /* Ombra morbida per staccare dal fondo */
@@ -626,6 +649,12 @@ body.dark-mode .carosello-group h2 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    text-decoration: none; 
+    color: inherit;
+    cursor: pointer;
 }
 
 /* Effetto Hover (Sollevamento) */
@@ -674,13 +703,16 @@ body.dark-mode .carosello-group h2 {
     font-size: 0.85rem;
     color: var(--wood-accent);
     font-weight: 600;
-    text-decoration: none;
+    display: inline-block;
+}
+
+.card-artista:hover .btn-link {
+    text-decoration: underline;
 }
 
 /* --- SPECIFICO: CARD CANZONE (Orizzontale/Compatta, No Foto) --- */
 .card-canzone {
     width: 240px;
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
     
@@ -728,13 +760,13 @@ body.dark-mode .carosello-group h2 {
     color: #fff; /* Testo bianco */
     padding: 0.5rem 1rem;
     border-radius: 50px;
-    text-decoration: none;
     font-size: 0.85rem;
     font-weight: bold;
     transition: background 0.3s;
+    display: inline-block;
 }
 
-.btn-primary:hover {
+.card-canzone:hover .btn-primary {
     background-color: #d68a44;
 }
 
@@ -750,7 +782,7 @@ body.dark-mode .carosello-group h2 {
     height: 1px;
     background: rgba(0,0,0,0.1);
     width: var(--container-width);
-    margin: 0 auto;
+    margin: 1rem auto;
 }
 
 /* =========================================
@@ -807,10 +839,6 @@ body.dark-mode .author-name {
 /* =========================================
    CAROSELLO BUTTONS
    ========================================= */
-
-.carosello-wrapper {
-  position: relative;
-}
 
 .carrbutton {
   position: absolute;

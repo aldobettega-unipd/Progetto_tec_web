@@ -23,7 +23,9 @@ class CanzoneController extends Controller {
 
             $this->abort(404, "Ci dispiace, la Canzone #$slug non esiste nel nostro database.");
         }
-        
+        $this->page_title = $dati_canzone['titolo_canzone'];
+        $this->page_description = $dati_canzone['descrizione_canzone'];
+
         $this->render('canzonePage', $dati_canzone);
     }
 
@@ -57,6 +59,9 @@ class CanzoneController extends Controller {
 
         $html_artisti = CarouselHelper::carousel($artisti, 'artistaCard');
         $html_canzoni = CarouselHelper::carousel($canzoni, 'canzoneCard');
+
+        $this->page_title = "Ricerca Canzoni e Artisti";
+        $this->page_description = "Cerca tra le nostre canzoni e artisti disponibili.";
 
         $this->render('searchPage', [
             'CAROUSEL_ARTISTI' => $html_artisti,

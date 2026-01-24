@@ -16,6 +16,9 @@ class HomeController extends Controller{
         $artisti = $Artista->get_all() ?? [];
         $canzoni = $Canzone->get_all() ?? [];
 
+        $this->page_title = "HomePage";
+        $this->page_description = "Benvenuto nella nostra raccolta di canzoni e artisti.";
+
         $this->render('homePage', [
             'LISTA_ARTISTI' => CarouselHelper::carousel($artisti, 'artistaCard'),
             'LISTA_CANZONI' => CarouselHelper::carousel($canzoni, 'canzoneCard')

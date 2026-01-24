@@ -1,61 +1,91 @@
-    <!DOCTYPE html>
-    <html lang="it">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="it">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="/css/style.css" type="text/css">
-        <link rel="icon" type="image/svg+xml" href="/img/logo1.svg">
-        <title>Titolo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
-    </head>
-    <body>
+    <script src="/js/main.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
 
-        <header>
-            <nav>
-                <div class="logo">
-                    <a href="/">
-                        <img src="/img/logo1.svg" alt="EasyGuitar Logo">
-                        EasyGuitar
-                    </a>
-                </div>
-                <ul class="menu">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/search">Cerca</a></li>
-                    ##PULSANTI_UTENTE##
+    <link rel="icon" type="image/svg+xml" href="/img/logo1.svg">
+
+    <title>##TITOLO_PAGINA## - EasyGuitar</title>
+    <meta name="description" content="##DESCRIZIONE_PAGINA##">
+
+</head>
+
+<body class="##CLASSE_PAGINA##">
+
+    <a href="#main-content" class="skip-link">Vai al contenuto principale</a>
+
+    <header>
+        <div class="header-wrapper">
+            <div class="logo">
+                <a href="/">
+                    <img src="/img/logo1.svg" alt="">
+                    <span lang="en">EasyGuitar</span>
+                </a>
+            </div>
+            <nav class="menu" aria-label="Menu di navigazione principale">
+                <ul>
+                    <li class="nav-link"><a href="/" lang="en">Home</a></li>
+                    <li class="nav-link"><a href="/search" >Esplora</a></li>
+                    <li class="nav-btn">##LINK_UTENTE##</li>
                 </ul>
             </nav>
-        </header>
-        <div class="breadcrumb"> ##BREADCRUMB## </div>
 
-        <main class="container">
-            ##CONTENUTO_PRINCIPALE##
-        </main>
+        </div>
 
-        <footer>
-            <div class="footer-container">
-                <!-- Navigazione Adattiva -->
-                <div class="footer-section">
-                    <div class="footer-links">
-                        <a href="/">🏠 Home</a>
-                        <a href="/search">🔍 Cerca Canzoni</a>
-                        ##FOOTER_LINKS##
-                    </div>
-                </div>
+        <button id="dark-mode-toggle" class="bookmark-btn" title="Cambia Tema" aria-label="Cambia Tema">
+            <span class="icon" aria-hidden="true">☀️</span>
+        </button>
+
+    </header>
+
+    <nav class="breadcrumb-nav" aria-label="Percorso di navigazione">
+        <ol>
+            <li><a href="/">Home</a></li>
+            
+            <li class="active-crumb">
+                <svg class="pick-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12,22 C12,22 4,16 4,9 C4,5 7,2 12,2 C17,2 20,5 20,9 C20,16 12,22 12,22 Z" />
+                </svg>
+                <span aria-current="page">Canzoni</span>
+            </li>
+        </ol>
+    </nav>
+
+
+    <main id="main-content" class="main-container" tabindex="-1">
+        ##CONTENUTO_PRINCIPALE##
+    </main>
+
+    <footer>
+        <button id="back-to-top-btn" class="back-to-top-btn" title="Torna su" aria-label="Torna a inizio pagina">
+            <span aria-hidden="true">↑</span>
+        </button>
+        <div class="footer-container">
+
+            <div class="footer-links">
+                <a href="/" lang="en"><span class="icon" aria-hidden="true">🏠</span> Home</a>
+                <a href="/search"><span class="icon" aria-hidden="true">🔍</span> Cerca</a>
+                ##LINKS_FOOTER##
             </div>
 
-            <!-- Copyright -->
             <div class="footer-bottom">
-                <p>&copy; 2026 EasyGuitar - Impara gli accordi che ami 🎸</p>
+                <p>&copy; 2026 <span lang="en">EasyGuitar</span>.</p>
+
             </div>
-        </footer>
 
-        <script src="/js/main.js"></script>
-        ##EXTRA_SCRIPTS##
+        </div>
+    </footer>
 
-    </body>
-    </html>
+
+</body>
+
+</html>

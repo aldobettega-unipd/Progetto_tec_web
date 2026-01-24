@@ -15,7 +15,10 @@ Class UserController extends Controller{
 
     public function view_register(){
         $this->require_guest();
-        $this->render('user/register');
+        $this->page_title = "Crea un account";
+        $this->page_description = "Registrati per accedere a tutte le funzionalita` di EasyGuitar.";
+
+        $this->render('user/register', "Crea un account");
     }
 
     public function register(){
@@ -38,7 +41,9 @@ Class UserController extends Controller{
 
     public function view_login(){
         $this->require_guest();
-        $this->render('user/login');
+        $this->page_title = "Accedi al tuo account";
+        $this->page_description = "Accedi al tuo account per gestire le tue playlist e scoprire nuova musica.";
+        $this->render('user/login', "Accedi al tuo account");
     }
 
     public function login() {
@@ -88,8 +93,15 @@ Class UserController extends Controller{
             error_log("questa e` la lista delle playlists " . print_r(['ciao'], true));
             $user["LISTA_PLAYLIST"] = CarouselHelper::carousel($user_playlists, 'playlistCard');
 
+            $this->page_title = "Profilo Utente: {$user['username']}";
+            $this->page_description = "Visualizza il profilo di {$user['username']} e le sue playlist create.";
+
             $this->render('user/profilo', $user);
         }else{
+
+            $this->page_title = "Profilo Admin: {$user['username']}";
+            $this->page_description = "Visualizza il profilo admin di {$user['username']}";
+
 
             $this->render('user/admin', $user);
         }

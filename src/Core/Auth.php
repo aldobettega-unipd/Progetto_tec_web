@@ -21,12 +21,24 @@ class Auth {
         return $_SESSION['user'] ?? null;
     }
 
-    public static function getMenuLinks() {
+    public static function getHeaderLinks() {
         if (self::isLogged()) {
             $user = self::getUser();
-            return '<li><a class="btn-login" href="/profilo/' . $user['username'] . '">Profilo ' . $user['username'] . '</a></li>';
+            return '<a href="/profilo/' . $user['username'] . '">Profilo</a>';
         } else {
-            return '<li><a class="btn-login" href="/login">Login</a></li>';
+            return '<a href="/login">Login</a>';
+        }
+    }
+
+    public static function getFooterLinks() {
+        if (self::isLogged()) {
+            $user = self::getUser();
+            return '<a href="/profilo/' . $user['username'] . '">Profilo</a>' . '
+            <a href="/logout' . '">Logout</a>';
+
+        } else {
+            return '<a href="/login">Login</a>' . '
+            <a href="/register">Registrati</a>';
         }
     }
 

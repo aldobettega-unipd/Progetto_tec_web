@@ -14,6 +14,8 @@ Class PlaylistController extends Controller {
     }
 
     public function view_playlist_form(){
+        $this->page_title = "Crea Playlist";
+        $this->page_description = "Crea una nuova playlist per organizzare le tue canzoni preferite.";
         $this->render('playlistForm');
     }
 
@@ -37,6 +39,9 @@ Class PlaylistController extends Controller {
 
         $dati_playlist["LISTA_CANZONI"] = CarouselHelper::carousel($canzoni_playlist, 'canzoneCard');
 
+        $this->page_title = $dati_playlist['nome_playlist'];
+        $this->page_description = "Playlist: " . $dati_playlist['nome_playlist'] . " creata da " . $dati_playlist['username'] . ".";
+
         $this->render('playlistPage', $dati_playlist);
         //capire gli errori 404 derivati dal db
     }
@@ -50,6 +55,14 @@ Class PlaylistController extends Controller {
 
         public function view_playlist_search($username, $id_playlist) {
         $dati_playlist = $this->Playlist->get_dati_playlist($id_playlist);
+
+        if (!$dati_playlist) {
+
+            $this->abort(404, "Ci dispiace, la playlist #$id_playlist non esiste o e` stata cancellata.");
+        }
+
+        $this->page_title = "Aggiungi Canzoni alla Playlist: " . $dati_playlist['nome_playlist'];
+        $this->page_description = "Aggiungi canzoni alla tua playlist: " . $dati_playlist['nome_playlist'] . ".";
 
         $this->render('playlistSearchSong', $dati_playlist);
         //capire gli errori 404 derivati dal db

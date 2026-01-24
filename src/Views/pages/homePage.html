@@ -1,25 +1,29 @@
-<section>
-    <section id="ricerca">
-        <h1>Cerca la canzone e inizia a suonare</h1>
-        <p id="descr">Puoi cercare tra migliaia di canzoni e autori da tutto il mondo</p>
-        <div id="barraricerca">
-            <form action="index.php?action=cerca" method="POST">
-                <input type="text" name="ricerca">
-                <input type="submit" value="Cerca">
-            </form>
-        </div>
-    </section>
+<section id="ricerca">
+    <h1>Cerca la canzone e inizia a suonare</h1>
+    <p id="descr">Puoi cercare tra migliaia di canzoni e autori da tutto il mondo</p>
+    <div id="barraricerca">
+        <form action="index.php?action=cerca" method="POST">
+            <input type="text" name="ricerca">
+            <input type="submit" value="Cerca">
+        </form>
+    </div>
+</section>
 
-    <section class="carosello-artisti">
+<section class="carosello-group">
+    <div class="carosello-wrapper">
         <h2>Artisti in evidenza</h2>
-        <div class="carosello-container">
+        <ul class="carosello-scroll" aria-label="Lista artisti in evidenza">
             ##LISTA_ARTISTI##
-        </div>
-        <hr>
+        </ul>
+    </div>
+
+    <hr class="separator">
+
+    <div class="carosello-wrapper">
         <h2>Canzoni in evidenza</h2>
-        <div class="carosello-container">
+        <ul class="carosello-scroll" aria-label="Lista canzoni in evidenza">
             ##LISTA_CANZONI##
-        </div>
-    </section>
+        </ul>
+    </div>
 
 </section>

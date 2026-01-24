@@ -24,8 +24,11 @@ Class ArtistaController extends Controller {
 
 
         $canzoni = $this->Artista->get_canzoni($slug);
-        $dati_artista["LISTA_CANZONI"] = CarouselHelper::carousel($canzoni, 'canzoneCard');;
+        $dati_artista["LISTA_CANZONI"] = CarouselHelper::carousel($canzoni, 'canzoneCard');
 
+        $this->page_title = $dati_artista['nome_artista'];
+        $this->page_description = $dati_artista['descrizione_artista'];
+        
         $this->render('artistaPage', $dati_artista);
     }
 

@@ -7,7 +7,8 @@ use App\Exceptions\NotFoundException;
 use App\Exceptions\ForbiddenException;
 
 abstract class Controller {
-
+    protected $page_title = "";
+    protected $page_description = "";
 
     public function render($view, $data = [], $layout = 'main' ){
 
@@ -25,7 +26,11 @@ abstract class Controller {
 
             if($layout){
                 $layout_data = [
-                'PULSANTI_UTENTE' => Auth::getMenuLinks() 
+                'CLASSE_PAGINA' => strtolower($view),
+                'LINK_UTENTE' => Auth::getHeaderLinks(),
+                'LINKS_FOOTER' => Auth::getFooterLinks(),
+                'TITOLO_PAGINA' => $this->page_title,
+                'DESCRIZIONE_PAGINA' => $this->page_description
                 ];
 
                 $layout_file = new Template("layouts/{$layout}");

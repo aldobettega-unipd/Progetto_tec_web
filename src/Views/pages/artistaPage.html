@@ -1,9 +1,17 @@
-<section>
-    <img src="/img/artisti/##slug_artista##.jpeg" width="200" alt="##nome_artista##">
-    <h1>Nome Artista: ##nome_artista##</h1>
-    <p>Descrizione: ##descrizione_artista##</p>
+<section class="artista-page">
+  <img
+    src="/img/artisti/##slug_artista##.jpeg"
+    width="200"
+    alt="##nome_artista##"
+  />
+  <h1>Nome Artista: ##nome_artista##</h1>
+  <p class="descrizione-artista">Descrizione: ##descrizione_artista##</p>
 </section>
 <section class="carosello-canzoni">
   <h2>Canzoni dell'artista</h2>
-  <div class="carosello-container">##LISTA_CANZONI##</div>
+  <div class="artistipage-carosello-wrapper">
+    <ul class="carosello-scroll" aria-label="Lista canzoni in evidenza">
+      ##LISTA_CANZONI##
+    </ul>
+  </div>
 </section>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <section id="ricerca">
     <h1>Cerca la canzone e inizia a suonare</h1>
     <p id="descr">
@@ -43,3 +44,64 @@
         </ul>
     </div>
 </section>
+=======
+<section>
+  <section id="ricerca">
+    <h1>Cerca la canzone e inizia a suonare</h1>
+    <p id="descr">
+      Puoi cercare tra migliaia di canzoni e autori da tutto il mondo
+    </p>
+    <div id="barraricerca">
+      <form action="index.php?action=cerca" method="POST">
+        <input type="text" name="ricerca" />
+        <input type="submit" value="Cerca" />
+      </form>
+    </div>
+  </section>
+
+  <section class="carosello-artisti">
+    <h2>Artisti in evidenza</h2>
+    <button class="carrbutton" id="carrbuttonl">
+      <img src="./img/carrouselbuttonl.png" alt="scroll to left" />
+    </button>
+    <button class="carrbutton" id="carrbuttonr">
+      <img src="./img/carrouselbuttonr.png" alt="scroll to right" />
+    </button>
+    <div class="carosello-container">##LISTA_ARTISTI##</div>
+  </section>
+  <hr />
+  <section class="carosello-artisti">
+    <h2>Canzoni in evidenza</h2>
+    <button class="carrbutton" id="carrbuttonl">
+      <img src="./img/carrouselbuttonl.png" alt="scroll to left" />
+    </button>
+    <button class="carrbutton" id="carrbuttonr">
+      <img src="./img/carrouselbuttonr.png" alt="scroll to right" />
+    </button>
+    <div class="carosello-container">##LISTA_CANZONI##</div>
+  </section>
+  <script>
+    const wrappers = document.querySelectorAll(".carosello-artisti");
+
+    wrappers.forEach((wrapper) => {
+      const scroller = wrapper.querySelector(".carosello-container");
+      const btnLeft = wrapper.querySelector(".carrbutton:first-of-type");
+      const btnRight = wrapper.querySelector(".carrbutton:last-of-type");
+
+      const scrollAmount = 600;
+
+      if (scroller && btnRight) {
+        btnRight.addEventListener("click", () => {
+          scroller.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        });
+      }
+
+      if (scroller && btnLeft) {
+        btnLeft.addEventListener("click", () => {
+          scroller.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+        });
+      }
+    });
+  </script>
+</section>
+>>>>>>> develop

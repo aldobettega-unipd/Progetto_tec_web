@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* --- VARIABILI --- */
 :root {
     /*Colori testi*/
@@ -57,9 +58,51 @@ body {
     background-repeat: repeat;
     background-size: auto;
     background-position: center;
+=======
+:root {
+  --bg-main: #efffe9;
+  --text-color: black;
+  --container-bg: #ffffff;
+  --accent-color: #1a1a1a;
+  --card-background: #f0f0f0;
+  --card-hover: rgba(0, 0, 0, 0.05);
+  --header-background: #72b986;
+  --footer-background: #72b986;
+}
+html.dark-mode {
+  --bg-main: #121212; /* Negro muy oscuro */
+  --text-color: #e0e0e0; /* Gris claro para que no canse la vista */
+  --container-bg: #c2c2c2; /* Gris oscuro para capas */
+  --accent-color: #bb86fc; /* Un color suave para accesibilidad */
+  --card-background: #121212;
+  --card-hover: rgba(149, 143, 143, 0.36);
+  --header-background: #6f6d76;
+  --footer-background: #6f6d76;
+}
+
+html,
+body {
+  background-color: var(--bg-main);
+  color: var(--text-color);
+  transition:
+    background-color 0.3s,
+    color 0.3s; /* Transición suave */
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  min-height: 100vh;
+}
+
+.container {
+  margin-bottom: auto;
+  min-height: 70vh;
+}
+/*########################################################
+>>>>>>> develop
 
     transition: background-color 0.4s ease, color 0.4s ease, background-image 0.4s ease;
 
+<<<<<<< HEAD
     color: var(--layout-text-color);
     font-family: 'Poppins', sans-serif;
     display: flex;
@@ -503,6 +546,169 @@ footer {
     border: 1px solid rgba(255,255,255,0.2);
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+=======
+#######################################################*/
+
+.header {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  background-color: var(--header-background);
+  border-radius: 10px;
+  padding: 1em;
+  align-items: center;
+  margin: auto;
+  margin-top: 1%;
+  width: 70%;
+}
+.header .logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 700; /* O el peso que prefieras */
+}
+.header .menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em; /* Espacio entre los enlaces */
+}
+
+.header a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5em 1em;
+  transition: color 0.3s;
+}
+.header .nav-links a.active {
+  font-weight: 700; /* Enlace activo en negrita */
+}
+.header a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+.header > :first-child {
+  margin-right: auto;
+}
+
+#dark-mode-toggle {
+  border-radius: 50%;
+  border-width: 0cm;
+  margin-right: 1em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  cursor: pointer;
+}
+
+/**************************************************
+
+CANZONE PAGE
+
+**************************************************/
+
+#img_title_artist {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  margin-left: 15%;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+#songImage {
+  width: 20%;
+  flex-shrink: 0;
+}
+
+#info_section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#songTitle {
+  font-size: 3em;
+  margin: 0;
+}
+
+#artistName {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+#addToPlaylist,
+#addToLiked {
+  align-self: flex-start;
+}
+
+#descr_text {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+#lyrics {
+  margin-top: 30px;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+/* 
+
+###############################################
+
+ESPLORA PAGE (ALCUNI ELEMENTI ANCHE USATI NEL HOME)
+
+###############################################
+
+*/
+
+#ricerca {
+  justify-items: center;
+}
+
+#barraricerca {
+  display: flex;
+  align-items: center;
+  background-color: var(--container-bg);
+  border-radius: 50px;
+  padding: 5px;
+  width: fit-content;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  width: 300px;
+  color: #333;
+  font-family: inherit;
+}
+
+.submit-imput {
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: inherit;
+  transition: background 0.3s ease;
+}
+
+#barracanzone {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  width: 65%;
+}
+#cercacanzone {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  cursor: pointer;
+>>>>>>> develop
 }
 
 #barraricerca form:focus-within {
@@ -582,12 +788,38 @@ footer {
     /* Se il legno è scuro, forse serve text-shadow scuro: 0 1px 2px rgba(0,0,0,0.2); */
 }
 
+<<<<<<< HEAD
 /* =========================================
    DARK MODE (Fondamentale!)
    ========================================= */
 /* In dark mode, una patina bianca sul legno scuro sembrerebbe nebbia.
    Dobbiamo cambiare il filtro da Bianco a Nero. */
 body.dark-mode .carosello-group {
+=======
+#headerfamosi button {
+  cursor: pointer;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  font-size: small;
+  margin-left: 6em;
+}
+#headerfamosi button:hover {
+  text-decoration: underline;
+}
+/*
+############################################
+CAROUSELES E ARTISTI E CANZONI CARDS (USATO ANCHE NEL HOME)
+############################################
+*/
+.carosello-artisti {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+.carosello-container {
+  display: flex;
+>>>>>>> develop
 
     box-shadow: inset 0 10px 20px -10px rgba(0,0,0,0.4),
                 inset 0 -10px 20px -10px rgba(0,0,0,0.4);
@@ -861,11 +1093,17 @@ body.dark-mode .author-name {
   justify-content: center;
 
   opacity: 0;
+<<<<<<< HEAD
   visibility: hidden;
   transition:
     opacity 0.3s ease,
     visibility 0.3s ease,
     transform 0.2s ease,
+=======
+  transition:
+    opacity 0.3s ease,
+    transform 0.2s,
+>>>>>>> develop
     background-color 0.2s;
 }
 
@@ -883,9 +1121,13 @@ body.dark-mode .author-name {
   display: block;
 }
 
+<<<<<<< HEAD
 /* --- EFFETTI CARROSELLO BUTTONS --- */
 
 .carosello-wrapper:hover .carrbutton {
+=======
+.carosello-artisti:hover .carrbutton {
+>>>>>>> develop
   opacity: 1;
   visibility: visible;
 }
@@ -894,8 +1136,383 @@ body.dark-mode .author-name {
   transform: translateY(-50%) scale(0.95);
 }
 
+<<<<<<< HEAD
 @media (max-width: 768px) {
   .carrbutton {
     display: none;
   }
 }
+=======
+.card {
+  flex: 0 0 auto;
+
+  width: 10em;
+  min-width: 180px;
+
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em;
+  background-color: --card-background;
+  border-radius: 1em;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  margin-right: 0.8em;
+  margin-left: 0.8em;
+}
+
+.card-text {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+.card:hover {
+  background-color: var(--card-hover);
+}
+
+.canzone-image {
+  width: 100%;
+  height: 11em;
+  aspect-ratio: 1/1;
+  border-radius: 5%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.artist-image {
+  width: 100%;
+  height: 11em;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card-text {
+  text-align: left;
+}
+.song-title {
+  margin-bottom: 0em;
+}
+.artist-name {
+  opacity: 0.78;
+  margin-top: 0.2em;
+}
+
+.image-canzonepage {
+  margin-left: 3em;
+  margin-top: 3em;
+
+  height: 20em;
+  width: 20em;
+  border-radius: 5%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.image-artistpage {
+  margin-left: 3em;
+  margin-top: 3em;
+
+  height: 20em;
+  width: 20em;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-width: 0.5em;
+  border-style: solid;
+  border-color: white;
+}
+
+.separator {
+  width: 100%;
+  height: 2px;
+  background: #000;
+}
+
+#logo {
+  width: 5em;
+  height: 5em;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.footer {
+  margin-top: auto;
+  background-color: var(--footer-background);
+  min-height: 10em;
+  width: 100%;
+}
+
+*:focus-visible {
+  outline: 3px solid red;
+}
+
+dialog {
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+dialog[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+}
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: #efffe9;
+  padding: 20px;
+  border-radius: 15px;
+  width: 75em;
+  max-height: 70vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+.modal-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.modal h2 {
+  font-weight: 700;
+  margin-left: 2em;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.cercato {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 3em;
+}
+
+#risultatih2 {
+  font-weight: 700;
+  margin-left: 2em;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/*##########################################################
+
+LOGIN E REGISTRA FORM
+
+#############################################################*/
+
+.login-form {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  width: 90%;
+  max-width: 350px;
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d1e7d3;
+}
+
+
+
+/*##########################################################
+
+PROFILO PAGE
+
+#############################################################*/
+
+.profilo-container {
+  display: flex;
+  gap: 2em;
+  max-width: 1400px;
+  margin: 2em auto;
+  padding: 0 2em;
+  align-items: flex-start;
+}
+
+.dati-profilo {
+  position: sticky;
+  top: 2em;
+  width: 320px;
+  flex-shrink: 0;
+  padding: 2em;
+  background-color: var(--container-bg);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.dati-profilo h2 {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.8em;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.dati-profilo img {
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  border: 5px solid var(--header-background);
+  transition: transform 0.3s ease;
+}
+
+.dati-profilo img:hover {
+  transform: scale(1.05);
+}
+
+.profilo-menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  margin-top: 1em;
+}
+
+.menu-btn {
+  width: 100%;
+  background-color: transparent;
+  color: var(--text-color);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 1em 1.2em;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  font-family: inherit;
+}
+
+.menu-btn span {
+  font-size: 1.3em;
+}
+
+.menu-btn:hover {
+  background-color: var(--card-hover);
+  border-color: var(--header-background);
+}
+
+.menu-btn.active {
+  background-color: var(--header-background);
+  color: var(--bg-main);
+  border-color: var(--header-background);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.profilo-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.sezione-lista {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.sezione-lista.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+  border-bottom: 2px solid var(--card-hover);
+}
+
+.section-header h2 {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 2em;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.btn-crea {
+  background-color: var(--header-background);
+  color: var(--bg-main);
+  border: none;
+  border-radius: 25px;
+  padding: 0.8em 1.8em;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: inherit;
+}
+
+.btn-crea:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5em;
+}
+
+.content-grid > p {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--text-color);
+  opacity: 0.6;
+  font-size: 1.1em;
+  padding: 3em 0;
+}
+
+.sezione-lista a {
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .profilo-container {
+    flex-direction: column;
+  }
+  
+  .dati-profilo {
+    position: relative;
+    top: 0;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .profilo-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .menu-btn {
+    flex: 1;
+    min-width: 150px;
+  }
+}
+
+>>>>>>> develop

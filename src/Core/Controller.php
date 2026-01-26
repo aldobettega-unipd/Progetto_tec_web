@@ -2,6 +2,7 @@
 namespace App\Core;
 use App\Core\Template;
 use App\Core\Auth;
+use App\Core\Breadcrumb;
 use App\Controllers\ErrorController;
 use App\Exceptions\NotFoundException;
 use App\Exceptions\ForbiddenException;
@@ -30,7 +31,8 @@ abstract class Controller {
                 'LINK_UTENTE' => Auth::getHeaderLinks(),
                 'LINKS_FOOTER' => Auth::getFooterLinks(),
                 'TITOLO_PAGINA' => $this->page_title,
-                'DESCRIZIONE_PAGINA' => $this->page_description
+                'DESCRIZIONE_PAGINA' => $this->page_description,
+                'BREADCRUMB' => Breadcrumb::build()
                 ];
 
                 $layout_file = new Template("layouts/{$layout}");

@@ -13,7 +13,7 @@
 - [ ] **Link Header:** Capire come gestire i link nell header-> se sono sulla home voglio che si capisca anche dal link (posso ricliccarlo? basta una sottolinatura?)
 - [ ] **Icone:** Sistemare icone pulsanti (per DarkMode e TornaSu) e icone link footer
 - [ ] **Footer:** Capire cosa inserire nel Footer. Attenzione Copyright!
-- [ ] **Meta Tag:** Controllare che ci siano tutti i meta tag nell'head.
+- [ ] **Meta Tag:** Controllare che ci siano tutti i meta tag nell'head. -> keywords
 
 > **Facoltativo:**
 > - [ ] Aggiungere al pulsante Profilo nell'header l'icona dell'immagine profilo e/o lo username.
@@ -160,6 +160,10 @@
 - [ ] gestione accounts: visualizzazione degli account e eliminazione
 - [ ] gestione canzoni/artisti: aggiunta, modifica e rimozione artisti e canzoni.
 *DA CAPIRE INTERAMENTE COME GESTIRLA*
+operazioni di:
+- gestisci account (lista di account ordinati con annesso pulsante di eliminazione)
+- gestisci artisti (lista di artisti con pulsante aggiungi e elimina)
+- gestisci canzoni (come artisti)
 
 ---
 

@@ -28,6 +28,8 @@ Class ArtistaController extends Controller {
 
         $this->page_title = $dati_artista['nome_artista'];
         $this->page_description = $dati_artista['descrizione_artista'];
+
+        
         
         $this->render('artistaPage', $dati_artista);
     }

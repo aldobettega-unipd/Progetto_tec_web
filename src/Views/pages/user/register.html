@@ -1,11 +1,14 @@
-<h2>Registrati per creare un nuovo account</h2>
-<p>##FLASH_ERROR##</p>
-<form action="/register/save" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username" required>
-    <br><br>
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" required>
-    <br><br>
-    <button type="submit">Crea account</button>
-</form>
+<section id="registerSection">
+    <h2>Registrati per creare un nuovo account</h2>
+    <p>##FLASH_ERROR##</p>
+    <form id="registerForm" action="/register/save" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required>
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required>
+        <br><br>
+        <button type="submit">Crea account</button>
+    </form>
+    <p>Hai già un account? <a id="login-link" href="/login">Accedi</a></p>
+</section>

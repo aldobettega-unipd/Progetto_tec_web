@@ -1,13 +1,13 @@
-<h2>Accedi al tuo account</h2>
-<p>##FLASH_ERROR##</p>
-<form action="/login/auth" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username" required>
-    <br><br>
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" required>
-    <br><br>
-    <button type="submit">Accedi</button>
-</form>
+<section id="loginSection">
+    <h2>Accedi al tuo account</h2>
+    <p>##FLASH_ERROR##</p>
+    <form id="loginForm" action="/login/auth" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required>
+        <button type="submit">Accedi</button>
+    </form>
 
-<p>Non hai un account? <a href="/register">Registrati</a></p>
+    <p>Non hai un account? <a id="register-link" href="/register">Registrati</a></p>
+</section>

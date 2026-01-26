@@ -950,19 +950,127 @@ LOGIN E REGISTRA FORM
 
 #############################################################*/
 
-.login-form {
+#loginSection {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3em;
-  margin-bottom: 3em;
+  margin-top: 5em;
   width: 90%;
-  max-width: 350px;
-  background-color: white;
-  padding: 40px;
+  max-width: 450px;
+  background-color: var(--header-bg);
+  color: var(--layout-text-color);
+  padding-left: 40px;
+  padding-right: 40px;
   border-radius: 12px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
   border: 1px solid #d1e7d3;
 }
+
+#loginSection h2 {
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#register-link {
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+#loginForm {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+}
+
+#loginForm input {
+    margin-bottom: 1.2em;
+    padding: 0.6em;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+#loginForm button {
+    background-color: var(--wood-accent);
+    color: var(--layout-text-color-accent);
+    border: none;
+    border-radius: 8px;
+    padding: 0.6em;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+#loginForm button:hover {
+    background-color: #ffaa60;
+}
+
+
+/*##########################################################
+
+REGISTER PAGE
+
+#############################################################*/
+
+#registerSection {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5em;
+  width: 90%;
+  max-width: 450px;
+  background-color: var(--header-bg);
+  color: var(--layout-text-color);
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 12px;
+  border: 1px solid #d1e7d3;
+}
+
+#registerSection h2 {
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#login-link {
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+#registerForm {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+}
+
+#registerForm input {
+    margin-bottom: 1.2em;
+    padding: 0.6em;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+#registerForm button {
+    background-color: var(--wood-accent);
+    color: var(--layout-text-color-accent);
+    border: none;
+    border-radius: 8px;
+    padding: 0.6em;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+#registerForm button:hover {
+    background-color: #ffaa60;
+}
+
 
 
 

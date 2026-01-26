@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /* --- VARIABILI --- */
 :root {
     /*Colori testi*/
@@ -59,51 +59,12 @@ body {
     background-repeat: repeat;
     background-size: auto;
     background-position: center;
-=======
-:root {
-  --bg-main: #efffe9;
-  --text-color: black;
-  --container-bg: #ffffff;
-  --accent-color: #1a1a1a;
-  --card-background: #f0f0f0;
-  --card-hover: rgba(0, 0, 0, 0.05);
-  --header-background: #72b986;
-  --footer-background: #72b986;
-}
-html.dark-mode {
-  --bg-main: #121212; /* Negro muy oscuro */
-  --text-color: #e0e0e0; /* Gris claro para que no canse la vista */
-  --container-bg: #c2c2c2; /* Gris oscuro para capas */
-  --accent-color: #bb86fc; /* Un color suave para accesibilidad */
-  --card-background: #121212;
-  --card-hover: rgba(149, 143, 143, 0.36);
-  --header-background: #6f6d76;
-  --footer-background: #6f6d76;
-}
 
-html,
-body {
-  background-color: var(--bg-main);
-  color: var(--text-color);
-  transition:
-    background-color 0.3s,
-    color 0.3s; /* Transición suave */
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  margin: 0px;
-  padding: 0px;
-  min-height: 100vh;
-}
 
-.container {
-  margin-bottom: auto;
-  min-height: 70vh;
-}
-/*########################################################
->>>>>>> develop
 
     transition: background-color 0.4s ease, color 0.4s ease, background-image 0.4s ease;
 
-<<<<<<< HEAD
+
     color: var(--layout-text-color);
     font-family: 'Poppins', sans-serif;
     display: flex;
@@ -128,9 +89,9 @@ ul {
     padding: 0;
     margin: 0;
 }
-/* =========================================
+/* ======
    ACCESSIBILITÀ & FOCUS
-   ========================================= */
+   ====== */
 
 /* 1. SKIP LINK  */
 .skip-link {
@@ -170,9 +131,9 @@ ul {
 }
 
 
-/* =========================================
+/* ======
    HEADER
-   ========================================= */
+   ====== */
 
 header {
     position: relative; 
@@ -293,9 +254,9 @@ body.homepage header {
     transform: translateY(-50%) translateX(-100%);
 }
 
-/* =========================================
+/* ======
    BREADCRUMB (Stile Plettro & Minimal)
-   ========================================= */
+   ====== */
 .breadcrumb-nav {
     margin: 0.5rem auto 0.5rem auto; 
     font-size: 1rem;
@@ -380,9 +341,9 @@ body.homepage .breadcrumb-nav {
 
 
 
-/* =========================================
+/* ======
    FOOTER
-   ========================================= */
+   ====== */
 footer {
 
     position: relative;
@@ -471,17 +432,17 @@ footer {
     transform: translate(-0%, -15%);
 }
 
-/* =========================================
+/* ======
    MAIN 
-   ========================================= */
+   ====== */
 
    main {
     color: var(--main-text);
     flex: 1;
    }
-/* =========================================
+/* ======
    HERO SECTION (Home Page)
-   ========================================= */
+   ====== */
 
 #ricerca {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), 
@@ -547,169 +508,8 @@ footer {
     border: 1px solid rgba(255,255,255,0.2);
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-=======
-#######################################################*/
 
-.header {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  display: flex;
-  background-color: var(--header-background);
-  border-radius: 10px;
-  padding: 1em;
-  align-items: center;
-  margin: auto;
-  margin-top: 1%;
-  width: 70%;
-}
-.header .logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: 700; /* O el peso que prefieras */
-}
-.header .menu {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2em; /* Espacio entre los enlaces */
-}
 
-.header a {
-  color: var(--text-color);
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.5em 1em;
-  transition: color 0.3s;
-}
-.header .nav-links a.active {
-  font-weight: 700; /* Enlace activo en negrita */
-}
-.header a:hover {
-  color: var(--accent-color);
-  text-decoration: underline;
-}
-.header > :first-child {
-  margin-right: auto;
-}
-
-#dark-mode-toggle {
-  border-radius: 50%;
-  border-width: 0cm;
-  margin-right: 1em;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-  cursor: pointer;
-}
-
-/**************************************************
-
-CANZONE PAGE
-
-**************************************************/
-
-#img_title_artist {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
-  margin-left: 15%;
-  margin-top: 3em;
-  margin-bottom: 3em;
-}
-
-#songImage {
-  width: 20%;
-  flex-shrink: 0;
-}
-
-#info_section {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-
-#songTitle {
-  font-size: 3em;
-  margin: 0;
-}
-
-#artistName {
-  font-size: 1.5em;
-  margin: 0;
-}
-
-#addToPlaylist,
-#addToLiked {
-  align-self: flex-start;
-}
-
-#descr_text {
-  margin-left: 15%;
-  margin-right: 15%;
-}
-
-#lyrics {
-  margin-top: 30px;
-  line-height: 1.7;
-  white-space: pre-line;
-}
-
-/* 
-
-###############################################
-
-ESPLORA PAGE (ALCUNI ELEMENTI ANCHE USATI NEL HOME)
-
-###############################################
-
-*/
-
-#ricerca {
-  justify-items: center;
-}
-
-#barraricerca {
-  display: flex;
-  align-items: center;
-  background-color: var(--container-bg);
-  border-radius: 50px;
-  padding: 5px;
-  width: fit-content;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.search-input {
-  border: none;
-  background: transparent;
-  outline: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  width: 300px;
-  color: #333;
-  font-family: inherit;
-}
-
-.submit-imput {
-  background-color: #1a1a1a;
-  color: white;
-  border: none;
-  border-radius: 40px;
-  padding: 10px 25px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
-  font-family: inherit;
-  transition: background 0.3s ease;
-}
-
-#barracanzone {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  width: 65%;
-}
-#cercacanzone {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  cursor: pointer;
->>>>>>> develop
 }
 
 #barraricerca form:focus-within {
@@ -751,9 +551,9 @@ ESPLORA PAGE (ALCUNI ELEMENTI ANCHE USATI NEL HOME)
 #barraricerca input[type="submit"]:hover {
     background-color: var(--wood-accent);
 }
-/* =========================================
+/* ======
    TITOLO "ISPIRAZIONE" (Il Ponte)
-   ========================================= */
+   ====== */
 .inspiration-title {
     text-align: center; 
     font-size: 2.3rem;
@@ -765,9 +565,9 @@ ESPLORA PAGE (ALCUNI ELEMENTI ANCHE USATI NEL HOME)
     line-height: 1.2;
 }
 
-/* =========================================
+/* ======
    CAROSELLI & CARDS
-   ========================================= */
+   ====== */
 
 /* Contenitore generale per distanziare dal bordo */
 .carosello-group {
@@ -789,38 +589,15 @@ ESPLORA PAGE (ALCUNI ELEMENTI ANCHE USATI NEL HOME)
     /* Se il legno è scuro, forse serve text-shadow scuro: 0 1px 2px rgba(0,0,0,0.2); */
 }
 
-<<<<<<< HEAD
-/* =========================================
+
+/* ======
    DARK MODE (Fondamentale!)
-   ========================================= */
+   ====== */
 /* In dark mode, una patina bianca sul legno scuro sembrerebbe nebbia.
    Dobbiamo cambiare il filtro da Bianco a Nero. */
 body.dark-mode .carosello-group {
-=======
-#headerfamosi button {
-  cursor: pointer;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-weight: 500;
-  font-size: small;
-  margin-left: 6em;
-}
-#headerfamosi button:hover {
-  text-decoration: underline;
-}
-/*
-############################################
-CAROUSELES E ARTISTI E CANZONI CARDS (USATO ANCHE NEL HOME)
-############################################
-*/
-.carosello-artisti {
-  position: relative;
-  width: 90%;
-  margin: auto;
-  overflow: hidden;
-}
-.carosello-container {
-  display: flex;
->>>>>>> develop
+
+
 
     box-shadow: inset 0 10px 20px -10px rgba(0,0,0,0.4),
                 inset 0 -10px 20px -10px rgba(0,0,0,0.4);
@@ -1018,9 +795,9 @@ body.dark-mode .carosello-group h2 {
     margin: 1rem auto;
 }
 
-/* =========================================
+/* ======
    DARK MODE ADJUSTMENTS
-   ========================================= */
+   ====== */
 body.dark-mode .card-artista,
 body.dark-mode .card-canzone {
     background-color: #1e1e24; /* Grigio scuro invece di bianco */
@@ -1069,6 +846,7 @@ body.dark-mode .author-name {
     }
 }
 
+
 #dark-mode-toggle img {
   width: 24px;
   height: 24px;
@@ -1095,7 +873,7 @@ body.dark-mode .icon-moon {
 
 /* =========================================
    CAROSELLO BUTTONS
-   ========================================= */
+   ====== */
 
 .carrbutton {
   position: absolute;
@@ -1118,17 +896,15 @@ body.dark-mode .icon-moon {
   justify-content: center;
 
   opacity: 0;
-<<<<<<< HEAD
+
   visibility: hidden;
   transition:
     opacity 0.3s ease,
     visibility 0.3s ease,
     transform 0.2s ease,
-=======
-  transition:
-    opacity 0.3s ease,
-    transform 0.2s,
->>>>>>> develop
+
+
+
     background-color 0.2s;
 }
 
@@ -1146,13 +922,12 @@ body.dark-mode .icon-moon {
   display: block;
 }
 
-<<<<<<< HEAD
+
 /* --- EFFETTI CARROSELLO BUTTONS --- */
 
 .carosello-wrapper:hover .carrbutton {
-=======
-.carosello-artisti:hover .carrbutton {
->>>>>>> develop
+
+
   opacity: 1;
   visibility: visible;
 }
@@ -1161,163 +936,13 @@ body.dark-mode .icon-moon {
   transform: translateY(-50%) scale(0.95);
 }
 
-<<<<<<< HEAD
+
 @media (max-width: 768px) {
   .carrbutton {
     display: none;
   }
 }
-=======
-.card {
-  flex: 0 0 auto;
 
-  width: 10em;
-  min-width: 180px;
-
-  display: flex;
-  flex-direction: column;
-  padding: 1.5em;
-  background-color: --card-background;
-  border-radius: 1em;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-  margin-right: 0.8em;
-  margin-left: 0.8em;
-}
-
-.card-text {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-}
-.card:hover {
-  background-color: var(--card-hover);
-}
-
-.canzone-image {
-  width: 100%;
-  height: 11em;
-  aspect-ratio: 1/1;
-  border-radius: 5%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-.artist-image {
-  width: 100%;
-  height: 11em;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.card-text {
-  text-align: left;
-}
-.song-title {
-  margin-bottom: 0em;
-}
-.artist-name {
-  opacity: 0.78;
-  margin-top: 0.2em;
-}
-
-.image-canzonepage {
-  margin-left: 3em;
-  margin-top: 3em;
-
-  height: 20em;
-  width: 20em;
-  border-radius: 5%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.image-artistpage {
-  margin-left: 3em;
-  margin-top: 3em;
-
-  height: 20em;
-  width: 20em;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  border-width: 0.5em;
-  border-style: solid;
-  border-color: white;
-}
-
-.separator {
-  width: 100%;
-  height: 2px;
-  background: #000;
-}
-
-#logo {
-  width: 5em;
-  height: 5em;
-  border-radius: 1em;
-  cursor: pointer;
-}
-
-.footer {
-  margin-top: auto;
-  background-color: var(--footer-background);
-  min-height: 10em;
-  width: 100%;
-}
-
-*:focus-visible {
-  outline: 3px solid red;
-}
-
-dialog {
-  border: none;
-  background: transparent;
-  padding: 0;
-  max-width: 100%;
-  max-height: 100%;
-}
-
-dialog[open] {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  background-color: transparent;
-}
-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
-}
-
-.modal-content {
-  background-color: #efffe9;
-  padding: 20px;
-  border-radius: 15px;
-  width: 75em;
-  max-height: 70vh;
-  overflow-y: auto;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  position: relative;
-}
-.modal-body {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.modal h2 {
-  font-weight: 700;
-  margin-left: 2em;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-}
-
-.cercato {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 3em;
-}
-
-#risultatih2 {
-  font-weight: 700;
-  margin-left: 2em;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-}
 
 /*##########################################################
 
@@ -1540,7 +1165,6 @@ PROFILO PAGE
   }
 }
 
->>>>>>> develop
 
 /* =========================================
     ARTISTA PAGE
@@ -1575,3 +1199,4 @@ PROFILO PAGE
   height: 200px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
+

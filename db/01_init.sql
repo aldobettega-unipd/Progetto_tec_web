@@ -20,10 +20,9 @@ CREATE TABLE canzone (
     id_canzone INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     titolo_canzone VARCHAR(50) NOT NULL,
     autore_canzone VARCHAR(50) NOT NULL,
-    descrizione_canzone TEXT NOT NULL, -- da togliere
     testo_canzone TEXT NOT NULL,
     slug_canzone VARCHAR(50) NOT NULL,
-    FOREIGN KEY (autore_canzone) REFERENCES artista(nome_artista) ON DELETE CASCADE -- aggiungere lingua e accordi
+    FOREIGN KEY (autore_canzone) REFERENCES artista(nome_artista) ON DELETE CASCADE
 );
 
 CREATE TABLE playlist (
@@ -39,6 +38,13 @@ CREATE TABLE canzoni_playlist (
     PRIMARY KEY (playlist, canzone),
     FOREIGN KEY (playlist) REFERENCES playlist(id_playlist) ON DELETE CASCADE,
     FOREIGN KEY (canzone) REFERENCES canzone(id_canzone) ON DELETE CASCADE
+);
+
+CREATE TABLE accordi_canzone (
+    id_canzone INT UNSIGNED,
+    accordo VARCHAR(4),
+    PRIMARY KEY(id_canzone, accordo),
+    FOREIGN KEY (id_canzone) REFERENCES canzone(id_canzone) ON DELETE CASCADE
 );
 
 

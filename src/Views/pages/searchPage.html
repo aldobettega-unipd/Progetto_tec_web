@@ -1,59 +1,32 @@
 <div class="search-page-container">
   <header class="search-hero">
     <h1 class="page-title">Esplora il Catalogo</h1>
+    
+    <form action="/search" method="GET" class="search-input-wrapper">
+      <input type="text" name="query" class="search-bar-large" placeholder="Cerca canzone, artista..." value="##SEARCH_VALUE##" autocomplete="off"/>
+      <button type="submit" class="btn-search-icon">🔍</button>
+    </form>
 
-    <div class="search-input-wrapper">
-      <input
-        type="text"
-        id="mainSearchInput"
-        class="search-bar-large"
-        placeholder="Cosa vuoi ascoltare?"
-        autocomplete="off"
-      />
-
-      <button class="btn-search-icon">🔍</button>
-    </div>
+    <nav class="telegram-tabs">
+        <a href="/search?query=##SEARCH_VALUE##&tab=canzoni" class="tab-link ##ACTIVE_CANZONI##">
+            Canzoni
+        </a>
+        
+        <a href="/search?query=##SEARCH_VALUE##&tab=artisti" class="tab-link ##ACTIVE_ARTISTI##">
+            Artisti
+        </a>
+    </nav>
   </header>
 
-  <div id="defaultSuggestions" class="suggestions-container">
-    <section class="carosello-group">
-      <div class="carosello-wrapper">
-        <h2>Artisti in evidenza</h2>
-        <button class="carrbutton prev">
-          <img src="/img/icone/arrow-left.svg" alt="scroll to left" />
-        </button>
-        <button class="carrbutton next">
-          <img src="/img/icone/arrow-right.svg" alt="scroll to right" />
-        </button>
-        <ul class="carosello-scroll" aria-label="Lista artisti in evidenza">
-          ##CAROUSEL_ARTISTI##
-        </ul>
-      </div>
+  <div class="results-container">
+      <div class="results-message">##MESSAGGIO_RISULTATI##</div>
 
-      <hr class="separator" />
-
-      <div class="carosello-wrapper">
-        <h2>Canzoni in evidenza</h2>
-        <button class="carrbutton prev">
-          <img src="/img/icone/arrow-left.svg" alt="scroll to left" />
-        </button>
-        <button class="carrbutton next">
-          <img src="/img/icone/arrow-right.svg" alt="scroll to right" />
-        </button>
-        <ul class="carosello-scroll" aria-label="Lista canzoni in evidenza">
-          ##CAROUSEL_CANZONI##
-        </ul>
-      </div>
-    </section>
-  </div>
-
-  <div id="liveSearchResults" class="results-container" style="display: none">
-    <div id="searchLoader" style="display: none">Sto cercando...</div>
-
-    <div id="resultsGrid" class="carousel-grid"></div>
-
-    <div id="noResultsMessage" style="display: none">
-      <p>Nessun risultato trovato.</p>
-    </div>
+      <section class="carosello-group">
+        <div class="carosello-wrapper">
+            <ul class="carosello-scroll" aria-label="Risultati">
+                ##LISTA_RISULTATI##
+            </ul>
+        </div>
+      </section>
   </div>
 </div>

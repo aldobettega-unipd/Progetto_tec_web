@@ -31,6 +31,7 @@ use App\Controllers\HomeController;
 use App\Controllers\ArtistaController;
 use App\Controllers\CanzoneController;
 use App\Controllers\PlaylistController;
+use App\Controllers\RicercaController;
 use App\Controllers\Api\ApiPlaylistController;
 use App\Controllers\Api\ApiCanzoneController;
 
@@ -71,7 +72,7 @@ set_exception_handler(function ($e) {
 
     $router->add('/logout', UserController::class, 'logout');
 
-    $router->add('/search', CanzoneController::class, 'view_search');
+    $router->add('/search', RicercaController::class, 'esegui_ricerca');
 
     $router->add('/profilo/{username:alphanum}', UserController::class, 'view_profile', ['auth', 'owner']);
 

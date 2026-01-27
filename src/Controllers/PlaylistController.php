@@ -37,12 +37,14 @@ Class PlaylistController extends Controller {
 
         $canzoni_playlist = $this->Playlist->get_canzoni_playlist($id_playlist);
 
-        $dati_playlist["LISTA_CANZONI"] = CarouselHelper::carousel($canzoni_playlist, 'canzoneCard');
+        $nome_playlist = $dati_playlist['nome_playlist'];
+        $descrizione_playlist = "Playlist: " . $dati_playlist['nome_playlist'] . " creata da " . $dati_playlist['username'] . ".";
 
-        $this->page_title = $dati_playlist['nome_playlist'];
-        $this->page_description = "Playlist: " . $dati_playlist['nome_playlist'] . " creata da " . $dati_playlist['username'] . ".";
-
-        $this->render('playlistPage', $dati_playlist);
+        $this->render('playlistPage', [
+            'NOME_PLAYLIST' => $nome_playlist,
+            'DESCRIZIONE_PLAYLIST' => $descrizione_playlist,
+            'LISTA_CANZONI' => CarouselHelper::carousel($canzoni_playlist, 'canzoneCard')
+        ]);
         //capire gli errori 404 derivati dal db
     }
 

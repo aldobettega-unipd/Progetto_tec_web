@@ -11,10 +11,10 @@ class ArtistaModel extends Model {
         return $this->fetchOne($sql, [$artista]);
     }
 
-    public function cerca($artista) {
-        $artista = "%$artista%";
-        $sql = "SELECT nome_artista FROM artista WHERE nome_artista LIKE ?";
-        return $this->fetchAll($sql, [$artista]);
+    public function cerca_artisti($testo) {
+        $sql = "SELECT * FROM artista WHERE nome_artista LIKE ? LIMIT 10";
+        $param = "%" . $testo . "%";
+        return $this->fetchAll($sql, [$param]);
     }
     public function get_canzoni($artista){
         $sql = "SELECT c.* FROM canzone c JOIN artista a ON a.nome_artista = c.autore_canzone WHERE slug_artista LIKE ?";

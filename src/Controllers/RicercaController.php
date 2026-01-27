@@ -1,42 +1,62 @@
 <?php
 
-class RicercaController {
-    private $db;
+namespace App\Controllers;
 
-    public function __construct($db) {
-        $this->db = $db;
-    }
+use App\Core\Controller;
+use App\Models\CanzoneModel;
+use App\Models\ArtistaModel;
+use App\Helpers\CarouselHelper;
+
+class RicercaController extends Controller {
 
     public function esegui_ricerca() {
-        $termine = $_POST['ricerca'];
-        $risultati_HTML = '';
+        $query = $this->get('query', '');
+        $tab = $this->get('tab', 'canzoni');
 
-        if ($termine !== '') {
-            $modello_canzone = new Canzone($this->db);
-            $canzoni_trovate = $modello_canzone->cerca($termine);
+        $htmlRisultati = '';
+        $messaggio = '';
+        
+        $activeCanzoni = ($tab === 'canzoni') ? 'active' : '';
+        $activeArtisti = ($tab === 'artisti') ? 'active' : '';
 
-            foreach($canzoni_trovate as $canzone) {
-                $template = new Template(__DIR__ . "/../Views/components/canzoneCard.html");
-                $template->set_dati_pagina($canzone);
-                $risultati_HTML .= $template->get_pagina();
+        if ($query !== '') {
+            
+            switch ($tab) {
+                case 'artisti':
+                    $artistaModel = new ArtistaModel();
+                    $risultati = $artistaModel->cerca_artisti($query);
+                    $cardType = 'artistaCard'; 
+                    $messaggio = "Artisti trovati per: <strong>" . $query . "</strong>";
+                    break;
+
+                case 'canzoni':
+                default:
+                    $canzoneModel = new CanzoneModel();
+                    $risultati = $canzoneModel->cerca_canzoni($query);
+                    $cardType = 'canzoneCard';                    
+                    $messaggio = "Brani trovati per: <strong>" . $query . "</strong>";
+                    break;
             }
 
-            $modello_artista = new Artista($this->db);
-            $artisti_trovati = $modello_artista->cerca($termine);
-
-            foreach($artisti_trovati as $artista) {
-                $template = new Template(__DIR__ . "/../Views/components/artistaCard.html");
-                $template->set_dati_pagina($artista);
-                $risultati_HTML.= $template->get_pagina();
+            if (!empty($risultati)) {
+                $htmlRisultati = CarouselHelper::carousel($risultati, $cardType);
+            } else {
+                $htmlRisultati = "<p> Nessun risultato trovato in questa categoria.</p>";
             }
+
+        } else {
+            $messaggio = "Inizia a cercare...";
+            $htmlRisultati = "";
         }
 
-        $template = new Template(__DIR__ . "/../Views/components/risultatiRicerca.html");
-        $template->set_dati_pagina([
-            'termine' => htmlspecialchars($termine),
-            'risultati_ricerca' => $risultati_HTML ?: "Nessun risultato trovato."
+        $this->render('searchPage', [
+            'SEARCH_VALUE'        => htmlspecialchars($query),
+            'MESSAGGIO_RISULTATI' => $messaggio,
+            'LISTA_RISULTATI'     => $htmlRisultati,
+            
+            'ACTIVE_CANZONI'      => $activeCanzoni,
+            'ACTIVE_ARTISTI'      => $activeArtisti,
+            'TAB_CORRENTE'        => $tab
         ]);
-
-        return $template->get_pagina();
     }
 }

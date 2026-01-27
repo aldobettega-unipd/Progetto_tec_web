@@ -51,7 +51,7 @@ abstract class Controller {
     public function redirect($url){
         header("Location: " . $url);
         exit;
-    }
+    }   
 
     protected function post($key, $default = null){
         if(isset($_POST[$key])) {
@@ -61,7 +61,9 @@ abstract class Controller {
     }
 
     protected function get($key, $default = null) {
-        if(isset($_POST[$key])) {
+        if(isset($_GET[$key])) {
+            // da valutare di togliere htmlspecialchars perchè converte caratteri come '
+            // inoltre non serve a questo livello -> c'è già il binding param nel model che evita injection
             return htmlspecialchars(trim($_GET[$key]));
         }
         return $default;

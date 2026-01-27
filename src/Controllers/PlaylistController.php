@@ -43,7 +43,8 @@ Class PlaylistController extends Controller {
         $this->render('playlistPage', [
             'NOME_PLAYLIST' => $nome_playlist,
             'DESCRIZIONE_PLAYLIST' => $descrizione_playlist,
-            'LISTA_CANZONI' => CarouselHelper::carousel($canzoni_playlist, 'canzoneCard')
+            'LISTA_CANZONI' => CarouselHelper::carousel($canzoni_playlist, 'canzoneCard'),
+            'ID_PLAYLIST' => $id_playlist
         ]);
         //capire gli errori 404 derivati dal db
     }
@@ -55,7 +56,7 @@ Class PlaylistController extends Controller {
         $this->redirect("/profilo/". $username);
     }
 
-        public function view_playlist_search($username, $id_playlist) {
+    public function view_playlist_search($username, $id_playlist) {
         $dati_playlist = $this->Playlist->get_dati_playlist($id_playlist);
 
         if (!$dati_playlist) {

@@ -26,7 +26,7 @@ class ApiPlaylistController extends ApiBaseController {
 
         // 3. Verifica sicurezza: La playlist appartiene all'utente loggato?
         // (Opzionale ma consigliato: devi implementare is_owner nel model)
-        if (!$model->is_playlist_owner($playlistId, Auth::user()['username'])) {
+        if (!$model->is_playlist_owner($playlistId, $_SESSION['user']['username'])) {
              $this->sendError("Non puoi modificare questa playlist", 403);
         }
 

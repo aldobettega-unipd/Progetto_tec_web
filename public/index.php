@@ -84,7 +84,7 @@ set_exception_handler(function ($e) {
 
     $router->add('/api/search/songs', ApiCanzoneController::class, 'search');
 
-    $router->add('/api/playlist/add-song', ApiPlaylistController::class, 'add_song', ['auth', 'owner']);
+    $router->add('/api/playlist/add-song', ApiPlaylistController::class, 'add_song', ['auth']);
     
 
     $router->dispatch($_SERVER['REQUEST_URI']);

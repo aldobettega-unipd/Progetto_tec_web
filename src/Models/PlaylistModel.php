@@ -44,6 +44,7 @@ class PlaylistModel extends Model {
             return true;
         } catch (\PDOException $e) {
             // Errore 23000 = Duplicate entry (già presente)
+            error_log("ERRORE AGGIUNTA CANZONE: " . $e->getMessage());
             return false;
         }
     }
@@ -51,6 +52,11 @@ class PlaylistModel extends Model {
     public function is_playlist_owner($playlistId, $username) {
         $sql = "SELECT 1 FROM playlist WHERE id_playlist = ? AND username = ?";
         return (bool) $this->fetchOne($sql, [$playlistId, $username]);
+    }
+
+    public function isInPlaylist($id_playlist, $id_canzone) {
+        $sql = "SELECT 1 FROM canzoni_playlist WHERE playlist = ? AND canzone = ?";
+        return (bool) $this->fetchOne($sql, [$id_playlist, $id_canzone]);
     }
 
 /*

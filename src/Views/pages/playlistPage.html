@@ -3,8 +3,25 @@
   <div class="section-header">
     <h2>##NOME_PLAYLIST##</h2>
     <p>##DESCRIZIONE_PLAYLIST##</p>
+    <button id="open-search-modal" data-playlist-id="##ID_PLAYLIST##">
+      Aggiungi Canzone
+    </button>
+
+    <div id="search-modal" style="display: none;">
+      <div class="modal-content">
+        <button id="close-search-modal">Chiudi</button>
+
+        <input type="text" id="search-input" placeholder="Cerca...">
+
+        <ul id="search-results">
+        </ul>
+      </div>
+    </div>
+    <script src="/js/playlistSearch.js" defer></script>
+
   </div>
   <div class="content-grid">
     ##LISTA_CANZONI##
   </div>
 </section>
+

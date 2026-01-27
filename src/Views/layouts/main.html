@@ -1,46 +1,46 @@
 <!doctype html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
 
     <script src="/js/main.js" defer></script>
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
 
-    <link rel="icon" type="image/svg+xml" href="/img/logo1.svg">
+    <link rel="icon" type="image/svg+xml" href="/img/logo1.svg" />
 
     <title>##TITOLO_PAGINA## - EasyGuitar</title>
-    <meta name="description" content="##DESCRIZIONE_PAGINA##">
+    <meta name="description" content="##DESCRIZIONE_PAGINA##" />
+  </head>
 
-</head>
-
-<body class="##CLASSE_PAGINA##">
-
+  <body class="##CLASSE_PAGINA##">
     <a href="#main-content" class="skip-link">Vai al contenuto principale</a>
 
     <header>
-        <div class="header-wrapper">
-            <div class="logo">
-                <a href="/">
-                    <img src="/img/logo1.svg" alt="">
-                    <span lang="en">EasyGuitar</span>
-                </a>
-            </div>
-            <nav class="menu" aria-label="Menu di navigazione principale">
-                <ul>
-                    <li class="nav-link"><a href="/" lang="en">Home</a></li>
-                    <li class="nav-link"><a href="/search" >Esplora</a></li>
-                    <li class="nav-btn">##LINK_UTENTE##</li>
-                </ul>
-            </nav>
-
+      <div class="header-wrapper">
+        <div class="logo">
+          <a href="/">
+            <img src="/img/logo1.svg" alt="" />
+            <span lang="en">EasyGuitar</span>
+          </a>
         </div>
+        <nav class="menu" aria-label="Menu di navigazione principale">
+          <ul>
+            <li class="nav-link"><a href="/" lang="en">Home</a></li>
+            <li class="nav-link"><a href="/search">Esplora</a></li>
+            <li class="nav-btn">##LINK_UTENTE##</li>
+          </ul>
+        </nav>
+      </div>
 
-        <button
+      <button
         id="dark-mode-toggle"
         class="bookmark-btn"
         title="Cambia Tema"
@@ -58,13 +58,12 @@
           alt="cambia a modo scuro"
         />
       </button>
-
     </header>
 
     <nav class="breadcrumb-nav" aria-label="Percorso di navigazione">
-            ##BREADCRUMB##
+      ##BREADCRUMB##
 
-        <!--<ol>
+      <!--<ol>
             <li><a href="/">Home</a></li>
             
             <li class="active-crumb">
@@ -76,33 +75,40 @@
         </ol>-->
     </nav>
 
-
     <main id="main-content" class="main-container" tabindex="-1">
-        ##CONTENUTO_PRINCIPALE##
+      ##CONTENUTO_PRINCIPALE##
     </main>
 
     <footer>
-        <button id="back-to-top-btn" class="back-to-top-btn" title="Torna su" aria-label="Torna a inizio pagina">
-            <span aria-hidden="true">↑</span>
-        </button>
-        <div class="footer-container">
-
-            <div class="footer-links">
-                <a href="/" lang="en"><span class="icon" aria-hidden="true">🏠</span> Home</a>
-                <a href="/search"><span class="icon" aria-hidden="true">🔍</span> Cerca</a>
-                ##LINKS_FOOTER##
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 <span lang="en">EasyGuitar</span>.</p>
-
-            </div>
-
+      <button
+        id="back-to-top-btn"
+        class="back-to-top-btn"
+        title="Torna su"
+        aria-label="Torna a inizio pagina"
+      >
+        <span aria-hidden="true">↑</span>
+      </button>
+      <div class="footer-container">
+        <div class="footer-links">
+          <a href="/" lang="en"
+            ><span class="icon" aria-hidden="true"
+              ><img src="/img/icone/home.png" alt="home"
+            /></span>
+            Home</a
+          >
+          <a href="/search"
+            ><span class="icon search-icon" aria-hidden="true"
+              ><img src="/img/icone/search.png" alt="esplora"
+            /></span>
+            Cerca</a
+          >
+          ##LINKS_FOOTER##
         </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 <span lang="en">EasyGuitar</span>.</p>
+        </div>
+      </div>
     </footer>
-
-
-</body>
-
+  </body>
 </html>
-

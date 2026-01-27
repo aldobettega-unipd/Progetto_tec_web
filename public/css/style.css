@@ -400,6 +400,14 @@ footer {
     margin: 0;
 }
 
+/* --- ICONS --- */
+
+.footer-container img {
+  height: 22px;
+  width: 22px;
+  filter: brightness(0) invert(1);
+}
+
 /* --- IL BOTTONE TORNA SU --- */
 .back-to-top-btn {
     position: absolute;
@@ -877,7 +885,7 @@ body.dark-mode .icon-moon {
 
 .carrbutton {
   position: absolute;
-  top: 60%;
+  top: 50%;
   transform: translateY(-50%);
   z-index: 10;
 
@@ -1309,3 +1317,185 @@ PROFILO PAGE
 }
 
 
+/* =========================================
+    SEARCH PAGE
+========================================= */
+
+.search-input-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+
+  background-color: var(--header-bg);
+
+  padding: 4px 12px;
+  border-radius: 500px;
+  border: 2px solid transparent;
+
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.search-input-wrapper:focus-within {
+  border-color: var(--wood-accent);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
+}
+
+.search-input-wrapper:hover {
+  background-color: #42281a;
+}
+
+.search-input-wrapper .search-bar-large {
+  flex-grow: 1;
+  background: transparent;
+  border: none;
+  padding: 12px 10px;
+
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--layout-text-color);
+
+  outline: none;
+}
+
+.search-input-wrapper .search-bar-large::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-input-wrapper .btn-search-icon {
+  background-color: transparent;
+  color: var(--layout-text-color);
+  border: none;
+  font-size: 1.2rem;
+  padding: 8px 12px 8px 4px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-input-wrapper .btn-search-icon:hover {
+  color: var(--wood-accent);
+  transform: scale(1.1);
+}
+body.dark-mode .search-input-wrapper:hover {
+  background-color: #000000e9;
+}
+
+.search-input-wrapper img {
+  width: 22px;
+  height: 22px;
+  filter: brightness(0) invert(1);
+}
+
+.search-page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-hero {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.search-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 0.8em;
+}
+
+.telegram-tabs {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border-radius: 50px;
+  width: fit-content;
+  margin: 0.5rem auto;
+  gap: 5px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.tab-link {
+  padding: 7px 18px;
+  border-radius: 40px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--layout-text-color);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-link.active {
+  background-color: var(--wood-accent);
+  color: var(--layout-text-color-accent);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.tab-link:not(.active):hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--wood-accent);
+}
+
+.tab-link::before {
+  font-size: 1.1rem;
+}
+
+.tab-link[href*="tab=canzoni"]::before {
+  content: "🎵";
+}
+.tab-link[href*="tab=artisti"]::before {
+  content: "👤";
+}
+
+.results-message {
+  padding-left: 3rem;
+  margin-top: 0.5em;
+  font-weight: bold;
+}
+
+.results-container .carosello-scroll > p {
+  width: 100%;
+  text-align: center;
+  padding: 3rem 0;
+  font-size: 1.2rem;
+  color: var(--main-text);
+  flex: 0 0 100%;
+  font-weight: bold;
+}
+.results-container .carosello-scroll {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-left: 0rem;
+  overflow-x: 0;
+}
+
+.results-container .carosello-wrapper {
+  width: 90%;
+}
+
+.search-page-container .separator {
+  border: 0;
+  height: 1.5px;
+  background: rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: 1rem auto;
+}

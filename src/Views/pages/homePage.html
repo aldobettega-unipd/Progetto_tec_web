@@ -4,8 +4,8 @@
         Puoi cercare tra migliaia di canzoni e autori da tutto il mondo
     </p>
     <div id="barraricerca">
-        <form action="index.php?action=cerca" method="POST">
-            <input type="text" name="ricerca" />
+        <form action="/search" method="GET">
+            <input type="text" name="query" required />
             <input type="submit" value="Cerca" />
         </form>
     </div>

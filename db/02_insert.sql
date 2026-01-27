@@ -40,11 +40,10 @@ VALUES
         "led_zeppelin"
     );
 
-INSERT INTO canzone (titolo_canzone, autore_canzone, descrizione_canzone, testo_canzone, slug_canzone)
+INSERT INTO canzone (titolo_canzone, autore_canzone, testo_canzone, slug_canzone)
 VALUES (
     "Un diavolo in me",
     "Zucchero",
-    "Uno dei brani più famosi di Zucchero, contenuto nell'album Blue's.",
     "I've got a devil in [MI7]me  [LA7]     [MI7]    [LA7]    
 
 [MI7]    [LA7]     [MI7]    [LA7]    
@@ -107,21 +106,18 @@ MI   RE
     (
         "Can't stop",
         "Red Hot Chili Peppers",
-        "Singolo iconico del 2002 caratterizzato dal celebre riff di John Frusciante.",
         "Can't stop, addicted to the shindig Chop Top, he says I'm gonna win big Choose not a life of imitation Distant cousin to the reservation Defunkt, the pistol that you pay for This punk, the feelin' that you stay for In time, I want to be your best friend East Side love is living on the West End Knocked out, but boy, you better come to Don't die, you know, the truth is some do Go write your message on the pavement Burn so bright, I wonder what the wave meant White heat is screamin' in the jungle Complete the motion if you stumble Go ask the dust for any answers Come back strong with fifty belly dancers The world I love, the tears I drop To be part of the wave, can't stop Ever wonder if it's all for you? The world I love, the trains I hop To be part of the wave, can't stop Come and tell me when it's time to Sweetheart is bleeding in the snow cone So smart, she's leading me to ozone Music, the great communicator Use two sticks to make it in the nature I'll get you into penetration The gender of a generation The birth of every other nation Worth your weight, the gold of meditation This chapter's gonna be a close one Smoke rings, I know you're gonna blow one All on a spaceship, persevering Use my hands for everything but steering Can't stop the spirits when they need you Mop tops are happy when they feed you J. Butterfly is in the treetop Birds that blow the meaning into bebop The world I love, the tears I drop To be part of the wave, can't stop Ever wonder if it's all for you? The world I love, the trains I hop To be part of the wave, can't stop Come and tell me when it's time to Wait a minute, I'm passin' out, win or lose Just like you Far more shocking than anything I ever knew How about you? Ten more reasons why I need somebody new Just like you Far more shocking than anything I ever knew Right on cue Can't stop, addicted to the shindig Chop Top, he says I'm gonna win big Choose not a life of imitation Distant cousin to the reservation Defunkt, the pistol that you pay for This punk, the feelin' that you stay for In time, I want to be your best friend East Side love is living on the West End Knocked out, but boy, you better come to Don't die, you know, the truth is some do Go write your message on the pavement Burn so bright, I wonder what the wave meant Kick-start the golden generator Sweet talk but don't intimidate her Can't stop the gods from engineering Feel no need for any interfering Your image in the dictionary This life is more than ordinary Can I get two, maybe even three of these? Comin' from space to teach you of the Pleiades Can't stop the spirits when they need you This life is more than just a read-through",
         "cant_stop"   
     ),
     (
         "In the end",
         "Linkin Park",
-        "In The End dei Linkin Park è un brano simbolo del nu metal, che parla di fallimento, frustrazione e perseveranza, unendo rap ed emozione in un ritornello memorabile intenso universale.",
         "It starts with one One thing, I don't know why It doesn't even matter how hard you try Keep that in mind, I designed this rhyme to explain in due time All I know time is a valuable thing Watch it fly by as the pendulum swings Watch it count down to the end of the day, the clock ticks life away It's so unreal, didn't look out below Watch the time go right out the window Tryna hold on, d-didn't even know I wasted it all just to watch you go I kept everything inside And even though I tried, it all fell apart What it meant to me will eventually be a memory of a time when I tried so hard and got so far But in the end, it doesn't even matter I had to fall to lose it all But in the end, it doesn't even matter One thing, I don't know why It doesn't even matter how hard you try Keep that in mind, I designed this rhyme to remind myself how I tried so hard In spite of the way you were mockin' me Actin' like I was part of your property Rememberin' all the times you fought with me I'm surprised it got so far Things aren't the way they were before You wouldn't even recognize me anymore Not that you knew me back then, but it all comes back to me in the end You kept everything inside And even though I tried, it all fell apart What it meant to me will eventually be a memory of a time when I tried so hard and got so far But in the end, it doesn't even matter I had to fall to lose it all But in the end, it doesn't even matter I've put my trust in you Pushed as far as I can go For all this, there's only one thing you should know I've put my trust in you Pushed as far as I can go For all this, there's only one thing you should know I tried so hard and got so far But in the end, it doesn't even matter I had to fall to lose it all But in the end, it doesn't even matter",
         "in_the_end"
     ),
         (
         "Otherside",
         "Red Hot Chili Peppers",
-        "Uno dei brani più famosi dei Red Hot Chili Peppers, contenuto nell'album Californication.",
         "How long, how long will I slide?
 Well, separate my side
 I don't, I don't believe it's bad
@@ -169,7 +165,6 @@ A-slittin' my throat, is all I ever",
         (
         "Knockin' On Heaven's Door",
         "Guns N' Roses",
-        "Uno dei brani più famosi dei Guns N' Roses, contenuto nell'album Use Your Illusion.",
         "
 [SOL]   Mamma [RE]take this badge off of [LAm]me  
 [SOL]   I can't [RE]use it any[DO]more 
@@ -205,7 +200,6 @@ A-slittin' my throat, is all I ever",
         (
         "Stairway To Heaven",
         "Led Zeppelin",
-        "Uno dei brani più famosi di Led Zeppelin, une dei piu grandi canzioni di rock.",
         "There's a lady who's sure all that glitters is gold
 And she's buying a stairway to Heaven
 When she gets there she knows, if the stores are all closed

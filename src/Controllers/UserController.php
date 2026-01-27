@@ -43,7 +43,7 @@ Class UserController extends Controller{
         $this->require_guest();
         $this->page_title = "Accedi al tuo account";
         $this->page_description = "Accedi al tuo account per gestire le tue playlist e scoprire nuova musica.";
-        $this->render('user/login', "Accedi al tuo account");
+        $this->render('user/login');
     }
 
     public function login() {
@@ -53,7 +53,6 @@ Class UserController extends Controller{
         $user = $this->User->find_user($username);
 
         if ($user && password_verify($password, $user['hash_password'])) {
-
             session_regenerate_id(true);
 
             $_SESSION['user'] = [

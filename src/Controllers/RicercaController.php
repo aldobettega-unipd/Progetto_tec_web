@@ -6,6 +6,7 @@ use App\Core\Controller;
 use App\Models\CanzoneModel;
 use App\Models\ArtistaModel;
 use App\Helpers\CarouselHelper;
+use App\Helpers\BreadcrumbHelper;
 
 class RicercaController extends Controller {
 
@@ -48,6 +49,10 @@ class RicercaController extends Controller {
             $messaggio = "Inizia a cercare...";
             $htmlRisultati = "";
         }
+
+        BreadcrumbHelper::reset();
+        BreadcrumbHelper::add('Home', '/');
+        BreadcrumbHelper::add('Esplora');
 
         $this->render('searchPage', [
             'SEARCH_VALUE'        => htmlspecialchars($query),

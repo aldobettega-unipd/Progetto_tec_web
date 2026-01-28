@@ -1,7 +1,6 @@
 <?php
 namespace App\Core;
 
-use App\Core\Breadcrumb;
 
 Class Router {
     
@@ -45,11 +44,6 @@ Class Router {
         }
 
         $namedParams = $this->getNamedParams($matchedRoute['pattern_originale'], $params);
-
-        Breadcrumb::setRoute(
-            $matchedRoute['pattern_originale'],
-            $namedParams
-        );
 
         $this->handleMiddleware($matchedRoute['middleware'], $namedParams);
         $controller = new $matchedRoute['controller']();

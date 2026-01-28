@@ -7,12 +7,16 @@ use App\Models\CanzoneModel;
 use App\Models\ArtistaModel;
 use App\Helpers\CarouselHelper;
 use App\Helpers\ChordParser;
+use App\Helpers\BreadcrumbHelper;
 
 class CanzoneController extends Controller {
     private $Canzone;
 
     public function __construct(){
         $this->Canzone = new CanzoneModel();
+        BreadcrumbHelper::reset();
+        BreadcrumbHelper::add('Home', '/');
+        BreadcrumbHelper::add('Canzoni', '/canzoni');
     }
 
     public function view_canzone1($slug_canzone) {
@@ -41,6 +45,8 @@ class CanzoneController extends Controller {
         // 2. Parsifichi il testo grezzo
         // Assumendo che $canzone['testo'] sia "[C]Siamo solo [G]noi..."
         $htmlTesto = ChordParser::render($canzone['testo_canzone']);
+
+        BreadcrumbHelper::add($canzone['titolo_canzone']);
 
         // 3. Render
         $this->render('canzonePage', [

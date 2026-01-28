@@ -6,12 +6,16 @@ use App\Core\Controller;
 use App\Models\ArtistaModel;
 use App\Core\Template;
 use App\Helpers\CarouselHelper;
+use App\Helpers\BreadcrumbHelper;
 
 Class ArtistaController extends Controller {
     private $Artista;
 
     public function __construct(){
         $this->Artista = new ArtistaModel();
+        BreadcrumbHelper::reset();
+        BreadcrumbHelper::add('Home', '/');
+        BreadcrumbHelper::add('Artisti', '/artisti');
     }
 
     public function view_artista($slug) {
@@ -29,7 +33,7 @@ Class ArtistaController extends Controller {
         $this->page_title = $dati_artista['nome_artista'];
         $this->page_description = $dati_artista['descrizione_artista'];
 
-        
+        BreadcrumbHelper::add($dati_artista['nome_artista']);
         
         $this->render('artistaPage', $dati_artista);
     }

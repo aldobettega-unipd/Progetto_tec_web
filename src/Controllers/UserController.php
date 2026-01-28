@@ -5,12 +5,15 @@ use App\Core\Controller;
 use App\Models\UserModel;
 use App\Models\PlaylistModel;
 use App\Helpers\CarouselHelper;
+use App\Helpers\BreadcrumbHelper;
 
 Class UserController extends Controller{
     private $User;
 
     public function __construct(){
         $this->User = new UserModel();
+        BreadcrumbHelper::reset();
+        BreadcrumbHelper::add('Home', '/');
     }
 
     public function view_register(){
@@ -18,7 +21,8 @@ Class UserController extends Controller{
         $this->page_title = "Crea un account";
         $this->page_description = "Registrati per accedere a tutte le funzionalita` di EasyGuitar.";
 
-        $this->render('user/register', "Crea un account");
+        BreadcrumbHelper::add('Registrati');
+        $this->render('user/register');
     }
 
     public function register(){
@@ -43,6 +47,7 @@ Class UserController extends Controller{
         $this->require_guest();
         $this->page_title = "Accedi al tuo account";
         $this->page_description = "Accedi al tuo account per gestire le tue playlist e scoprire nuova musica.";
+        BreadcrumbHelper::add('Accedi');
         $this->render('user/login');
     }
 
@@ -84,6 +89,7 @@ Class UserController extends Controller{
             $this->abort(404, "Ci dispiace, l'utente #$username non esiste nel nostro database.");
         }
         
+        BreadcrumbHelper::add('Profilo');
 
         if(!$user['is_admin']) {
 

@@ -6,6 +6,7 @@ use App\Core\Template;
 use App\Models\ArtistaModel;
 use App\Models\CanzoneModel;
 use App\Helpers\CarouselHelper;
+use App\Helpers\BreadcrumbHelper;
 
 class HomeController extends Controller{
 
@@ -18,6 +19,9 @@ class HomeController extends Controller{
 
         $this->page_title = "HomePage";
         $this->page_description = "Benvenuto nella nostra raccolta di canzoni e artisti.";
+
+        BreadcrumbHelper::reset();
+        BreadcrumbHelper::add('Home', '/');
 
         $this->render('homePage', [
             'LISTA_ARTISTI' => CarouselHelper::carousel($artisti, 'artistaCard'),

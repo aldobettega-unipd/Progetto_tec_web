@@ -5,17 +5,24 @@ namespace App\Controllers;
 use App\Core\Controller;
 use App\Models\PlaylistModel;
 use App\Helpers\CarouselHelper;
+use App\Helpers\BreadcrumbHelper;
 
 Class PlaylistController extends Controller {
     private $Playlist;
 
     public function __construct(){
         $this->Playlist = new PlaylistModel();
+        $username = $_SESSION['user']['username'];
+        BreadcrumbHelper::reset();
+        BreadcrumbHelper::add('Home', '/');
+        BreadcrumbHelper::add('Profilo', '/profilo/' . $username);
     }
 
     public function view_playlist_form(){
         $this->page_title = "Crea Playlist";
         $this->page_description = "Crea una nuova playlist per organizzare le tue canzoni preferite.";
+        $username = $_SESSION['user']['username'];
+        BreadcrumbHelper::add('Crea Playlist');
         $this->render('playlistForm');
     }
 
@@ -39,6 +46,8 @@ Class PlaylistController extends Controller {
 
         $nome_playlist = $dati_playlist['nome_playlist'];
         $descrizione_playlist = "Playlist: " . $dati_playlist['nome_playlist'] . " creata da " . $dati_playlist['username'] . ".";
+
+        BreadcrumbHelper::add($nome_playlist);
 
         $this->render('playlistPage', [
             'NOME_PLAYLIST' => $nome_playlist,

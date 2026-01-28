@@ -49,6 +49,17 @@ class PlaylistModel extends Model {
         }
     }
 
+    public function delete_song_from_playlist($playlistId, $songId) {
+    $sql = "DELETE FROM canzoni_playlist WHERE playlist = ? AND canzone = ?";
+    try {
+        $this->query($sql, [$playlistId, $songId]);
+        return true;
+    } catch (\PDOException $e) {
+        error_log("ERRORE DELETE SONG: " . $e->getMessage());
+        return false;
+    }
+}
+
     public function is_playlist_owner($playlistId, $username) {
         $sql = "SELECT 1 FROM playlist WHERE id_playlist = ? AND username = ?";
         return (bool) $this->fetchOne($sql, [$playlistId, $username]);

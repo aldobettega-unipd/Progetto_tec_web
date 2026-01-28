@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Models\PlaylistModel;
-use App\Helpers\CarouselHelper;
+use App\Helpers\ListHelper;
 use App\Helpers\BreadcrumbHelper;
 
 Class PlaylistController extends Controller {
@@ -29,9 +29,7 @@ Class PlaylistController extends Controller {
     public function create_playlist($username) {
         $nome_playlist = $this->post('nome_playlist');
         $this->Playlist->insert_playlist($nome_playlist, $username);
-        //check errori
         $this->redirect('/profilo/' . $username);
-
     }
 
     public function view_playlist_page($username, $id_playlist) {
@@ -43,19 +41,17 @@ Class PlaylistController extends Controller {
         }
 
         $canzoni_playlist = $this->Playlist->get_canzoni_playlist($id_playlist);
+        $lista_html = ListHelper::render($canzoni_playlist, 'canzoneListItem');
 
         $nome_playlist = $dati_playlist['nome_playlist'];
         $descrizione_playlist = "Playlist: " . $dati_playlist['nome_playlist'] . " creata da " . $dati_playlist['username'] . ".";
 
-        BreadcrumbHelper::add($nome_playlist);
-
         $this->render('playlistPage', [
-            'NOME_PLAYLIST' => $nome_playlist,
-            'DESCRIZIONE_PLAYLIST' => $descrizione_playlist,
-            'LISTA_CANZONI' => CarouselHelper::carousel($canzoni_playlist, 'canzoneCard'),
+            'NOME_PLAYLIST' => $dati_playlist['nome_playlist'],
+            'DESCRIZIONE_PLAYLIST' => "Playlist di " . $username,
+            'LISTA_CANZONI' => $lista_html,
             'ID_PLAYLIST' => $id_playlist
         ]);
-        //capire gli errori 404 derivati dal db
     }
 
     

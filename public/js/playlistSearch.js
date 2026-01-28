@@ -1,27 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Seleziona gli elementi DOM
+    // --- 1. SETUP ELEMENTI ---
     const openBtn = document.getElementById('open-search-modal');
     const closeBtn = document.getElementById('close-search-modal');
     const modal = document.getElementById('search-modal');
     const input = document.getElementById('search-input');
     const resultsList = document.getElementById('search-results');
 
-    // Recupera l'ID playlist dall'HTML (data-playlist-id)
+    // Se non siamo sulla pagina giusta, fermiamo lo script per evitare errori
+    if (!openBtn) return; 
+
     const playlistId = openBtn.dataset.playlistId;
 
-    // --- 1. Gestione Apertura/Chiusura ---
-    openBtn.addEventListener('click', () => {
-        modal.style.display = 'block'; // O usa una classe CSS se preferisci
+    // --- 2. GESTIONE MODAL ---
+    openBtn.addEventListener('click', () => { modal.style.display = 'block'; input.focus(); });
+    closeBtn.addEventListener('click', () => { 
+        modal.style.display = 'none'; 
+        input.value = ''; 
+        resultsList.innerHTML = ''; 
     });
 
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-        input.value = '';
-        resultsList.innerHTML = '';
-    });
-
-    // --- 2. Gestione Ricerca (API) ---
+    // --- 3. RICERCA ---
     input.addEventListener('input', async (e) => {
         const query = e.target.value;
         if (query.length < 2) return;
@@ -30,35 +29,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch(`/api/search/songs?q=${query}&playlist_id=${playlistId}`);
             const songs = await response.json();
             renderResults(songs);
-        } catch (err) {
-            console.error('Errore ricerca:', err);
-        }
+        } catch (err) { console.error(err); }
     });
 
-    // --- 3. Rendering Risultati ---
     function renderResults(songs) {
         resultsList.innerHTML = '';
-        
         songs.forEach(song => {
             const li = document.createElement('li');
-            li.className = "search-result-item"; // Classe per CSS opzionale
+            li.style.cssText = "display:flex; justify-content:space-between; padding:10px; border-bottom:1px solid #eee;";
             
-            // Testo Canzone
             const span = document.createElement('span');
-            span.textContent = song.titolo_canzone; // + " - " + song.autore_canzone (se ce l'hai)
+            span.textContent = song.titolo_canzone;
             
-            // Bottone
             const btn = document.createElement('button');
-            
-            // CONTROLLO DEL FLAG (che arriva dal Controller PHP)
-            if (song.gia_presente === true) {
-                // CASO 1: Già presente -> Bottone verde spuntato
+            if (song.gia_presente) {
                 styleAsChecked(btn);
             } else {
-                // CASO 2: Non presente -> Bottone "+" cliccabile
                 styleAsAdd(btn);
-                
-                // Assegna il click SOLO se non è presente
                 btn.onclick = () => addSongToPlaylist(song.id_canzone, btn);
             }
             
@@ -68,105 +55,108 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function styleAsAdd(btn) {
-        btn.textContent = "+";
-        btn.className = "btn-add"; // Usa classi CSS se puoi
-        // Stile inline fallback
-        btn.style.cursor = "pointer";
-        btn.style.backgroundColor = "#007bff"; 
-        btn.style.color = "white";
-        btn.style.border = "none";
-        btn.style.borderRadius = "50%";
-        btn.style.width = "30px";
-        btn.style.height = "30px";
-    }
-
-    function styleAsChecked(btn) {
-        btn.textContent = "✓";
-        btn.className = "btn-checked";
-        // Stile inline fallback
-        btn.style.cursor = "default";
-        btn.style.backgroundColor = "#28a745"; // Verde
-        btn.style.color = "white";
-        btn.style.border = "none";
-        btn.style.borderRadius = "50%";
-        btn.style.width = "30px";
-        btn.style.height = "30px";
-    }
-
-    // --- 4. Aggiunta alla Playlist (API) ---
+    // --- 4. AGGIUNTA ---
     async function addSongToPlaylist(songId, btn) {
         try {
-            btn.textContent = "..."; 
-            btn.disabled = true;
-
+            btn.textContent = "...";
             const response = await fetch('/api/playlist/add-song', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    playlist_id: playlistId,
-                    song_id: songId
-                })
+                body: JSON.stringify({ playlist_id: playlistId, song_id: songId })
             });
-
-            const result = await response.json();
-
-            if (result.success) {
-                // 1. Feedback visivo sul bottone
+            
+            const res = await response.json();
+            if (res.success) {
                 styleAsChecked(btn);
-                btn.onclick = null; 
-
-                // 2. AGGIORNAMENTO LIVE DELLA GRIGLIA
-                await updatePlaylistUI(); 
-
+                btn.onclick = null;
+                await updatePlaylistUI(); // Ricarica la lista sotto
             } else {
-                alert('Errore: ' + result.message);
-                styleAsAdd(btn); 
+                alert(res.message);
+                styleAsAdd(btn);
             }
-        } catch (err) {
-            console.error('Errore aggiunta:', err);
-            styleAsAdd(btn);
-        }
+        } catch (err) { console.error(err); styleAsAdd(btn); }
     }
 
-    // --- 5. Funzione Magica per l'Aggiornamento Live ---
-    // --- 5. FUNZIONE AGGIORNAMENTO UI (Fetch & Replace) ---
-    async function updatePlaylistUI() {
-        try {
-            console.log("Inizio aggiornamento vista...");
-            
-            // TRUCCO ANTI-CACHE: Aggiungiamo un timestamp all'URL per forzare il server a rispondere
-            const url = window.location.href.split('?')[0] + '?t=' + new Date().getTime();
-
-            // Scarica l'HTML aggiornato forzando il network (no-store)
-            const response = await fetch(url, { 
-                cache: "no-store",
-                headers: { 'Pragma': 'no-cache', 'Cache-Control': 'no-cache' }
-            });
-            
-            const htmlText = await response.text();
-
-            // Parsa l'HTML in un documento virtuale
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(htmlText, 'text/html');
-
-            // Trova la griglia vecchia e quella nuova
-            const newGrid = doc.querySelector('.content-grid');
-            const oldGrid = document.querySelector('.content-grid');
-
-            if (newGrid && oldGrid) {
-                // Sostituisce il contenuto HTML
-                oldGrid.innerHTML = newGrid.innerHTML;
-                console.log("Vista aggiornata con successo! Nuovi elementi caricati.");
-                
-                // IMPORTANTE: Se il tuo carosello usa Javascript per le frecce, 
-                // qui dovresti richiamare la funzione che lo inizializza.
-                // Es: if (window.initCarousel) window.initCarousel();
-            } else {
-                console.warn("Impossibile trovare .content-grid per l'aggiornamento live");
-            }
-        } catch (err) {
-            console.error("Errore durante l'aggiornamento UI:", err);
-        }
+    // Styles helpers
+    function styleAsAdd(btn) { 
+        btn.textContent = "+"; 
+        btn.style.cssText = "background:#007bff; color:white; border:none; border-radius:50%; width:30px; height:30px; cursor:pointer;"; 
+    }
+    function styleAsChecked(btn) { 
+        btn.textContent = "✓"; 
+        btn.style.cssText = "background:#28a745; color:white; border:none; border-radius:50%; width:30px; height:30px; cursor:default;"; 
     }
 });
+
+// --- FUNZIONI GLOBALI (FUORI DAL DOMContentLoaded) ---
+// Questo le rende visibili all'HTML onclick="..."
+
+// Aggiorna la griglia canzoni senza ricaricare la pagina
+async function updatePlaylistUI() {
+    try {
+        const url = window.location.href.split('?')[0] + '?t=' + new Date().getTime();
+        const response = await fetch(url, { cache: "no-store" });
+        const htmlText = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlText, 'text/html');
+        
+        const newGrid = doc.querySelector('.content-grid');
+        const oldGrid = document.querySelector('.content-grid');
+        if (newGrid && oldGrid) oldGrid.innerHTML = newGrid.innerHTML;
+    } catch (err) { console.error(err); }
+}
+
+// Apre il menu a tendina
+window.toggleMenu = function(menuId, event) {
+    if (event) event.stopPropagation(); // Evita conflitti
+    
+    // Chiudi tutti gli altri prima
+    document.querySelectorAll('.dropdown-content').forEach(el => {
+        if (el.id !== menuId) el.classList.remove('show');
+    });
+
+    // Apri quello giusto
+    const menu = document.getElementById(menuId);
+    if (menu) {
+        menu.classList.toggle('show');
+        console.log("Toggle menu:", menuId); // Debug per vedere se clicchi
+    } else {
+        console.error("Menu non trovato:", menuId);
+    }
+}
+
+// Chiude cliccando fuori
+window.onclick = function(event) {
+    if (!event.target.matches('.kebab-btn')) {
+        document.querySelectorAll('.dropdown-content').forEach(el => {
+            el.classList.remove('show');
+        });
+    }
+}
+
+// Logica Eliminazione
+window.rimuoviCanzone = async function(songId) {
+    if (!confirm("Rimuovere questa canzone?")) return;
+
+    // Recupera ID playlist dal bottone presente in pagina
+    const btnData = document.getElementById('open-search-modal');
+    const playlistId = btnData ? btnData.dataset.playlistId : null;
+
+    try {
+        const response = await fetch('/api/playlist/remove-song', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ playlist_id: playlistId, song_id: songId })
+        });
+        
+        const res = await response.json();
+        if (res.success) {
+            await updatePlaylistUI(); // Aggiorna la vista rimuovendo la riga
+        } else {
+            alert("Errore: " + res.message);
+        }
+    } catch (err) {
+        console.error(err);
+        alert("Errore di connessione");
+    }
+}

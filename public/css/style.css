@@ -1438,3 +1438,68 @@ body.dark-mode .search-input-wrapper:hover {
   width: 80%;
   margin: 1rem auto;
 }
+
+
+
+
+
+
+
+
+
+/* --- 1. Mette la lista in verticale --- */
+.content-grid {
+    display: flex !important;
+    flex-direction: column !important; /* Forza la colonna verticale */
+    gap: 10px;
+}
+
+/* --- 2. Stile della singola riga --- */
+.song-list-item {
+    display: flex;
+    justify-content: space-between; /* Spinge il menu a destra */
+    align-items: center;
+    padding: 15px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    position: relative; /* FONDAMENTALE per posizionare il menu */
+}
+
+/* --- 3. MECCANICA DEL MENU (FONDAMENTALE) --- */
+.dropdown-content {
+    display: none; /* <--- Questo nasconde il menu di default! */
+    position: absolute;
+    right: 40px; /* Lo sposta a sinistra del bottone */
+    top: 10px;
+    background-color: white;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 1000;
+    min-width: 150px;
+}
+
+/* Quando il JS aggiunge questa classe, il menu appare */
+.dropdown-content.show {
+    display: block !important;
+}
+
+/* Stile del link elimina */
+.dropdown-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+}
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Bottone tre puntini */
+.kebab-btn {
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+}

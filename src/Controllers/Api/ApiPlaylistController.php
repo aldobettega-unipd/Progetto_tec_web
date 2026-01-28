@@ -42,4 +42,35 @@ class ApiPlaylistController extends ApiBaseController {
             $this->sendError("Errore server: " . $e->getMessage(), 500);
         }
     }
+
+    public function remove_song() {
+    if (!\App\Core\Auth::isLogged()) { // Assicurati che il path di Auth sia giusto
+        $this->sendError("Non autorizzato", 401);
+        return;
+    }
+
+    $input = $this->getJsonInput();
+    $playlistId = $input['playlist_id'] ?? null;
+    $songId = $input['song_id'] ?? null;
+
+    if (!$playlistId || !$songId) {
+        $this->sendError("Dati mancanti", 400);
+        return;
+    }
+
+    $model = new \App\Models\PlaylistModel();
+    
+    // Controlla proprietà (opzionale ma consigliato)
+    $username = $_SESSION['user']['username'] ?? $_SESSION['username'];
+    if (!$model->is_playlist_owner($playlistId, $username)) {
+         $this->sendError("Non è la tua playlist", 403);
+         return;
+    }
+
+    if ($model->delete_song_from_playlist($playlistId, $songId)) {
+        $this->sendJson(['success' => true]);
+    } else {
+        $this->sendError("Errore durante la rimozione", 500);
+    }
+}
 }

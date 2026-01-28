@@ -1,0 +1,18 @@
+<div class="song-list-item">
+    <div class="song-info">
+        <a href="/canzoni/##SLUG_CANZONE##"><span class="song-title">##TITOLO_CANZONE##</span></a>
+        <span class="song-artist">, ##AUTORE_CANZONE##</span>
+    </div>
+
+    <div class="song-actions">
+        <button class="kebab-btn" onclick="toggleMenu('menu-##ID_CANZONE##', event)">
+            &#8942; 
+        </button>
+        
+        <div id="menu-##ID_CANZONE##" class="dropdown-content">
+            <div class="dropdown-item delete" onclick="rimuoviCanzone('##ID_CANZONE##')">
+                Elimina dalla playlist
+            </div>
+        </div>
+    </div>
+</div>

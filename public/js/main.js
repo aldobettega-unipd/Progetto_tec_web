@@ -77,6 +77,7 @@ wrappers.forEach((wrapper) => {
 // Gestione navigazione pagina profilo
 const menuButtons = document.querySelectorAll('.menu-btn');
 const contentSections = document.querySelectorAll('.sezione-lista');
+const hiddenTabInput = document.getElementById('active-tab-input');
 
 if (menuButtons.length > 0 && contentSections.length > 0) {
   menuButtons.forEach(button => {
@@ -96,6 +97,10 @@ if (menuButtons.length > 0 && contentSections.length > 0) {
       const sectionToShow = document.querySelector(`[data-content="${targetSection}"]`);
       if (sectionToShow) {
         sectionToShow.classList.add('active');
+      }
+
+      if (hiddenTabInput) {
+          hiddenTabInput.value = targetSection;
       }
     });
   });

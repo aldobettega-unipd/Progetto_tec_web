@@ -12,17 +12,17 @@ class RicercaController extends Controller {
 
     public function esegui_ricerca() {
         $query = $this->get('query', '');
-        $tab = $this->get('tab', 'canzoni');
+        $active_tab = $_GET['tab'] ?? 'canzoni';
 
         $htmlRisultati = '';
         $messaggio = '';
         
-        $activeCanzoni = ($tab === 'canzoni') ? 'active' : '';
-        $activeArtisti = ($tab === 'artisti') ? 'active' : '';
+        $activeCanzoni = ($active_tab === 'canzoni') ? 'active' : '';
+        $activeArtisti = ($active_tab === 'artisti') ? 'active' : '';
 
         if ($query !== '') {
             
-            switch ($tab) {
+            switch ($active_tab) {
                 case 'artisti':
                     $artistaModel = new ArtistaModel();
                     $risultati = $artistaModel->cerca_artisti($query);
@@ -61,7 +61,7 @@ class RicercaController extends Controller {
             
             'ACTIVE_CANZONI'      => $activeCanzoni,
             'ACTIVE_ARTISTI'      => $activeArtisti,
-            'TAB_CORRENTE'        => $tab
+            'TAB_CORRENTE'        => $active_tab
         ]);
     }
 }

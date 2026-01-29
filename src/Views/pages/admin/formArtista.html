@@ -1,0 +1,17 @@
+<h1>Aggiungi Artista</h1>
+
+<p>##ERROR_MSG##</p>
+
+<form action="/admin/artisti/save" method="POST">
+    
+    <label>Nome Artista (Univoco):</label><br>
+    <input type="text" name="nome" required><br><br>
+
+    <label>Descrizione:</label><br>
+    <textarea name="descrizione" rows="5" cols="50" required></textarea><br><br>
+
+    <button type="submit">Salva Artista</button>
+</form>
+
+<br>
+<a href="/profilo/##USERNAME##/area-riservata/gestisci-contenuti">Annulla e torna indietro</a>

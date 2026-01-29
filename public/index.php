@@ -84,8 +84,11 @@ set_exception_handler(function ($e) {
     $router->add('/profilo/{username:alphanum}/playlist/{id_playlist:num}/delete', PlaylistController::class, 'elimina_playlist', ['auth', 'owner']);
     $router->add('/profilo/{username:alphanum}/playlist/{id_playlist:num}/add', PlaylistController::class, 'view_playlist_search', ['auth', 'owner']);
 
-    $router->add('/profilo/{username:alphanum}/area-riservata/gestisci-account', AdminController::class, 'view_gestisci_account');
-    $router->add('/profilo/{username:alphanum}/area-riservata/gestisci-contenuti', AdminController::class, 'view_gestisci_contenuti');
+    $router->add('/admin/gestione-utenti', AdminController::class, 'view_gestisci_account', ['auth', 'admin']);
+    $router->add('/admin/gestione-contenuti', AdminController::class, 'view_gestisci_contenuti', ['auth', 'admin']);
+    $router->add('/admin/{type:alphanum}/new', AdminController::class, 'view_add_item', ['auth', 'admin']);
+    $router->add('/admin/canzoni/save', AdminController::class, 'save_canzone', ['auth', 'admin']);
+    $router->add('/admin/artisti/save', AdminController::class, 'save_artista', ['auth', 'admin']);
 
     $router->add('/api/admin/users/delete', ApiAdminController::class, 'delete_user', ['auth', 'admin']);
     $router->add('/api/admin/canzoni/delete', ApiAdminController::class, 'delete_canzone', ['auth', 'admin']);

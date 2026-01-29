@@ -109,7 +109,7 @@ Class UserController extends Controller{
             $this->page_description = "Visualizza il profilo admin di {$user['username']}";
 
 
-            $this->render('user/admin', $user);
+            $this->render('admin/admin', $user);
         }
         
     }

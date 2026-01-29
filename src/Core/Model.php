@@ -29,11 +29,30 @@ abstract class Model{
         return $this->query($sql, $params)->fetchAll();
     }
 
-
-
     public function get_all(){
         $sql = "SELECT * FROM " . $this->table;
         return $this->fetchAll($sql);
+    }
+
+    public function insert($data) {
+        if (empty($this->table)) {
+            throw new \Exception("Nessuna tabella definita nel model.");
+        }
+
+        $columns = implode(', ', array_keys($data));
+        $placeholders = implode(', ', array_fill(0, count($data), '?'));
+
+        $sql = "INSERT INTO {$this->table} ($columns) VALUES ($placeholders)";
+
+        $values = array_values($data);
+
+        try {
+            $this->query($sql, $values);
+            return true;
+        } catch (\Exception $e) {
+            error_log("Errore insert generico: " . $e->getMessage());
+            return false;
+        }
     }
 
 }

@@ -1,0 +1,23 @@
+<h1>Aggiungi Canzone</h1>
+
+<p>##ERROR_MSG##</p>
+
+<form action="/admin/canzoni/save" method="POST">
+    
+    <label>Titolo:</label><br>
+    <input type="text" name="titolo" required><br><br>
+
+    <label>Nome Autore (deve già esistere):</label><br>
+    <input type="text" name="autore" required><br><br>
+
+    <label>Lingua (es. IT, EN):</label><br>
+    <input type="text" name="lingua" maxlength="3" required><br><br>
+
+    <label>Testo:</label><br>
+    <textarea name="testo" rows="10" cols="50" required></textarea><br><br>
+
+    <button type="submit">Salva Canzone</button>
+</form>
+
+<br>
+<a href="/profilo/##USERNAME##/area-riservata/gestisci-contenuti">Annulla e torna indietro</a>

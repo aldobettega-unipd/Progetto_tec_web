@@ -16,6 +16,12 @@ class ArtistaModel extends Model {
         $param = "%" . $testo . "%";
         return $this->fetchAll($sql, [$param]);
     }
+
+    public function find_artista_by_name($nome_artista) {
+        $sql = "SELECT * FROM artista WHERE nome_artista = ?";
+        return $this->fetchOne($sql, [$nome_artista]);
+    }
+
     public function get_canzoni($artista){
         $sql = "SELECT c.* FROM canzone c JOIN artista a ON a.nome_artista = c.autore_canzone WHERE slug_artista LIKE ?";
         return $this->fetchAll($sql, [$artista]);

@@ -24,7 +24,7 @@ Class AdminController extends Controller {
         $utenti_base_list = $this->Admin->get_all_base_user();
         $lista_html = ListHelper::render($utenti_base_list, 'genericListItem', 'utente', [
             'NAME_ITEM' => 'username',
-            'ID_ITEM' => 'username'
+            'ID_ITEM' => 'username',
         ]);
         
         $this->render('user/gestioneAccount', [

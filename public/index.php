@@ -35,6 +35,7 @@ use App\Controllers\PlaylistController;
 use App\Controllers\RicercaController;
 use App\Controllers\Api\ApiPlaylistController;
 use App\Controllers\Api\ApiCanzoneController;
+use App\Controllers\Api\ApiAdminController;
 
 
 set_exception_handler(function ($e) {
@@ -85,6 +86,8 @@ set_exception_handler(function ($e) {
 
     $router->add('/profilo/{username:alphanum}/area-riservata/gestisci-account', AdminController::class, 'view_gestisci_account');
     $router->add('/profilo/{username:alphanum}/area-riservata/gestisci-contenuti', AdminController::class, 'view_gestisci_contenuti');
+
+    $router->add('/api/admin/users/delete', ApiAdminController::class, 'delete_user', ['auth', 'admin']);
 
     $router->add('/api/search/songs', ApiCanzoneController::class, 'search');
 

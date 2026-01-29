@@ -3,6 +3,12 @@ namespace App\Controllers\Base;
 
 use App\Core\Controller;
 
+/*
+Soluzione Rapida (Best Practice): Le chiamate API fetch dovrebbero includere un header X-CSRF-TOKEN 
+e il server dovrebbe verificarlo. Poiché implementarlo da zero ora complicherebbe troppo questa guida, 
+tieni a mente che prima di andare in produzione dovrai aggiungere un middleware CSRF.
+*/
+
 class ApiBaseController extends Controller {
 
     public function __construct() {

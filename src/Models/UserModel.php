@@ -11,6 +11,11 @@ class UserModel extends Model {
         return $this->fetchOne($sql, [$username]);
     }
 
+    public function get_all_base_user() {
+        $sql = "SELECT * FROM utente WHERE is_admin = 0 ORDER BY username";
+        return $this->fetchAll($sql);
+    }
+
     public function insert_user($username, $password, $admin = 0) {
         $hash = password_hash($password, PASSWORD_DEFAULT);
         try {
@@ -25,12 +30,14 @@ class UserModel extends Model {
         }
     }
 
-    public function get_all_base_user() {
-        $sql = "SELECT * FROM utente WHERE is_admin = 0 ORDER BY username";
-        return $this->fetchAll($sql);
+    public function delete_user($username) {
+        try {
+            $sql = "DELETE FROM utente WHERE username = ?";
+            $this->query($sql, [$username]);
+            return true;
+        } catch (\PDOException $e) {
+            error_log("Errore eliminazione utente: " . $e->getMessage());
+            return false;
+        }
     }
 }
-
-
-
-?>

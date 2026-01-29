@@ -5,26 +5,29 @@ use App\Core\Template;
 
 class ListHelper {
 
-    public static function render($items, $templateName) {
+    public static function render($items, $templateName, $type, $mapping = []) {
         $html = "";
         $path = 'components/' . $templateName; 
 
         if (empty($items)) {
-            return "<div style='text-align:center; padding:20px; color:#666;'>Nessuna canzone in questa playlist.</div>"; 
+            return "<div style='text-align:center; padding:20px; color:#666;'>Lista vuota</div>"; 
         }
 
         foreach ($items as $item) {
             $template = new Template($path);
             
-            // TRUCCO FONDAMENTALE:
-            // Convertiamo le chiavi del DB (es. titolo_canzone) in MAIUSCOLO (es. TITOLO_CANZONE)
-            // così coincidono con i placeholder ##TITOLO_CANZONE## dell'HTML
             $data = [];
             foreach ($item as $key => $value) {
                 $data[strtoupper($key)] = $value;
             }
+            $data['TYPE'] = $type;
 
-            // Aggiungiamo eventuali dati extra se servono
+            foreach ($mapping as $placeholder => $dbField) {
+                if (isset($item[$dbField])) {
+                    $data[$placeholder] = $item[$dbField];
+                }
+            }
+
             $template->set_dati_pagina($data);
             
             $html .= $template->get_pagina();

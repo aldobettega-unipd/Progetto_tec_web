@@ -24,6 +24,11 @@ class UserModel extends Model {
             throw $e;
         }
     }
+
+    public function get_all_base_user() {
+        $sql = "SELECT * FROM utente WHERE is_admin = 0 ORDER BY username";
+        return $this->fetchAll($sql);
+    }
 }
 
 

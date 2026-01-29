@@ -34,4 +34,9 @@ class CanzoneModel extends Model {
         return $this->fetchOne($sql, [$canzone]);
     }
 
+    public function get_all_songs(){
+        $sql = "SELECT * FROM canzone ORDER BY titolo_canzone";
+        return $this->fetchAll($sql);
+    }
+
 }

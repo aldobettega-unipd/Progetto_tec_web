@@ -37,8 +37,4 @@ Class ArtistaController extends Controller {
         
         $this->render('artistaPage', $dati_artista);
     }
-
-    public function carosello_artista(){
-
-    }
 }

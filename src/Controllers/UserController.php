@@ -6,6 +6,7 @@ use App\Models\UserModel;
 use App\Models\PlaylistModel;
 use App\Helpers\CarouselHelper;
 use App\Helpers\BreadcrumbHelper;
+use App\Helpers\ListHelper;
 
 Class UserController extends Controller{
     private $User;

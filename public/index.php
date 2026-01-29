@@ -26,6 +26,7 @@ spl_autoload_register(function ($class) {
 
 use App\Core\Router;
 use App\Controllers\UserController;
+use App\Controllers\AdminController;
 use App\Controllers\ErrorController;
 use App\Controllers\HomeController;
 use App\Controllers\ArtistaController;
@@ -82,11 +83,14 @@ set_exception_handler(function ($e) {
     $router->add('/profilo/{username:alphanum}/playlist/{id_playlist:num}/delete', PlaylistController::class, 'elimina_playlist', ['auth', 'owner']);
     $router->add('/profilo/{username:alphanum}/playlist/{id_playlist:num}/add', PlaylistController::class, 'view_playlist_search', ['auth', 'owner']);
 
+    $router->add('/profilo/{username:alphanum}/area-riservata/gestisci-account', AdminController::class, 'view_gestisci_account');
+    $router->add('/profilo/{username:alphanum}/area-riservata/gestisci-contenuti', AdminController::class, 'view_gestisci_contenuti');
+
     $router->add('/api/search/songs', ApiCanzoneController::class, 'search');
 
     $router->add('/api/playlist/add-song', ApiPlaylistController::class, 'add_song', ['auth']);
     $router->add('/api/playlist/remove-song', ApiPlaylistController::class, 'remove_song', ['auth']);
-    
+
     $router->dispatch($_SERVER['REQUEST_URI']);
 
 ?>

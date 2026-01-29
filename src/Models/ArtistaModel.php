@@ -20,4 +20,9 @@ class ArtistaModel extends Model {
         $sql = "SELECT c.* FROM canzone c JOIN artista a ON a.nome_artista = c.autore_canzone WHERE slug_artista LIKE ?";
         return $this->fetchAll($sql, [$artista]);
     }
+
+    public function get_all_artisti(){
+        $sql = "SELECT * FROM artista ORDER BY nome_artista";
+        return $this->fetchAll($sql);
+    }
 }

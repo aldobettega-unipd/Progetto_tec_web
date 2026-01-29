@@ -39,4 +39,15 @@ class CanzoneModel extends Model {
         return $this->fetchAll($sql);
     }
 
+    public function delete_canzone($id_canzone) {
+        try {
+            $sql = "DELETE FROM canzone WHERE id_canzone = ?";
+            $this->query($sql, [$id_canzone]);
+            return true;
+        } catch (\PDOException $e) {
+            error_log("Errore eliminazione canzone: " . $e->getMessage());
+            return false;
+        }
+    }
+
 }

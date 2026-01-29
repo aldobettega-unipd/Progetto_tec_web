@@ -88,6 +88,9 @@ set_exception_handler(function ($e) {
     $router->add('/profilo/{username:alphanum}/area-riservata/gestisci-contenuti', AdminController::class, 'view_gestisci_contenuti');
 
     $router->add('/api/admin/users/delete', ApiAdminController::class, 'delete_user', ['auth', 'admin']);
+    $router->add('/api/admin/canzoni/delete', ApiAdminController::class, 'delete_canzone', ['auth', 'admin']);
+    $router->add('/api/admin/artisti/delete', ApiAdminController::class, 'delete_artista', ['auth', 'admin']);
+
 
     $router->add('/api/search/songs', ApiCanzoneController::class, 'search');
 

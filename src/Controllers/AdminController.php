@@ -44,7 +44,7 @@ Class AdminController extends Controller {
         $lista_artisti = $artistaModel->get_all_artisti();
         $lista_html_artisti = ListHelper::render($lista_artisti, 'genericListItem', 'artista', [
             'NAME_ITEM' => 'nome_artista',
-            'ID_ITEM' => 'id_artista'
+            'ID_ITEM' => 'slug_artista'
         ]);
 
         $this->render('user/gestioneContenuti', [

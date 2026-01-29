@@ -25,4 +25,15 @@ class ArtistaModel extends Model {
         $sql = "SELECT * FROM artista ORDER BY nome_artista";
         return $this->fetchAll($sql);
     }
+
+    public function delete_artista($slug_artista) {
+        try {
+            $sql = "DELETE FROM artista WHERE slug_artista = ?";
+            $this->query($sql, [$slug_artista]);
+            return true;
+        } catch (\PDOException $e) {
+            error_log("Errore eliminazione canzone: " . $e->getMessage());
+            return false;
+        }
+    }
 }

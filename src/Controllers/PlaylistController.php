@@ -41,7 +41,7 @@ Class PlaylistController extends Controller {
         }
 
         $canzoni_playlist = $this->Playlist->get_canzoni_playlist($id_playlist);
-        $lista_html = ListHelper::render($canzoni_playlist, 'canzoneListItem');
+        $lista_html = ListHelper::render($canzoni_playlist, 'canzoneListItem', 'canzone');
 
         $nome_playlist = $dati_playlist['nome_playlist'];
         $descrizione_playlist = "Playlist: " . $dati_playlist['nome_playlist'] . " creata da " . $dati_playlist['username'] . ".";

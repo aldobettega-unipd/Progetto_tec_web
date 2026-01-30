@@ -1,11 +1,71 @@
+<style>
+    /* Questo nasconde il modale appena la pagina carica */
+    .modal-overlay.hidden {
+        display: none !important;
+    }
+
+    /* Stile del modale attivo */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7); /* Sfondo scuro */
+        z-index: 10000; /* Altissimo per stare sopra a tutto */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+        background: white; /* O var(--main-bg) se vuoi il beige */
+        padding: 30px;
+        border-radius: 15px;
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    /* Griglia Immagini */
+    .avatar-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .avatar-option {
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        border-radius: 50%;
+        border: 4px solid transparent;
+        transition: transform 0.2s;
+    }
+
+    .avatar-option:hover {
+        transform: scale(1.1);
+    }
+
+    .avatar-option.selected {
+        border-color: #007bff; /* Colore selezione */
+        transform: scale(1.15);
+    }
+</style>
+
+
 <div class="profilo-container">
   <aside class="dati-profilo">
     <h2 id="personalInfo">##username##</h2>
-    <img
-      src="/img/##username##.jpeg"
-      alt="Foto profilo ##username##"
-    />
     
+    <button id="btn-open-modal" class="btn-primary" style="margin-bottom: 10px;">Modifica Foto</button>
+    
+    <img src="/img/avatar/avatar##FOTO_PROFILO##.svg" id="current-profile-pic" alt="Foto profilo" />
+
     <nav class="profilo-menu">
       <button class="menu-btn active" data-section="playlist">
         <span>📋</span> Playlist
@@ -52,14 +112,29 @@
         ##LISTA_RECENTI##
       </div>
     </section>
+    
+    </main>
+</div> 
+<div id="photo-modal" class="modal-overlay hidden">
+  <div class="modal-content">
+    <h3>Scegli il tuo avatar</h3>
 
-    <section class="sezione-lista" id="modifica-profilo" data-content="modifica-profilo">
-      <div class="section-header">
-        <h2>Modifica profilo</h2>
-      </div>
-      <div class="content-grid">
-        ##LISTA_RECENTI##
-      </div>
-    </section>
-  </main>
+    <div class="avatar-grid">
+      <img src="/img/avatar/avatar1.svg" class="avatar-option" data-id="1" alt="Avatar 1">
+      <img src="/img/avatar/avatar2.svg" class="avatar-option" data-id="2" alt="Avatar 2">
+      <img src="/img/avatar/avatar3.svg" class="avatar-option" data-id="3" alt="Avatar 3">
+      <img src="/img/avatar/avatar4.svg" class="avatar-option" data-id="4" alt="Avatar 4">
+      <img src="/img/avatar/avatar5.svg" class="avatar-option" data-id="5" alt="Avatar 5">
+      <img src="/img/avatar/avatar6.svg" class="avatar-option" data-id="6" alt="Avatar 6">
+      <img src="/img/avatar/avatar7.svg" class="avatar-option" data-id="7" alt="Avatar 7">
+      <img src="/img/avatar/avatar8.svg" class="avatar-option" data-id="8" alt="Avatar 8">
+      <img src="/img/avatar/avatar9.svg" class="avatar-option" data-id="9" alt="Avatar 9">
+      <img src="/img/avatar/avatar10.svg" class="avatar-option" data-id="10" alt="Avatar 10">
+    </div>
+
+    <div class="modal-actions">
+      <button id="btn-save-photo" class="btn-success" disabled>Salva</button>
+      <button id="btn-close-modal" class="btn-secondary">Annulla</button>
+    </div>
+  </div>
 </div>

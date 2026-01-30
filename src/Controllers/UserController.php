@@ -86,33 +86,26 @@ Class UserController extends Controller{
 
         $user = $this->User->find_user($username);
         if (!$user) {
-
-            $this->abort(404, "Ci dispiace, l'utente #$username non esiste nel nostro database.");
+            $this->abort(404, "Utente non trovato.");
         }
         
         BreadcrumbHelper::add('Profilo');
 
         if(!$user['is_admin']) {
-
             $Playlist = new PlaylistModel();
-            $user_playlists = $Playlist->get_user_playlist($username);
-            error_log("questa e` la lista delle playlists " . print_r(['ciao'], true));
-            $user["LISTA_PLAYLIST"] = CarouselHelper::carousel($user_playlists, 'playlistCard');
+            $user_playlists = $Playlist->get_user_playlist($user['username']);
+            $data = $user;
+            
+            $data["LISTA_PLAYLIST"] = CarouselHelper::carousel($user_playlists, 'playlistCard');
+            $data['FOTO_PROFILO'] = $user['foto_profilo'] ?? '1'; 
 
             $this->page_title = "Profilo Utente: {$user['username']}";
-            $this->page_description = "Visualizza il profilo di {$user['username']} e le sue playlist create.";
+            $this->render('user/profilo', $data);
 
-            $this->render('user/profilo', $user);
-        }else{
-
+        } else {
             $this->page_title = "Profilo Admin: {$user['username']}";
-            $this->page_description = "Visualizza il profilo admin di {$user['username']}";
-
-
             $this->render('admin/admin', $user);
         }
-        
     }
-
 
 }

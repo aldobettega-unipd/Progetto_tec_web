@@ -40,4 +40,15 @@ class UserModel extends Model {
             return false;
         }
     }
+
+    public function update_foto($id_foto, $username) {
+        try {
+            $sql = "UPDATE utente SET foto_profilo = ? WHERE username = ?";
+            $this->query($sql, [$id_foto, $username]);
+            return true;
+        } catch (\PDOException $e) {
+            error_log("Errore nella modifica della foto profilo: " . $e->getMessage());
+            return false;
+        }
+    }
 }

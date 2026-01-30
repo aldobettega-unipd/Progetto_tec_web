@@ -1615,6 +1615,83 @@ body.dark-mode .playlist-form input:hover {
   transform: translateY(-2px);
 }
 
+/*
+=========================================
+STILE DI MODIFICA FOTO PROFILO AVATAR
+=========================================
+*/
+
+/* 1. Nascondiamo il modale di default */
+.modal-overlay.hidden {
+    display: none !important;
+}
+
+/* 2. Creiamo lo sfondo scuro che copre tutto */
+.modal-overlay {
+    position: fixed; /* Si fissa sopra tutto */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
+    z-index: 9999; /* Assicura che stia sopra ogni altra cosa */
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+/* 3. Il box bianco centrale */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px; /* Non diventa troppo largo su PC */
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* 4. Griglia per le immagini */
+.avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 immagini per riga */
+    gap: 10px;
+    margin: 20px 0;
+}
+
+/* 5. Stile delle immagini avatar */
+.avatar-option {
+    width: 100%;
+    aspect-ratio: 1; /* Mantiene le immagini quadrate */
+    object-fit: contain;
+    cursor: pointer;
+    border: 3px solid transparent;
+    border-radius: 50%; /* Le fa tonde */
+    transition: 0.2s;
+}
+
+/* Quando ci passi sopra col mouse */
+.avatar-option:hover {
+    transform: scale(1.1);
+    background-color: #f0f0f0;
+}
+
+/* Quando ne selezioni una (gestito dal JS) */
+.avatar-option.selected {
+    border-color: #007bff; /* Bordo blu */
+    background-color: #e7f1ff;
+}
+
+/* Bottoni */
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+
+
+
 /* =========================================
    ERROR 404
 ========================================= */

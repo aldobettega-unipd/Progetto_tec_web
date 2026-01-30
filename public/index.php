@@ -36,6 +36,7 @@ use App\Controllers\RicercaController;
 use App\Controllers\Api\ApiPlaylistController;
 use App\Controllers\Api\ApiCanzoneController;
 use App\Controllers\Api\ApiAdminController;
+use App\Controllers\Api\ApiUserController;
 
 
 set_exception_handler(function ($e) {
@@ -77,6 +78,8 @@ set_exception_handler(function ($e) {
     $router->add('/search', RicercaController::class, 'esegui_ricerca');
 
     $router->add('/profilo/{username:alphanum}', UserController::class, 'view_profile', ['auth', 'owner']);
+
+    $router->add('/api/user/update-photo', ApiUserController::class, 'update_photo', ['auth', 'owner']);
 
     $router->add('/profilo/{username:alphanum}/playlist/new', PlaylistController::class, 'view_playlist_form', ['auth', 'owner']);
     $router->add('/profilo/{username:alphanum}/playlist/create', PlaylistController::class, 'create_playlist', ['auth', 'owner']);

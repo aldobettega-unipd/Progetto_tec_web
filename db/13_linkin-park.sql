@@ -4,9 +4,7 @@ SET NAMES 'utf8mb4';
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('In The End', 'Linkin Park', 'ENG', '[MIbm]  [REb]  [SI7+]  [REb]
-
 [MIbm]  [REb]  [SI7+]  [REb]
-
 It starts with [MIbm]One thing I don''t know why
 It [REb]doesn''t even matter how hard you try
 Ke[SI7+]ep that in mind I designed this rhyme
@@ -73,7 +71,6 @@ I had to [MIbm]fall To lose it [SOLb]all
 But in the [REb]end It doesn''t even [SI]matter
 
 [MIbm]  [REb]  [MIbm]  [REb]
-
 [MIbm]  [REb]  [MIbm]  [REb]  [MIbm]', 'in-the-end');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -83,9 +80,8 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLb');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Numb', 'Linkin Park', 'ENG', 'Intro:
+('Numb', 'Linkin Park', 'ENG', '
 [FA#m]  [RE]  [LA]  [MI]   [FA#m]  [RE]  [LA]  [MI]
-
 [FA#m] I''m tired o[RE]f being what you want me to be
 [LA]Feeling so fai[MI]thless lost under the surface
 [FA#m] Don''t know what you''re ex[RE]pecting of me

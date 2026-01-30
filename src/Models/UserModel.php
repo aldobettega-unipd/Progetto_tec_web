@@ -21,6 +21,10 @@ class UserModel extends Model {
         try {
             $sql = "INSERT INTO utente (username, hash_password, is_admin) VALUES (?, ?, ?)";
             $this->query($sql, [$username, $hash, $admin]);
+            if(!$admin){
+                $sql2 = "INSERT INTO playlist (nome_playlist, username) VALUES (?, ?)";
+                $this->query($sql2, ["Preferiti", $username]);
+            }
             return true;
         } catch (\PDOException $e) {
             if ($e->getCode() == 23000 ) {

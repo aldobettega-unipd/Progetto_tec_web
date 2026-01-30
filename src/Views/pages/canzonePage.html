@@ -4,24 +4,21 @@
 <div class="container">
     
     <header class="song-header" style="margin-bottom: 30px;">
-        <h1>##TITOLO_CANZONE##</h1>
-        <p class="artist">Di: <a href="/artisti/##SLUG_ARTISTA##">##NOME_ARTISTA##</a></p>
-    </header>
-
-    <div class="song-toolbar" style="margin-bottom: 20px; padding: 10px; background: #f8f9fa; border-radius: 8px; display: flex; gap: 10px; align-items: center;">
         
-        <button id="btn-toggle-chords" class="btn btn-secondary" aria-pressed="false">
-            Nascondi Accordi (Modalità Lettura) 📖
-        </button>
+        <h1>##TITOLO_CANZONE##</h1>
+        <button type="button" class="btn-favorite" id="btn-fav" aria-label="Aggiungi ai preferiti" onclick="this.classList.toggle('active')">
+                <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+            </button>
 
-        <div class="tools-divider" style="border-left: 1px solid #ccc; height: 20px; margin: 0 10px;"></div>
-        <small>Trasposizione: <em>Presto disponibile</em></small>
-    </div>
+        <p class="artist">Di: <a href="/artisti/##SLUG_ARTISTA##">##NOME_ARTISTA##</a></p>
+        <p class="accordi">Accordi: ##ACCORDI_CANZONE##</p>
+        
+    </header>
 
     <div id="song-container" class="song-body">
         ##TESTO_CANZONE_HTML##
     </div>
 
 </div>
-
-<script src="/js/components/songViewer.js"></script>

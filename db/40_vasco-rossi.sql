@@ -4,7 +4,6 @@ SET NAMES 'utf8mb4';
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Albachiara', 'Vasco Rossi', 'ITA', '[FA7+]  [DO]   [SOL7]
-
 [DO] Respiri piano per non [SOL]far rumore
 ti addor[LAm]menti di sera e ti ris[DO]vegli col sole
 [FA] sei chiara come un'' [DO]alba
@@ -17,8 +16,6 @@ sei fan[LAm]tastica quando sei as[DO]sorta
 [DO] Ti vesti svogliata[SOL]mente, non metti mai [LAm]niente
 che possa atti[DO]rare attenzione
 [FA] un partico[DO]lare[RE], solo per farti guar[SOL7]dare
-
-Strumentale:
 [DO] [SOL] [LAm] [DO] [FA] [DO] [RE] [SOL7] [RE] [SOL7]
 
 [DO] Respiri piano per non [SOL]far rumore
@@ -48,8 +45,6 @@ ti piace stu[DO]diare
 [LAm] con una mano, una [DO]mano ti sfiori
 [FA] Tu sola [DO]dentro la stanza
 [RE] e tutto il mondo [SOL7]fuori !!!
-
-Strumentale:
 [DO] [SOL] [LAm] [DO] [FA] [DO] [RE] [SOL7] [RE] [SOL7]', 'albachiara');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -181,7 +176,6 @@ che se ne [DO]frega di tutto s[DO7]ì
 di [DO]quelle che non dormi [DO7]mai
 [FA]   voglio una vita..
 [SOL]vedrai che vita vedr[DO]ai  [FAm]
-
 [DO]  [FAm]  [DO]  [FAm]  [DO]  [FAm]
 
 e [LAm]poi ci troveremo [MIm7]come le stars
@@ -212,8 +206,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Ti Prendo E Ti Porto Via', 'Vasco Rossi', 'ITA', '[RE]                [REadd9]  [SIm7]             [SOL]
-
-Refrain (distorto)
 
 [RE]  Sai ti conosco oramai
 [RE]  Ho capito chi sei
@@ -279,18 +271,15 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Un Senso', 'Vasco Rossi', 'ITA', 'Intro:
+('Un Senso', 'Vasco Rossi', 'ITA', '
 [SOL]  [MIm7]  [FA]  [RE]
-
 [SOL]Voglio trovare un [MIm7]senso a questa sera
 [FA]Anche se questa sera un [RE]senso non ce l''ha
-
 [SOL]Voglio trovare un [MIm7]senso a questa vita
 [FA]Anche se questa vita un [RE]senso non ce l''ha
 
 [MIb]Voglio tro[FA]vare un s[SIb]enso a questa s[DOm7]toria
 [MIb]Anche se questa [FA]storia un [SIb]senso non ce [DOm7]l''ha
-
 [MIb]Voglio tro[FA]vare un s[SIb]enso a questa [DOm7]voglia
 [MIb]Anche se questa v[FA]oglia un [SOL]senso non ce l''ha
 
@@ -304,7 +293,6 @@ Dom[MIb]ani un altro [FA]giorno arrive[RE]rà...
 
 [SOL]Voglio trovare un senso a [MIm7]questa situazione
 [FA]Anche se questa situazione un [RE]senso non ce l''ha
-
 [MIb]Voglio trovare un [FA]senso a [SIb]questa condiz[DOm7]ione
 [MIb]Anche se questa condi[FA]zione un [SOL]senso non ce l''ha
 
@@ -319,15 +307,12 @@ Do[MIb]mani un altro [FA]giorno... ormai e'' [SOL]qua!
 
 [SOL]Voglio trovare un s[SOL]enso a tante cose
 [DO]Anche se queste tante cose un [MIb]senso non ce l''h[FA]a
-
 [SOL]     [MIm]    do[FA]mani arriverà do[RE]mani arriverà lo stesso
 
 [SOL]  Senti che bel vento
 [MIm9]  Non basta [MIm]mai il tempo
 Do[MIb]mani un altro [FA]giorno arrive[SOL]ra''...[MIm7]
-
 Do[MIb]mani un altro [FA]giorno arrive[SOL]ra''...[MIm7]
-
 Do[MIb]mani un altro [FA]giorno  [SOL]', 'un-senso');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -341,28 +326,22 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Non L’Hai Mica Capito', 'Vasco Rossi', 'ITA', '[SOLb]  [SOLb4] [SOLb]    [REb]
-
+('Non L''Hai Mica Capito', 'Vasco Rossi', 'ITA', '[SOLb]  [SOLb4] [SOLb]    [REb]
 [LAb]  [LAb4] [LAb]     [REb]   [REb4] [REb]
-
 Scusa non ho ca[SOLb]pito
 vuoi ri[SOLb4]petere, che [SOLb]cosa avev[SOLb4]i da fare
-
 [REb] [REb4]  [REb] [REb4]
 
 di tanto import[LAb]ante
 da [LAb4]non potere p[LAb]roprio, proprio [LAb4]rimandare
-
 [REb] [REb4]  [REb] [REb4]
 
 Non mi dire, ti p[SOLb]rego
 non mi [SOLb4]dire che do[SOLb]vevi sol[SOLb4]o studiare
-
 [REb] [REb4]  [REb] [REb4]
 
 e ti sembra un buon mo[LAb]tivo questo,
 [LAb4]per non farti[LAb] neanche "sen[LAb4]tire"!  [REb]    [REb4]
-
 [REb]  Sì ti ho capito
 [SOLb]  t''interessa più la scuola
 e poi del [REb]resto chissà come sei brava ma scusa
@@ -370,7 +349,6 @@ tra i [MIb7]vari interessi che hai
 dimmi che posto mi [LAb]dài!
 
 Ti voglio [SOLb]bene
-
 non l''hai mica capito
 ti voglio [REb]bene
 lascia sta[REb4]re il vestito[REb]
@@ -383,7 +361,6 @@ ti voglio [REb]bene
 a un certo [REb4]punto ti [REb]devi "dare"
 ti voglio [LAb]bene
 non puoi farti eternamente corteg[REb]giar[LAb]e!
-
 [REb]   [REb4] [REb]
 
 Scusa cosa me ne f[SOLb]rega del vestito che hai
@@ -396,23 +373,18 @@ se mi stai prendendo in [LAb]giro guarda
 che ti giuro non ti perdonerei! [REb]
 
 Ti voglio [SOLb]bene
-
 non l''hai mica capito
 ti voglio [REb]bene
 lascia sta[REb4]re il vestito[REb]
 ti voglio [LAb]bene
 non cambiare discorso dai non sche[REb]rzar[LAb]e!   [REb]
 Ti voglio [SOLb]bene
-
 smetti di giocare
 ti voglio [REb]bene
 a un certo [REb4]punto ti [REb]devi "dare"
 ti voglio [LAb]bene
 non puoi farti eternamente corteg[REb]giar[LAb]e!
-
 [REb]   [REb4] [REb]
-
-Strumentale:
 [SOLb]   [REb]   [LAb]   [REb]
 
 [REb]   Sì ti ho capito
@@ -422,7 +394,6 @@ tra i [MIb7]vari interessi che hai
 dimmi che posto mi [LAb]dài!
 
 Ti voglio [SOLb]bene
-
 non l''hai mica capito
 ti voglio [REb]bene
 lascia sta[REb4]re il vestito[REb]
@@ -430,7 +401,6 @@ ti voglio [LAb]bene
 non cambiare discorso dai non sche[REb]rzar[LAb]e!
 
 [REb]   [REb4] [REb]
-
 Ti voglio [SOLb]bene... non capisci niente...
 Ti voglio [REb]bene... bene un[REb4] accide[REb]nte
 Ti voglio [LAb]bene... nonostante tutto
@@ -444,9 +414,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Sally', 'Vasco Rossi', 'ITA', '[RE] [RE7+] [RE7]  [SOL] [RE] [MIm7]
-
 [LA]  [SOL]  [LA]  [RE4] [RE]  [LA]
-
 [RE]Sally cammina per la [RE7+]strada senza nemmeno..[RE7]
 guardare per [SOL]terra [RE]        [MIm7]
 [LA]Sally è una donna che non ha più vogli[SOL]a..    [LA]
@@ -456,13 +424,11 @@ di fare la [RE4]guerra[RE]     [LA]
 Sally ha già [SOL]visto che cosa.. [LA]   [SOL]
 ti può crollare a[LA4]ddosso [LA]
 Sally è già [RE4]stata punita [RE]
-
 per ogni [RE]sua d[LA]istrazi[SIm]one o debolezza [LA6]
 per ogni candida car[SOL]ezza
 [LA4]data per non sentire l''amarez[RE]za [RE7+]     [RE7]     [SOL]    [RE]       [MIm7]
 [LA]senti che fuori piov[SOL]e       [LA]
 senti che bel rum[RE4]ore [RE]    [LA]
-
 
 [RE]Sally cammina per la [RE7+]strada sicura  [RE7]
 senza pensare a ni[SOL]ente [RE]        [MIm7]
@@ -489,7 +455,6 @@ e cance[RE4]llarmi da questo viaggio[RE]
 per vive[RE]re [LA]davvero[Sim] ogni momento
 [LA6]con ogni suo turba[SOL]mento
 [LA4]e come se fosse l''ult[RE]imo[RE7+]     [RE7]     [SOL]    [RE]       [MIm7]
-
 [LA]  [SOL]  [LA]
 
 [RE]Sally cammina per la [RE7+]strada leggera  [RE7]
@@ -514,9 +479,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('La Nostra Relazione', 'Vasco Rossi', 'ITA', '[LAm]  [REm]  [SOL]  [DO4] [DO]  [RE] [MI7]
-
 [LAm]  [REm]  [SOL]  [DO4] [DO]  [RE] [MI7]
-
 [LAm]  La nostra relazione
 [REm]  è qualche cosa di diverso
 [SOL]  non è per niente amore
@@ -534,7 +497,6 @@ che ci [MI4]vede liti[MI7]gare
 per la noia che da [SOL]sempre
 ci portiamo dentro
 è i[DO]nutile ne[MI4]garlo![MI7]
-
 [LAm]  [REm]  [SOL]  [DO4] [DO]  [RE] [MI7]
 
 La [LAm]nostra relazione
@@ -554,9 +516,7 @@ per qualsiasi cosa o n[REm]iente
 per la noia che da [SOL]sempre
 ci portiamo dentro
 è i[DO]nutile negarlo[MI4]!    [MI7]
-
 [LAm]  [REm]  [SOL]  [DO4] [DO]  [RE] [MI7]
-
 [LAm]  [REm]  [SOL]  [DO4] [DO]  [RE] [MI7]  [LAm]', 'la-nostra-relazione');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -569,9 +529,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('E…', 'Vasco Rossi', 'ITA', '[MIm7] [DOadd9] [SOL] [RE]
-
 [MIm7] [DOadd9] [SOL] [RE]
-
 [MIm7]E...
 vuoi da [DOadd9]bere?
 vieni qui[MIm7],tu per me
@@ -587,8 +545,6 @@ cerc[RE]ami in un [RE7]sogno
 amo t[SOL]e
 quella [LAm]che non chiede mai
 non se la [DOadd9]prende se poi [RE7]non l''ascolto
-
-Arpeggio di chitarra
 
 [SOL]e...
 [SIm]uoe

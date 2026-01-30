@@ -6,28 +6,19 @@ SET NAMES 'utf8mb4';
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Master of Puppets', 'Metallica', 'ENG', '[MI5]   [RE5] [DO#5] [DO5]
 [MI5] [RE5] [RE5] [DO#5] [DO]
-
 [MI5] [LA#5] [LA5] [SOL#5] [SOL5] [FA#5]
-
 [MI5]
 
 [MIm]end of passion play, crumbling away
-
 i''m your source of self-destruction
-
 veins that pump with fear, sucking darkest clear
-
 leading on your death''s construction
-
 [FA#m]taste me, you will see
-
 more is all you need
-
 you''re dedicated to
 how i''m killing you [SI5]
 
 [MI5] [RE5] [MI5]
-
 [DO5]    [SI5]come craw[RE#5]ling [SI5]    [MI5]faster [RE5]    [MI5]
 [DO5]    [SI5]obey [RE#5]your [MI5]master[RE5]    [MI5]
 [DO5]    your [SI5]life [RE#5]burns [MI5]faster[RE5]    [MI5]
@@ -45,22 +36,15 @@ how i''m killing you [SI5]
 [FA5]Master     [MI5]
 
 [MIm]needlework the way, never you betray
-
 life of death becoming clearer
-
 pain monopoly, ritual misery
-
 chop your breakfast on a mirror
-
 [FA#m]taste me, you will see
-
 more is all you need
-
 you''re dedicated to
 how i''m killing you [SI5]
 
 [MI5] [RE5] [MI5]
-
 [DO5]    [SI5]come craw[RE#5]ling [SI5]    [MI5]faster [RE5]    [MI5]
 [DO5]    [SI5]obey [RE#5]your [MI5]master[RE5]    [MI5]
 [DO5]    your [SI5]life [RE#5]burns [MI5]faster[RE5]    [MI5]
@@ -77,54 +61,33 @@ how i''m killing you [SI5]
 [FA5]Master     [MI5]
 
 [MIm] [RE]  [DOadd9]  [LAm9] [SI7] [SI7]
-
 [MIm] [RE]  [DOadd9]  [LAm9] [SI7] [SI7]
-
 [MIm] [RE]  [DOadd9]  [LAm9] [SI7] [SI7]
-
 [MIm] [RE]  [DOadd9]  [LAm9] [SI7] [SI7]
-
 [MIm] [RE]  [DOadd9]  [LAm9] [SI7] [SI7]
-
 [MIm] [RE]  [DOadd9]  [LAm9] [SI7] [SI7]
 
 [MI5] [RE5]  [DO5]  [LA5] [SI5] [RE#5]
 [MI5] [RE5]  [DO5]  [LA5] [SI5] [RE#5]
-
 [MI5]     [FA#5]
-
 [FA#5]master, master
-
 where''s the dreams that i''ve been after?
-
 master, master
 you promised only lies
-
 laughter, laughter
-
 all i hear and  see is laughter
-
 laughter, laughter
 laughing at my   cries [SOL5]      [FA#5]
-
 fix me...
 
 [MI5]
-
 [MIm]hell is worth all that, natural habitat
-
 just a rhyme without a reason
-
 never-ending maze, drift on numbered days
-
 now your life is out of season
-
 [FA#m]i will occupy
-
 i will help you die
-
 i will run through you
-
 now i rule you, too
 
 [MI5] [RE5] [MI5]
@@ -143,7 +106,7 @@ now i rule you, too
 [MI5]just call my name, ''cause i''ll hear you [DO5]scream
 [MI5]Master
 [FA5]Master     [MI5]
-[LA5]    .[MI5]..Haha ahaha', 'master-of-puppets');
+[LA5]  .[MI5]..Haha ahaha', 'master-of-puppets');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
 (@last_song_id, 'DO'),
@@ -164,9 +127,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Nothing Else Matters', 'Metallica', 'ENG', '[MIm]  [LAm] [DO] [RE] [MIm]
-
 [MIm]  [RE] [DO]   [MIm]  [RE] [DO]   [MIm]  [RE] [DO]
-
 [SOL] [SI7] [MIm]
 
 [MIm] So close no matter [RE]how far[DO]
@@ -197,9 +158,7 @@ INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzo
 [RE]  Never cared for what they [DO]know[LA]
 [RE]  But I [MIm]know
 
-STRUMENTALE:
 [MIm]  [LAm] [DO] [RE] [MIm]
-
 [MIm]  [LAm] [DO] [RE] [MIm]
 
 [MIm] Never opened my[RE]self this way [DO]
@@ -218,9 +177,7 @@ STRUMENTALE:
 [RE]  Never cared for what they [DO]know[LA]
 [RE]  But I [MIm]know
 
-Strumentale:
 [MIm]  [RE] [DO]   [MIm]  [RE] [DO]   [MIm]  [RE] [DO]
-
 [SOL] [SI7] [MIm]
 
 [MIm] So close no matter [RE]how far[DO]

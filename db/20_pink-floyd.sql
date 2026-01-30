@@ -5,7 +5,6 @@ SET NAMES 'utf8mb4';
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Another Brick In The Wall', 'Pink Floyd', 'ENG', '[REm]
-
 [REm]We don''t need no education
 [REm]We don''t need no thoughts controlled
 No [REm]dark sarcasm in the class room
@@ -32,7 +31,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Comfortably Numb', 'Pink Floyd', 'ENG', '[SIm]
-
 [SIm]Hello,
 is there anybody [LA]in there?
 Just [SOL]nod if you can [MIm]hear me;
@@ -57,14 +55,10 @@ My [RE]hands felt just like two bal[LA]loons.
 [DO]Now I got that feeling once a[SOL]gain;
 I can''t explain, you would not [DO]understand.
 This is not how I [SOL]am.
-
 [LA]I   [DO] have be[SOL]come, comfortably [RE]numb.
 
-Strumentale:
 [RE]  [LA]  [RE]  [LA]  [DO]  [SOL]  [DO]  [SOL]
-
 [LA]I   [DO] have be[SOL]come, comfortably [RE]numb.
-
 [SIm]Ok, (ok)
 just a little [LA]pinprick.
 There''ll be no more --[SOL]aaaaaahh[MIm]hhh!
@@ -84,7 +78,6 @@ When [RE]I was a child I caught a [LA]fleeting glimpse,
 [DO]  I turned to look but it was [SOL]gone.
 I cannot put my finger [DO]on it now.
 The child is grown, the [SOL]dream is gone.
-
 [LA]I   [DO] have be[SOL]come, comfortably [RE]numb.', 'comfortably-numb');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -97,13 +90,9 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Wish You Were Here', 'Pink Floyd', 'ENG', '[MIm7]  [SOL]  [MIm7]  [SOL]
-
 [MIm7]  [LA7]  [MIm7]  [LA7]  [SOL]
-
 [MIm7]  [SOL]  [MIm7]  [SOL]
-
 [MIm7]  [LA7]  [MIm7]  [LA7]  [SOL]
-
 [DO]So, so you think you can [RE]tell,
 Heaven from [LAm]Hell, blue skies from [SOL]pain.
 Can you tell a green [RE]field
@@ -116,18 +105,14 @@ And did you ex[DO]change a walk on part in the [LAm]war
 for a lead role in a [SOL]cage?
 
 [MIm7]  [SOL]  [MIm7]  [SOL]
-
 [MIm7]  [LA7]  [MIm7]  [LA7]  [SOL]
-
 [DO]  How I wish, how I wish you were [RE]here.
 We''re just [LAm]two lost souls swimming in a fish bowl
 [SOL]  year after year
 [RE]  Running over the same old ground.
 [DO]  What have we found?
 The same old [LAm]fears. Wish you were [SOL]here...
-
 [MIm7]  [SOL]  [MIm7]  [SOL]
-
 [MIm7]  [LA7]  [MIm7]  [LA7]  [SOL]', 'wish-you-were-here');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -140,11 +125,8 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Breathe', 'Pink Floyd', 'ENG', '[MIm9]   [LA]   [MIm9]   [LA]   [MIm9]   [LA]   [MIm9]   [LA]
-
 [MIm9]   [LA]   [MIm9]   [LA]   [MIm9]   [LA]   [MIm9]   [LA]
-
 [DO7+]   [SIm]   [FA7+]   [SOL]   [RE7] [RE#dim]
-
 [MIm7] Breathe, breathe in the [LA]air
 [MIm9] Don''t be afraid to [LA]care
 [MIm9] Leave but don''t leave [LA]me
@@ -162,7 +144,6 @@ For [DO7+]long you live and high you fly
 But [SIm]only if you ride the tide
 And [FA7+]balanced on the biggest wave
 You [SOL]race towards an [RE7]early grav[RE#dim]e...
-
 [MIm7]   [LA]', 'breathe');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 

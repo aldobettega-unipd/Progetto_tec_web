@@ -4,9 +4,7 @@ SET NAMES 'utf8mb4';
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Ci Sono Anch’io', '883', 'ITA', '[LA]  [REadd9]  [LA]  [REadd9]
-
 [LA]  [REadd9]  [LA]  [REadd9]
-
 [LA]Io di ri[REadd9]sposte non ne [LA]ho mai a[REadd9]vute e mai ne a[LA]vrò
 Di do[REadd9]mande ne ho [SIm7]quante ne [REadd9]vuoi
 e [LA]tu neanche [REadd9]tu mi ferme[LA]rai neanche [REadd9]tu ci riusci[LA]rai
@@ -51,9 +49,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Come Mai', '883', 'ITA', '[FA]   [DO]   [SIb]   [FA]
-
 [SIb]  [FA]   [DO]    [FA]
-
 Le [FA]notti non fi[REm]niscono, all''[SIb]alba nella [DO]via
 le [FA]porto a casa in[REm]sieme a me, ne [SIb]faccio melo[DO]dia
 e [SIb]poi mi trovo a [DO]scrivere, chi[REm]lometri di [FA]lettere
@@ -114,7 +110,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Gli Anni', '883', 'ITA', '[SOL]
-
 [MIm]  Stessa s[DO]toria, stesso [SOL]posto, stesso [RE]bar
 [MIm]  stessa [DO]gente che vien [SOL]dentro, con[RE]suma e poi [MIm]va
 non lo [DO]so,  [RE]   che faccio [SOL]qui
@@ -237,7 +232,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Nessun Rimpianto', '883', 'ITA', '[DO]  [FA]  [LAm]  [SOL]  [DO]  [FA]  [LAm]  [SOL]  [FA]
-
 [DO]  Tutti mi diceva[FA]no ve[SOL]drai [FA]
 [DO]  è successo  a tutti [FA]però [SOL]poi   [MIm]
 [LAm]  ti alzi un gior[SOL]no e non [FA]ci pensi più[SOL]
@@ -268,16 +262,12 @@ Solt[DO]anto certe [FA]volte c[LAm]apita c[SOL]he
 appena [DO]prima di do[FA]rmire mi [LAm]sembra di sen[SOL]tire
 il [DO]tuo ricordo [FA]che mi bussa [LAm]ma io [SOL]non aprirò
 
-Strumentale:
 [FA7+] [DO9] [FA7+] [SOL7]
-
 [DO]  Nessun Rim[FA]pianto, [LAm]  Nessun ri[SOL]morso
 Solt[DO]anto certe [FA]volte c[LAm]apita c[SOL]he
 appena [DO]prima di do[FA]rmire mi [LAm]sembra di sen[SOL]tire
 il [DO]tuo ricordo [FA]che mi bussa [LAm]e mi [SOL]fa male un po''[DO]
-
 [DO]  [FA]  [LAm]  [SOL]     [DO]  [FA]  [LAm]  [SOL]
-
 [DO]  [FA]  [LAm]  [SOL]     [DO]  [FA]  [LAm]  [SOL]', 'nessun-rimpianto');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -290,7 +280,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Nord Sud Ovest Est', '883', 'ITA', '[SOL]   [DO] [RE]   [DO] [MIm]  [RE]  [DO]   [RE]
-
 [SOL]  Ma perché sei an[DO]data vi[RE]a,
 mi son persa [DO]nella not[SOL]te
 perché non mi hai [DO]detto [RE]che
@@ -315,7 +304,6 @@ e [MIm]forse quel che [RE]cerco neanche [DO]c''è  [RE]
 sta[MIm]rò cercando [RE]lei o forse m[DO]e   [RE]
 
 [SOL]  [DO] [RE]  [DO] [SOL]  [DO] [RE]  [DO]
-
 [SOL]  Tra deserto e [DO]prater[RE]ie,
 ma perché ti [DO]sei ferma[SOL]to?
 ero stanco ed [DO]affam[RE]ato amica mia, [DO]sì lo s[SOL]o

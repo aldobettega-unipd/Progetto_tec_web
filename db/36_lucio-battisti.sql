@@ -5,7 +5,6 @@ SET NAMES 'utf8mb4';
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Acqua Azzurra Acqua Chiara', 'Lucio Battisti', 'ITA', '[RE]  [LA]  [SOL]  [FA#] [SOL] [LA]
 [RE]  [LA]  [SOL]  [LA]  [SOL]  [LA]
-
 Ogni notte ritor[LA]nar per cercarla in qualche [MI]bar
 domandare ciao che [SIm]fai e poi u[MI]scire insieme a [LA]lei
 Ma da quando ci sei tu tutto [FA#7]questo non c''è [SIm]più
@@ -70,7 +69,6 @@ e labbra [RE]rosse sulle quali mo[FA]rire
 solo per [LAm]me      [LA5]    [SOL#5]      [FA#5]     [FA]   [MI]
 
 [LAm]Una la voglio perché sa bene ballare
-
 Una la voglio perché ancor non sa
 cosa vuol [MI]dir l''amore
 [LAm]Una soltanto perc[DO]hé
@@ -106,9 +104,7 @@ perché ha detto una cosa vera  [SOLb7]
 [MI]dieci ragazze per me
 però io muoio per [SIm]te  [SOL7]
 però io muoio per [SIm]te  [SOL7]
-
 [SIm]  [SOL]  [SIm]  [SOL]  [SIm]  [SOL]
-
 [SIm]  [FA#m]  [SIm]', 'dieci-ragazze');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -131,7 +127,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('I Giardini di Marzo', 'Lucio Battisti', 'ITA', '[SOL#m] [RE#m7] [MI7+]    [SOL#m] [RE#m7] [MI7+]
-
 Il car[SOL#m]retto passava e quell''[RE#m]uomo
 gridava ”[MI7+]gelati”
 al ven[SOL#m]tuno del mese i nostri [RE#m]soldi
@@ -140,7 +135,6 @@ io pen[SOL#m]savo a mia madre e [RE#m]rivedevo i
 suoi ves[MI7+]titi
 il più [SOL#m]bello era nero coi [RE#m]fiori non
 ancora appas[MI7+]siti
-
 [SOL#m] [RE#m7] [MI7+]    [SOL#m] [RE#m7] [MI7+]
 
 All''us[SOL#m]cita di scuola i ra[RE#m7]gazzi
@@ -164,9 +158,7 @@ fiumi azzurri [SI]e colline e [DO#m]praterie[DO#m]  dove
 le [SOL#m]mie malinconie l''universo [SI]trova
 spazio [DO#m]dentro me...
 ma il co[SOL#m]raggio di vivere [RE#m7]quello ancora non [MI7+]c''è
-
 [SOL#m] [RE#m7] [MI7+]    [SOL#m] [RE#m7] [MI7+]
-
 [SOL#m] [RE#m7] [MI7+]    [SOL#m] [RE#m7] [MI7+]
 
 I giar[SOL#m]dini di marzo si [RE#m7]vestono di nuovi
@@ -192,7 +184,6 @@ fiumi azzurri [SI]e colline e [DO#m]praterie[DO#m]  dove
 le [SOL#m]mie malinconie l''universo [SI]trova
 spazio [DO#m]dentro me...
 ma il co[SOL#m]raggio di vivere [RE#m7]quello ancora non [MI7+]c''è
-
 [SOL#m] [RE#m7] [MI7+]    [SOL#m] [RE#m7] [MI7+]   [SOL#m11]', 'i-giardini-di-marzo');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -206,7 +197,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Il Mio Canto Libero', 'Lucio Battisti', 'ITA', '[LA]  [DO#m]  [RE]  [LA]
-
 In un mondo [LA]che non ci vuole [DO#m]più
 il mio canto [RE7+]libero sei [LA]tu
 e l''immensità si apre intorno a [DO#m]noi
@@ -233,8 +223,6 @@ e s''alza un vento ti[RE7+]epido d''amore di [LA]vero amore
 dolce com[DO#m]pagna che
 [RE7+]  non sai dove andare ma sai che o[LA]vunque andrai
 [SOL]  al fianco tuo mi a[LA]vrai.. [SIm]se tu lo vuoi [MI]
-
-Strumentale:
 [LA]  [DO#m]  [RE]  [LA]
 [LA]  [DO#m]  [RE]  [LA]
 
@@ -269,8 +257,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Il Tempo di Morire', 'Lucio Battisti', 'ITA', 'Intro:
-
+('Il Tempo di Morire', 'Lucio Battisti', 'ITA', '
 (continua come Intro)
 Motoci[DO]cletta, [FA]   [DO]
 dieci H. [DO]P.   [FA]   [DO]
@@ -313,8 +300,6 @@ adesso dimmi di [DO]si,  [FA]   [DO]
 adesso dimmi di [DO]si,  [FA]   [DO]
 adesso dimmi di [DO]si!  [FA]   [DO]
 
-(STRUMENTALE)
-
 Non dire [DO]no,  [FA]   [DO]
 non dire [DO]no,  [FA]   [DO]
 non dire [DO]no,  [FA]   [DO]
@@ -338,7 +323,6 @@ dimmi di [DO]si,  [FA]   [DO]
 ma che ci posso [FA]fare [SIb]    [FA]
 io sono un dispe[SOL]rato [FA]
 perchè ti voglio a[DO]mare,[FA]   [DO]
-
 io sono un dispe[SOL]rato
 perchè ti voglio a[LAb]mare', 'il-tempo-di-morire');
 SET @last_song_id = LAST_INSERT_ID();
@@ -353,17 +337,13 @@ INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzo
 ('La Collina dei Ciliegi', 'Lucio Battisti', 'ITA', 'E se dav[DO]vero tu vuoi vivere
 una vita luminosa e più frag[MI7]rante
 can[FA]cella col coraggio quella [SOL]supplica dagli occhi[DO]
-
 troppo spesso la saggezza è solamente
 la prudenza più sta[MI7]gnante
 e quasi [FA]sempre dietro la coll[SOL]ina il sole [DO]
 Ma perché tu non ti vuoi azzurra e lu[MI7]cente
 ma perc[FA7+]hé tu non vuoi spaziare con me
-
 volando intorno la tradizione
-
 come un colombo intorno a un pallone frenato
-
 e con un colpo di becco
 bene aggiustato forato e lui giù, giù, giù
 
@@ -375,13 +355,10 @@ pla[LAm]nando sopra [MIm]boschi di [FA]braccia tes[DO]e
 [LAm]  [MIm] [FA]  [DO]
 E [LAm]respirando brezze che dil[MIm]agano su terre
 senza [FA7+]limiti e confini
-
 ci al[LAm]lontaniamo e [MIm]poi ci ritro[FA]viamo più vic[DO]ini
 [LAm]e più in [MIm]alto e più in [FA7+]là
-
 (se chiudi gli occhi un istante)
 [LAm]ora [MIm]figli dell''im[FA]mensità[DO]
-
 Se segui la mia mente se segui la mia [MI7]mente
 abban[FA]doni facilmente le an[SOL]tiche gelosi[DO]e
 ma non ti accorgi che è solo la paura
@@ -393,16 +370,13 @@ ma perc[FA7+]hé non mi dài, la tua mano perché?
 Potremmo correre sulla collina
 e fra i ciliegi veder la mattina [FA](e il giorno)
 [FA7+]  E dando un calcio ad un sasso
-
 residuo d''inferno e farlo rotolar giù, giù, giù
-
 e [LAm]noi an[MIm]cora an[FA]cor più su [DO]
 pla[LAm]nando sopra [MIm]boschi di [FA]braccia tes[DO]e
 [LAm]un sor[MIm]riso che non h[FA7+]a
 [LAm]né più un [MIm]volto, né [FA]più un''et[DO]à
 E [LAm]respirando brezze che dil[MIm]agano su terre
 senza [FA7+]limiti e confini
-
 ci al[LAm]lontaniamo e [MIm]poi ci ritro[FA]viamo più vic[DO]ini
 [LAm]e più in [MIm]alto e più in [FA7+]là
 [LAm]ora [MIm]figli dell''im[FA]mensità[DO]', 'la-collina-dei-ciliegi');
@@ -417,9 +391,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('La Canzone del Sole', 'Lucio Battisti', 'ITA', '[LA] [MI] [RE] [MI]
-
 [LA] [MI] [RE] [MI]
-
 [LA]   Le bionde [MI]trecce gli occhi az[RE]zurri e poi [MI]
 [LA]   le tue cal[MI]zette rosse [RE]      [MI]
 [LA]   e l''inno[MI]cenza sulle [RE]gote tue [MI]
@@ -442,10 +414,7 @@ che importa [MI]tanto tu non [RE]me lo dirai[MI] purtroppo
 [LA]   tu eri [MI]chiaro e traspa[RE]rente come m[MI]e
 [LA]   Oh mare [MI]nero Oh mare [RE]nero Oh mare [MI]ne...
 [LA]   tu eri [MI]chiaro e traspa[RE]rente come m[MI]e
-
-Strumentale:
 [LA] [MI] [RE] [MI]   [LA] [MI] [RE] [MI]
-
 [LA] [MI] [RE] [MI]   [LA] [MI] [RE] [MI]
 
 Le bicic[LA]lette abbando[MI]nate sopra il p[RE]rato e poi  [MI]
@@ -478,7 +447,6 @@ sorge p[LA]iano e [MI]poi la [RE]luce si dif[MI]fonde
 tutto in[LA]torno a [MI]noi le [RE]ombre dei fan[MI]tasmi
 della [LA]notte sono [MI]alberi o ces[RE]pugli ancora in f[MI]iore
 sono gli [LA]occhi di una [MI]donna ancora p[RE]ieni d''am[MI]ore
-
 [LA]Eh [MI]eh…[RE] na[MI]nana  [LA]    [MI]    [RE]    [MI]     [LA]    [MI]    [REadd9]', 'la-canzone-del-sole');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -488,11 +456,8 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Un’Avventura', 'Lucio Battisti', 'ITA', '[LAb]  [REb]  [LAb] [MIb]
-
 [LAb]  [REb]  [MIb]
-
 Non sa[LAb]rà
-
 Un''avventura
 Non può [DOm]essere soltanto una prima[FA7]vera
 Questo a[SIbm]more  [SIbm]

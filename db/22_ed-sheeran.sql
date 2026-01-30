@@ -74,7 +74,6 @@ Kissed her on the neck
 Said, "[MI]Baby, I just want to dance"
 
 I met her on [FA#m]Grafton street [LA]right
-
 outside of the bar
 She shared a [MI]cigarette
 with me while he[RE]r brother played the guitar
@@ -122,18 +121,12 @@ My, my, my, m[FA#m]y, my, my, my [RE]Galwa[LA]y Girl [MI]
 My, my, my, m[FA#m]y, my, my, my [RE]Galwa[LA]y Girl [MI]    [FA#m]
 
 And now we''ve [FA#m]outstayed our welcome
-
 and it''s closing time
-
 I was holding her hand,
-
 her hand was holding mine
 Our coats both smell of smoke,
-
 whisky and wine
-
 As we fill up our lungs
-
 with the cold air of the night
 I[FA#m] walked her home then she took me inside
 To fi[MI]nish some Doritos and another bottle of wine
@@ -149,9 +142,7 @@ With my pretty little [RE]Galwa[LA]y Girl [MI]
 My, my, my, m[FA#m]y, my, my, my [RE]Galwa[LA]y Girl [MI]
 My, my, my, m[FA#m]y, my, my, my [RE]Galwa[LA]y Girl [MI]
 My, my, my, m[FA#m]y, my, my, my [RE]Galwa[LA]y Girl [MI]    [FA#m]
-
 [RE]  [LA]  [MI]  [FA#m]  [RE]  [LA]  [MI]  [FA#m]
-
 [RE]  [LA]  [MI]  [FA#m]  [RE]  [LA]  [MI]  [FA#m]', 'galway-girl');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -163,19 +154,13 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('I See Fire', 'Ed Sheeran', 'ENG', '[SIbm]Oh, misty eye of the mountain below
-
 Keep careful watch of my brothers'' souls
-
 And should the sky be filled
-
 with fire and smoke
-
 Keep watching over Durin''s sons
 
 [SIbm] [SOLb]     [LAb] [SIbm]
-
 [SIbm] [SOLb]     [LAb] [SIbm]
-
 If this is to [SIbm]end in [REb]fire
 Then we should [LAb]all burn [SOLb]together
 Watch the [SIbm]flames climb [REb]high [LAb]into the [MIbm]night
@@ -201,11 +186,8 @@ And I see fire[SOLb]
 [LAb]Hollowing [SIbm]souls
 And I see fire[SOLb]
 [LAb]Blood in the [MIb5]breeze
-
 And I hope that you remember me
-
 [SIbm] [SOLb]     [LAb] [SIbm]
-
 [SIbm] [SOLb]     [LAb] [SIbm]
 
 Oh, should my [SIbm]people [REb]fall
@@ -228,7 +210,6 @@ And I see fire[SOLbadd9]
 [LAb]Blood in the [MIbm7]breeze
 
 And I hope that you remember me
-
 And if the [MIbm]night is [SIbm]burning
 I will [REb]cover my [LAb]eyes
 For if the [MIbm]dark re[SIbm]turns
@@ -306,7 +287,6 @@ I [FAm7]don''t de[REbadd9]serve this
 Darling, [LAb]you look [MIb]perfect to[LAb]night [FAm7]
 
 [REbadd9]  [MIb]
-
 Baby, [FAm]I''m [REbadd9]dancing in the [LAb]dark
 With [MIb]you between my [FAm7]arms
 [REbadd9]Barefoot on the [LAb]grass
@@ -326,7 +306,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Photograph', 'Ed Sheeran', 'ENG', '[MI]  [DO#m7]  [SI4]  [LAadd9]
-
 Loving can h[MI]urt, loving can h[DO#m]urt sometimes
 But it''s the [SI]only thing that I know[LA]
 When it gets h[MI]ard, you know it can get h[DO#m]ard sometimes
@@ -390,9 +369,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Shape of You', 'Ed Sheeran', 'ENG', '[DO#m]  [FA#m7]  [LA]  [SI]
-
 [DO#m]  [FA#m7]  [LA]  [SI]
-
 The [DO#m]club isn''t the best [FA#m7]place to find a lover
 So the [LA]bar is where I g[SI]o
 [DO#m]Me and my friends at the [FA#m7]table doing shots
@@ -467,11 +444,8 @@ Every day discove[FA#m7]ring something brand [LA]new
 I''m in [SI]love with the shape of y[DO#m]ou
 
 Come on, be my baby, come on
-
 Come on, be my baby, come on
-
 Come on, be my baby, come on
-
 Come on, be my baby, come on
 [DO#m] Come on, be my [FA#m7]baby, come on
 [LA] Come on, be my [SI]baby, come on
@@ -544,11 +518,8 @@ Kiss me[LA] under the light of a [RE]thousand [RE]stars   [SOL]
 Place [LA]your head on my beating [RE]heart[RE]
 I''m [SOL]thinking out [LA]loud
 Maybe [SIm]we  [LA]found [SOL]love [RE]right  [MIm7]where [LA]we [RE]are
-
 [RE]  [RE]  [SOL]  [LA]    [RE]  [RE]  [SOL]  [LA]
-
 [RE]  [RE]  [SOL]  [LA]    [RE]  [RE]  [SOL]  [LA]
-
 That, baby, n[RE]ow  [RE]        [SOL]
 Take me[LA] into your loving a[RE]rms [RE]        [SOL]
 Kiss me[LA] under the light of a [RE]thousand [RE]stars   [SOL]

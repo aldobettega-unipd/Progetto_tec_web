@@ -50,9 +50,7 @@ Her [DO]soul [SOL]slides a[LAm]way...
 [MI]  but don''t look [FA]back in anger [SOL]
 I heard you [DO]say   [LAm]     [SOL]
 
-Strumentale:
 [FA]  [FAm]  [DO]  [FA]  [FAm]  [DO]  [FA]  [FAm]  [DO]
-
 [SOL]  [MI]  [LAm]  [SOL]  [FA]  [SOL]
 
 [DO]So  [SOL]Sally can [LAm]wait
@@ -107,13 +105,9 @@ We see things they''ll never [LAm7]see
 You and I are gonna live fo[FAadd9]rever
 
 [SOL]  [RE]  [LAm7]  [DO] [RE]
-
 [SOL]  [RE]  [LAm7]  [DO] [RE]
-
 [MIm7]  [RE]  [LAm7]  [DO] [RE]
-
 [MIm7]  [RE]  [LAm7]  [FAadd9]
-
 [SOL]Maybe I don''t [RE]really wanna know
 How your [LAm7]garden grows
 ''Cause [DO]I just wanna [RE]fly
@@ -164,9 +158,7 @@ He [RE]sits in a [LA]corner [MI]all al[FA#m]one
 N[MI]obody can [FA#m]ever hear him [RE]call [LA]    [MI]    [FA#m]
 
 [RE]  [LA]  [MI]  [FA#m]   [RE]  [LA]  [MI]  [FA#m]
-
 [MI]     [DO#7]
-
 You need to [FA#m]be yo[7]urself    [LA]    [SI]
 You can''t be [FA#m7]no one else    [LA]    [SI]
 I k[FA#m]now a[7] girl called Elsa, She''s [LA]into Alka-S[SI7]eltzer
@@ -188,8 +180,6 @@ He [RE]sits in a [LA]corner [MI]all al[FA#m]one
 N[MI]obody can [FA#m]ever hear him [RE]call [LA]    [MI]    [FA#m]
 
 [RE]  [LA]  [MI]  [FA#m]   [RE]  [LA]  [MI]  [FA#m]
-
-
 [MI]    [DO#7]   [FA#m]', 'supersonic');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -202,9 +192,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Wonderwall', 'Oasis', 'ENG', '[MIm7]  [SOL]  [RE4]  [LA7]
-
 [MIm7]  [SOL]  [RE4]  [LA7]
-
 [MIm7]  Today is [SOL]gonna be the day
 That they''re [RE4]gonna throw it back to [LA7]you,
 [MIm7]  By now you [SOL]should of somehow
@@ -257,8 +245,6 @@ I said [DOadd9]maybe,  [MIm7]      [SOL]
 You''re [MIm7]gonna be the one that [DOadd9]saves me, [MIm7]       [SOL]
 You''re [MIm7]gonna be the one that [DOadd9]saves me, [MIm7]       [SOL]
 You''re [MIm7]gonna be the one that [DOadd9]saves me, [MIm7]       [SOL]
-
-Strumentale:
 [MIm7]  [DOadd9]  [MIm7]  [SOL]  [MIm7]  [DOadd9]  [MIm7]  [SOL]', 'wonderwall');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 

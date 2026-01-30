@@ -44,9 +44,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Like A Rolling Stone', 'Bob Dylan', 'ENG', '[DO]  [FA7+]   [DO]  [FA7+]
-
 [DO]  [FA7+]   [DO]  [FA7+]
-
 [DO]Once upon a time you [REm7]dressed so fine
 You [MIm]threw the bums a dime [FA]in your prime
 [SOL]  didn''t you?
@@ -69,9 +67,7 @@ To be without a home[DO]    [FA]    [SOL]
 Like a complete unknown[DO]    [FA]    [SOL]
 Like a rolling stone [DO]    [FA]    [SOL]
 
-Strumentale:
 [DO]  [FA]  [SOL]
-
 Aww,[DO] You''ve gone to the finest [REm7]school all right
 Miss [MIm]Lonely, but you know you only [FA]used to get
 [SOL]   juiced in it
@@ -95,9 +91,7 @@ To be without a home[DO]    [FA]    [SOL]
 Like a complete unknown[DO]    [FA]    [SOL]
 Like a rolling stone [DO]    [FA]    [SOL]
 
-Strumentale:
 [DO]  [FA]  [SOL]
-
 Aww, You [DO]never turned around to [REm7]see the frowns
 On the [MIm]jugglers and the clowns
 [FA]  when they all did [SOL]tricks for you
@@ -120,9 +114,7 @@ To be without a home[DO]    [FA]    [SOL]
 Like a complete unknown[DO]    [FA]    [SOL]
 Like a rolling stone [DO]    [FA]    [SOL]
 
-Strumentale:
 [DO]  [FA]  [SOL]
-
 Aww, [DO]Princess on the [REm7]steeple
 and all the [MIm]pretty people
 [FA] They''re all drinkin'', thinkin'' that they
@@ -146,8 +138,6 @@ How does it feel[DO]    [FA]    [SOL]
 To be without a home[DO]    [FA]    [SOL]
 Like a complete unknown[DO]    [FA]    [SOL]
 Like a rolling stone [DO]    [FA]    [SOL]
-
-Strumentale:
 [DO]  [FA]  [SOL]', 'like-a-rolling-stone');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 

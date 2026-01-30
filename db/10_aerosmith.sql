@@ -1,6 +1,7 @@
 -- File generato automaticamente
 SET NAMES 'utf8mb4';
 
+
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('I Don''t Want To Miss A Thing', 'Aerosmith', 'ENG', 'I could [RE]stay awake [LA]just to hear you [SIm]breathing,
@@ -61,7 +62,6 @@ And I don''t wanna [LA]miss a thing [RE]
 [MIm]  I don''t wanna fall asleep
 Cause I [SOL]miss you baby,
 And I don''t wanna [LA]miss a thing
-
 [RE]', 'i-dont-want-to-miss-a-thing');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -78,11 +78,8 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Dream On', 'Aerosmith', 'ENG', '[FAm]  [SIbm6]  [FAm]  [SIbm6]  [FAm]  [FAm7]  [FAm]
-
 [FAm]  [SIbm6]  [FAm]  [SIbm6]  [FAm]  [FAm7]  [FAm]
-
 [SIb]  [DO]  [FAm]
-
 [FAm]  Every [SIbm6]time I [FAm]look in the [SIbm6]mirror
 [FAm]  all these [SIbm6]lines on my [FAm]face gettin'' [SIbm6]clearer
 [FAm]     [SIbm6]   The past is [FAm]gone [SIbm6]
@@ -97,7 +94,6 @@ INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzo
 
 Strumentale:
 [FAm]  [SIbm6]  [FAm]  [SIbm6]  [FAm]  [FAm7]  [FAm]
-
 [FAm]  Half my [SIbm6]life''s in [FAm]books'' written [SIbm6]pages
 [FAm]  lived and [SIbm6]learned from [FAm]fools and from [SIbm6]sages
 [FAm]     [SIbm6]   You know its [FAm]true [SIbm6]
@@ -110,9 +106,7 @@ Strumentale:
 
 Strumentale:
 [FAm]  [FAm]  [FAm]  [SIb]  [FAm7]  [FAm7]  [FAm7]  [FAm]
-
 [FAm]  [FAm]  [FAm]  [SIb]  [FAm7]  [FAm7]
-
 [FAm]  Sing with me, [MIb]sing for the years
 [REb]sing for laughter ''n'' [MIb]sing for the tears
 [FAm]  Sing with me, if it''s [MIb]just for today

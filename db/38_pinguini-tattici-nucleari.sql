@@ -4,13 +4,9 @@ SET NAMES 'utf8mb4';
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Antartide', 'Pinguini Tattici Nucleari', 'ITA', '[MI]   [RE6]   [LA]   [MI]
-
 [MI]   [SIm7]   [LA]   [MI] [RE]   [DO#m]  [SI]
-
 [DO#m7]  [LAadd9]  [FA#m7]  [SI4]
-
 [DO#m7]  [LAadd9]  [FA#m7]  [SI4]
-
 [DO#m7]  Ad undici anni quando [LAadd9]eri piccola
 Aspet[FA#m7]tavi una lettera da [SI4]Hogwarts
 [DO#m7]  Per dimostrare a [LAadd9]tutti i tuoi compagni
@@ -32,9 +28,7 @@ Alla [SOL#m]fine però non lo fai [DO#m7]mai
 Provan a [SI]rompere il ghiaccio con [DO#m7]te
 [LA]Ahia ahia a[MI]hi
 Non sanno [SI]che tu sei l''Antarti[DO#m]de
-
 [DO#m7]  [LAadd9]  [FA#m7]  [SI4]
-
 [DO#m7]  [LAadd9]  [FA#m7]  [SI4]
 
 [DO#m7]Quando le amiche par[LAadd9]lavano di sesso
@@ -54,9 +48,7 @@ Alla [SOL#m]fine però non lo fai [DO#m7]mai
 Provan a [SI]rompere il ghiaccio con [DO#m7]te
 [LA]Ahia ahia a[MI]hi
 Non sanno [SI]che tu sei l''Antarti[DO#m]de
-
 [RE]   [LA]   [MI]  [LA] [MI]
-
 [RE]   [LA]   [MI]  [LA] [MI]
 
 [LAadd9]  E con lo sguardo perso
@@ -77,11 +69,8 @@ Alla [SOL#m]fine però non lo fai [DO#m7]mai
 Provan a [SI]rompere il ghiaccio con [DO#m7]te
 [LA]Ahia ahia a[MI]hi
 Non sanno [SI]che tu sei l''Antarti[DO#m]de
-
 [DO#m7]  [LAadd9]  [FA#m7]  [SI4]
-
 [DO#m7]  [LAadd9]  [FA#m7]  [SI4]
-
 [REadd9]   [LA]   [MI]  [LA] [MI]', 'antartide');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -96,7 +85,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Bagatelle', 'Pinguini Tattici Nucleari', 'ITA', '[DO#m7]   [LA] [MI]    [SI] [DO#m7]   [LA] [MI]   [SI]
-
 [DO#m7]Di fronte al [LA]fuoco del fa[MI]lò
 I linea[SI]menti di Lu[DO#m7]cia erano [LA]ottovo[MI]lanti  [SI]
 E [DO#m7]Paolo [LA]se ne innamo[MI]rò
@@ -110,7 +98,6 @@ Amore, a[LA]more sei sempre la [MI]stessa vecchia [SI]solfa
 Sei la [LA]porta che scricchiola, il mo[MI]tore che s''in[SI]golfa
 L''om[LA]brello dimenticato al[MI]la stazione del [SI]tram
 Il ru[LA]more di un sogno che resiste [MI]sotto al peso [SI]dell''età
-
 [DO#m7]   [LA] [MI]    [SI] [DO#m7]   [LA] [MI]
 
 E [DO#m7]sopra al gom[LA]mone trabal[MI]lante  [SI]
@@ -127,20 +114,15 @@ Sei la [LA]porta che scricchiola, il mo[MI]tore che s''in[SI]golfa
 L''om[LA]brello dimenticato al[MI]la stazione del [SI]tram
 Il ru[LA]more di un sogno che resiste [MI]sotto al peso [SI]dell''...
 e[RE]tà  [LA]    [DO#m]      [DO]
-
 [MI]  [LA] [SI] [DO#m7]   [LA] [MI] [SI]  [MI]
-
 [MI]  [LA] [SI] [DO#m7]   [LA]  [SI]
-
 [LA]  [MI] [SI]   [LA]  [MI] [SI]   [LA]   [MI] [SI]   [LA]   [MI] [SI]
 
 Amore, a[LA]more che da tempo sei scap[MI]pato dalle [SI]chiese
 E ti na[LA]scondi nelle foto di un tu[MI]rista giappo[SI]nese
 Sei quasi [LA]morto sotto i colpi di fu[MI]cile della [SI]nato
 Ed oggi [LA]taci per paura di sem[MI]brare sdolci[SI]nato
-
 [DO#m7]   [LA] [MI]    [SI] [DO#m7]   [LA] [MI]   [SI]
-
 [DO#m7]   [LA] [MI]    [SI] [DO#m7]   [LA] [MI]   [SI]
 
 Amore, a[LA]more sei sempre la [MI]stessa vecchia [SI]solfa
@@ -148,7 +130,6 @@ Sei la [LA]porta che scricchiola, il mo[MI]tore che s''in[SI]golfa
 L''om[LA]brello dimenticato al[MI]la stazione del [SI]tram
 Il ru[LA]more di un sogno che resiste [MI]sotto al peso [SI]dell''età
 [LA]e  [MI]del[DO#m7]la    [LA6]real[SI]tà
-
 [LA]  [MI] [SI]   [LA]  [MI] [SI]   [LA]   [MI] [SI]   [LA]   [MI] [SI]', 'bagatelle');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -180,7 +161,6 @@ che [MIadd9]se ti senti persa dentro a[LA]lla malinconia
 i [LAm]giorni grigi e cieli neri [MI]tu
 ricordi che sei [DO#m7]bella come [SI]casa mi[LA7+]a
 ricorda che sei [DO#m7]bella come [SI]casa mi[LA7+]a    [LAm]
-
 [MI]     [LA]  [MI]
 
 [MI]forse non te l''ho mai detto ma [MI7+]tu
@@ -203,7 +183,6 @@ che [MIadd9]se ti senti persa dentro a[LA]lla malinconia
 i [LAm]giorni grigi e cieli neri [MI]tu
 ricordi che sei [DO#m7]bella come [SI]casa mi[LA7+]a
 ricorda che sei [DO#m7]bella come [SI]casa mi[LA7+]a....[LAm]
-
 [MI]      [LA7+]  [DO#m7]  [MI]      [LA7+]  [DO#m7]
 
 [MI]        [LA7+]   sei [DO#m7]bella come casa mia
@@ -211,7 +190,6 @@ ricorda che sei [DO#m7]bella come [SI]casa mi[LA7+]a....[LAm]
 aaahh oh oh uh oh uoh [FA#m7]oh
 sei [SOL]bella come [LA]casa mi[MI]a        [LA7+]
 sei [DO#m7]bella come casa mia...
-
 [FA#m]    [SI]    [RE6]    [LA]
 
 [MI]io vo[MI7+]rrei
@@ -232,7 +210,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Ferma a Guardare', 'Pinguini Tattici Nucleari', 'ITA', '[FA]  [DO]  [REm]  [LAm]
-
 [FA]Io che non ho mai avuto una [DO]donna per un [REm]po''  [LAm]
 [FA]Ho sempre tenuto le re[DO]lazioni distan[REm]ti   [LAm]
 [FA]Vogliono tutte prender qual[DO]cosa che non [REm]ho   [LAm]
@@ -287,7 +264,6 @@ Perché non [FA]so [DO]re-[REm]-stare
 Perché non [FA]so [DO]re-[REm]-stare
 [LAm]Fermo a guarda[FA]re [DO]te che scen[REm]di giù dalle sca[LAm]le"
 Te ne vai[FA]    [DO]    [REm]     [LAm]
-
 [FA]  [DO]  [REm]  [LAm]', 'ferma-a-guardare');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -298,9 +274,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Giovani Wannabe', 'Pinguini Tattici Nucleari', 'ITA', '[RE]   [MIm]   [SIm]   [SOL]
-
 [RE]   [MIm7]   [SIm7]   [SOL]
-
 Nel cuore hai [RE]solamente foto di pae[MIm7]saggi
 E non c''è [SIm]posto per le tue foto [SOL]con me
 In auto [RE]dormi ed io non riesco a non guar[MIm7]darti
@@ -332,7 +306,6 @@ E do il tuo [LA]nome a un uragano tropi[SIm7]cale
 Ogni [RE]telegior[SOL]nale poi parlerà di te
 Sai che si [LA]nasce soli e si muore so[SIm7]listi
 Ma per fortuna e[SOLadd9]sisti, sei tutta la mia band e
-
 
 Noi siamo [RE]giovani wannabe ([MIm7]Oh-oh oh-oh)
 Ti dedi[SIm7]co le autostrade che [SOL]portano al mare
@@ -426,7 +399,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Irene', 'Pinguini Tattici Nucleari', 'ITA', '[SOL]  [SIm]  [DO]   [MIm]  [RE]  [SOL]  [DO]  [RE]
-
 I[SOL]rene, questa [SIm]sera
 la faccia te [DO]la strapperei via
 Così fa[MIm]resti paura al [RE]mondo
@@ -452,9 +424,7 @@ E ti sentirai scon[LAm7]fitta
 [MIm7]Che ti sposi un ingegnere
 Un notaio od un dentista
 Op[DO]pure, oppure, oppure il tuo ana[LAm7]lista
-
 [SOL]  [RE]  [MIm]    [RE]  [DO]
-
 [LAm7]  [RE]  [MIm]    [RE]  [DO]    [SOL]
 
 Una [SOL]luce indaga[SIm]trice
@@ -482,9 +452,7 @@ E vorrai star solo [LAm7]zitta
 Scappa forte, finché puoi
 [DO] Ricordami come Neville Paciock
 In un mondo di [LAm7]Draco Malfoy
-
 [SOL]  [RE]  [MIm]    [RE]  [DO]
-
 [LAm7]  [RE]  [MIm]    [RE]  [LAm7]
 
 Irene [MIm]non fi[SIm]darti [DO]mai  [SOL]    [RE]
@@ -495,15 +463,12 @@ Che [MIm]sono [SIm]le peg[DO]giori [SOL]
 Nelle [MIm7]mattin[SIm]e d''in[DO]verno
 E del [MIm7]parad[SIm]iso [DO]solo [SOL]se,
 Solo se [MIm7]visto [SIm]dall''in[DO]ferno
-
 [SOL]  [RE]  [MIm]    [RE]  [DO]
-
 [LAm7]  [RE]  [MIm]    [RE]  [DOadd9]
 
 Il futuro che ti potevo dare l''ho
 Barattato per i vinili che ho in soffitta
 Te li re[SOL]galerò quando avrai perso le speranze
-
 E ti sentirai sconfitta', 'irene');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -566,7 +531,6 @@ E che a[REadd9]desso non servono a [LA]niente?
 Che piacevo a tua mamma[FA#m7]?
 Che cre[REadd9]devo nel karma[LA]?
 Che sognavo di andare in I[FA#m7]slanda?[REadd9]        [LA]
-
 [FA#m7]  [REadd9]  [LA]
 
 Forse vi[FA#m7]cini col tempo sa[REadd9]remmo finiti ad o[LA]diarci
@@ -594,9 +558,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('La Banalità del Mare', 'Pinguini Tattici Nucleari', 'ITA', '[LA]  [MI]  [DO#m]  [SI]
-
 [LA]  [MI]  [DO#m]  [SI]
-
 [LA] Ti prego non usciamo [MI]questa sera
 [DO#m] Restiamo qui ad accarez[SI]zare il gatto
 [LA] M''hai detto "guarda, c''è la [MI]luna piena"
@@ -617,7 +579,6 @@ Ti prendo [SI]per la mano
 [DO#m]Guarda [LA]la cit[MI]tà
 Potrebbe an[SI]che bruciare
 [DO#m]Ti com[LA]muove [MI]la banali[SI]tà del mare
-
 [DO#m]Oh... [LA]    [MI]    [SI]    [DO#m]      [LA]    [MI]    [SI]
 
 [LA] E resta qui con me tut[MI]ta la notte
@@ -636,7 +597,6 @@ Ti prendo [SI]per la mano
 [DO#m]Guarda [LA]la cit[MI]tà
 Potrebbe an[SI]che bruciare
 [DO#m]Ti com[LA]muove [MI]la banali[SI]tà del mare
-
 [DO#m]Oh... [LA]    [MI]    [SI]    [DO#m]      [LA]    [MI]    [SI]
 
 Ti [LA]hanno vista per le strade a [MI]piedi nudi sul cemento
@@ -656,7 +616,6 @@ Ti prendo [SI]per la mano
 [DO#m]Guarda [LA]la cit[MI]tà
 Potrebbe an[SI]che bruciare
 [DO#m]Ti com[LA]muove [MI]la banali[SI]tà del mare
-
 [DO#m]Oh... [LA]    [MI]    [SI]    [DO#m]      [LA]    [MI]    [SI]
 [DO#m]Oh... [LA]    [MI]    [SI]    [DO#m]      [LA]    [MI]    [SI]', 'la-banalita-del-mare');
 SET @last_song_id = LAST_INSERT_ID();
@@ -698,9 +657,7 @@ Per[RE]chè non miri be[DO]ne
 Si senti[SOL]rà uno [DO]sparo in lonta[SOL]nanza
 Poi un ru[DO]more di ambu[MIm]lanza
 E io [RE]non ci sarò [SOL]più
-
 [MIm7]  [DO]  [SOL]    [MIm7]  [DO]  [SOL]
-
 [MIm7]  [DO]  [SOL]    [LAm7] [SOL] [DO]  [RE]  [MIm]
 
 [RE]Faceva[MIm7]no l''amore in [DOadd9]codice M[SOL]orse
@@ -726,9 +683,7 @@ Per[RE]chè non miri be[DO]ne
 Si senti[SOL]rà uno [DO]sparo in lonta[SOL]nanza
 Poi un ru[DO]more di [RE]ambu[MIm]lanza
 E io [RE]non ci sarò [SOL]più
-
 [DO]   [MIm] [RE]  [SOL]   [SI] [DO]
-
 [DO]   [MIm] [RE]  [SOL]   [SI] [DO] [RE] [SI]
 
 Quando arri[MIm7]varono gli [DO]investiga[SOL]tori
@@ -736,7 +691,6 @@ Le chiese[MIm7]ro che cosa [DO]fosse capi[SOL]tato
 E lei ri[MIm7]spose di [DO]non saperne [SOL]nulla
 Poi disse: “[DO]Esco
 Vado a [RE]prendermi un ge[MIm7]lato”
-
 [MIm]  [DO]  [SOL]', 'lake-washington-boulevard');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -749,9 +703,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('La Storia Infinita', 'Pinguini Tattici Nucleari', 'ITA', '[MI]   [LA] [MI]    [LA] [MI]
-
 [MI]   [LA] [MI]  [DO#m]  [LA] [MI]
-
 Ti ho [MI]scritto una lettera che [LA]sa can[MI]tare
 per tutti i giorni in cui vor[LA]rai dor[MI]mire
 quattrocento colpi [LA]dentro al [MI]cuore,
@@ -767,8 +719,8 @@ sì, [LA]dei tuoi Ray-[MI]Ban
 Un [DO#m7]tedesco suonava Wonder[LA]wall ad un falò
 di [MI]notte lui giocava a far l''ar[SI]tista
 men[DO#m7]tre tu sorridevi e non guar[LA]davi, no,
-mia [MI]dolce Venеre di [SI]Insta
-perché sei [FA#m7]stata l''еstate migliore [MI]della mia [LA]vita,
+mia [MI]dolce Venere di [SI]Insta
+perché sei [FA#m7]stata l''estate migliore [MI]della mia [LA]vita,
 è la verità
 sem[FA#7]brava la storia infinita
 e forse era [SI]solo la felicità
@@ -786,18 +738,16 @@ fra Dustin e Nancy
 Un [DO#m7]tedesco suonava Wonder[LA]wall ad un falò
 di [MI]notte lui giocava a far l''ar[SI]tista
 men[DO#m7]tre tu sorridevi e non guar[LA]davi, no,
-mia [MI]dolce Venеre di [SI]Insta
-perché sei [FA#m7]stata l''еstate migliore [MI]della mia [LA]vita,
+mia [MI]dolce Venere di [SI]Insta
+perché sei [FA#m7]stata l''estate migliore [MI]della mia [LA]vita,
 è la verità
 sem[FA#7]brava la storia infinita
 e forse era [SI]solo la felicità
-
 [LA]  [MI]  [SI]
 
 Anima punk, occhi di Peter P[LA]an  [MI]    [SI]
 una poesia dentro al cesso di un b[LA]ar  [MI]    [SI]
 una canzone che non finir[LA]à   [MI]    [SI]
-
 Aspetta, aspetta, aspetta com''è che fa?
 
 Un [DO#m7]tedesco suonava Wonder[LA]wall ad un falò
@@ -812,7 +762,6 @@ Ho perso i miei denti da [LA]latte
 perché son diventato g[MI]rande
 t''ho usata come una ris[SI]posta
 ma eri milioni di doman[MI]de   [LA]   [MI]      [LA]   [MI]
-
 [MI]    [LA] [MI]  [DO#m]  [LA] [MI]', 'la-storia-infinita');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -825,9 +774,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Nonono', 'Pinguini Tattici Nucleari', 'ITA', '[SOL]  [LAm]  [MIm]  [DO]
-
 [SOL]  [LAm]  [MIm]  [DO]
-
 [SOL] E ieri ho fatto un [LAm]sogno (no no [MIm]no)
 E c''eri dentro anche [DO]te
 [SOL] Leggevi "Piccoli [LAm]brividi" (no no [MIm]no)
@@ -885,7 +832,6 @@ Accanto a tutti i "[DO]ti voglio bene"  [SOL]
 [DOadd9] Mi parlano di [RE]te
 E [MIm]dicono che dopo tutto [SOL]sempre giorno r[SOL]icomincia [LAm7]ma
 Ti giuro non lo [RE]so...[SOL]
-
 Ti giuro non lo so
 
 Oh [SOL]yeeeee[LAm7]...   [MIm]
@@ -914,7 +860,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Pastello Bianco', 'Pinguini Tattici Nucleari', 'ITA', '[LAm]   [FA]   [DO]   [REm7]
-
 [LAm] E se m''hai visto [LAm7]piangere
 [FA] Sappi che era un''illu[FA6]sione otti[DO]ca
 Stavo solo togliendo il mare [REm]dai miei occhi
@@ -929,8 +874,8 @@ Tu che rimani sempre la mia password del Wi-[DO]Fi
 E chi sa se lo [SOL4]sai    [SOL]
 
 Per favore, non [DO]piangere
-E non ci rimanere m[FA]alе
-Che noi due ci conosciamo b[LAm]enе
+E non ci rimanere m[FA]ale
+Che noi due ci conosciamo b[LAm]ene
 Dalla prima element[SOL]are
 E scrivevo tutti i miei seg[REm7]reti
 Col pastello bianco [DO]sul di[FA]ario
@@ -950,8 +895,8 @@ Per ogni cosa, pure per il conto da pa[DO]gare
 Lo sai mi manche[SOL4]rà, na-na-na-[SOL]na
 
 Per favore, non [DO]piangere
-E non ci rimanere m[FA]alе
-Che noi due ci conosciamo b[LAm]enе
+E non ci rimanere m[FA]ale
+Che noi due ci conosciamo b[LAm]ene
 Dalla prima element[SOL]are
 E scrivevo tutti i miei seg[REm7]reti
 Col pastello bianco [DO]sul di[FA]ario
@@ -966,8 +911,8 @@ Le notti [FA]migliori e le docce di [LAm]altri
 Dove[SOL] tu forse non stonerai [DO]più
 
 Per favore, non [LAm]piangere
-E non ci rimanere m[FA]alе
-Che noi due ci conosciamo b[DO]enе
+E non ci rimanere m[FA]ale
+Che noi due ci conosciamo b[DO]ene
 Dalla prima element[SOL]are
 E scrivevo tutti i miei seg[REm7]reti
 Col pastello bianco [DO]sul di[FA]ario
@@ -985,7 +930,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Ricordi', 'Pinguini Tattici Nucleari', 'ITA', '[DO#m]    [SI]    [MI]    [LA]
-
 Almeno [DO#m]fino a domattina ti pro[SI]metto che
 Sarò la [MI]faccia di cui hai più bi[LA]sogno
 L''amico [DO#m]di scuola che ti ruba le [SI]biglie
@@ -1009,7 +953,6 @@ Ma solo ieri [DO#m]c''eri, nei giorni neri
 Quelli che piove troppo [LA]forte per stare in piedi
 E fottevamo anche la [FA#m7]morte volando leggeri
 M''hai chiesto, "Dimmi cosa [LA]temi, che cosa c[LAm]redi?"
-
 La mia risposta sei tu
 
 Ti stupi[DO#m]rà, ma no,
@@ -1051,7 +994,6 @@ E fottevamo anche la [LA#m7]morte volando leggeri
 M''hai chiesto, "Dimmi cosa [LA]temi, che cosa c[LAm]redi?"
 La mia risposta sei [MI]tu...[SOL#m7]         [DO#m7]
 La mia risposta sei [MI]tu...[SOL#m7]         [DO#m7]
-
 La mia risposta sei tu', 'ricordi');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -1066,9 +1008,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Ridere', 'Pinguini Tattici Nucleari', 'ITA', '[LA4] [LA]
-
 [REadd9] [LA]  [FA#m7]  [MI]
-
 [REadd9] Ed un po'' mi fa [LA]ridere
 Se [FA#m]penso che ora c''è lì un altro
 [MI]Che ti uccide i ragni al posto [REadd9]mio
@@ -1105,7 +1045,6 @@ Per stasera voglio [MI]essere una nave in fondo al [REadd9]mare
 Sei stata come [LA]Tiger
 Non mi mancava [FA#m]niente
 E poi dentro m''hai di[MI]strutto
-
 Perché mi sono accorto che mi mancava tutto
 
 [LA]  Però tu fammi una promessa
@@ -1120,12 +1059,10 @@ Giuro che un po'' mi fa ridere
 [LA]  Però tu fammi una promessa
 [DO#m7]  Che un giorno quando sarai vecchia
 [FA#m7]  Racconterai a qualcuno [RE#m7]cosa siamo stati[REadd9] noi
-
 [FA#m] [MI]
 
 [LA]  Le cene da tua mamma la nostra prima canna
 [MI]  La carbonara a Londra quando ci han messo la pan[FA#m7]na
-
 I tuoi occhi, i tuoi nei che non sono più i miei
 [REadd9]  Ma alla fine ti giuro [MI]che lo rifare[REadd9]i       [LA]    [FA#m7]
 [MI]Che lo rifare[REadd9]i       [LA]    [FA#m7]       [MI]', 'ridere');
@@ -1140,7 +1077,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Ringo Starr', 'Pinguini Tattici Nucleari', 'ITA', '[SOL]  [RE] [MIm]  [DO]  [SOL]  [RE]
-
 [SOL] A volte pens[RE]o che [MIm]a quelli come me
 il mondo [DO]non abbia mai voluto [SOL]bene  [RE]
 [SOL] Il cerchio della[RE] vita [MIm]impone che
@@ -1175,7 +1111,6 @@ Che i migliori alla fine se ne vann[SOL]o sempre e che cosa rimane? Ringo
 
 [MIm]     [DO] Ringo[LAm7]...   [RE]  Ringo
 [MIm]     [DO] Ringo[LAm7]...   [RE]  Ringo [MIm]
-
 ...In un mondo di John e di Paul io sono Ringo Starr
 
 [DO] Ma questa sera [RE]ho sol[MIm]o voglia di ballare,
@@ -1196,7 +1131,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Rubami la Notte', 'Pinguini Tattici Nucleari', 'ITA', '[SOLadd9]
-
 Rubami la [MIm7]notte[SIm7]     [DOadd9]
 Voglio stare [SOL]fuori come al Ber[RE]ghain
 Nel fuoco non si [MIm7]dorme[SIm7]     [DOadd9]
@@ -1219,7 +1153,6 @@ Ci sei solo [MIm7]tu   [SIm7]     [DOadd9]
 Nei [SOL]sogni, nei viaggi, [RE]nei soldi, nei saldi
 Solo [MIm7]tu   [SIm7]     [DOadd9]
 Quest''e[SOL]state ci assomig[RE]lia già
-
 Come Cu[MIm]rios[SIm]ity [DO]
 
 Cercami la vita addosso
@@ -1227,7 +1160,6 @@ E [SOL]schiantati[RE] come le stelle ad agosto
 Tu [MIm]sei un perso[SIm]naggio che è in [DO]cerca d''autore
 Ma lo [SOL]sai che non posso abiu[RE]rare il tuo nome
 Fammi ve[LAm7]dere la tua foto a Carne[DO]vale,
-
 quella al mare
 Quella [MIm7]con il broncio
 ed una con lo [RE]stronzo che ti ha fatto male
@@ -1242,7 +1174,6 @@ Ci sei solo [MIm7]tu   [SIm7]     [DOadd9]
 Nei [SOL]sogni, nei viaggi, [RE]nei soldi, nei saldi
 Solo [MIm7]tu   [SIm7]     [DOadd9]
 Quest''e[SOL]state ci assomig[RE]lia già
-
 [DOadd9]    [MIm7]    [RE]
 
 Ci amiamo [DOadd9]pour parler
@@ -1263,9 +1194,7 @@ Ci sei solo [MIm7]tu   [SIm7]     [DOadd9]
 Nei [SOL]sogni, nei viaggi, [RE]nei soldi, nei saldi
 Solo [MIm7]tu   [SIm7]     [DOadd9]
 Quest''e[SOL]state ci assomig[RE]lia già...
-
 [MIm7] [SIm7] [DOadd9]    [SOL]    [RE]
-
 [MIm7] [SIm7] [DOadd9]    [SOL]    [RE]', 'rubami-la-notte');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -1278,20 +1207,16 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Scrivile Scemo', 'Pinguini Tattici Nucleari', 'ITA', '[LA]      [MI]
-
 [LA]Scrivile, scemo, [REadd9]stanotte non dormi
 Tu [FA#m7]chiamali sogni, [MI]ma sono ricord[LA]i   [REadd9]
-
 [FA#m7]  [MI]
 
 [LA]Scrivile, scemo, [REadd9]è colpa del vino
 Se [FA#m7]basta uno sguardo e [MI]ritorni bambin[LA]o   [REadd9]
-
 [FA#m7]  [MI]
 
 [LA]Scrivile, scemo, ci [REadd9]vuole coraggio
 Nel ''[FA#m7]94 ad [MI]essere Bagg[LA]io  [REadd9]        [MI4]     [MI]
-
 Ma [RE]dove [LA]sei?
 Dicono [MI]che sei un po'' cresciuta ora[FA#m7]mai
 E [RE]non sei [LA]più
@@ -1303,9 +1228,7 @@ Tu [MI]fatti co[DO#7]raggio, poi [FA#m]scrivile, scemo[LA]
 
 [LA]Scrivile, scemo, [REadd9]tre parole in croce
 Poi [FA#m7]scappa lontano, poi [MI]perdi la voc[LA]e   [REadd9]
-
 [FA#m7]  [MI]
-
 [LA]Scrivile, scemo, un [REadd9]finale migliore
 Per [FA#m7]quella puntata della [MI]Melevisione
 Inte[LA]rrotta da torri che an[REadd9]darono in fiamme
@@ -1356,11 +1279,8 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Tetris', 'Pinguini Tattici Nucleari', 'ITA', '[DO#m7]  [SI]  [MI]  [LA]
-
 [DO#m7]  [SI]  [MI]
-
 [LA]Tu eri per [MI]me
-
 Il pezzo del tetris longilineo
 Quello che lo aspetti una [DO#m7]vita
 Ma finalmente quando ar[LA7+]riva
@@ -1393,24 +1313,17 @@ che e[SI]rutta sopra al mio viso scop[FA#m7]erto
 Tutto iniziò con uno [LA]sposami
 detto con indiffe[DO#m]renza
 E finì con un pia[SI]cer di far la tua conos[LA]cenza
-
 Oh, ma è incoscienza, eh
-
 [DO#m]  [SI]  [MI]  [LA]    [DO#m]  [SI]  [MI]
 
 [LA]Tu eri per [MI7+]me
-
 La consapevolezza
 Che con l''aiuto del [DO#m7]tempo
 anche un Magikarp è in [LA]grado
 Di diven[SI]tare Gyara[MI]dos  [SOL#m7]
-
 Tu eri per me
-
 Scampare a mille incubi
-
 Ma rimanerci secco al primo sogno apparso
-
 Lungo la mia strada
 [LA]Tu eri per [SI]me
 L''assenza per Bres[LA]son
@@ -1433,7 +1346,6 @@ che e[SI]rutta sopra al mio viso scop[FA#m7]erto
 Tutto iniziò con uno [LA]sposami
 detto con indiffe[DO#m]renza
 E finì con un pia[SI]cer di far la tua conos[LA]cenza
-
 [DO#m7]  [SOL#m7]  [LA]
 
 Tu eri per [MI]me ciò che l''ef[LA]fetto Dunning [SI]Kruger
@@ -1459,7 +1371,6 @@ Tutto iniziò con uno [LA]sposami
 detto con indiffe[DO#m]renza
 E finì con un pia[SI]cer
 di far la tua conos[LA]cenza [SI]    [DO#m]      [SI6]
-
 [LA7+]  [SI]  [DO#m]  [SI6]    [LA7+]  [SI]  [DO#m]  [SI6]', 'tetris');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -1472,7 +1383,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Verdura', 'Pinguini Tattici Nucleari', 'ITA', '[LAm]   [DO]   [SOL]   [RE]
-
 [LAm] Ma chi l''avrebbe mai detto
 Che mi sa[DO]rei trovato qua
 [SOL] Prima di andare a letto
@@ -1489,10 +1399,8 @@ Vorrei nuotare ma tu hai prosciugato i mar[RE]i
 Vorrei volare via ma tu mi hai tagliato le ali
 [LAm] I sorrisi migliori, li hai dati a degli stronzi
 [DO] Avevi Richie Cunningham e hai preferito Fon[SOL]zie
-
 Ma alla fine va bene
 Alla fine vai sciall[RE]a
-
 Si sopravvive a tutto
 Ascoltando Lucio Dalla [SOL]
 
@@ -1505,20 +1413,16 @@ Io non ho più pa[LAm]ura
 E riesco a ridere [DO]pure
 quando mangio la ver[LAm]dura
 
-
 ...Ma chi l''avrebbe mai detto
 Che sa[DO]rebbe finita così
 Eh eh eh [SOL]
 
 Sono sopra il mio letto
 Con le tue [RE]ossa che hai dimenticato [LAm]qui
-
 Faccio uno scacciapensieri
 E sulla [DO]porta lo metterò  [SOL]
-
 Mi avvertirà quando il ricordo che ho di te
 cerca di en[RE]trare
-
 Ed io non aprirò
 [LAm] E gli occhi sono stanchi
 Netflix non lo rinnov[DO]o
@@ -1545,13 +1449,10 @@ Siamo la fine del [LAm]mondo
 Siamo la fine del [MIm7]mondo
 Siamo la fine del [DO6]mondo
 Siamo la fine del [SOL]mondo
-
 Che cosa siamo noi?
 Siamo la fine del [LAm]mondo
-
 Che cosa siamo noi?
 Siamo la fine del [MIm7]mondo
-
 Che cosa siamo noi?
 Siamo la fine del [DO6]mondo
 Che cosa siamo noi?!  [SOL]

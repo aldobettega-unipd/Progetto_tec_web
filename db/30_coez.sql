@@ -4,29 +4,22 @@ SET NAMES 'utf8mb4';
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Domenica', 'Coez', 'ITA', '[FA]   [REm]   [SIb] [DO7] [REm]
-
 Vorrei fosse [FA]domenica
-
 Andare in bici senza mani
 Una risata is[REm]terica
-
 E sconvolgere i tuoi piani
 E volare senz''[SIb]elica
 Senz''[DO7]elica co[REm]n te
 Vorrei fosse do[FA]menica
-
 Niente stadio né partite
 E una coda pa[REm]tetica
-
 Su questa statale andare
 Volare senz[SOLm7]''elica
 Senz''[DO7]elica io e[REm] te
 
 È [DO]come se [FA]fossimo bambini
-
 Come se fossimo destini
 Che si corrono ac[REm]canto
-
 Con le mani nel vento
 Come [SOLm7]fosse do[DO7]menica con[REm] te, con te
 Vor[DO]rei fosse do[FA]menica
@@ -41,55 +34,38 @@ E tuo padre oggi bevesse soltanto acqua [SOLm7]tonica
 Io e [DO7]te a rid[REm]ere
 
 È [DO]come se [FA]fossimo bambini
-
 Come se fossimo destini
 Che si corrono ac[REm]canto
-
 (Che si corrono accanto)
-
 Con le mani nel vento
-
 (Con le mani nel vento)
 Come [SOLm7]fosse do[DO7]menica co[REm]n te
-
 Con te
 [DO]Vorrei fosse do[FA]menica
 Vorrei fosse do[REm]menica
 E stringi la [SOLm7]giornata fra le dita
 Che fra [DO7]poco è già finita
 Così è la vi[RE]ta
-
 Così è la vita
-È come se [FA]fossimo bambini
 
+È come se [FA]fossimo bambini
 Come se fossimo destini
 Che si corrono ac[REm]canto
-
 (Che si corrono accanto)
-
 Con le mani nel vento
-
 (Con le mani nel vento)
 Come [SOLm7]fosse dom[DO7]enica co[REm]n te
-
 Con te
 Co[DO]me [FA]fosse domenica co[REm]n te
-
 (Che si corrono accanto)
-
 Con te
-
 (Con le mani nel vento)
 Come [SOLm7]fosse do[DO7]menica con[REm] te, con te
 Co[DO]me [FA]fosse domenica con[REm] te
-
 (Che si corrono accanto)
-
 Con te
-
 (Con le mani nel vento)
 Come [SOLm7]fosse do[DO7]menica co[REm]n te
-
 Con te', 'domenica');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -158,7 +134,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('E Yo Mamma', 'Coez', 'ITA', '[FA]  [FA7+]  [FA6]
-
 Questa va per [FA]te che hai lottato per [DO]me
 C''è chi ha due geni[REm7]tori, ma tu vali per tre
 Per tutte le [FA]volte che ho perso la [DO]calma
@@ -216,7 +191,6 @@ C''è chi ha due geni[REm7]tori, ma tu vali per tre
 Per tutte le [FA]volte che ho perso la [DO]calma
 Tu m''hai dato un''[REm7]arma, e yo [DO]mamma
 Oh oh[FA]    [DO]       [REm7]
-
 [FA]  [DO]  [REm7]  [DO]  [FA]', 'e-yo-mamma');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -226,7 +200,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Faccio un Casino', 'Coez', 'ITA', '[SOL]  [SI7]  [DO]  [MIm] [DO]  [SOL]
-
 Ho scritto ti [SI7]amo sulla sabb[DO]ia, no
 Posso [MIm]fare di [DO]meglio [SOL]
 Strappo lo [SI7]scalpo di quest''alb[DO]a
@@ -347,7 +320,6 @@ Sei [LAm]bella che la musi[SOL]ca non c[FA]''è
 Sei [LAm]bella che la musi[SOL]ca non c[FA]''è   [DO]    [MIm]
 Sei [LAm]bella che la musi[SOL]ca non c[FA]''è   [DO]    [MIm]
 Sei [LAm]bella che la musi[SOL]ca non c[FA]''è   [DO]    [MIm]
-
 [LAm]  [SOL]    [FA]  [DO]  [MIm]', 'la-musica-non-ce');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -359,9 +331,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('La Tua Canzone', 'Coez', 'ITA', '[REb]  [SOLb]  [SIbm]  [LAb]
-
 [REb]  [SOLb]  [SIbm]  [LAb]
-
 [REb]  Amare t[SOLb]e è faci[SIbm]le
 Come o[LAb]diare la poli[REb]zia
 Sai, [SOLb]le canz[SIbm]oni non [LAb]vanno mai [REb]via

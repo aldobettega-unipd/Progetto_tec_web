@@ -5,10 +5,8 @@ SET NAMES 'utf8mb4';
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Aida', 'Rino Gaetano', 'ITA', '[DO]   [SOL] [LAm]   [FA] [DO]
 [SOL] [LAm]   [SOL7]
-
 [DO]   [SOL] [LAm]   [FA] [DO]
 [SOL] [LAm]
-
 [SOL]Lei sfo[DO]gliava, i [SOL]suoi ri[LAm]cordi
 le [FA]sue istan[DO]tanee, [SOL]i suoi ta[LAm]bù
 Le [SOL7]sue ma[DO]donne, i [SOL]suoi ro[LAm]sari
@@ -23,10 +21,8 @@ e [FA]poi l''E[DO]gitto, e un''[SOL]altra [LAm]età
 più [FA]nero nel [DO]viso, più [SOL]rosso d''a[LAm]more
 
 [SOL] [DO]   [SOL]      [LAm]    [FA]  [DO]  [SOL]  [LAm]
-
 [DO]  [SOL]  [LAm]  [FA]  [DO]
 [SOL] [LAm]
-
 [SOL] [DO]      [SOL]    [LAm]
 i [FA]compro[DO]messi, [SOL]la pover[LAm]tà
 i [SOL]salari [DO]bassi, la [SOL]fame [LAm]bussa
@@ -35,10 +31,8 @@ il [FA]terrore [DO]russo, [SOL]Cristo e Sta[LAm]lin
 la [FA]democra[DO]zia, [SOL]e chi ce l''[LAm]ha
 e [SOL]poi trent''[DO]anni, [SOL]di sa[LAm]fari
 tra a[FA]ntilopi e giag[DO]uari, scia[SOL]calli e la[LAm]pin
-
 [SOL] [DO]   [SOL]      [LAm]
 [FA]come sei [DO]bell[SOL]a    [LAm]
-
 [DO]  [SOL]  [LAm]  [FA]  [DO]
 [SOL] [LAm]', 'aida');
 SET @last_song_id = LAST_INSERT_ID();
@@ -50,9 +44,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Gianna', 'Rino Gaetano', 'ITA', '[LA]  [RE]  [MI]    [LA]  [RE]  [MI]
-
 [LA]  [RE]  [MI]    [LA]  [RE]  [MI]
-
 [LA]Gianna Gianna [RE]Gianna soste[MI]neva
 tesi e illu[LA]sioni [RE]   [MI]
 [LA]Gianna Gianna [RE]Gianna promet[MI]teva
@@ -80,11 +72,8 @@ Ma la [LA]notte la [RE]festa è fi[MI]nita, evviva la [LA]vita
 La [RE]gente si [MI]sveste e comincia un [LA]mondo
 un [RE]mondo di[MI]verso, ma fatto si [LA]sesso
 e chi vi[RE]vrà ve[MI]drà...
-
 [LA] [RE] [MI]       [LA] [RE] [MI]    [LA] [RE] [MI]
-
 Ma dove [LA]vai, vieni [RE]qua, ma che [MI]fai?
-
 Dove vai, con chi ce [LA]l''hai? Vieni [RE]qua, ma che [MI]fai?
 Dove vai, con chi ce [LA]l''hai? Di chi [RE]sei, ma che [MI]vuoi?
 Dove vai, con chi ce [LA]l''hai? Butta [RE]la'', vieni [MI]qua,
@@ -107,7 +96,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Ma Il Cielo È Sempre Più Blu', 'Rino Gaetano', 'ITA', '[RE]  [SIm]  [RE]  [SIm]
 [RE]  [SIm]  [RE]  [SIm]
-
 [RE]  Chi vive in ba[SIm]racca,   [RE]  chi suda il sa[SIm]lario
 [RE]  chi ama l''a[SIm]more e    [RE]   i sogni di [SIm]gloria
 [RE]  chi ruba pen[LA]sioni, chi ha scarsa me[SOL]moria
@@ -120,7 +108,6 @@ na na na na [SIm]na na na na na
 
 [SOL]  Ma il cielo è [LA]sempre più [RE]blu uh [SIm]uh, uh [SOL]uh,
 ma il cielo è [LA]sempre più [RE]blu uh [SIm]uh, uh [SOL]uh, uh [LA]uh...
-
 [RE]  Chi sogna i mi[SIm]lioni,   [RE]  chi gioca d''az[SIm]zardo
 [RE]  chi gioca coi [LA]fili chi ha fatto l''in[SOL]diano
 [RE]  chi fa il conta[SIm]dino,   [RE] chi spazza i cor[SIm]tili
@@ -129,8 +116,6 @@ na na na na [SIm]na na na na na
 
 [SOL]  Ma il cielo è [LA]sempre più [RE]blu uh [SIm]uh, uh [SOL]uh,
 ma il cielo è [LA]sempre più [RE]blu uh [SIm]uh, uh [SOL]uh, uh [LA]uh...
-
-Strumentale:
 [RE]  [SIm]  [RE]  [SIm]
 [RE]  [SIm]  [RE]  [SIm]
 
@@ -144,7 +129,6 @@ chi vive in Ca[SIm]labria, chi vive d''a[RE]more
 chi ha fatto la [SIm]guerra, chi prende i ses[RE]santa
 chi arriva agli ot[SIm]tanta, chi muore al la[RE]voro
 na na na na [SIm]na na na na na
-
 
 [SOL]  Ma il cielo è [LA]sempre più [RE]blu uh [SIm]uh, uh [SOL]uh,
 ma il cielo è [LA]sempre più [RE]blu uh [SIm]uh, uh [SOL]uh, uh [LA]uh...
@@ -177,8 +161,6 @@ uh [SIm]uh, uh [SOL]uh, ma il cielo è [LA]sempre più [RE]blu  [SIm]     [SOL] 
 [RE] chi sposa la [SIm]Gina,  [RE] chi ha rotto con [SIm]tutti,
 [RE] chi vince a Me[SIm]rano, [RE]  chi cerca il pet[SIm]rolio,
 [RE]  chi dipinge ad [SIm]olio, [RE]  chi chiede un la[SIm]voro...
-
-Strumentale:
 [RE]  [SIm]  [RE]  [SIm]
 [RE]  [SIm]  [RE]  [SIm]
 
@@ -198,7 +180,6 @@ ma il cielo è [LA]sempre più [RE]blu uh [SIm]uh, uh [SOL]uh, uh [LA]uh...
 chi ama l''a[LA]more, chi tira al ber[RE]saglio
 chi sogna la g[SIm]loria, chi ha scarsa me[SOL]moria,
 chi gioca a San[LA]remo, chi va sotto un t[RE]reno...[SIm]
-
 [SOL]  Ma il cielo è [LA]sempre più [RE]blu uh [SIm]uh, uh [SOL]uh,
 ma il cielo è [LA]sempre più [RE]blu
 
@@ -206,14 +187,12 @@ chi ama la [SIm]zia, chi va a Porta P[SOL]ia
 chi come ha pro[LA]vato, chi tutto so[RE]mmato
 chi sogna i mil[SIm]ioni, chi gioca d''az[SOL]zardo
 chi parte per [LA]Beirut e ha in tasca un mil[RE]iardo [SIm]    [SOL]
-
 ma il cielo è [LA]sempre più [RE]blu uh [SIm]uh, uh [SOL]uh, [LA]
 
 [RE]  chi e` stato mul[SIm]tato, chi odia i ter[SOL]roni
 chi canta Pre[LA]vert, chi odia Bagl[RE]ioni
 chi fa il conta[SIm]dino, chi ha fatto la s[SOL]pia
 chi è morto d''in[LA]vidia o di gelosi[RE]a   [SIm]    [SOL]
-
 ma il cielo è [LA]sempre più [RE]blu uh[SIm] uh, uh[SOL] uh, [LA]
 
 [RE]  chi legge la [SIm]mano, chi vende amu[SOL]leti

@@ -1,69 +1,104 @@
 <?php
 namespace App\Helpers;
 
-class ChordParser {
+class ChordParser
+{
 
-    /**
-     * Trasforma testo [Am]Testo in HTML semantico e accessibile.
-     */
-    public static function render($testo) {
-        // Escaping base per sicurezza
+    public static function render($testo, $lingua='it')
+    {
         $testo = htmlspecialchars($testo, ENT_QUOTES, 'UTF-8');
-        
-        // Divido in righe
-        $lines = explode("\n", $testo);
+        $lines = preg_split('/\R/', $testo);
         $html = '';
 
         foreach ($lines as $line) {
-            // Se la riga è vuota o ha solo spazi, metto uno spazio verticale
-            if (trim($line) === '') { 
-                $html .= '<div class="song-line empty-line">&nbsp;</div>'; 
-                continue; 
+            if (trim($line) === '') {
+                $html .= '<div class="song-line empty-line">&nbsp;</div>';
+                continue;
             }
+            $is_chorded = (strpos($line, '[') !== false);
 
             $html .= '<div class="song-line">';
 
-            // REGEX: Cattura gruppi composti da:
-            // 1. (Opzionale) Un accordo tra parentesi quadre: \[ (.*?) \]
-            // 2. (Opzionale) Tutto il testo che segue finché non trova un'altra parentesi: ([^\[]*)
             $pattern = '/(?:\[(.*?)\])?([^\[]*)/';
-            
             preg_match_all($pattern, $line, $matches, PREG_SET_ORDER);
 
             foreach ($matches as $match) {
-                // $match[0] è l'intera stringa matchata
-                // $match[1] è il contenuto dell'accordo (es. "Am")
-                // $match[2] è il testo della sillaba (es. "Siamo ")
 
-                $rawChord = $match[1] ?? '';
+                $chord = $match[1] ?? '';
                 $lyric = $match[2] ?? '';
-
-                // Se entrambi sono vuoti (fine riga strana), salta
-                if (empty($rawChord) && empty($lyric)) {
+                if ($chord === '' && $lyric === '') {
                     continue;
                 }
+                $isInstrumental = preg_match('/^\s*$/u', $lyric) || $lyric === '&nbsp;';
 
-                $html .= '<span class="chord-group">';
-                
-                // 1. ACCORDO
-                if ($rawChord) {
-                    // aria-label serve per far leggere "Accordo Do" invece di "Ci"
-                    $html .= '<span class="chord" aria-label="Accordo ' . $rawChord . '">' . $rawChord . '</span>';
+                // 2. Assegnazione classe
+                $extraClass = $isInstrumental ? ' instrumental' : '';
+
+                $html .= '<span class="chord-group' . $extraClass . '">';
+
+
+                // --- RENDER ACCORDO ---
+                if ($chord !== '') {
+                    // 1. Calcoliamo la versione parlata "umana"
+                    $labelAccessibile = self::trasformaPerLettura($chord);
+
+                    // 2. Inseriamo l'aria-label.
+                    // Lo screen reader leggerà SOLO l'aria-label, ignorando il testo visivo interno.
+                    $html .= '<span class="chord" data-val="' . $chord . '" aria-label="Accordo ' . $labelAccessibile . '">';
+                    $html .= $chord; // Questo lo vede l'occhio, ma lo screen reader legge l'aria-label
+                    $html .= '</span>';
                 } else {
-                    // Spacer invisibile per mantenere l'allineamento se necessario
                     $html .= '<span class="chord spacer" aria-hidden="true">&nbsp;</span>';
                 }
 
-                // 2. TESTO (LYRIC)
-                // Se c'è testo, lo stampo. white-space: pre nel CSS gestirà gli spazi finali.
-                $html .= '<span class="lyric">' . $lyric . '</span>';
-                
-                $html .= '</span>'; // Chiudo chord-group
+                // --- RENDER TESTO ---
+                if ($isInstrumental) {
+                    if($is_chorded){
+                        $html .= '<span class="lyric" aria-hidden="true">&nbsp;</span>';
+                    } else {
+                        $html .= '<span class="lyric" aria-hidden="true"></span>';
+                    }
+                } else {
+                    $html .= '<span class="lyric" lang="' . $lingua . '">' . $lyric . '</span>';
+                }
+                $html .= '</span>';
             }
 
-            $html .= '</div>'; // Chiudo song-line
+            $html .= '</div>';
         }
 
         return $html;
+    }
+
+    private static function trasformaPerLettura($accordo)
+    {
+
+        $dizionario = [
+            '/' => ' con basso ',
+            '#' => ' diesis ',
+            'b' => ' bemolle ',
+            'maj7' => ' maggiore settima',
+            'maj' => ' maggiore',
+            'min' => ' minore',
+            'dim' => ' diminuito',
+            'm' => ' minore',
+            'aug' => ' aumentato',
+            'sus4' => ' sospeso quarta',
+            'sus2' => ' sospeso seconda',
+            'sus' => ' sospeso',
+            'add9' => ' aggiunta nona',
+            '7+' => ' settima maggiore',
+            '7' => ' settima',
+            '9' => ' nona',
+            '4' => ' quarta',
+            '2' => ' seconda',
+            '6' => ' sesta',
+            '3' => ' terza',
+            '5' => ' quinta',
+            '+' => ' aumentato'
+        ];
+
+        $parlato = strtr($accordo, $dizionario);
+        return trim(preg_replace('/\s+/', ' ', $parlato));
     }
 }

@@ -7,6 +7,7 @@ use App\Models\CanzoneModel;
 use App\Models\ArtistaModel;
 use App\Helpers\CarouselHelper;
 use App\Helpers\ChordParser;
+use App\Helpers\ListHelper;
 use App\Helpers\BreadcrumbHelper;
 
 class CanzoneController extends Controller {
@@ -19,18 +20,21 @@ class CanzoneController extends Controller {
         BreadcrumbHelper::add('Canzoni', '/canzoni');
     }
 
-    public function view_canzone1($slug_canzone) {
-        
-        $dati_canzone = $this->Canzone->get_dati_canzone($slug_canzone);
+    public function view_all_canzoni() {
+        $canzoni = $this->Canzone->get_all();
 
-        if (!$dati_canzone) {
+        // Raggruppa le canzoni per iniziale del titolo
+        $canzoni_raggruppate = ListHelper::groupByIndex($canzoni, 'titolo_canzone');
 
-            $this->abort(404, "Ci dispiace, la Canzone #$slug non esiste nel nostro database.");
-        }
-        $this->page_title = $dati_canzone['titolo_canzone'];
-        $this->page_description = $dati_canzone['descrizione_canzone'];
+        // Costruisci l'HTML della lista raggruppata
+        $lista_html = ListHelper::costruisciListaCanzoni($canzoni_raggruppate);
 
-        $this->render('canzonePage', $dati_canzone);
+        $this->page_title = "Tutte le Canzoni";
+        $this->page_description = "Esplora tutte le canzoni disponibili nel nostro catalogo.";
+
+        $this->render('canzoniordinatePage', [
+            'LISTA_CANZONI' => $lista_html
+        ]);
     }
 
     public function view_canzone($slug) {
@@ -41,19 +45,21 @@ class CanzoneController extends Controller {
             $this->abort(404, "Canzone non trovata nel database.");
         }
         $slug_artista = $this->Canzone->get_artista($slug)['slug_artista'];
+        $accordi = $this->Canzone->get_accordi($canzone['id_canzone']);
         
         // 2. Parsifichi il testo grezzo
         // Assumendo che $canzone['testo'] sia "[C]Siamo solo [G]noi..."
-        $htmlTesto = ChordParser::render($canzone['testo_canzone']);
+        $htmlTesto = ChordParser::render($canzone['testo_canzone'], $canzone['lingua_canzone']);
 
         BreadcrumbHelper::add($canzone['titolo_canzone']);
 
         // 3. Render
         $this->render('canzonePage', [
+            'ACCORDI_CANZONE' => implode(", ", array_column($accordi, 'accordo')),
             'TITOLO_CANZONE' => $canzone['titolo_canzone'],
             'NOME_ARTISTA' => $canzone['autore_canzone'],
             'SLUG_ARTISTA' => $slug_artista,
-            'TESTO_CANZONE_HTML' => $htmlTesto // Passi l'HTML già pronto
+            'TESTO_CANZONE_HTML' => $htmlTesto
         ]);
     }
 
@@ -73,6 +79,5 @@ class CanzoneController extends Controller {
             'CAROUSEL_ARTISTI' => $html_artisti,
             'CAROUSEL_CANZONI' => $html_canzoni
         ]);
-
         }
 }

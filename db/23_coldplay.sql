@@ -4,9 +4,7 @@ SET NAMES 'utf8mb4';
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Clocks', 'Coldplay', 'ENG', '[MIb]  [SIbm7]  [FAm]   [MIb]  [SIbm7]  [FAm]
-
 [MIb]  [SIbm7]  [FAm]   [MIb]  [SIbm7]  [FAm]
-
 [MIb]Lights go out and I [SIbm7]can''t be saved
 tides that I tried to [FAm]swim against
 [MIb] Brought me down u[SIbm7]pon my knees
@@ -39,14 +37,11 @@ or am I a part [FAm]of the disease? ..singing
 [SOLb7+]  and nothing else [REb]compar[SOLb]es
 
 [MIb]  [SIbm7]  [FAm]     [MIb]  [SIbm7]  [FAm]
-
 [MIb]  [SIbm7]  [FAm]     [MIb]  [SIbm7]  [FAm]
-
 [MIb]Home, h[SIbm7]ome, where I wanted to [FAm]go
 [MIb]Home, h[SIbm7]ome, where I wanted to [FAm]go
 [MIb]Home, h[SIbm7]ome, where I wanted to [FAm]go
 [MIb]Home, h[SIbm7]ome, where I wanted to [FAm]go
-
 [MIb]  [SIbm7]  [FAm]    [MIb]  [SIbm7]  [FAm]', 'clocks');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -78,11 +73,8 @@ Could it [MIb]be  wo[SOLm] - rse?   [DOm]      [SIb4]
 [LAb]  And ig[SIb]nite your bones
 [LAb]  And I will [SIb]try to fix you
 
-Strumentale:
 [MIb]  [SOLm]  [DOm]  [SIb4]
-
 [MIb]  [SOLm]  [DOm]  [SIb4]
-
 And [MIb]high up above
 or [SOLm]down below [DOm]      [SIb4]
 When you''re [MIb]too in love
@@ -95,15 +87,10 @@ Just what you''re [MIb]wor - [SOLm]th       [DOm]     [SIb4]
 [LAb]  And ig[SIb]nite your bones
 [LAb]  And I will [SIb]try to fix you
 
-Strumentale:
 [MIb]   [LAb7+]   [MIb]   [SIb4] [SIb]
-
 [MIb]   [LAb7+]   [MIb]   [SIb4] [SIb]
-
 [MIb]   [LAb7+]   [MIb]   [SIb4] [SIb]
-
 [MIb]   [LAb7+]   [MIb]   [SIb4] [SIb]
-
 [MIb]  Tears stream..[LAb7+]  down your face
 [MIb]  When you lose something [SIb4]you cannot [SIb]replace
 [MIb]  Tears stream..[LAb]  down your face
@@ -156,7 +143,6 @@ coming [FAadd9]back as we [DO4]are
 [DO] Oh take me back to the [FA]start [SIb]       [FA]
 
 [REm7]   [SIb]          [FA]
-
 [REm7]  oh - [SIb]ooo-oo-oo-oo-[FA]ooo
 [REm7]  oh - [SIb]ooo-oo-oo-oo-[FA]ooo
 [REm7]  oh - [SIb]ooo-oo-oo-oo-[FA]ooo
@@ -169,16 +155,14 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SIb');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Viva La Vida', 'Coldplay', 'ENG', 'Intro:
+('Viva La Vida', 'Coldplay', 'ENG', '
 [REb]  [MIb7]  [LAb]  [FAm]   [REb]  [MIb7]  [LAb]  [FAm]
-
 I used to [REb]rule the w[MIb]orld
 Seas would [LAb]rise when I gave the [FAm]word
 Now in the morning I [REb]sweep al[MIb]one
 Sweep the [LAb]streets I used to [FAm]own
 
 [REb]  [MIb7]  [LAb]  [FAm]   [REb]  [MIb7]  [LAb]  [FAm]
-
 I used to [REb]roll the [MIb]dice
 Feel the [LAb]fear in my enemy''s [FAm]eyes
 Listen as the [REb]crowd would [MIb]sing:
@@ -197,7 +181,6 @@ My [LAb]missionaries in a [FAm]foreign field
 That [LAb7+]was when I ruled the [FAm]world
 
 [REb]  [MIb7]  [LAb]  [FAm]   [REb]  [MIb7]  [LAb]  [FAm]
-
 It was the wicked and [REb]wild w[MIb]ind
 Blew down the [LAb]doors to let me [FAm]in
 Shattered windows and the [REb]sound of [MIb]drums
@@ -216,9 +199,7 @@ My [LAb]missionaries in a [FAm]foreign field
 That [LAb7+]was when I ruled the [FAm]world
 
 [REb]  [FAm]  [REb]  [FAm]  [REb]  [FAm]  [MIb]
-
 Ohhhhh Ohhh [REb]Ohhh.[MIb7]..    [LAb]     [FAm]      [REb]     [MIb7]      [LAb]     [FAm]
-
 I [REb]hear Jerusalem [MIb]bells are ringing
 [LAb]Roman Cavalry [FAm]choirs are singing
 [REb]Be my mirror, my [MIb]sword, and shield
@@ -237,11 +218,8 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Yellow', 'Coldplay', 'ENG', '[SI]  [SI4]  [SI]  [SI4]
-
 [SI]  [SI4]  [FA#6]  [FA#]  [MI6]  [MI]
-
 [SI]  [SI4]
-
 [SI]  Look at the stars
 Look how they shine for [FA#]you
 And everything you [MI]do... yeah, they were all yellow.
@@ -258,11 +236,8 @@ And it was all yellow.[SI]     [SI4]
 [MI]  You know, [SOL#m]  you know I [FA#]love you so,
 [MI]  You know i love you so.
 
-Strumentale:
 [SI]  [SI4]  [FA#6]  [FA#]  [MI6]  [MI]
-
 [SI]  [SI4]
-
 [SI]  I swam across,
 I jumped across for [FA#]you,
 Oh, what a thing to [MI]do ''cause you were all yellow.
@@ -278,12 +253,8 @@ And it was all yellow.[SI]
 [SOL#m]  For you I [FA#]bleed myself [MI]dry,
 
 For you I bleed myself dry.
-
-Strumentale:
 [SI]  [SI4]  [FA#6]  [FA#]  [MI6]  [MI]
-
 [SI]  [SI4]
-
 It''s [SI]true, [SI4]  look how they shine for [FA#6]you,
 [FA#]  Look how they shine for [MI6]you
 [MI]  Look how they shine for, [SI]

@@ -43,11 +43,8 @@ Tua [MIm]madre lo dice[FA]va "non an[DO]dare su youporn"
 Per lasciarti andar[LAm]e    [FA#m7]          [FA7+]
 Per lasciarti andar[LAm]e    [FA#m7]          [FA7+]
 
-Strumentale:
 [LAm]  [FA#m7]  [FA7+]   [LAm]  [FA#m7]  [FA7+]
-
 [LAm]  [FA#m7]  [FA7+]   [LAm]  [FA#m7]  [FA7+]
-
 E quante [DO]volte ho pensato
 che alla [MI7]fine il sorriso
 è una pa[FA]rentesi se vedi bene
@@ -75,7 +72,6 @@ Mi sa[FA#m7]luti, sta arrivando Firenze 21
 Quattro mi[LA]nuti e ricomincia il fu[SI9]turo
 
 Sono stato un po'' [MI7+]solo
-
 Ho perso il tuo numero solo per dirtelo
 Che l''anno pa[LA7+]ssato è stato uno schifo
 E ancora qui crolla un po''  [LA6]
@@ -110,9 +106,7 @@ Soltanto dentro le canzoni non si [LA7+]può
 I sassi contro il vetro non [DO#m]tornano indietro, uh[SI]...
 
 Sono stato un po'' [MI7+]solo
-
 Ho perso il tuo numero solo per dirtelo
-
 (solo per dirtelo)
 Che l''anno pa[LA7+]ssato è stato uno schifo
 E ancora qui crolla un po''  [LA6]
@@ -122,7 +116,6 @@ E che tutto fi[SOL#m7]nisse ben oltre il [LA7+]limite
 
 Va a fuoco domani e il vento si vendica
 E resterò [LA7+]fermo solo per credere
-
 che gli altri si muovono
 Io volevo [SOL#m7]solo un giro con t[DO#7]e prima dell''apoca[FA#m7]lisse
 E che tutto fi[SOL#m7]nisse ben oltre il [LA7+]limite  [SI11]', 'giro-con-te');
@@ -140,7 +133,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Hubner', 'Calcutta', 'ITA', '[DO]       [FA7+]
-
 [DO] Venezia è bella, ma non è il mio [FA7+]mare
 [DO] Il treno è fer[MIm]mo, io sono [LAm]stufo di aspettare
 In questo mondo [MIm]che pieno di [LAm]lacrim[MIm]e
@@ -159,15 +151,12 @@ E non la[FA7+]sciarti a casa m[MIm7]ai a consumare le un[REm7]ghie
 E non la[FA7+]sciarti a casa m[MIm7]ai a consumare le un[REm7]ghie
 
 [LAm]   [MIm7]   [LAm]   [MIm7]   [REm7]      [FA7+]   [MIm7]
-
 [LAm]   [MIm7]   [LAm]   [MIm7]   [REm7]      [FA7+]   [MIm7]
-
 In questo [LAm]mare c[MIm7]he è pieno di [LAm]tracin[MIm7]e
 Forse [FA7+]noi dovremmo f[MIm7]are come Dario Hü[REm7]bner
 Per non la[FA7+]sciarci soli m[MIm7]ai a consumare le un[REm7]ghie
 E non la[FA7+]sciarti a casa m[MIm7]ai a consumare le un[REm7]ghie
 E non la[FA7+]sciarti a casa m[MIm7]ai a consumare le un[REm7]ghie...
-
 [LAm]   [MIm7]   [LAm]   [MIm7]   [REm7]      [FA7+]   [MIm7]', 'hubner');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -180,7 +169,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Oroscopo', 'Calcutta', 'ITA', '[SIm]  [FA#m7]  [MIm7]    [SIm]  [FA#m7] [MIm7]
-
 [SIm]  Sono uscito sta[FA#m7]sera ma non ho letto l''o[MIm7]roscopo
 [SIm]  Non è Rio de Ja[FA#m7]neiro ma c''è un clima fan[MIm7]tastico
 [SIm]  Io ti giuro sta[FA#m7]sera che ti cerco nel [MIm7]traffico
@@ -201,7 +189,6 @@ Puoi specch[RE]iarti nel mio [FA#m7]lago
 Mentre os[MIm7]servi il mio respiro
 
 Ma [SIm]tu…
-
 Ma non mi ri[LA]cordi nessuna guagl[MIm7]iona
 Una cassa che suona, una casa che b[SIm]rucia
 Tutta la [LA]notte, tutta la [MIm7]notte
@@ -219,8 +206,6 @@ Tutta la [LA]notte, tutta la [MIm7]notte
 [SIm]  Ma io mi ri[LA]cordo una scritta sul [MIm7]muro
 Un rullo, un tamburo, una danza ku[SIm]duro
 Tutta la [LA]notte, tutta la [MIm7]notte
-
-Strumentale:
 [SIm]  [LA]  [MIm7]    [SIm]  [LA]  [MIm7]', 'oroscopo');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -251,7 +236,6 @@ Io sento il cuore a [RE]mille [SIm]     [FA#m]
 Sento il cuore a [RE]mille [SIm]     [FA#m]
 
 [LA]Canto di gabbiano
-
 Dentro la mia mano
 Se s[MIm7]iamo in metro o in treno non mi importa[RE]
 Io sento il [LA]Mar Mediterraneo
@@ -262,7 +246,6 @@ Sento il cuore a [RE]mille [SIm]     [FA#m]
 Io sento il cuore a [RE]mille, [SIm]mille, [FA#m]mille
 Sento il cuore a [RE]mille, [SIm]mille, [FA#m]mille
 Sento il cuore a [RE]mille [SIm]     [FA#m]
-
 [RE]  [SIm]  [FA#m]', 'paracetamolo');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -285,7 +268,6 @@ Mi richiame[SI]rai da un call ce[DO#m7]nter
 E io ti dir[MI]ò
 
 Lo sai che io ti dirò
-
 [SI]We defi[DO#m7]ciente
 Negli occhi ho una b[MI7+]otte che p[SI7+]erde
 E lo sai perc[DO#m7]hè
@@ -302,7 +284,6 @@ Mi richiame[SI]rai da un call ce[DO#m7]nter
 E io ti dir[MI]ò
 
 Lo sai che io ti dirò
-
 [SI]We defi[DO#m7]ciente
 Negli occhi ho una b[MI7+]otte che p[SI7+]erde
 E lo sai perc[DO#m7]hè
@@ -318,14 +299,12 @@ Ma se la corr[DO#m7]ente
 Ti riporta q[MI]ui
 
 Lo sai che io ti dirò
-
 [SI]We defi[DO#m7]ciente
 Negli occhi ho una b[MI7+]otte che p[SI7+]erde
 E lo sai perc[DO#m7]hè
 Perchè mi [LA]sono innamorato
 Mi [LA7]ero addormentato di t[MI7+]e     [DO#m7]
 Mi sono addormentato di t[MI7+]e     [SI]
-
 [DO#m7]  [LA]  [LA7]  [MI7+]', 'pesto');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 

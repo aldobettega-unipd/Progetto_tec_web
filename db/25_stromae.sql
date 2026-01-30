@@ -77,9 +77,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Papaoutai', 'Stromae', 'FRA', '[MIbm]    [REb] [SIbm7]  [SOLb]  [LAb]
-
 [MIbm]    [REb] [SIbm7]  [MIbm]    [REb]
-
 [SIbm]Dites-moi d''où il [LAb]vient
 Enfin [SIbm]je saurai où je [LAb]vais
 Maman [SIbm]dit que lorsqu''on [LAb]cherche bien
@@ -109,13 +107,9 @@ Il [MIbm]sait ce [LAb]qu''il ne [SIbm]va pas
 [LAb]Où t''es? Où [SIbm]t''es? Où Papa où t''es?
 
 [SOLb]   [MIbm]   [LAb]   [SIbm]
-
 [SOLb]   [MIbm]   [LAb]   [SIbm]
-
 Où [SOLb]t''es?  [MIbm]       [LAb]      [SIbm]
-
 [SOLb]   [MIbm]   [LAb]   [SIbm]
-
 [SIbm]Quoi, qu''on [LAb]y croit ou pas
 Il y aura [SIbm]bien un jour où on [LAb]n''y croira plus
 Un [SIbm]jour où l''autre [LAb]on sera tous papa
@@ -143,13 +137,9 @@ Qu''on a[FA7] bouffé nos doigts  ...Hé
 [LAb]Où t''es? Où [SIbm]t''es? Où Papa où t''es?
 
 [SOLb]   [MIbm]   [LAb]   [SIbm]
-
 [SOLb]   [MIbm]   [LAb]   [SIbm]
-
 Où [SOLb]t''es?  [MIbm]       [LAb]      [SIbm]
-
 [SOLb]   [MIbm]   [LAb]   [SIbm]
-
 [SOLb] Où est ton [MIbm]papa?
 [LAb]Dis-moi, où est ton [SIbm]papa?
 [SOLb]Sans même devoir[MIbm] lui parler
@@ -175,19 +165,12 @@ Que j''ai[LAb] compté [SIbm]mes doigts ...Hé
 [LAb]  Où [SIbm]t''es? Papa où t''es?
 [SOLb]  Où [MIbm]t''es? Papa où t''es?
 [LAb]Où t''es? Où [SIbm]t''es? Où Papa où t''es?
-
 [SOLb]   [MIbm]   [LAb]   [SIbm]
-
 [SOLb]   [MIbm]   [LAb]   [SIbm]
-
 Où [SOLb]t''es?  [MIbm]       [LAb]      [SIbm]
-
 [SOLb]   [MIbm]   [LAb]   [SIbm]
-
 [SIbm] [LAb] [SOLb]    [MIbm] [LAb] [SIbm]
-
 [SIbm] [LAb] [SOLb]    [MIbm] [LAb] [SIbm]
-
 [SOLb]  [MIbm7]  [LAb]  [SIbm]   [SOLb]  [MIbm7]  [LAb]  [SIbm]', 'papaoutai');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -231,9 +214,7 @@ Alors on [DO#m]danse   [LA]    [SOL#5]
 Alors on [DO#m]danse   [LA]    [SOL#5]
 Alors on [DO#m]danse
 
-
 Et là tu te dis que c''est fini
-
 Car pire que ça ce serait la mort
 Quand tu crois enfin que tu t''en sors
 Quand y en a plus et ben y en a en[DO#m]core
@@ -252,7 +233,6 @@ Alors on [MI]chante
 La-[DO#m]la-la-l[LA]a-la-l[FA#m]a      [MI]
 La-[DO#m]la-la-l[FA#m]a-la-l[SI]a
 Alors on [DO#m]chante...
-
 Alors on chante...
 
 Et puis seulement quand c''est fini

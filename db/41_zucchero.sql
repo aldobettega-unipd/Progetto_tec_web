@@ -5,12 +5,10 @@ SET NAMES 'utf8mb4';
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Baila Morena', 'Zucchero', 'ITA', '[SOLm7]   [DO7] [SOLm7]   [DO7]
 [SOLm7]   [DO7] [SOLm7]   [DO7]
-
 [SOLm7]  Adesso credo nei miracol[DO7]i
 [SOLm7] in questa notte di tequila boom [DO7]boom
 [SOLm7]  Sei cosa sexy cosa  sexy thi[DO7]ng
 [SOLm7]ormai ti ho messo gli occhi addosso e lo [DO7]sai
-
 [SOLm7]  [DO]   [SOLm7]  [DO]
 
 [SOLm7]  Che devi avere un caos dentro di [DO7]te
@@ -44,7 +42,6 @@ INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzo
 [SOLm7]  [DO7]  [SOLm7]  [DO7]
 
 [SOLm]  You got me hurtin so bad, so bad
-
 I got to have it, so bad
 [RE7]  what you say... what you say
 
@@ -58,7 +55,6 @@ E [SOLm]daila..[MIb]. under the [SIb]moonlight..
 [DO]  sotto questa luna [SOLm7]piena
 [DO]  sotto questa luna [SOLm7]piena
 [DO]  Under the [SOLm7]moonlight
-
 [SIb]  [DO]   [RE7]', 'baila-morena');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -71,7 +67,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Come il Sole all’Improvviso', 'Zucchero', 'ITA', 'Nel mond[LA]o io cam[RE]minerò[LA]
+('Come il Sole all''Improvviso', 'Zucchero', 'ITA', 'Nel mond[LA]o io cam[RE]minerò[LA]
 [RE]tanto che [LA]poi i [MI7]piedi mi faranno [LA]male  [MI]
 io ca[MI]mminer[MI]ò    [MI7]
 un''altra [LA]volta  [SIm7]
@@ -93,13 +89,9 @@ tanto che [SIm7]come il sole all''[RE]improv[LA]viso
 scoppie[SIm7]rà, scoppie[LA]rà   [MI]
 
 [FA7+]  [REm7]  [LAadd9]  [FA#m7]
-
 [FA7+]  [REm7]  [MIm7]
-
 [FA7+]  [REm7]  [LAadd9]  [FA#m7]
-
 [FA7+]  [REm7]  [MI7]
-
 Nel mondo [LA]tutti io [RE]guarder[LA]ò
 [MI7]tanto che [LA]poi gli [MI7]occhi mi faranno [LA]male  [MI]
 ancora g[MI]uarder[MI7]ò un''altra [LA]volta
@@ -123,9 +115,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Diavolo In Me', 'Zucchero', 'ITA', 'I''ve got a devil in [MI7]me  [LA7]     [MI7]    [LA7]
-
 [MI7] [LA7]  [MI7] [LA7]
-
 [MI7]Gloria nell''[LA7]alto dei[MI7] cieli [LA7]
 [MI7]  ma non c''è [LA7]pace quag[MI7]giù    [LA7]
 [MI7]non ho bi[LA7]sogno di [MI7]veli   [LA7]
@@ -160,8 +150,6 @@ accendi un[LA7] Diavolo in[MI7] me   [LA7]
 [MI7]  accendi un [LA7]Diavolo in [MI7]me    [LA7]
 [MI7]  perchè c''è un [LA7]Diavolo in [MI7]me    [LA7]baby
 [MI7]  forse c''è un [LA7]Diavolo in [MI7]me!   [LA7]
-
-Bridge:
 [MI]   [RE]
 [MI]   [RE]
 
@@ -180,7 +168,6 @@ che accendi un [LA7]Diavolo in [MI7]me    [LA7]
 [MI7]  perchè c''è un [LA7]Diavolo in [MI7]me    [LA7]baby
 [MI7]  forse c''è un [LA7]Diavolo in [MI7]me!   [LA7]
 
-Fine:
 [MI]   [RE]
 [MI]   [RE]', 'diavolo-in-me');
 SET @last_song_id = LAST_INSERT_ID();
@@ -191,9 +178,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Guantanamera', 'Zucchero', 'ITA', '[SOL] [DO]  [RE7]   [SOL] [DO]  [RE7]
-
 [SOL] [DO]  [RE7]  [SOL] [DO]  [RE7]
-
 Sono un ra[SOL]gazzo[DO] sincero [RE7]
 da dove [SOL]cresce [DO]la pa[RE7]lma
 Sono un ra[SOL]gazz[DO]o sincero [RE7]
@@ -237,13 +222,9 @@ G[SOL]uantanamer[RE7]a
 Guajira [SOL]guantanamer[RE7]a
 [SOL]Guantana[DO]mer[RE7]a
 Guajira [SOL]guantana[DO]mera[RE7]
-
 [SOL] [DO]  [RE7]   [SOL] [DO]  [RE7]
-
 [SOL] [DO]  [RE7]  [SOL] [DO]  [RE7]
-
 [SOL] [DO]  [RE7]   [SOL] [DO]  [RE7]
-
 [SOL] [DO]  [RE7]  [SOL] [DO]  [RE7]
 Per te che [SOL]mi strap[DO]pi il cuo[RE7]re
 E la mia [SOL]vita f[DO]erit[RE7]a
@@ -280,10 +261,8 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Non Mi Avrai', 'Zucchero', 'ITA', '[REbadd9]
-
 [FAm] Dimmi chi è che come me[MIb] combatterà con lealtà
 [REb] io fuggirò e correrò
-
 da un''altra notte me ne andrò
 [FAm] La forza che è dentro di me
 [MIb] È fuoco e terra e inquietudine
@@ -297,7 +276,6 @@ Tu lo [FAm]sai che un fiore può fiorire dal sale
 [REb] Come un canto che sale
 [LAb]Sono libero e nessuno mi sconfiggerà no[MIb],
 [REb] Tu non mi a[DOm]vrai c[FAm]osì   [MIb]         [SIb7]      [REb]
-
 [FAm]   [MIb]  [SIb7]  [REb]
 
 [FAm] Dove sono non lo so
@@ -317,7 +295,6 @@ Tu lo [FAm]sai che un fiore può fiorire dal sale
 [REb] Come un canto che sale
 [LAb]Sono libero e nessuno mi sconfiggerà no[MIb],
 [REb] Tu non mi a[DOm]vrai c[FAm]osì...[MIb]         [SIb7]      [REb]
-
 [FAm]  [MIb]  [SIb7]  [REb]
 
 I''m fr[FAm]ee...[MIb]         [SIb7]      [REb]', 'non-mi-avrai');
@@ -333,7 +310,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Occhi', 'Zucchero', 'ITA', '[FA]  [SIb]  [FA]  [SIb]
-
 [FA]Poi, ho visto gli occhi [SIb]tuoi
 [FA]Rotolando verso cas[SIb]a
 Chi[FA]amare i miei
@@ -401,11 +377,8 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Senza una Donna', 'Zucchero', 'ITA', '[SIm]  I change the world
-
 I change the world
-
 I change the world
-
 I wanna change the world
 [SIm]  Non è co[SIm]sì
 Che passo i [MI]giorni  [RE]baby
@@ -443,9 +416,7 @@ Senza una [RE]donna [LA]
 Sto [SOL]bene anche do[LA]mani
 Senza una [RE]donna [LA]
 Che m''ha [SIm]fatto mo[LA]rir  [SOL]     [RE]    [LA]    [FA#7]
-
 [SIm]  [MI]  [RE] [LA] [LA6] [LA] [LA6]
-
 [SIm]  [MI]  [RE] [LA] [LA6] [LA] [LA6]
 
 [SIm]  Io sto qui[LA6] e guardo il mare
@@ -462,13 +433,10 @@ Che m''ha [SIm]fatto mo[LA]rir
 Senza una [SOL]donna  [RE]
 Vieni [LA]qui, come on here
            [RE]     [LA]
-[(SENZA] [UNA] [DONNA)]
 Ora [SIm]siamo vi[LA]cini
            [RE]     [LA]
-[(SENZA] [UNA] [DONNA)]
 Sto [SOL]bene da do[LA]mani
            [RE]     [LA]
-[(SENZA] [UNA] [DONNA)]
 Che m''ha [SIm]fatto mo[LA]rir  [SOL]     [RE]        [RE]', 'senza-una-donna');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -482,13 +450,9 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Vedo Nero', 'Zucchero', 'ITA', '[DO4] [DO] [DOadd9] [DO]
-
 [DO4]  [DO]  [DOadd9] [DO]
-
 [DO4]  [DO]  [DOadd9]  [DO]
-
 [DO]   [SOL]
-
 [DO] [DO7]   [DO]    [DO] [DO7]   [DO]
 [DO]  Vedo [DO7]nero
 [DO]  coi miei [DO7]occhi
@@ -555,13 +519,10 @@ La luna in giarrett[FA]iera
 io me la vedo [DO]nera
 (nera, ora)
 che ore sono an[SIbadd9]cora?
-
 (ora, ora)
 La seta della [FA]sera
-
 (sera, ora)
 io me la vedo [DO]nera
-
 (nera, ora)', 'vedo-nero');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 

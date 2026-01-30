@@ -4,7 +4,6 @@ SET NAMES 'utf8mb4';
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Bad Liar', 'Imagine Dragons', 'ENG', '[MIbadd9]
-
 Oh, [MIb]hush, my dear, it''s been a difficult year
 And [DOm7]terrors don''t prey on innocent victims
 [LAb] Trust me, darlin''[SIb], trust me, darlin'' [MIb]
@@ -33,7 +32,6 @@ O[LAb]h, I''ve been askin'' for (trust me, darlin'')
 O[SIb]h, I''ve been askin'' for (trust me, darlin'') [MIb]problems
 
 Problems, problems
-
 So look me in the [DOm]eyes, tell me what you [LAb]see
 Perfect para[MIb]dise tearing at the [SIb]seams
 I wish I could es[DOm]cape, I don''t wanna [LAb]fake
@@ -47,7 +45,6 @@ Now you k[MIb]now, you''re free to g[SOLm]o
 [SOL]I can''t be what you [DOm]want me to [SIb]be    [LAbadd9]
 Believe me this one time
 Bel[SIb]ieve me
-
 I''m a bad l[DOm]iar, bad l[LAb]iar
 Now you kn[MIb]ow, now you kn[SIb6]ow
 I''m a bad l[DOm]iar, bad l[LAb]iar
@@ -86,7 +83,6 @@ Singing from [SIbm]heartache from the pain
 Taking my message from the veins
 Speaking my [SOLb]lesson from the brain
 Seeing the [FA7]beauty through the...
-
 [SIbm]  Pain! You made me a, you made me a
 be[SOLb]liever, be[FA7]liever
 [SIbm]  Pain! You break me down, you build me up
@@ -158,7 +154,6 @@ INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzo
 
 I [SOL]wake up to the sounds of the silence that allows
 For my [FA#]mind to run around
-
 with my ear up to the ground
 I''m [SOL]searching to behold the stories that are told
 When my [FA#]back is to the world
@@ -175,18 +170,13 @@ My enemy[SOL] (look, look, look, look)
 [FA#] (Look out for yourself)
 
 But I''m ready
-
 Your [SOL]words up on the wall
-
 as you''re praying for my fall
 And the [FA#]laughter in the halls and the names
-
 that I''ve been called
 I [SOL]stack it in my mind
-
 and I''m waiting for the time
 When I [FA#]show you what it''s like
-
 to be words spit in a mic
 [SOL]Tell you you''re the gr[FA#]eatest
 But [SOL]once you turn they h[FA#]ate us  (Huh)
@@ -201,40 +191,28 @@ My enem[SOL]y (look, look, look, look) (yeah)
 [FA#] (Look out for yourself)
 
 Uh, look
-
 Okay, I''m [SOL]hoping that somebody pray for me
-
 I''m praying that somebody hope for me
 I''m [FA#]staying where nobody ''posed to be
 P-P-Posted, being a wreck of emotion[SOL]s
-
 Ready to go whenever, just let me know
-
 The road is long, so put the pedal into the floor
 The [FA#]enemy on my trail, my energy unavailable
 
 I''ma tell ''em hasta luego
 [SOL]I know they wanna plot on my trot to the top
-
 I''ve been outta shape, thinkin'' out the box,
-
 I''m an astronaut
 [FA#]I blasted off the planet rock to cause catastrophe
 And it matters more because [SOL]I had it not
-
 Had I thought about wreaking havoc on an opposition
 Kinda shocking they [FA#]wanted static with precision,
 
 I''m automatic
-
 Quarterback, I ain''t talkin'' sacking
-
 Pack it, pack it up, I don''t panic
-
 Batter, batter up, who the baddest?
-
 It don''t matter ''cause we at ya throat
-
 [FA#]Everybody wants to be my enemy
 [SOL] Spare the sympathy
 [FA#]Everybody wants to be
@@ -255,7 +233,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Monster', 'Imagine Dragons', 'ENG', '[FAm]   [MIb]
-
 [FAm] Ever since [LAb]I could remembe[MIb]r
 Every[SIb]thing inside of [FAm]me
 Just [LAb]wanted to fit [MIb]in (oh, [SIb]oh, oh, [FAm]oh)
@@ -299,20 +276,13 @@ A [FAm]monster, a [LAb]monster
 And [MIb]it keeps getting stronger
 
 [FAm]  [LAb]  [MIb]  [SIb4]  [FAm]  [LAb]  [MIb]  [SIb4]
-
 [FAm]  [LAb]  [MIb]  [SIb4]  [FAm]  [LAb]  [MIb]  [SIb4]
-
-[FAm]  [LAb]  [MIb]  [SIb4]  [FAm]  [LAb]  [MIb]  [SIb4]
-
-[FAm]  [LAb]  [MIb]  [SIb4]  [FAm]  [LAb]  [MIb]  [SIb4]
-
 I''m [FAm]only a m[LAb]an with a c[MIb]andle to g[SIb4]uide me
 I''m [FAm]taking a s[LAb]tand to es[MIb]cape what''s in[SIb4]side me
 A [FAm]monster, a [LAb]monster
 I''ve [MIb]turned into a [SIb4]monster
 A [FAm]monster, a [LAb]monster
 And [MIb]it keeps getting [SIb4]stronger
-
 [FAm]  [LAb]  [MIb]  [SIb4]', 'monster');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 

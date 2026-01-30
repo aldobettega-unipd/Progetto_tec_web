@@ -84,9 +84,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Take It Easy', 'Eagles', 'ENG', '[SOL]      [DO]  [RE]
-
 [SOL]      [DO]  [RE]   [SOL]
-
 Well, I''m a-[SOL]running down the road
 Tryin'' to loosen my load
 I''ve got seven women [RE]on my [DO]mind
@@ -102,7 +100,6 @@ Just find a [LAm]place to make your [DO]stand
 And take it e[SOL]asy
 
 Well, I''m a-[SOL]standing on a corner
-
 In Winslow, Arizona
 Such a fine [RE]sight to [DO]see
 It''s a [SOL]girl, my Lord
@@ -119,9 +116,7 @@ So open [LAm]up, I''m climbin'' i[DO]n
 So take it e[SOL]asy
 
 [SOL]        [RE]  [DO]   [SOL]   [RE]   [DO]   [SOL]
-
 [MIm]   [RE]   [DO]   [SOL]   [LAm]   [DO]   [MIm]    [RE]
-
 Well, I''m [SOL]running down the road
 Trying to loosen my load
 Got a world of trouble [RE]on my [LAm]mind
@@ -138,7 +133,6 @@ If your sweet [DO]love
 Is gonna [SOL]save me
 
 [DO]    [SOL]    [DO]    [SOL]    [DO]
-
 Oh we got it [SOL]ea---[SOL7]------[DO]sy
 We oughta take it [SOL]ea---[SOL7]------[DO]sy    [MIm]', 'take-it-easy');
 SET @last_song_id = LAST_INSERT_ID();
@@ -151,9 +145,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('I Can’t Tell You Why', 'Eagles', 'ENG', '[SIm]  [LA]  [SIm]  [LA]
-
 [SIm]  [LA]  [SIm]  [FA#m7]
-
 [RE7+]Look at us baby, up all night
 [SOL7+]Tearing our love apart
 [RE7+]Aren''t we the same two people
@@ -163,15 +155,11 @@ Something makes me turn a[FA#7]round and sta[FA#7]y
 And I[SIm] can''t tell you [LA]why     [SOL7+]       [FA#m7]
 
 [RE7+]When we get crazy
-
 It just ain''t right
-
 (try to keep your head, little girl)
 [SOL7+]Girl, I get lonely, too
 You[RE7+] don''t have to worry
-
 Just hold on tight
-
 (don''t get caught in your little world)
 [SOL7+]   ...''Cause I [FA#7]love you [FA#7]
 
@@ -182,9 +170,7 @@ No, baby, [SOL7+]I can''t tell you w[FA#m7]hy    [FA#7]
 [SOL7+]I can''t tell you [FA#m7]why
 
 [SIm]  [LA]  [SIm]  [FA#m7]
-
 [RE7+]   [SOL7+]   [RE7+]   [SOL7+]  [FA#7]  [FA#7]
-
 [SIm] Every time I try to [LA]walk away [SOL7+]
 Something makes me turn a[FA#7]round and s[FA#7]tay
 And [SIm]I can''t tell you [LA]why
@@ -204,12 +190,8 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Life in the Fast Lane', 'Eagles', 'ENG', '[MI5]
-
-
 He was a [MI5]hard-headed man, he was brutally handsome
-
 And she was terminally pretty
-
 She held him up and he held her for ransom
 In the heart of the cold, cold city
 He had a [LA7]nasty reputation as a cruel dude
@@ -219,23 +201,14 @@ They had [SI5]one thing in common, they were good in bed
 She''d say,
 [LA7] "Faster, faster, the lights are turnin'' red"
 [MI](Life in the fast lane)
-
 surely make you lose your mind
-
 (Life in the fast lane) huh...
-
 Are you with me so far?
-
 [MI5]Eager for action and hot for the game
-
 The coming attraction, the drop of a name
-
 They knew all the right people,
-
 they took all the right pills
-
 They threw outrageous parties,
-
 they paid heavenly bills
 There were[LA7] lines on the mirror, lines on her face
 She pre[MI5]tended not to notice,
@@ -243,59 +216,38 @@ She pre[MI5]tended not to notice,
 she was caught up in the race
 [SI5]Out every evening, until it was light
 He was [LA7]too tired to make it,
-
 she was too tired to fight about it
 [MI5](Life in the fast lane)
-
 surely make you lose your mind
-
 (Life in the fast lane) huh...
-
 (Life in the fast lane) everything all the time
-
 (Life in the fast lane) uh-huh
 
 [SI]        [RE]        [SI]        [LA]    [MI]  [SI5]
-
 [MI]
-
 [MI5]Blowin'' and burnin'', blinded by thirst
-
 They didn''t see the stop sign,
-
 took a turn for the worst
-
 She said, "Listen, baby,
-
 you can hear the engine ring
-
 We''ve been up and down this highway,
-
 haven''t seen a goddamn thing"
 
 He said,
 [LA7] "Call the doctor, I think I''m gonna crash
 The[MI5] doctor say he''s comin'',
-
 but you gotta pay in cash"
 They went [SI5]rushin'' down that freeway,
-
 messed around and got lost
 [LA7] They didn''t care,
-
 they were just dyin'' to get off and it was
-
 [MI5](Life in the fast lane)
-
 surely make you lose your mind
-
 (Life in the fast lane) uh-huh
-
 (Life in the fast lane) everything all the time
-
 (Life in the fast lane) uh-huh
 Life in the fast lane   [RE]
-[DO] Life in the fast lane  [LA]             [MI5]', 'life-in-the-fast-lane');
+[DO] Life in the fast lane  [LA] [MI5]', 'life-in-the-fast-lane');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
 (@last_song_id, 'DO'),
@@ -306,11 +258,8 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Tequila Sunrise', 'Eagles', 'ENG', '[SOL] [SOL6] [SOL] [SOL6]
-
 [SOL] [SOL6] [SOL] [SOL6]
-
 [LAm]  [RE]  [SOL]
-
 [SOL] It''s another tequila sunrise
 [RE] Starin'' slowly cross the [LAm]sky
 [RE7]  Said good [SOL]bye
@@ -332,7 +281,6 @@ Oh and it''s a hollow feelin''
 [RE7]  It never [SOL]ends
 
 [SOL]   [RE]   [LAm7]  [RE7]  [SOL]
-
 [LAm]  Take another [RE]shot of courage
 [SIm]  Wonder why the [MI7]right words never [LAm7]come  [SI]
 You just get [MIm7]numb   [LA]

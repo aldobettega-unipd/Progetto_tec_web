@@ -24,7 +24,6 @@ Or [FA7+]is that war your waging
 
 [DO]Dream of Cali[SOL]forni[REm]cation  [LAm]
 [DO]Dream of Cali[SOL]forni[REm]cation
-
 [LAm]  [FA]  [LAm]  [FA]
 
 [LAm]Marry me girl be my fairy to the world
@@ -51,15 +50,10 @@ Hard core soft [FA7+]porn
 [DO]Dream of Cali[SOL]forni[REm]cation
 
 [FA#m]  [RE]  [FA#m]  [RE]
-
 [SIadd9]  [RE]  [LA]  [MI]  [FA#m]  [RE]  [FA#m]  [RE]
-
 [SIadd9]  [RE]  [LA]  [MI]  [SIadd9]  [RE]  [LA]  [MI]
-
 [SIadd9]  [RE]  [LA]  [MI]
-
 [LAm]  [FA]  [LAm]  [FA]
-
 Des[LAm]truction leads to a very rough road
 But it [FA]also breeds creation
 And [LAm]earthquakes are to a girl''s guitar
@@ -161,7 +155,6 @@ Than [RE]anything I ever k[SIm]new
 Right on c[DO]ue
 
 [MIm]  [RE]  [SIm]  [DO]
-
 [MIm] Can''t stop, addicted to the shindig
 [RE] Chop top, he says I''m gonna win big
 [SIm] Choose not a life of imitation
@@ -184,10 +177,7 @@ Right on c[DO]ue
 [DO]Comin'' from space
 
 To teach you of the Pleiades
-
-
 Can''t stop the spirits when they need you
-
 This life is more than just a read-through', 'cant-stop');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -243,15 +233,12 @@ I [SOL]don''t believe it''s [LAm]bad  [FA]
 It''s [SOL]all I ever
 
 [MI5]  [DO7+]  [MI5]  [DO7+]
-
-
 [MI5] Turn me on take me for a hard ride
 [DO7+] Burn me out leave me on the otherside
 [MI5] I yell and tell it that It''s not my friend
 I [DO7+]tear it down I tear it down
 
 And then it''s born again
-
 [LAm]  [FA]  [DO]  [SOL]
 
 [LAm] How long how [FA]long will I [DO]slide
@@ -272,9 +259,8 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Scar Tissue', 'Red Hot Chili Peppers', 'ENG', 'Intro:
+('Scar Tissue', 'Red Hot Chili Peppers', 'ENG', '
 [FA]  [DO]  [REm]  [DO]  [FA]  [DO]  [REm]
-
 [FA]  Scar tissue that I wish you saw
 [REm]  Sarcastic mister know it all
 [FA]  Close your eyes and I''ll kiss you ''cause
@@ -349,9 +335,7 @@ oh [LAm]no, no, no, [SOL]yeah, [FA]yeah
 [LA]oh [LAm7]no, no, no, no, [SOL6]yeah,  [FA7+]yeah
 [LA]Oh [LAm7+]no, i say, [SOL6]yeah  [FA7+]yeah
 [LA]yeah[LAm7+] yeah     [SOL6]       [FA7+]
-
 [LA]  [LAm7]  [SOL6]  [FA7+]   [LA]  [LAm7]  [SOL6]  [FA7+]
-
 [LA]  [LAm7]  [SOL6]  [FA7+]   [LA]  [LAm7]  [SOL6]  [FA7+]  [LA]', 'under-the-bridge');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 

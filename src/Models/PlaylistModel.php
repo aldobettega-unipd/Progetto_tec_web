@@ -70,28 +70,6 @@ class PlaylistModel extends Model {
         return (bool) $this->fetchOne($sql, [$id_playlist, $id_canzone]);
     }
 
-/*
-
-    public function insert_canzone_in_playlist($id_playlist, $id_canzone) {
-        try {
-            $sql = "INSERT INTO canzoni_playlist (playlist, canzone) VALUES (?, ?)";
-            $this->query($sql, [$id_playlist, $id_canzone]);
-        } catch (\PDOException $e) {
-            error_log("Errore nell'inserimento della canzone: " . $e->getmessage());
-            throw new Exception("Impossibile inserire la canzone in questo momento");
-        }
-    }
-
-    public function delete_canzone_da_playlist($id_playlist, $id_canzone) {
-        try {
-            $sql = "DELETE FROM canzoni_playlist WHERE playlist = ? AND canzone = ?";
-            $this->query($sql, [$id_playlist, $id_canzone]);
-        } catch (\PDOException $e) {
-            error_log("Errore nella rimozione della canzone: " . $e->getMessage());
-            throw new Exception("Impossibile rimuovere la canzone dalla playlist in questo momento");
-        }   
-    }
-    */    
 }
 
 

@@ -4,7 +4,6 @@ SET NAMES 'utf8mb4';
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('A Te', 'Jovanotti', 'ITA', '[LA]  [MI]  [FA#m7]  [LA]  [RE]  [LA]  [SIm7]  [MI7]
-
 [LA]   A te che sei l''unica al [MI]mondo l''unica ragione
 [FA#m7]   per arrivare fino in fond[LA]o ad ogni mio respiro
 [RE]   Quando ti guardo Dopo un [LA]giorno pieno di parole
@@ -56,11 +55,8 @@ Sostanza dei sogni[DOm7] miei [SIb] Sostanza dei giorn[FA]i miei [SOL]
 Sostanza dei giorni[REm7] miei  [DO6]  Sostanza dei sogn[SOL]i miei
 A te che [FA]sei Semplicemente [DOadd9]sei
 Compagna dei giorni [REm7]miei  [DO6] Sostanza dei sogn[SOL]i miei
-
 [FA]  [DO]  [REm] [DO6] [SOL]
-
 [FA]  [DO]  [REm] [DO6] [SOL]
-
 [FA]  [DO]  [REm] [DOadd9] [SOL]', 'a-te');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -81,7 +77,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Chiaro di Luna', 'Jovanotti', 'ITA', '[RE]  [FA#]  [SOL]  [LA]
-
 Hey, hey, hey, hey, he[RE]y
 Proverò a pensarti mentre mi sorr[FA#]idi
 La capacità che hai di rasseren[SOL]are
@@ -156,7 +151,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Fango', 'Jovanotti', 'ITA', '[SI]  [SOL#m7]  [FA#]  [MI]
-
 Io lo [SI]so che non sono solo
 anche quando sono solo
 [SOL#m7]io lo so che non sono solo
@@ -166,10 +160,8 @@ anche quando sono solo[MI]
 sotto un [SI]cielo di stelle e di satelliti
 tra i col[SOL#m7]pevoli le vittime e i superstiti
 un cane ab[FA#]baia alla luna
-
 un uomo guarda la sua mano
 sembra q[MI]uella di suo padre
-
 quando da bambino
 lo pren[SI]deva come niente e lo sollevava su
 era [SOL#m7]bello il panorama visto dall''alto
@@ -186,28 +178,23 @@ il suono [MI]dei motorini il sapore della pizza
 le [SI]lacrime di una mamma le idee di uno studente
 gli in[SOL#m7]croci possibili in una piazza
 di [FA#]stare con le antenne alzate verso il cielo
+
 [MI] io lo so che non sono solo
-
 io lo [SI]so che non sono solo
-
 anche quando sono solo
 [SOL#m7] io lo so che non sono solo
 e [FA#]rido e piango e mi [MI]fondo
-
 con il cielo e con il Fango
 io lo [SI]so che non sono solo
-
 anche quando sono solo
 [SOL#m7] io lo so che non sono solo
 e [FA#]rido e piango e mi [MI]fondo
-
 con il cielo e con il fango
 
 la cit[SI]tà un film straniero senza sottotitoli
 una [SOL#m7]pentola che cuoce pezzi di dialoghi
 come [FA#]stai quanto costa che ore sono
 che succede che si [MI]dice chi ci crede
-
 e allora ci si vede
 ci si [SI]sente soli dalla parte del bersaglio
 e di[SOL#m7]venti un appestato quando fai uno sbaglio
@@ -227,28 +214,19 @@ l''appe[FA#]tito la sete l''evoluzione in atto
 l''ener[MI]gia che si scatena in un contatto
 
 io lo [SI]so che non sono solo
-
 anche quando sono solo
 [SOL#m7] io lo so che non sono solo
 e [FA#]rido e piango e mi [MI]fondo
-
 con il cielo e con il Fango
 io lo [SI]so che non sono solo
-
 anche quando sono solo
 [SOL#m7] io lo so che non sono solo
 e [FA#]rido e piango e mi [MI]fondo
-
 con il cielo e con il fango
-
 [SI]   [SOL#m7]   [FA#]
-
 e mi [MI]fondo con il cielo e con il fango
-
 [SI]   [SOL#m7]   [FA#]
-
 e mi [MI]fondo con il cielo e con il fango
-
 [SI]   [SOL#m7]   [FA#]   [MI]', 'fango');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -259,7 +237,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Gli Immortali', 'Jovanotti', 'ITA', '[LAm]  [FA]  [DO]  [SOL]
-
 [LAm]  Sotto la curva del c[FA]ielo
 [DO]  in un applauso di s[SOL]telle
 [LAm]  ho salutato la mia [FA]gioventù
@@ -279,7 +256,6 @@ INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzo
 [FA]  ora che siamo qui
 [SOL]  Noi siamo gli Immor[DO]tali
 
-   Strumentale:
 [LAm]  [FA]  [DO]  [SOL]
 [LAm]  Seduta dentro a un [FA]aereo
 [DO]  con il biglietto di un[SOL]''altra
@@ -302,7 +278,6 @@ INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzo
 [FA]  ora che stiamo qui-a[SOL]-a
 Noi Siamo Gli Immor[DO]tali
 
-Strumentale:
 [SIm]  [SOL]  [RE]  [LA]
 [SIm]  E hai disegnato a co[SOL]lori
 [RE]  il mondo che hai i[LA]mmaginato
@@ -347,9 +322,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('L’Estate Addosso', 'Jovanotti', 'ITA', '[MI]  [DO#m] [MI]   [SI] [DO#m]   [SI] [DO#m]
-
 [SI] [LA]   [DO#m] [LA]   [DO#m] [MI]   [DO#m] [MI]   [DO#m]
-
 [MI] L''estate addosso
 [DO#m]  un [MI]anno è già passato  [SI]
 la s[DO#m]piaggia si è ristretta anco[SI]ra [DO#m]un metro [SI]
@@ -370,7 +343,6 @@ mi[MI]nacce radioattive [SI]
 dis[DO#m]tanti come un viaggi[SI]o in [DO#m]moto in due [SI]
 [LA]  fino ad un locale ap[DO#m]erto [LA]fino all''alba [DO#m]
 ri[MI]cordo di un futuro già vissuto da qualcuno
-
 [SI]  prima che il vento si porti via [LA]tutto
 e che settembre ci porti una strana [SI]felicità
 
@@ -387,7 +359,6 @@ non [DO#m]vogliono cadere  [SI]
 l''a[LA]nello è sulla spiaggia [DO#m]
 tra un [LA]mare di lattine [DO#m]
 la p[MI]rotezione zero
-
 spalmata sopra il cuore
 
 l''estate addosso
@@ -400,7 +371,6 @@ la maglia dei mondiali scolo[DO#m7]rita
 
 [SI]  prima che il vento si porti via [LA]tutto
 e che settembre ci porti una strana [SI]felicità
-
 pensando a cieli infuocati
 ai brevi a[LA]mori infiniti
 re[DO#m]spira questa [SI]liber[MI]tà
@@ -408,15 +378,12 @@ ah ah ah [DO#m]ah
 l''estate e la liber[LA]tà    [MI]
 
 [MI] l''estate addosso
-
 un anno è già passato
 vie[DO#m]tato non innamorarsi ancora
-
 saluti dallo spazio
 le fragole maturano anche [MI]qua   [DO#m]      [LA]     [MI]
 respira questa liber[MI]tà  [DO#m]
 l''estate e la liber[LA]tà  [MI]
-
 l''estate la liber[MI]tà  [DO#m]      [LA]    [MI]', 'lestate-addosso');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -427,7 +394,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Mezzogiorno', 'Jovanotti', 'ITA', '[LA]  [RE]  [LA]  [RE]
-
 Ca[LA]selli d''autostrada tutto il tempo si consuma
 ma [RE]Venere riappare sempre fresca dalla schiuma
 la [LA]foto della scuola non mi assomiglia più
@@ -474,9 +440,7 @@ Mezzogiorno di fuoco
 In [MI]guardia niente da capire
 mi s[SOL#m]pecchio in una goccia di sudore
 
-Strumentale:
 [MI]    [LA]    [MI]    [LA]
-
 Siamo come il sole a mezzogiorno... baby
 S[MI]iamo come il sole a mezzogiorno,
 [LA]senza più nessuna ombra intorno...
@@ -484,7 +448,6 @@ S[MI]iamo come il sole a mezzogiorno,
 [LA]senza più nessuna ombra intorno...
 S[MI]iamo come il sole a mezzogiorno ba[LA]by
 [MI]Siamo come il sole a mezzogiorno ba[LA]by.. aahaha
-
 [MI]    [LA]    [MI]    [LA]', 'mezzogiorno');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -498,7 +461,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Mi Fido Di Te', 'Jovanotti', 'ITA', '[LAm]  [FA]  [DO]  [SOL]  [LAm]  [FA]  [DO]  [SOL]
-
 [LAm]Case di pane, riunioni di rane
 [FA]vecchie che ballano nelle cadillac
 [DO]muscoli d''oro, corone d''alloro
@@ -575,7 +537,6 @@ mi [LAm]fido di te
 io mi [FA7+]fido di te
 ehi mi [DO]fido di te
 cosa sei disposto a [SOL]perdere
-
 [LAm]  [FA]  [DO]  [SOL]     [LAm]  [FA]  [DO]  [SOL]', 'mi-fido-di-te');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -584,7 +545,4 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'LAm'),
 (@last_song_id, 'SOL');
 
-INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Ragazzo Fortunato', 'Jovanotti', 'ITA', 'None', 'ragazzo-fortunato');
-SET @last_song_id = LAST_INSERT_ID();
 

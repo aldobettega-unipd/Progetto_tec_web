@@ -64,6 +64,8 @@ set_exception_handler(function ($e) {
 
     $router->add('/', HomeController::class, 'visualizza_home');
 
+    $router->add('/artisti', ArtistaController::class, 'view_all_artisti');
+    $router->add('/canzoni', CanzoneController::class, 'view_all_canzoni');
     $router->add('/artisti/{slug_artista:alphanum}', ArtistaController::class, 'view_artista');
     $router->add('/canzoni/{slug_canzone:alphanum}', CanzoneController::class, 'view_canzone');
 
@@ -99,7 +101,6 @@ set_exception_handler(function ($e) {
 
 
     $router->add('/api/search/songs', ApiCanzoneController::class, 'search');
-
     $router->add('/api/playlist/add-song', ApiPlaylistController::class, 'add_song', ['auth']);
     $router->add('/api/playlist/remove-song', ApiPlaylistController::class, 'remove_song', ['auth']);
 

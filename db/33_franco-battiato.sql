@@ -4,9 +4,7 @@ SET NAMES 'utf8mb4';
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Centro di Gravità Permanente', 'Franco Battiato', 'ITA', '[REm] [REm9]  [DOm] [DOm9]  [SOL]  [MIb]  [DOm]  [SOL]
-
 [MIb]  [SOL]
-
 [REm]Una vecchia[DOm] bretone
 [SOL]con un cappello e un omb[MIb]rello di carta di [DOm]riso
 e canna di bam[SOL]bù   [MIb]     [SOL]      [MIb]     [SOL]
@@ -25,21 +23,16 @@ i[DO]dea sulle [LAm]cose sulla gen[FA]te
 che [SOL]non mi faccia mai cambiare
 i[DO]dea sulle [LAm]cose sulla gen[FA]te
 [SOL]Over and over a[RE]gain [MIb]     [SOL]
-
 [REm] [REm9]  [DOm] [DOm9]  [SOL]  [MIb]  [DOm]  [SOL]
-
 [MIb]  [SOL]
 
 [REm]Per le strade [DOm]di Pechino [SOL]erano giorni di [MIb]maggio
 tra noi si scher[DOm]zava a raccogliere or[SOL]tiche
-
 [MIb]  [SOL]  [MIb]  [SOL]
-
 [REm]Non sopporto i [DOm]cori russi
 [SOL]la musica finto [MIb]rock la new wave ital[DOm6]iana
 il free jazz punk ing[SOL]lese
 [MIb]Neanche la nera afri[SOL]cana
-
 [DO]Cerco un centro di g[LAm]ravità perma[FA]nente
 che [SOL]non mi faccia mai cambiare
 i[DO]dea sulle [LAm]cose sulla gen[FA]te
@@ -48,7 +41,6 @@ i[DO]dea sulle [LAm]cose sulla gen[FA]te
 che [SOL]non mi faccia mai cambiare
 i[DO]dea sulle [LAm]cose sulla gen[FA]te
 [SOL]Over and over a[RE]gain [MIb]     [SOL]
-
 [DO]  [LAm]  [FA]  [SOL]    [DO]  [LAm]  [FA]  [SOL]', 'centro-di-gravita-permanente');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -63,7 +55,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Cuccurucucu', 'Franco Battiato', 'ITA', '[RE]  [LA]  [MI]  [RE]  [LA]  [MI]
-
 [RE]Cuccurucu[LA]cù Pa[MI]loma
 [RE]ahi ahi ahi ahi [LA]ahi can[MI]tava
 [RE]Cuccucucucucu[LA]cucuu Pa[MI]loma
@@ -76,7 +67,6 @@ sopra i [MI]carri in mascher[SIm]a
 avevo [FA#m]già la luna e U[RE]rano nel Le[MI]one
 il [RE]mare [LA]nel cas[MI]setto, le [RE]mille [LA]bolle [MI]blu
 da [RE]quando sei an[LA]data [MI]via [SIm]non esisto più  [SI]
-
 il mondo è g[MI]rigio il mondo è blu
 
 [RE]Cuccurucu[LA]cù Pa[MI]loma
@@ -104,7 +94,6 @@ il mondo è [MI]grigio il mondo è blu
 [LA]once upon a [MI]time you dressed so [FA#]fine, [RE]Mary
 [LA]like [MI]just a [SIm]woman
 [LA]like a Rolling Stone
-
 [RE]  [LA]  [MI]      [RE]  [LA]  [MI]
 
 [RE]Cuccurucu[LA]cù Pa[MI]loma
@@ -131,9 +120,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('La Canzone dell’Amore Perduto', 'Franco Battiato', 'ITA', '[DO]   [LAm]   [FA6]   [SOL]
-
 [FAadd9]   [SOL]   [DO]   [SOL]   [LAm]      [FA6]   [SOL]
-
 Ri[DO]cordi[LAm], sbocciavano le [REm]vio-[SOL]le
 Con le [FA]nostre pa[SOL]role
 [DO] Non ci [SOL]lasceremo [LAm]mai
@@ -146,7 +133,6 @@ L''a[FA]more che [SOL]strappa i ca[DO]pelli
 É per[MIm]duto ormai
 [FA] Non resta che [SOL]qualche svo[DO]gliata ca[MIm]rezza
 [FA] E un pò di tene[SOL]rez--[DO]za   [LAm]      [FA6]      [SOL]
-
 [FA]   [SOL]   [DO]   [SOL]   [LAm]      [FA6]   [SOL]
 
 E [DO]quando[LAm] ti troverai [REm]in ma[SOL]no
@@ -158,14 +144,12 @@ Che in[DO]contri per [MIm]strada
 Che tu[FA] coprirai [SOL]d''oro
 Per un [DO]bacio mai [MIm]dato
 [FA] Per un amore [SOL]nuo-[DO]vo   [LAm]      [FA6]      [SOL]
-
 [FA]   [SOL]   [DO]   [SOL]   [LAm]      [FA6]   [SOL]
 
 [FA]E sarà la [SOL]prima che in[DO]contri per [MIm]strada
 Che tu[FA] coprirai [SOL]d''oro
 Per un [DO]bacio mai [MIm]dato
 [FA] Per un amore [SOL]nuo-[DO]vo   [LAm]      [FA]     [SOL]
-
 [FA]   [SOL]   [DO]   [SOL]   [LAm]      [FA6]   [SOL]   [DO]', 'la-canzone-dellamore-perduto');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -178,9 +162,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('La Cura', 'Franco Battiato', 'ITA', '[SIm]  [FA#m]  [SOL]  [RE]
-
 [SIm]  [FA#m]  [SOL]  [RE]  [LA]
-
 Ti p[SIm]roteggerò dalle p[FA#m]aure delle ipocondrie
 [SOL]dai turbamenti che da oggi
 incontre[RE]rai per la tua via [LA]
@@ -196,12 +178,10 @@ per non farti invecchia[SIm]re    [FA#m]
 E guari[SOL]rai da tutte le mala[RE]ttie
 [SIm]perché sei un essere spec[FA#m]iale,
 ed i[SOL]o avrò cura di [SIm]te
-
 [FA#m]  [SOL]  [RE]  [SIm]  [FA#m]
 
 [MI]Vagavo per i campi del[SIm] Tennessee
 [LA] (come vi ero arri[MI]vato chissà)
-
 [SIm]Non hai fiori b[RE7+]ianchi per me?
 [LA]Più veloci di [SOL]aquile i miei sogni
 attraversano il [SIm]mare [FA#m]         [SOL]     [RE]    [LA]
@@ -222,10 +202,7 @@ Ti salve[SOL]rò da ogni malinco[RE]nia
 [SIm]   perché sei un essere spec[FA#m]iale,
 ed [SOL]io avrò cura di [RE]te...
 io sì[SIm], che avrò cura di te[SOL]
-
-Strumentale:
 [SIm]  [FA#m]  [SOL]  [RE]  [SIm]  [FA#m]  [SOL]
-
 [SIm]  [FA#m]  [SOL]  [RE]  [SIm]  [FA#m]  [SOL]', 'la-cura');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -238,7 +215,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('La Stagione dell’Amore', 'Franco Battiato', 'ITA', '[SOL]  [MIm]  [DO]    [SOL]  [MIm]  [DO]
-
 [SOL]La stagione dell''a[MIm]more viene [DO]e va
 i desideri non in[SOL]vecchiano
 quasi [MIm]mai con l''[DO]età
@@ -268,7 +244,6 @@ Se penso a come ho speso [SOL]male
 il mio [RE7]tempo [LAm]
 che non tornerà  [DO]non ritornerà
 [RE]più
-
 [SOL]  [MIm]  [DO]    [SOL]  [MIm]  [DO]
 
 Ne abbiamo avute di occas[SOL]ioni per[RE7]dendole [LAm]
@@ -288,7 +263,6 @@ quasi [MIm]mai con l''[DO]età
 ne abbiamo avute di occa[SOL]sioni per[RE7]dendole [LAm]
 non rimpiangerle [DO]non rimpiangerle
 [RE]mai
-
 [SOL]  [MIm]  [DO]   [SOL]  [MIm]  [DO]', 'la-stagione-dellamore');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -303,7 +277,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('No Time No Space', 'Franco Battiato', 'ITA', '[SOLb4+] [LAb4]
-
 [SOLb4+]Parlami [LAb4]dell'' esi[SOLb4+]stenza [LAb4]
 [SOLb4+]di mondi [LAb4]lonta[SOLb4+]nissimi[LAb4]
 [SOLb4+]di civil[LAb4]tà se[SOLb4+]polte  [LAb4]
@@ -321,7 +294,6 @@ a[SIb]nother [FA]race of vi[SOLm]brations [MIb]
 the [SIb]sea of the [FA]simu[SOLm]lation [FA]    [MIb]
 keep your feelings in [SIb]memo[FA]ries
 I [SOLm]love you espe[FA]cially to[SOL]night
-
 [SOLb4+] [LAb4]
 
 [SOLb4+]Control[LAb4]lori di [SOLb4+]volo   [LAb4]
@@ -345,9 +317,7 @@ a[SIb]nother [FA]race of vi[SOLm]brations [MIb]
 [SIb]  [FA]  [SOLm]  [FA]  [MIb]
 keep your feelings in [SIb]memo[FA]ries
 I [SOLm]love you espe[FA]cially to[SOL]night
-
 [SOLm]  [MIb]  [SIb]  [FA]  [SOLm]  [MIb]  [SIb]  [FA]
-
 [SOLm]  [FA]  [MIb]     [SIb]  [FA]  [SOLm]  [FA]  [SOL]', 'no-time-no-space');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -361,7 +331,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Summer On a Solitary Beach', 'Franco Battiato', 'ITA', '[FA]  [REm]  [FA]  [REm]  [FA]  [REm]  [FA]  [REm]
-
 Pas[FA]sammo l''estate
 su una spiaggia soli[REm]taria
 e ci [FA]arrivava l''eco di un cinema all''a[REm]perto
@@ -415,7 +384,6 @@ Tra di [MIb]noi forse nasce[SIb]rà     [SIb]
 [LAb]  un  a[LAb]more [MIb]vero,  [FAm7]
 te lo [SIb7]leggo negli [MIb]oc-c[DOm]hi
 [FAm7]  tu lo [SIb7]leggi nei [MIb]miei
-
 [MIb]   [SIb] [SIb]  [LAb]
 
 Ma non sei sin[MIb]cera   [FAm7]
@@ -444,34 +412,26 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Voglio Vederti Danzare', 'Franco Battiato', 'ITA', 'intro:
 [SIb] [SOLm] [MIb]
-
 [SIb] [FA] [SOLm] [MIb]
 
 [SIb]Voglio vederti da[FA]nzare
 [DOm] come le zingare [SOLm]del deserto
 [SIb]con candelabri in [FA]testa
 o [SIb]come le bali[MIb]nesi nei giorni di [FA]festa
-
 [SIb] [SOLm] [MIb]
-
 [SIb] [FA] [SOLm] [MIb]
-
 [SIb]Voglio vederti da[FA]nzare
 [DOm] come i derviches to[SOLm]urners
 [SIb]che girano sulle spine d[FA]orsali
 o[SIb] al suono di cavig[MIb]liere del Kata[FA]kali
 
 [SIb] [SOLm] [MIb]
-
 [SIb] [FA] [SOLm] [MIb]
-
 E gira tutt''intorno la s[SIb]tanza
 mentre si d[FA]anza, d[SOLm]anza
 [MIb]e gira tutt''intorno la st[SIb]anza
 mentre si d[FA]anza [SOL]
-
 [DO] [LAm] [FA]
-
 [DO] [SOL] [LAm] [FA]
 
 [DO]E Radio Tirana, [SOL]trasmette
@@ -482,9 +442,7 @@ a p[DO]iedi nudi sui [FA]braceri ardenti[SOL]
 [REm] nelle balere estiv[LAm]e
 [DO]coppie di anziani che [SOL]ballano
 [LA] al ritmo di sette ottavi
-
 [RE] [SIm] [SOL]
-
 [RE] [LA] [SIm] [SOL]
 
 E gira tutt''intorno la st[RE]anza
@@ -500,11 +458,7 @@ e s[MI]uonatori [LA]zingari ribelli[SI]
 [FA#m] nelle balere esti[DO#m]ve
 [MI]coppie di anziani che [SI]ballano
 [DO#] vecchi valzer viennesi
-
-(a tempo di valzer)
-
 [FA#] [RE#m] [SI]
-
 [FA#] [DO#] [RE#m] [SI]', 'voglio-vederti-danzare');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 

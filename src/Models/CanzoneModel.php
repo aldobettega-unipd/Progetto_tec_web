@@ -75,6 +75,11 @@ class CanzoneModel extends Model {
             error_log("Errore eliminazione canzone: " . $e->getMessage());
             return false;
         }
+
+    public function get_accordi($canzone){
+        $sql = "SELECT accordo FROM accordi_canzone WHERE id_canzone = ?";
+        return $this->fetchAll($sql, [$canzone]);
+
     }
 
     public function get_lingue_canzoni() {

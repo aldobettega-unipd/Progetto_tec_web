@@ -8,6 +8,7 @@ use App\Helpers\ListHelper;
 use App\Helpers\BreadcrumbHelper;
 
 Class PlaylistController extends Controller {
+
     private $Playlist;
 
     public function __construct(){
@@ -41,7 +42,9 @@ Class PlaylistController extends Controller {
         }
 
         $canzoni_playlist = $this->Playlist->get_canzoni_playlist($id_playlist);
-        $lista_html = ListHelper::render($canzoni_playlist, 'canzoneListItem', 'canzone');
+
+        $lista_html = ListHelper::render($canzoni_playlist, 'canzonePlaylistItem', 'playlist');
+
 
         $nome_playlist = $dati_playlist['nome_playlist'];
         $descrizione_playlist = "Playlist: " . $dati_playlist['nome_playlist'] . " creata da " . $dati_playlist['username'] . ".";

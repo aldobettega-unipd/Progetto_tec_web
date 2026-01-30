@@ -6,6 +6,7 @@ use App\Core\Controller;
 use App\Models\ArtistaModel;
 use App\Core\Template;
 use App\Helpers\CarouselHelper;
+use App\Helpers\ListHelper;
 use App\Helpers\BreadcrumbHelper;
 
 Class ArtistaController extends Controller {
@@ -17,6 +18,19 @@ Class ArtistaController extends Controller {
         BreadcrumbHelper::add('Home', '/');
         BreadcrumbHelper::add('Artisti', '/artisti');
     }
+
+    public function view_all_artisti() {
+        $artisti = $this->Artista->get_all();
+
+        $this->page_title = "Tutti gli Artisti";
+        $this->page_description = "Esplora tutti gli artisti disponibili nel nostro catalogo.";
+        $list_artisti = ListHelper::groupByIndex($artisti, 'nome_artista');
+
+        $this->render('artistiordinatiPage', [
+            'LISTA_ARTISTI' => ListHelper::costruisciListaArtisti($list_artisti)
+        ]);
+    }
+
 
     public function view_artista($slug) {
         $dati_artista = $this->Artista->get_dati_artista($slug);

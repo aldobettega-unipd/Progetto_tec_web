@@ -29,11 +29,8 @@ per [SIm]la ce[MI]lebri[LA]tà!  [LA7]
 [LA]tu ci cedi [DO#7]tutti i diritti e [FA#7]noi faremo di te
 un [SIm]divo da [MI]hit pa[LA]rade!
 
-Strumentale:
 [LA]  [FA#m]  [SIm]  [MI]  [LA]  [FA#m]  [SIm]  [MI]
-
 [LA]  [DO#7]  [FA#7]  [SIm] [MI]  [LA]  [LA7]
-
 [RE]Non vedi che è un [MI]vero affare[LA] non perdere l''[FA#m]occasione
 [SIm]se no poi [MI]te ne penti[LA]rai,  [LA7]
 [RE]Non capita [MI]tutti i giorni
@@ -59,7 +56,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SIm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('L’Isola Che Non C’è', 'Edoardo Bennato', 'ITA', 'Seconda s[FA]tella a destra, questo é il cam[DO]mino
+('L''Isola Che Non C''è', 'Edoardo Bennato', 'ITA', 'Seconda s[FA]tella a destra, questo é il cam[DO]mino
 e poi d[SIb]ritto, fino al mat[FA]tino
 poi la st[REm]rada la t[LA7]rovi da [SIb]te
 porta all''[FA]isola[DO] che non [FA]c''é
@@ -84,11 +81,8 @@ e n[SIb]eanche un gioco di pa[FA]role
 se ci c[REm]redi ti [LA7]basta per[SIb]ché
 poi la st[FA]rada la t[DO]rovi da [FA]te
 
-Strumentale:
 [FA]  [DO]  [SIb]  [FA]
-
 [REm]  [LA7]  [SIb]  [FA]  [DO]  [FA]
-
 Son d''ac[REm]cordo con [LA7]voi niente [REm]ladri e gen[LA7]darmi,
 ma che [SIb]razza di[FA] isola [DO]é?
 Niente [SOLm7]odio e vio[DO]lenza, né sol[SOLm7]dati né [DO]armi
@@ -113,7 +107,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Non C’È', 'Edoardo Bennato', 'ITA', '[MI]
+('Non C''È', 'Edoardo Bennato', 'ITA', '[MI]
 
 
 Quello lì è un ragazzo speciale
@@ -155,7 +149,6 @@ Ed [SI]è così che va, prendere o lasciare
 [DO] A chi va sempre giran[LA]do
 [DO] Qualunque sia il giroton[LA]do
 [DO] Né chi va dove gli pa[MI]re
-
 E con[SI4]tinua ad andare anche se cambia il vento[SI]
 
 [MI] Quello lì è un ragazzo speciale
@@ -175,7 +168,6 @@ Non[MI] c''è
 Non[MI] c''è
 Non[FA#m7] c''è
 Ed [SI]anche se questa musica ti spezza il [MI]cuore
-
 Non c''è', 'non-ce');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 

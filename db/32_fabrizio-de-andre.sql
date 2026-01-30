@@ -94,82 +94,67 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Fiume Sand Creek', 'Fabrizio De André', 'ITA', 'Sempre:
+('Fiume Sand Creek', 'Fabrizio De André', 'ITA', '
 [DO] [DO4]
-
 Si son [DO]presi il nostro cuore
 sotto [FA]una coperta s[DO]cura
-
 sotto una luna morta piccola
 dormi[FA]vamo senza pa[DO]ura
 Fu un gene[SOL]rale di vent''anni
 occhi tur[FA]chini e giacca u[DO]guale
 fu un gene[SOL]rale di vent''anni
 [FA]figlio d''un tempo[DO]rale
-
 c''è un dollaro d''argento
 sul [SOL]fondo del Sand [DO]Creek.
 
 I nostri guer[DO]rieri troppo lontani
 sulla [FA]pista del bi[DO]sonte
-
 e quella musica distante
 diven[FA]tò sempre più [DO]forte
 chiusi gli [SOL]occhi per tre volte
 mi ritro[FA]vai ancora [DO]lì
 chiesi a mio [SOL]nonno è solo un sogno
 mio [FA]nonno disse [DO]sì
-
 a volte i pesci cantano
 sul [SOL]fondo del Sand [DO]Creek.
-
 [SOL]Hm   [FA]hm   [DO]hm
 
 So[DO]gnai talmente forte
 che mi u[FA]scì il sangue dal [DO]naso
-
 il lampo in un orecchio
 nell''[FA]altro il para[DO]diso.
 Le [SOL]lacrime più piccole
 le [FA]lacrime più [DO]grosse
 quando l''[SOL]albero della neve
 fio[FA]rì di stelle [DO]rosse
-
 ora i bambini dormono
 nel [SOL]letto del Sand [DO]Creek.
-
 [SOL]Hm   [FA]hm   [DO]hm
 [SOL]Hm   [FA]hm   [DO]hm
 
 Quando il [DO]sole alzò la testa
 tra le [FA]spalle della [DO]notte
-
 c''erano solo cani e fumo
 e [FA]tende capo[DO]volte
 ti[SOL]rai una freccia in cielo
 per f[FA]arlo respi[DO]rare
 ti[SOL]rai una freccia al vento
 per [FA]farlo sangui[DO]nare
-
 la terza freccia cercala
 sul [SOL]fondo del Sand [DO]Creek.
-
 [SOL]Hm   [FA]hm   [DO]hm
 [SOL]Hm   [FA]hm   [DO]hm
 
 Si son [DO]presi il nostro cuore
 sotto [FA]una coperta [DO]scura
-
 sotto una luna morta piccola
 dormi[FA]vamo senza pa[DO]ura
 Fu un gene[SOL]rale di vent''anni
 occhi tur[FA]chini e giacca ug[DO]uale
 fu un gene[SOL]rale di vent''anni
 [FA]figlio d''un tempo[DO]rale
-
 ora i bambini dormono
 sul [SOL]fondo del Sand [DO]Creek.
-
 [SOL]Hm h[FA]m h[DO]m
 [SOL]Hm h[FA]m h[DO]m', 'fiume-sand-creek');
 SET @last_song_id = LAST_INSERT_ID();
@@ -180,7 +165,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Franziska', 'Fabrizio De André', 'ITA', '[FA] [MIb] [SIb] [FA] [SIb]
-
 Hanno detto che Fran[SIb]ziska
 è stanca di pre[FA7]gare
 Tutta notte alla finestra
@@ -199,18 +183,14 @@ Stretto intorno al tuo fu[SIb]cile [SIb7]
 [MIb]Tu bandito senza luna
 Senza stelle e senza for[SIb]tuna
 Questa notte dormi[FA7]rai
-
 Col suo rosario
 Stretto intorno al tuo fu[SIb]cile
-
 [FA] [MIb] [SIb] [FA] [SIb]     [FA] [MIb] [SIb] [FA] [SIb]
 
 Hanno detto che Fran[SIb]ziska
 è stanca di ba[FA7]llare
-
 Con un uomo che non ride
 E [MIb]non la può baciar[SIb]e
-
 Tutta notte sulla quercia
 L''hai se[SIb7]guita in mezzo ai [MIb]rami
 Dietro il palco sull''or[SIb]chestra
@@ -223,15 +203,12 @@ O una rete di illu[SIb]sioni [SIb7]
 Senza sonno e senza can[SIb]zoni
 Senza una con[FA7]chiglia da portare
 O una rete di illusioni[SIb]
-
 [FA] [MIb] [SIb] [FA] [SIb]     [FA] [MIb] [SIb] [FA] [SIb]
 
 Hanno detto che Fran[SIb]ziska
 è stanca di po[FA7]sare
-
 Per un uomo che dipinge
 E [MIb]non la può guardar[SIb]e
-
 Filo filo del mio cuore
 Che dagli [SIb7]occhi porti al [MIb]mare
 C''è una lacrima na[SIb]scosta
@@ -245,18 +222,14 @@ Stretto intorno al tuo fu[SIb]cile [SIb7]
 [MIb]Tu bandito senza luna
 Senza stelle e senza for[SIb]tuna
 Questa notte dormi[FA7]rai
-
 Col suo ritratto
 Proprio sotto il tuo fu[SIb]cile
-
 [FA] [MIb] [SIb] [FA] [SIb]     [FA] [MIb] [SIb] [FA] [SIb]
 
 Hanno detto che Fran[SIb]ziska
 Non riesce più a can[FA7]tare
-
 Anche l''ultima sorella
 Tra un [MIb]po'' vedrà sposare[SIb]
-
 L''altro giorno un altro uomo
 Le ha so[SIb7]rriso per la [MIb]strada
 Era certo un fore[SIb]stiero
@@ -269,7 +242,6 @@ O una rete di illusion[SIb]i    [SIb7]
 Senza sonno e senza can[SIb]zoni
 Senza una con[FA7]chiglia da portare
 O una rete di illu[SIb]sioni
-
 [FA] [MIb] [SIb] [FA] [SIb]     [FA] [MIb] [SIb] [FA] [SIb]', 'franziska');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -323,16 +295,12 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Il Pescatore', 'Fabrizio De André', 'ITA', '[FA]
-
 [DO] [FA] [DO] [SOL]     [DO] [FA] [DO] [SOL]
-
 [DO] [FA] [DO] [SOL]     [DO] [FA] [DO] [SOL]
-
 All''ombra [DO]dell''ul[SOL]timo [DO]sole
 si era asso[FA]pito un pesca[DO]tore
 e aveva un [FA]solco [SOL]lungo il [LAm]viso
 [FA]come una s[DO]pecie [SOL]di sor[DO]riso[FA].  [DO]   [SOL]
-
 [DO] [FA] [DO] [SOL]
 
 Venne alla [DO]spiaggia [SOL]un assas[DO]sino
@@ -344,18 +312,13 @@ La La La [FA]La La La La [DO]La
 La La La [SOL]La La La La [DO]La
 La La La [FA]La La [SOL]La La [LAm]La
 [FA]La La La [DO]La La [SOL]La La [LAm]La
-
 [LAm]
-
 [DO] [FA] [DO] [SOL]     [DO] [FA] [DO] [SOL]
-
 [DO] [FA] [DO] [SOL]     [DO] [FA] [DO] [SOL]
-
 E chiese al [DO]vecchio, "[SOL]Dammi il [DO]pane
 ho poco [FA]tempo e troppa [DO]fame"
 e chiese al [FA]vecchio, "[SOL]Dammi il [LAm]vino
 [FA]ho sete e [DO]sono [SOL]un assas[DO]sino[FA]". [DO]   [SOL]
-
 [DO] [FA] [DO] [SOL]
 
 Gli occhi dis[DO]chiuse il [SOL]vecchio al [DO]giorno
@@ -367,18 +330,14 @@ La La La [FA]La La La La [DO]La
 La La La [SOL]La La La La [DO]La
 La La La [FA]La La [SOL]La La [LAm]La
 [FA]La La La [DO]La La [SOL]La La [LAm]La
-
 [LAm]
-
 [DO] [FA] [DO] [SOL]     [DO] [FA] [DO] [SOL]
-
 [DO] [FA] [DO] [SOL]     [DO] [FA] [DO] [SOL]
 
 E fu il ca[DO]lore [SOL]di un mo[DO]mento
 poi via di [FA]nuovo verso il [DO]vento
 poi via di [FA]nuovo [SOL]verso il [LAm]sole
 [FA]dietro alle [DO]spalle [SOL]un pesca[DO]tore[FA].  [DO]   [SOL]
-
 [DO] [FA] [DO] [SOL]
 
 Dietro alle [DO]spalle [SOL]un pesca[DO]tore
@@ -390,18 +349,14 @@ La La La [FA]La La La La [DO]La
 La La La [SOL]La La La La [DO]La
 La La La [FA]La La [SOL]La La [LAm]La
 [FA]La La La [DO]La La [SOL]La La [LAm]La
-
 [LAm]
-
 [DO] [FA] [DO] [SOL]     [DO] [FA] [DO] [SOL]
-
 [DO] [FA] [DO] [SOL]     [DO] [FA] [DO] [SOL]
 
 Vennero in [DO]sella [SOL]due gen[DO]darmi
 vennero in [FA]sella con le [DO]armi
 chiesero al [FA]vecchio [SOL]se lì vi[LAm]cino
 [FA]fosse pas[DO]sato [SOL]un assas[DO]sino[FA].  [DO]   [SOL]
-
 [DO] [FA] [DO] [SOL]
 
 Ma all''ombra [DO]dell''ul[SOL]timo [DO]sole
@@ -423,7 +378,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('La Ballata Dell’Amore Cieco', 'Fabrizio De André', 'ITA', '[LAm]Un uomo o[FA]nesto, un [SOL]uomo [DO]probo
+('La Ballata Dell''Amore Cieco', 'Fabrizio De André', 'ITA', '[LAm]Un uomo o[FA]nesto, un [SOL]uomo [DO]probo
 tra-la-la-[SOL]lalla, tra-lalla-[DO]lero
 [LAm]S''innamo[FA]rò  [SOL]perduta[DO]mente
 d''una che [MI7]non lo amava [LAm]niente
@@ -435,11 +390,8 @@ il cuore di tua [FA]madre per [SOL]i miei [LAm]cani"
 tra-la-la-[SOL]lalla, tra-lalla-[DO]lero
 [LAm]Dal petto il [FA]cuore [SOL]le strap[DO]pò
 e dal suo a[MI7]more ritor[LAm]nò
-
 [LAm] [REm] [LAm]   [SOL] [DO]
-
 [LAm] [REm] [LAm]   [FA] [SOL] [LAm]
-
 
 [LAm]Non era il [FA]cuore, non [SOL]era il [DO]cuore
 tra-la-la-[SOL]lalla, tra-lalla-[DO]lero
@@ -453,9 +405,7 @@ tagliati dei [FA]polsi le [SOL]quattro [LAm]vene"
 tra-la-la-[SOL]lalla, tra-lalla-[DO]lero
 [LAm]E come il [FA]sangue [SOL]ne sgor[DO]gò
 correndo come un [FA]pazzo da [SOL]lei tor[LAm]nò.
-
 [LAm] [REm] [LAm]   [SOL] [DO]
-
 [LAm] [REm] [LAm]   [FA] [SOL] [LAm]  [FA7]
 
 [LA#m]Gli disse [FA#]lei, ri[SOL#]dendo [DO#]forte
@@ -466,9 +416,7 @@ tra-la-la-[SOL#]lalla, tra-lalla-[DO#]lero
 e ormai cam[SOL#]biava il suo co[DO#]lore
 [LA#m]La vani[FA#]tà  [SOL#]fredda gio[DO#]iva,
 un uomo s''era uc[FA#]ciso [SOL#]per il suo a[LA#m]more
-
 [LA#m] [RE#m] [LA#m]   [SOL#] [DO#]
-
 [LA#m] [RE#m] [LA#m]   [FA#] [SOL#] [LA#m]
 
 [LA#m]Fuori soff[FA#]iava do[SOL#]lce il ven[DO#]to
@@ -479,9 +427,7 @@ quando lo [FA#]vide mo[SOL#]rir con[LA#m]tento
 quando a lei [SOL#]niente era res[DO#]tato
 [LA#m]Non il suo a[FA#]more, [SOL#]non il suo [DO#]bene,
 ma solo il sangue [FA#]secco del[SOL#]le sue [LA#m]vene
-
 [LA#m] [RE#m] [LA#m]   [SOL#] [DO#]
-
 [LA#m] [RE#m] [LA#m]   [FA#] [SOL#] [LA#m]', 'la-ballata-dellamore-cieco');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -568,9 +514,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Una Storia Sbagliata', 'Fabrizio De André', 'ITA', '[LAb]   [SOLb] [REb]    [LAb]   [SOLb] [REb]
-
 [LAb]   [SOLb] [REb]    [LAb]   [SOLb] [REb]
-
 É una s[REb]toria da dimenticare
 É una [SOLb]storia da non raccontare
 É una s[REb]toria un pò compli[LAb]cata
@@ -584,7 +528,6 @@ Storia co[LAb]mune per [SOLb]gente spe[REb]ciale
 Cos''altro vi [SIbm]serve [LAb] da queste [SOLb]vite
 Ora che il [REb]cielo al [LAb]centro le ha col[SOLb]pite,
 Ora che il [REb]cielo ai [LAb]bordi le ha scol[REb]pite
-
 [SOLb] [REb]
 
 É una storia di periferia,
@@ -601,7 +544,6 @@ Notte co[LAb]mune per [SOLb]gente spe[REb]ciale
 Cos''[LAb]altro ti [SIbm]serve [LAb] da queste v[SOLb]ite
 Ora che il [REb]cielo al [LAb]centro le ha col[SOLb]pite,
 Ora che il [REb]cielo ai [LAb]bordi le ha scol[REb]pite
-
 [SOLb] [REb]
 
 É una st[REb]oria vestita di nero
@@ -618,9 +560,7 @@ Storia co[LAb]mune per [SOLb]gente spe[REb]ciale
 Cos''[LAb]altro vi [SIbm]serve[LAb]  da queste [SOLb]vite
 Ora che il [REb]cielo al [LAb]centro le ha col[SOLb]pite,
 Ora che il [REb]cielo ai [LAb]bordi le ha scol[REb]pite
-
 [SOLb] [REb]
-
 [REb]   [SOLb]   [REb]  [LAb]  [SOLb]  [REb]
 
 Per il [REb]segno che ci è rimasto
@@ -628,7 +568,6 @@ non ri[SOLb]peterci quanto ti spiace,
 Non ci ch[REb]iedere più com''è andata,
 tanto lo [LAb]sai che è una [SOLb]storia sbagl[REb]iata,
 tanto lo [LAb]sai che è una [SOLb]storia sbagl[REb]iata
-
 [LAb]    [SOLb] [REb]     [LAb]    [SOLb] [REb]', 'una-storia-sbagliata');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 
@@ -658,13 +597,9 @@ lei ti [SIb]guarda con [MIb]un sor[FA]riso
 non cre[SIb]devi che il [MIb]para[REm]diso  [SOLm]
 fosse [DOm]solo lì al [RE7]primo [SOLm]piano
 
-Strumentale:
 [SIbm] [FA7] [SIbm]
-
 [REb] [SOLb] [LAb]
-
 [REb] [SOLb] [FAm] [SIbm]
-
 [MIb] [FA7] [SIbm]
 
 Via del [SOLm]Campo ci [RE7]va un il[SOLm]luso
@@ -695,13 +630,9 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Volta La Carta', 'Fabrizio De André', 'ITA', '[LAm]   [DO]   [SOL]    [FA] [MI]
-
 [LAm]   [DO]   [SOL]    [FA] [MI]
-
 [LAm]   [DO]   [LAm]    [SOL]
-
 [LAm]   [SOL]  [FA] [MI]  [LAm]
-
 C''è una [DO]donna che [SOL]semina il [DO]grano
 volta la [FA]carta si [DO]vede il vi[SOL]llano
 il vi[DO]llano che [SOL]zappa la [DO]terra
@@ -714,13 +645,9 @@ carabi[FA]niere l''ha innamo[DO]rata
 volta la [SOL]carta e lui non c''è [DO]più
 carabi[FA]niere l''ha innamo[DO]rata
 volta la [SOL]carta e lui non c''è [DO]più, [MI]Ehi!
-
 [LAm]   [DO]   [SOL]    [FA] [MI]
-
 [LAm]   [DO]   [SOL]    [FA] [MI]
-
 [LAm]   [DO]   [LAm]    [SOL]
-
 [LAm]   [SOL]  [FA] [MI]  [LAm]
 
 C''è un bam[DO]bino che [SOL]sale un can[DO]cello
@@ -735,13 +662,9 @@ Ha una col[FA]lana di ossi di [DO]pesca
 la gira tre [SOL]volte intorno alle [DO]dita
 Ha una col[FA]lana di ossi di [DO]pesca
 la conta tre [SOL]volte in mezzo alle [DO]dita, [MI]Ehi!
-
 [LAm]   [DO]   [SOL]    [FA] [MI]
-
 [LAm]   [DO]   [SOL]    [FA] [MI]
-
 [LAm]   [DO]   [LAm]    [SOL]
-
 [LAm]   [SOL]  [FA] [MI]  [LAm]
 
 Mia madre ha un mu[DO]lino e un [SOL]figlio infe[DO]dele
@@ -756,8 +679,6 @@ Ragazzo stra[FA]niero ha un disco d''or[DO]chestra
 che gira ve[SOL]loce che parla d''a[DO]more
 Ragazzo stra[FA]niero ha un disco d''or[DO]chestra
 che gira ve[SOL]loce che parla d''a[DO]more
-
-Intro
 
 Madamado[DO]rè ha [SOL]perso sei [DO]figlie
 tra i bar del [FA]porto e le [DO]sue mera[SOL]viglie

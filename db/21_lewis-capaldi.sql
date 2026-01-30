@@ -5,7 +5,6 @@ SET NAMES 'utf8mb4';
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Before You Go', 'Lewis Capaldi', 'ENG', '[MIb] I fell by the wayside like everyone e[DOm]lse
-
 I hate you, I hate you,
 I hate you but I was just kidding mysel[LAb]f
 Our every moment, I start to repla[SIb4]ce
@@ -26,7 +25,6 @@ It [LAb7+]kills me how your mind could make you [LAb6]feel so worthless
 [SIb]So, before you [MIb]go
 
 [MIb] Was never the right time whenever you call[DOm]ed
-
 Went little by little by little
 until there was nothing at all  [LAb]
 Our every moment, I start to replay[SIb4]
@@ -56,7 +54,6 @@ to make your heart beat better?
 If [LAb]only I''d have known you had a storm to weather
 [MIb]So, before you [SIb6]go
 Was there some[DOm]thing I could''ve said
-
 to make it all stop hurting?
 It [LAb7+]kills me how your mind could make you [LAb6]feel so worthless
 [SIb4]So, before you [MIbadd9]go', 'before-you-go');

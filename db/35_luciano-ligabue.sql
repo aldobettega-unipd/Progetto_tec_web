@@ -4,7 +4,6 @@ SET NAMES 'utf8mb4';
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Balliamo Sul Mondo', 'Luciano Ligabue', 'ITA', '[RE]  [SOL]  [DO]  [LAm]
-
 Siamo [RE]della stessa [SOL]pasta bionda [DO]non la bevo [LAm]sai
 Ce l''hai [RE]scritto che la [SOL]vita non ti [DO]viene come [LAm]vuoi
 Ma è la tua [RE]e per me è spe[SOL]ciale e se ti [DO]può bastare [LAm]sai
@@ -63,7 +62,6 @@ Certe [SOL#m]notti la radio che [LA]passa Neil Young
 sembra a[DO#m]vere capito chi [LA]sei
 Certe [MI]notti somigliano a un [LA]vizio
 che tu non vuoi [SI]smettere, s[LA]mettere ma[MI]i.
-
 [RE]
 
 Certe [MI]notti fai un po'' di ca[LA]gnara
@@ -99,7 +97,6 @@ fin quando fa [SI]male, fin [LA]quando ce [MI]n''è.
 [SOL#m]Certe    [LA]notti son [SI]notti
 o le [FA#m]rega    [SOL#m]liamo a  [LA]voi
 Tanto [LA]Mario ri[SI]apre prima o [RE]poi.
-
 (Certe notti qui, certe notti qui
 certe notti qui, certe notti...)
 
@@ -115,7 +112,6 @@ che non voglio [SI]smettere, [LA]smettere [MI]mai.
 [SOL#m]Certe    [LA]notti o sei [SI]sveglio
 o non [FA#m]sarai s[SOL#m]veglio [LA]mai
 Ci ve[LA]diamo da [SI]Mario prima o [RE]poi.
-
 certe notti qui certe notti qui..
 certe notti [MI]qui.', 'certe-notti');
 SET @last_song_id = LAST_INSERT_ID();
@@ -127,10 +123,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'RE'),
 (@last_song_id, 'SI'),
 (@last_song_id, 'SOL#m');
-
-INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Leggero', 'Luciano Ligabue', 'ITA', 'None', 'leggero');
-SET @last_song_id = LAST_INSERT_ID();
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Non è Tempo Per Noi', 'Luciano Ligabue', 'ITA', '[DO]Ci han concesso solo una [RE]vita
@@ -153,13 +145,9 @@ Abbiam [SOL]sogni pe[RE]rò troppo [MIm]grandi e belli sai
 Belli o [DO]brutti abbiam [RE]facce
 che pe[MIm]rò non cambian [LA]mai
 Non è [DO]tempo per [RE]noi e forse [FA]non lo sarà [SOL]mai
-
 [RE]   [SOL]   [RE]   [DO]   [MIm]
-
 [SOL]  [RE]    [MIm]
-
 [DO]   [RE]    [MIm]  [LA]
-
 [DO]   [RE]    [FA]   [SOL]
 
 [DO]Se un bel giorno passi di [RE]qua
@@ -192,7 +180,6 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Piccola Stella Senza Cielo', 'Luciano Ligabue', 'ITA', '[SIm7]  [SOL7+]  [RE]
 [LA] [SOL]
-
 [SIm]  Cosa ci f[SOL7+]ai
 In [RE]mezzo a tutta
 [LA]Questa [SOL]gente
@@ -237,19 +224,14 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
 ('Questa È la Mia Vita', 'Luciano Ligabue', 'ITA', '[MIm]  [RE4] [RE]  [DO]
-
 [SOL]  [DO] [DO7+]  [MIm]  [RE4] [RE]  [RE4] [RE]
-
 [SOL]Questa è la mia vita
-
 Se ho bisogno te lo dico
 [DO]Sono io che guido
-
 Io che vado fuori strada
 [MIm]Sempre io che pago
 Non è mai successo che pa[RE4]gassero per [RE]me
 [SOL]Questa è la mia vita
-
 Se entri chiedimi permesso
 [DO]Portami una gita
 
@@ -265,15 +247,12 @@ Come io vor[SOL]rei   [DO]     [MIm]      [RE4]    [RE]     [RE4]    [RE]
 
 Sono quello che ci pensa
 [DO]Porta un paio d''ore
-
 Una notte bella densa
 [MIm]Trattamela bene
 Che al momento ho solo questa e [RE4]poi…   vedremo [RE]poi
 [SOL]Questa è la mia vita
-
 Certi giorni non si batte
 [DO]Certi altri meno
-
 È cosi che va per tutti
 [MIm]Certi giorni poca
 Certi giorni sembra troppa e in[RE4]vece non lo è [RE]mai
@@ -286,7 +265,6 @@ Come io vor[SOL]rei  [DO]   [DO7+]      [MIm]      [RE4]    [RE]    [RE4]    [RE
 
 Tieniteli tu i consigli
 [DO]Io non l''ho capita
-
 Figurati se tu fai meglio
 [MIm]Porta la tua vita
 Che vediamo che succede a [RE4]mescolarle un [RE]po''
@@ -307,12 +285,10 @@ INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzo
 ('Urlando Contro il Cielo', 'Luciano Ligabue', 'ITA', '[LA]  [LA]  [RE]  [MI]
 [LA]  [LA]  [RE]  [MI]
 [RE]  [MI]
-
 [LA]come vedi sono qua:
 Monta [RE]su, [MI]non ci avranno
 [LA]finché questo cuore non crepe[RE]rà
 di [MI]ruggine di botte o di e[LA]tà. [LA]    [RE]    [MI]
-
 [LA]C''è una notte tiepida e un
 vecchio [RE]blues, da [MI]fare insieme
 in [LA]qualche posto accosterò e
@@ -351,7 +327,6 @@ Il [FA#m]patto [DO#m]è    s[MI]tringer[SIm]ci di [RE]più
 [LA]oh oh oh [LA]oh oh oh [RE]oh oh oh [MI]oh
 [LA]oh oh oh [LA]oh oh oh [RE]contro il c[MI]ielo
 [LA]oh oh oh [LA]oh oh oh [RE]contro il c[MI]ielo
-
 [LA]', 'urlando-contro-il-cielo');
 SET @last_song_id = LAST_INSERT_ID();
 INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES 

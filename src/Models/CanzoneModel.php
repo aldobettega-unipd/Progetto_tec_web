@@ -29,6 +29,33 @@ class CanzoneModel extends Model {
         return $this->fetchAll($sql, [$param]);
     }
 
+    public function cerca_canzoni_avanzata($testo, $lingua_selezionata, $accordi_selezionati) {
+        // query avanzata che cerca canzoni che hanno la lingua selezionata e i cui accordi sono un
+        // sottoinsieme degli accordi selezionati
+        $params = [];
+
+        $sql = "SELECT * FROM canzone WHERE titolo_canzone LIKE ?";
+        $params[] = "%" . $testo . "%";
+
+        if (!empty($lingua_selezionata)) {
+            $sql .= " AND lingua_canzone = ?";
+            $params[] = $lingua_selezionata;
+        }
+
+        if (!empty($accordi_selezionati) && is_array($accordi_selezionati)) {
+            $placeholders = implode(',', array_fill(0, count($accordi_selezionati), '?'));
+            $sql .= " AND id_canzone NOT IN 
+                        (SELECT id_canzone FROM accordi_canzone WHERE accordo NOT IN ($placeholders))";
+            
+            foreach ($accordi_selezionati as $accordo) {
+                $params[] = $accordo;
+            }
+        }        
+        return $this->fetchAll($sql, $params);
+    }
+
+
+
     public function get_artista($canzone){
         $sql = "SELECT a.* FROM artista a JOIN canzone c ON a.nome_artista = c.autore_canzone WHERE slug_canzone LIKE ?";
         return $this->fetchOne($sql, [$canzone]);
@@ -48,6 +75,16 @@ class CanzoneModel extends Model {
             error_log("Errore eliminazione canzone: " . $e->getMessage());
             return false;
         }
+    }
+
+    public function get_lingue_canzoni() {
+        $sql = "SELECT DISTINCT lingua_canzone FROM canzone ORDER BY lingua_canzone";
+        return $this->fetchAll($sql);
+    }
+
+    public function get_accordi_canzoni() {
+        $sql = "SELECT DISTINCT accordo FROM accordi_canzone ORDER BY accordo";
+        return $this->fetchAll($sql);
     }
 
 }

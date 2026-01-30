@@ -1,5 +1,5 @@
 <?php
-namespace App\Helpers; // <--- FONDAMENTALE
+namespace App\Helpers;
 
 use App\Core\Template;
 

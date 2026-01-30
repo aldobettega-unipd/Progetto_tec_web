@@ -1,70 +1,10 @@
-<style>
-    /* Questo nasconde il modale appena la pagina carica */
-    .modal-overlay.hidden {
-        display: none !important;
-    }
-
-    /* Stile del modale attivo */
-    .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7); /* Sfondo scuro */
-        z-index: 10000; /* Altissimo per stare sopra a tutto */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        backdrop-filter: blur(4px);
-    }
-
-    .modal-content {
-        background: white; /* O var(--main-bg) se vuoi il beige */
-        padding: 30px;
-        border-radius: 15px;
-        width: 90%;
-        max-width: 500px;
-        text-align: center;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
-
-    /* Griglia Immagini */
-    .avatar-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin: 20px 0;
-    }
-
-    .avatar-option {
-        width: 60px;
-        height: 60px;
-        cursor: pointer;
-        border-radius: 50%;
-        border: 4px solid transparent;
-        transition: transform 0.2s;
-    }
-
-    .avatar-option:hover {
-        transform: scale(1.1);
-    }
-
-    .avatar-option.selected {
-        border-color: #007bff; /* Colore selezione */
-        transform: scale(1.15);
-    }
-</style>
-
-
 <div class="profilo-container">
   <aside class="dati-profilo">
-    <h2 id="personalInfo">##username##</h2>
+    <h2 id="personalInfo">##username##<button id="edit-username-btn" class="btn-edit-username">✏️</button></h2>
     
-    <button id="btn-open-modal" class="btn-primary" style="margin-bottom: 10px;">Modifica Foto</button>
-    
-    <img src="/img/avatar/avatar##FOTO_PROFILO##.svg" id="current-profile-pic" alt="Foto profilo" />
+    <button id="btn-open-modal">
+      <img src="/img/avatar/avatar##FOTO_PROFILO##.svg" id="current-profile-pic" alt="Foto profilo" />
+    </button>
 
     <nav class="profilo-menu">
       <button class="menu-btn active" data-section="playlist">
@@ -73,16 +13,10 @@
       <button class="menu-btn" data-section="mi-piace">
         <span>❤️</span> Mi Piace
       </button>
-      <button class="menu-btn" data-section="recenti">
-        <span>🕐</span> Recenti
-      </button>
-      <button class="menu-btn" data-section="modifica-profilo">
-        <span>⚙️</span> Modifica profilo
-      </button>
     </nav>
   </aside>
 
-  <main class="profilo-content">
+  <section class="profilo-content">
     <section class="sezione-lista active" id="le-tue-playlist" data-content="playlist">
       <div class="section-header">
         <h2>Le tue playlist</h2>
@@ -103,17 +37,7 @@
         ##LISTA_MIPIACE##
       </div>
     </section>
-
-    <section class="sezione-lista" id="canzoni-recenti" data-content="recenti">
-      <div class="section-header">
-        <h2>Canzoni recenti</h2>
-      </div>
-      <div class="content-grid">
-        ##LISTA_RECENTI##
-      </div>
-    </section>
-    
-    </main>
+  </section>
 </div> 
 <div id="photo-modal" class="modal-overlay hidden">
   <div class="modal-content">

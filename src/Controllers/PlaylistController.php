@@ -46,6 +46,8 @@ Class PlaylistController extends Controller {
         $nome_playlist = $dati_playlist['nome_playlist'];
         $descrizione_playlist = "Playlist: " . $dati_playlist['nome_playlist'] . " creata da " . $dati_playlist['username'] . ".";
 
+        BreadcrumbHelper::add($nome_playlist);
+
         $this->render('playlistPage', [
             'NOME_PLAYLIST' => $dati_playlist['nome_playlist'],
             'DESCRIZIONE_PLAYLIST' => "Playlist di " . $username,

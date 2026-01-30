@@ -15,6 +15,7 @@
     --footer-border: rgba(255, 255, 255, 0.1);
     --profilo-bg: #f6eec4;
 
+    --highlited-button: #ffaa60;
 
     /* MISURE */
     --container-width: 70%;
@@ -216,7 +217,7 @@ body.homepage header {
 }
 
 .menu .nav-btn a:hover {
-    background-color: #ffaa60;
+    background-color: var(--highlited-button);
     transform: translateY(-2px);
 }
 
@@ -299,7 +300,7 @@ body.homepage .breadcrumb-nav {
 }
 
 .breadcrumb-nav a {
-    color: #ffaa60;
+    color: var(--highlited-button);
     opacity: 1;
     text-decoration: none;
     transition: all 0.2s ease;
@@ -1012,7 +1013,7 @@ REGISTER AND LOGIN PAGES
 }
 
 .loginRegisterForm button:hover {
-    background-color: #ffaa60;
+    background-color: var(--highlited-button);
 }
 
 .erroreLoginRegister {
@@ -1029,9 +1030,9 @@ PROFILO PAGE
 #############################################################*/
 
 .profilo-container {
+  width: 65%;
   display: flex;
   gap: 2em;
-  max-width: 1400px;
   margin: 2em auto;
   padding: 0 2em;
   align-items: flex-start;
@@ -1146,9 +1147,9 @@ PROFILO PAGE
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
   padding-bottom: 1em;
-  border-bottom: 2px solid var(--card-hover);
+  border-bottom: 3px solid black;
 }
 
 .section-header h2 {
@@ -1163,7 +1164,7 @@ PROFILO PAGE
   background-color: var(--profilo-bg);
   color: var(--bg-main);
   border: none;
-  border-radius: 25px;
+  border-radius: 10px;
   padding: 0.8em 1.8em;
   font-size: 1em;
   font-weight: 600;
@@ -1171,15 +1172,14 @@ PROFILO PAGE
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   font-family: inherit;
+  background-color: var(--wood-accent);
 }
 
 .btn-crea:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: var(--highlited-button);
 }
 
 .content-grid {
-  margin-left: 2.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5em;
@@ -1199,7 +1199,8 @@ PROFILO PAGE
 }
 
 .content-grid .card {
-  margin: 1.5em 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 .content-grid .card a {
@@ -1223,37 +1224,67 @@ PROFILO PAGE
   cursor: pointer;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .profilo-container {
-    flex-direction: column;
-  }
+/* Questo nasconde il modale appena la pagina carica */
+.modal-overlay.hidden {
+    display: none !important;
+}
 
-  .dati-profilo {
-    position: relative;
+/* Stile del modale attivo */
+.modal-overlay {
+    position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Sfondo scuro */
+    z-index: 10000; /* Altissimo per stare sopra a tutto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: white; /* O var(--main-bg) se vuoi il beige */
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
     max-width: 500px;
-    margin: 0 auto;
-  }
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
 
-  .profilo-menu {
-    flex-direction: row;
+/* Griglia Immagini */
+.avatar-grid {
+    display: flex;
     flex-wrap: wrap;
-  }
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
 
-  .menu-btn {
-    flex: 1;
-    min-width: 150px;
-  }
+.avatar-option {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    transition: transform 0.2s;
+}
 
-  .btn-crea {
-    margin-left: 2rem;
-  }
+.avatar-option:hover {
+    transform: scale(1.1);
+}
 
-  .content-grid .card {
-    margin: 1.5em;
-  }
+.avatar-option.selected {
+    border-color: #007bff; /* Colore selezione */
+    transform: scale(1.15);
+}
+
+#btn-open-modal, #edit-username-btn{
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 
@@ -1611,7 +1642,7 @@ body.dark-mode .playlist-form input:hover {
 
 .playlist-form button:hover {
   cursor: pointer;
-  background-color: #ffaa60;
+  background-color: var(--highlited-button);
   transform: translateY(-2px);
 }
 

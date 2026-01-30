@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Antartide', 'Pinguini Tattici Nucleari', 'ITA', '[MI]   [RE6]   [LA]   [MI]
+('Antartide', 'Pinguini Tattici Nucleari', 'it', '[MI]   [RE6]   [LA]   [MI]
 [MI]   [SIm7]   [LA]   [MI] [RE]   [DO#m]  [SI]
 [DO#m7]  [LAadd9]  [FA#m7]  [SI4]
 [DO#m7]  [LAadd9]  [FA#m7]  [SI4]
@@ -84,7 +84,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL#m');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Bagatelle', 'Pinguini Tattici Nucleari', 'ITA', '[DO#m7]   [LA] [MI]    [SI] [DO#m7]   [LA] [MI]   [SI]
+('Bagatelle', 'Pinguini Tattici Nucleari', 'it', '[DO#m7]   [LA] [MI]    [SI] [DO#m7]   [LA] [MI]   [SI]
 [DO#m7]Di fronte al [LA]fuoco del fa[MI]lò
 I linea[SI]menti di Lu[DO#m7]cia erano [LA]ottovo[MI]lanti  [SI]
 E [DO#m7]Paolo [LA]se ne innamo[MI]rò
@@ -141,7 +141,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SI');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Bergamo', 'Pinguini Tattici Nucleari', 'ITA', '[MI]Forse non te l''ho mai detto
+('Bergamo', 'Pinguini Tattici Nucleari', 'it', '[MI]Forse non te l''ho mai detto
 ma tu per me sei come [FA#m7]Bergamo
 [SI]so che potrebbe farti ridere
 [LA]ma migliori complimenti non ne [MI]ho    [LA]   [MI]
@@ -209,7 +209,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Ferma a Guardare', 'Pinguini Tattici Nucleari', 'ITA', '[FA]  [DO]  [REm]  [LAm]
+('Ferma a Guardare', 'Pinguini Tattici Nucleari', 'it', '[FA]  [DO]  [REm]  [LAm]
 [FA]Io che non ho mai avuto una [DO]donna per un [REm]po''  [LAm]
 [FA]Ho sempre tenuto le re[DO]lazioni distan[REm]ti   [LAm]
 [FA]Vogliono tutte prender qual[DO]cosa che non [REm]ho   [LAm]
@@ -273,7 +273,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'REm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Giovani Wannabe', 'Pinguini Tattici Nucleari', 'ITA', '[RE]   [MIm]   [SIm]   [SOL]
+('Giovani Wannabe', 'Pinguini Tattici Nucleari', 'it', '[RE]   [MIm]   [SIm]   [SOL]
 [RE]   [MIm7]   [SIm7]   [SOL]
 Nel cuore hai [RE]solamente foto di pae[MIm7]saggi
 E non c''è [SIm]posto per le tue foto [SOL]con me
@@ -346,7 +346,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Giulia', 'Pinguini Tattici Nucleari', 'ITA', 'Giulia non ridere, ti [DO]prego, non crei[RE]amo casi[SOL]ni
+('Giulia', 'Pinguini Tattici Nucleari', 'it', 'Giulia non ridere, ti [DO]prego, non crei[RE]amo casi[SOL]ni
 La tua felicità[DO] sveglia [RE]i coinquili[SOL]ni
 Poi ci lasciano i bi[DO]glietti atta[RE]ccati sul le[MIm]tto
 Perché di notte si d[LAm]orme e si porta rispe[RE]tto
@@ -398,7 +398,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Irene', 'Pinguini Tattici Nucleari', 'ITA', '[SOL]  [SIm]  [DO]   [MIm]  [RE]  [SOL]  [DO]  [RE]
+('Irene', 'Pinguini Tattici Nucleari', 'it', '[SOL]  [SIm]  [DO]   [MIm]  [RE]  [SOL]  [DO]  [RE]
 I[SOL]rene, questa [SIm]sera
 la faccia te [DO]la strapperei via
 Così fa[MIm]resti paura al [RE]mondo
@@ -480,7 +480,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Islanda', 'Pinguini Tattici Nucleari', 'ITA', 'Ci siamo sepa[FA#m7]rati
+('Islanda', 'Pinguini Tattici Nucleari', 'it', 'Ci siamo sepa[FA#m7]rati
 Come due pia[REadd9]neti senza gravità[LA]
 Come amici dopo l''università[LAadd9]
 Sì, come due fra[REadd9]telli per l''eredità[LA]
@@ -557,7 +557,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'RE');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('La Banalità del Mare', 'Pinguini Tattici Nucleari', 'ITA', '[LA]  [MI]  [DO#m]  [SI]
+('La Banalità del Mare', 'Pinguini Tattici Nucleari', 'it', '[LA]  [MI]  [DO#m]  [SI]
 [LA]  [MI]  [DO#m]  [SI]
 [LA] Ti prego non usciamo [MI]questa sera
 [DO#m] Restiamo qui ad accarez[SI]zare il gatto
@@ -626,7 +626,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SI');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Lake Washington Boulevard', 'Pinguini Tattici Nucleari', 'ITA', 'Amore [SOL]mio
+('Lake Washington Boulevard', 'Pinguini Tattici Nucleari', 'it', 'Amore [SOL]mio
 Da [DO]dove vengo [SOL]io
 Un [DO]bacio ed un ad[MIm]dio
 So[RE]no la stessa [DO]cosa
@@ -702,7 +702,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('La Storia Infinita', 'Pinguini Tattici Nucleari', 'ITA', '[MI]   [LA] [MI]    [LA] [MI]
+('La Storia Infinita', 'Pinguini Tattici Nucleari', 'it', '[MI]   [LA] [MI]    [LA] [MI]
 [MI]   [LA] [MI]  [DO#m]  [LA] [MI]
 Ti ho [MI]scritto una lettera che [LA]sa can[MI]tare
 per tutti i giorni in cui vor[LA]rai dor[MI]mire
@@ -773,7 +773,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SI');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Nonono', 'Pinguini Tattici Nucleari', 'ITA', '[SOL]  [LAm]  [MIm]  [DO]
+('Nonono', 'Pinguini Tattici Nucleari', 'it', '[SOL]  [LAm]  [MIm]  [DO]
 [SOL]  [LAm]  [MIm]  [DO]
 [SOL] E ieri ho fatto un [LAm]sogno (no no [MIm]no)
 E c''eri dentro anche [DO]te
@@ -859,7 +859,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Pastello Bianco', 'Pinguini Tattici Nucleari', 'ITA', '[LAm]   [FA]   [DO]   [REm7]
+('Pastello Bianco', 'Pinguini Tattici Nucleari', 'it', '[LAm]   [FA]   [DO]   [REm7]
 [LAm] E se m''hai visto [LAm7]piangere
 [FA] Sappi che era un''illu[FA6]sione otti[DO]ca
 Stavo solo togliendo il mare [REm]dai miei occhi
@@ -929,7 +929,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Ricordi', 'Pinguini Tattici Nucleari', 'ITA', '[DO#m]    [SI]    [MI]    [LA]
+('Ricordi', 'Pinguini Tattici Nucleari', 'it', '[DO#m]    [SI]    [MI]    [LA]
 Almeno [DO#m]fino a domattina ti pro[SI]metto che
 Sarò la [MI]faccia di cui hai più bi[LA]sogno
 L''amico [DO#m]di scuola che ti ruba le [SI]biglie
@@ -1007,7 +1007,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL#m');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Ridere', 'Pinguini Tattici Nucleari', 'ITA', '[LA4] [LA]
+('Ridere', 'Pinguini Tattici Nucleari', 'it', '[LA4] [LA]
 [REadd9] [LA]  [FA#m7]  [MI]
 [REadd9] Ed un po'' mi fa [LA]ridere
 Se [FA#m]penso che ora c''è lì un altro
@@ -1076,7 +1076,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'RE#m');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Ringo Starr', 'Pinguini Tattici Nucleari', 'ITA', '[SOL]  [RE] [MIm]  [DO]  [SOL]  [RE]
+('Ringo Starr', 'Pinguini Tattici Nucleari', 'it', '[SOL]  [RE] [MIm]  [DO]  [SOL]  [RE]
 [SOL] A volte pens[RE]o che [MIm]a quelli come me
 il mondo [DO]non abbia mai voluto [SOL]bene  [RE]
 [SOL] Il cerchio della[RE] vita [MIm]impone che
@@ -1130,7 +1130,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Rubami la Notte', 'Pinguini Tattici Nucleari', 'ITA', '[SOLadd9]
+('Rubami la Notte', 'Pinguini Tattici Nucleari', 'it', '[SOLadd9]
 Rubami la [MIm7]notte[SIm7]     [DOadd9]
 Voglio stare [SOL]fuori come al Ber[RE]ghain
 Nel fuoco non si [MIm7]dorme[SIm7]     [DOadd9]
@@ -1206,7 +1206,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Scrivile Scemo', 'Pinguini Tattici Nucleari', 'ITA', '[LA]      [MI]
+('Scrivile Scemo', 'Pinguini Tattici Nucleari', 'it', '[LA]      [MI]
 [LA]Scrivile, scemo, [REadd9]stanotte non dormi
 Tu [FA#m7]chiamali sogni, [MI]ma sono ricord[LA]i   [REadd9]
 [FA#m7]  [MI]
@@ -1278,7 +1278,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SIm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Tetris', 'Pinguini Tattici Nucleari', 'ITA', '[DO#m7]  [SI]  [MI]  [LA]
+('Tetris', 'Pinguini Tattici Nucleari', 'it', '[DO#m7]  [SI]  [MI]  [LA]
 [DO#m7]  [SI]  [MI]
 [LA]Tu eri per [MI]me
 Il pezzo del tetris longilineo
@@ -1382,7 +1382,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL#m');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Verdura', 'Pinguini Tattici Nucleari', 'ITA', '[LAm]   [DO]   [SOL]   [RE]
+('Verdura', 'Pinguini Tattici Nucleari', 'it', '[LAm]   [DO]   [SOL]   [RE]
 [LAm] Ma chi l''avrebbe mai detto
 Che mi sa[DO]rei trovato qua
 [SOL] Prima di andare a letto

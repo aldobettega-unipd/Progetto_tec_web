@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Clocks', 'Coldplay', 'ENG', '[MIb]  [SIbm7]  [FAm]   [MIb]  [SIbm7]  [FAm]
+('Clocks', 'Coldplay', 'en', '[MIb]  [SIbm7]  [FAm]   [MIb]  [SIbm7]  [FAm]
 [MIb]  [SIbm7]  [FAm]   [MIb]  [SIbm7]  [FAm]
 [MIb]Lights go out and I [SIbm7]can''t be saved
 tides that I tried to [FAm]swim against
@@ -53,7 +53,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLb');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Fix You', 'Coldplay', 'ENG', 'When you [MIb]try your best
+('Fix You', 'Coldplay', 'en', 'When you [MIb]try your best
 but you [SOLm]don''t succeed [DOm]      [SIb4]
 When you [MIb]get what you want
 but [SOLm]not what you need [DOm]      [SIb4]
@@ -112,7 +112,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('The Scientist', 'Coldplay', 'ENG', '[REm7] Come up to [SIb]meet you, tell you I''m [FA]sorry,
+('The Scientist', 'Coldplay', 'en', '[REm7] Come up to [SIb]meet you, tell you I''m [FA]sorry,
 you don''t know how [FAadd9]lovely you are
 [REm7] I had to [SIb]find you, tell you I [FA]need you,
 tell you I''ll [FAadd9]set you apart
@@ -155,7 +155,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SIb');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Viva La Vida', 'Coldplay', 'ENG', '
+('Viva La Vida', 'Coldplay', 'en', '
 [REb]  [MIb7]  [LAb]  [FAm]   [REb]  [MIb7]  [LAb]  [FAm]
 I used to [REb]rule the w[MIb]orld
 Seas would [LAb]rise when I gave the [FAm]word
@@ -217,7 +217,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'REb');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Yellow', 'Coldplay', 'ENG', '[SI]  [SI4]  [SI]  [SI4]
+('Yellow', 'Coldplay', 'en', '[SI]  [SI4]  [SI]  [SI4]
 [SI]  [SI4]  [FA#6]  [FA#]  [MI6]  [MI]
 [SI]  [SI4]
 [SI]  Look at the stars

@@ -12,7 +12,8 @@ class ChordParser
 
         foreach ($lines as $line) {
             if (trim($line) === '') {
-                $html .= '<div class="song-line empty-line">&nbsp;</div>';
+                $html .= '<div class="song-line empty-line">&nbsp;</div>
+            ';
                 continue;
             }
             $is_chorded = (strpos($line, '[') !== false);
@@ -64,7 +65,8 @@ class ChordParser
                 $html .= '</span>';
             }
 
-            $html .= '</div>';
+            $html .= '</div>
+            ';
         }
 
         return $html;

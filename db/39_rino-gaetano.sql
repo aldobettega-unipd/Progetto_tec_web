@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Aida', 'Rino Gaetano', 'ITA', '[DO]   [SOL] [LAm]   [FA] [DO]
+('Aida', 'Rino Gaetano', 'it', '[DO]   [SOL] [LAm]   [FA] [DO]
 [SOL] [LAm]   [SOL7]
 [DO]   [SOL] [LAm]   [FA] [DO]
 [SOL] [LAm]
@@ -43,7 +43,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Gianna', 'Rino Gaetano', 'ITA', '[LA]  [RE]  [MI]    [LA]  [RE]  [MI]
+('Gianna', 'Rino Gaetano', 'it', '[LA]  [RE]  [MI]    [LA]  [RE]  [MI]
 [LA]  [RE]  [MI]    [LA]  [RE]  [MI]
 [LA]Gianna Gianna [RE]Gianna soste[MI]neva
 tesi e illu[LA]sioni [RE]   [MI]
@@ -94,7 +94,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'RE');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Ma Il Cielo È Sempre Più Blu', 'Rino Gaetano', 'ITA', '[RE]  [SIm]  [RE]  [SIm]
+('Ma Il Cielo È Sempre Più Blu', 'Rino Gaetano', 'it', '[RE]  [SIm]  [RE]  [SIm]
 [RE]  [SIm]  [RE]  [SIm]
 [RE]  Chi vive in ba[SIm]racca,   [RE]  chi suda il sa[SIm]lario
 [RE]  chi ama l''a[SIm]more e    [RE]   i sogni di [SIm]gloria

@@ -4,7 +4,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Blowin’ In The Wind', 'Bob Dylan', 'ENG', '[MI]How many [LA]roads must a [MI]man walk down
+('Blowin’ In The Wind', 'Bob Dylan', 'en', '[MI]How many [LA]roads must a [MI]man walk down
 Before you [LA]call him a [MI]man?
 Yes, ''n'' how many [LA]seas must a [MI]white dove sail
 Before she [LA]sleeps in the [SI]sand?
@@ -43,7 +43,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SI');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Like A Rolling Stone', 'Bob Dylan', 'ENG', '[DO]  [FA7+]   [DO]  [FA7+]
+('Like A Rolling Stone', 'Bob Dylan', 'en', '[DO]  [FA7+]   [DO]  [FA7+]
 [DO]  [FA7+]   [DO]  [FA7+]
 [DO]Once upon a time you [REm7]dressed so fine
 You [MIm]threw the bums a dime [FA]in your prime

@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Bocca Di Rosa', 'Fabrizio De André', 'ITA', 'La chia[LAm]mavano bocca di rosa
+('Bocca Di Rosa', 'Fabrizio De André', 'it', 'La chia[LAm]mavano bocca di rosa
 metteva l''a[MI7]more, metteva l''a[LAm]more...
 La chia[LAm]mavano bocca di rosa
 metteva l''a[MI7]more sopra ogni [LAm]cosa
@@ -94,7 +94,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Fiume Sand Creek', 'Fabrizio De André', 'ITA', '
+('Fiume Sand Creek', 'Fabrizio De André', 'it', '
 [DO] [DO4]
 Si son [DO]presi il nostro cuore
 sotto [FA]una coperta s[DO]cura
@@ -164,7 +164,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Franziska', 'Fabrizio De André', 'ITA', '[FA] [MIb] [SIb] [FA] [SIb]
+('Franziska', 'Fabrizio De André', 'it', '[FA] [MIb] [SIb] [FA] [SIb]
 Hanno detto che Fran[SIb]ziska
 è stanca di pre[FA7]gare
 Tutta notte alla finestra
@@ -250,7 +250,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SIb');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Geordie', 'Fabrizio De André', 'ITA', '[DOm]Mentre attraver[SIb]savo [LAb]London [SOL7]Bridge
+('Geordie', 'Fabrizio De André', 'it', '[DOm]Mentre attraver[SIb]savo [LAb]London [SOL7]Bridge
 [DOm]  un giorno [MIb]senza sol[SIb]e
 [DOm]  vidi una [MIb]donna [SIb]pianger d''a[SOLm]more
 pian[DOm]geva per [SOLm]il suo [DOm]Geordie
@@ -294,7 +294,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Il Pescatore', 'Fabrizio De André', 'ITA', '[FA]
+('Il Pescatore', 'Fabrizio De André', 'it', '[FA]
 [DO] [FA] [DO] [SOL]     [DO] [FA] [DO] [SOL]
 [DO] [FA] [DO] [SOL]     [DO] [FA] [DO] [SOL]
 All''ombra [DO]dell''ul[SOL]timo [DO]sole
@@ -378,7 +378,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('La Ballata Dell''Amore Cieco', 'Fabrizio De André', 'ITA', '[LAm]Un uomo o[FA]nesto, un [SOL]uomo [DO]probo
+('La Ballata Dell''Amore Cieco', 'Fabrizio De André', 'it', '[LAm]Un uomo o[FA]nesto, un [SOL]uomo [DO]probo
 tra-la-la-[SOL]lalla, tra-lalla-[DO]lero
 [LAm]S''innamo[FA]rò  [SOL]perduta[DO]mente
 d''una che [MI7]non lo amava [LAm]niente
@@ -444,7 +444,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL#');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('La Guerra di Piero', 'Fabrizio De André', 'ITA', '[LAm]  Dormi se[MI7]polto in un campo di [LAm]grano
+('La Guerra di Piero', 'Fabrizio De André', 'it', '[LAm]  Dormi se[MI7]polto in un campo di [LAm]grano
 non è la [REm]rosa, non [SOL7]è il tuli[DO]pano
 che ti fan [MI7]veglia dall''ombra dei [LAm]fossi
 ma sono [REm]mille pa[MI7]paveri [LAm]rossi.
@@ -489,7 +489,7 @@ che il tempo [MI7]non ti sarebbe bas[LAm]tato
 a chieder per[REm]dono per [MI7]ogni pec[LAm]cato.
 [LAm]  Cadesti a [MI7]terra, senza un la[LAm]mento
 e ti accor[REm]gesti in un [SOL7]solo mo[DO]mento
-che la tua v[MI7]ita finiva quel [LAm]giorno
+che la tua v[MI7]it finiva quel [LAm]giorno
 e non ci sa[REm]rebbe [MI7]stato ri[LAm]torno.
 "Ninetta [REm]mia, crepare di [LAm]Maggio
 ci vuole [REm]tanto, troppo co[LAm]raggio.
@@ -513,7 +513,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Una Storia Sbagliata', 'Fabrizio De André', 'ITA', '[LAb]   [SOLb] [REb]    [LAb]   [SOLb] [REb]
+('Una Storia Sbagliata', 'Fabrizio De André', 'it', '[LAb]   [SOLb] [REb]    [LAb]   [SOLb] [REb]
 [LAb]   [SOLb] [REb]    [LAb]   [SOLb] [REb]
 É una s[REb]toria da dimenticare
 É una [SOLb]storia da non raccontare
@@ -577,7 +577,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLb');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Via Del Campo', 'Fabrizio De André', 'ITA', 'Via del [SOLm]Campo c''è u[RE7]na gra[SOLm]ziosa
+('Via Del Campo', 'Fabrizio De André', 'it', 'Via del [SOLm]Campo c''è u[RE7]na gra[SOLm]ziosa
 gli occhi [SIb]grandi co[MIb]lor di [FA]foglia
 tutta [SIb]notte sta [MIb]sulla [REm]soglia[SOLm]
 vende a [DOm]tutti la [RE7]stessa [SOLm]rosa
@@ -629,7 +629,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Volta La Carta', 'Fabrizio De André', 'ITA', '[LAm]   [DO]   [SOL]    [FA] [MI]
+('Volta La Carta', 'Fabrizio De André', 'it', '[LAm]   [DO]   [SOL]    [FA] [MI]
 [LAm]   [DO]   [SOL]    [FA] [MI]
 [LAm]   [DO]   [LAm]    [SOL]
 [LAm]   [SOL]  [FA] [MI]  [LAm]

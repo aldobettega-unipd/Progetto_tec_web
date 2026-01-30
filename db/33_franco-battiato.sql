@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Centro di Gravità Permanente', 'Franco Battiato', 'ITA', '[REm] [REm9]  [DOm] [DOm9]  [SOL]  [MIb]  [DOm]  [SOL]
+('Centro di Gravità Permanente', 'Franco Battiato', 'it', '[REm] [REm9]  [DOm] [DOm9]  [SOL]  [MIb]  [DOm]  [SOL]
 [MIb]  [SOL]
 [REm]Una vecchia[DOm] bretone
 [SOL]con un cappello e un omb[MIb]rello di carta di [DOm]riso
@@ -53,8 +53,10 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'REm'),
 (@last_song_id, 'SOL');
 
+
+-- ha parole inglesi
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Cuccurucucu', 'Franco Battiato', 'ITA', '[RE]  [LA]  [MI]  [RE]  [LA]  [MI]
+('Cuccurucucu', 'Franco Battiato', 'it', '[RE]  [LA]  [MI]  [RE]  [LA]  [MI]
 [RE]Cuccurucu[LA]cù Pa[MI]loma
 [RE]ahi ahi ahi ahi [LA]ahi can[MI]tava
 [RE]Cuccucucucucu[LA]cucuu Pa[MI]loma
@@ -118,8 +120,9 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SI'),
 (@last_song_id, 'SIm');
 
+
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('La Canzone dell’Amore Perduto', 'Franco Battiato', 'ITA', '[DO]   [LAm]   [FA6]   [SOL]
+('La Canzone dell’Amore Perduto', 'Franco Battiato', 'it', '[DO]   [LAm]   [FA6]   [SOL]
 [FAadd9]   [SOL]   [DO]   [SOL]   [LAm]      [FA6]   [SOL]
 Ri[DO]cordi[LAm], sbocciavano le [REm]vio-[SOL]le
 Con le [FA]nostre pa[SOL]role
@@ -161,7 +164,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('La Cura', 'Franco Battiato', 'ITA', '[SIm]  [FA#m]  [SOL]  [RE]
+('La Cura', 'Franco Battiato', 'it', '[SIm]  [FA#m]  [SOL]  [RE]
 [SIm]  [FA#m]  [SOL]  [RE]  [LA]
 Ti p[SIm]roteggerò dalle p[FA#m]aure delle ipocondrie
 [SOL]dai turbamenti che da oggi
@@ -214,7 +217,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('La Stagione dell’Amore', 'Franco Battiato', 'ITA', '[SOL]  [MIm]  [DO]    [SOL]  [MIm]  [DO]
+('La Stagione dell’Amore', 'Franco Battiato', 'it', '[SOL]  [MIm]  [DO]    [SOL]  [MIm]  [DO]
 [SOL]La stagione dell''a[MIm]more viene [DO]e va
 i desideri non in[SOL]vecchiano
 quasi [MIm]mai con l''[DO]età
@@ -275,8 +278,9 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SIb'),
 (@last_song_id, 'SOL');
 
+-- ha parole inglesi
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('No Time No Space', 'Franco Battiato', 'ITA', '[SOLb4+] [LAb4]
+('No Time No Space', 'Franco Battiato', 'it', '[SOLb4+] [LAb4]
 [SOLb4+]Parlami [LAb4]dell'' esi[SOLb4+]stenza [LAb4]
 [SOLb4+]di mondi [LAb4]lonta[SOLb4+]nissimi[LAb4]
 [SOLb4+]di civil[LAb4]tà se[SOLb4+]polte  [LAb4]
@@ -329,8 +333,9 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLb'),
 (@last_song_id, 'SOLm');
 
+-- ha parole inglesi
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Summer On a Solitary Beach', 'Franco Battiato', 'ITA', '[FA]  [REm]  [FA]  [REm]  [FA]  [REm]  [FA]  [REm]
+('Summer On a Solitary Beach', 'Franco Battiato', 'it', '[FA]  [REm]  [FA]  [REm]  [FA]  [REm]  [FA]  [REm]
 Pas[FA]sammo l''estate
 su una spiaggia soli[REm]taria
 e ci [FA]arrivava l''eco di un cinema all''a[REm]perto
@@ -366,7 +371,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'REm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Te Lo Leggo negli Occhi', 'Franco Battiato', 'ITA', 'Fini[MIb]rà me l''hai detto [SIb]tu     [SIb]
+('Te Lo Leggo negli Occhi', 'Franco Battiato', 'it', 'Fini[MIb]rà me l''hai detto [SIb]tu     [SIb]
 [LAb]  ma non sei sin[MIb]cera,  [FAm7]
 te lo [SIb7]leggo negli [MIb]oc--[DOm]chi
 [FAm7]  hai bi[SIb7]sogno di [MIb]me    [LAb]    [SIb]
@@ -409,8 +414,9 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL'),
 (@last_song_id, 'SOLm');
 
+
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Voglio Vederti Danzare', 'Franco Battiato', 'ITA', 'intro:
+('Voglio Vederti Danzare', 'Franco Battiato', 'it', 'intro:
 [SIb] [SOLm] [MIb]
 [SIb] [FA] [SOLm] [MIb]
 
@@ -483,8 +489,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Tutto l’Universo Obbedisce all’Amore', 'Franco Battiato', 'ITA', '[DO]  [SOL]  [LAm]  [SOL]  [FA]   [LAm] [SOL]
-
+('Tutto l''Universo Obbedisce all''Amore', 'Franco Battiato', 'it', '[DO]  [SOL]  [LAm]  [SOL]  [FA]   [LAm] [SOL]
 [DO]Rara la vita in du[SOL]e... fatta di lie[LAm]vi gesti,[SOL]
 e affetti [FA]di giornata.[SOL].. consi[DO]stenti o no,[SOL]
 bisogna [LAm]muoversi.[SOL].. come [FA]ospiti... pieni di prem[SOL]ure
@@ -492,7 +497,6 @@ con delicata at[LAm]tenzione... per non di[SOL]sturbare
 ed [DO]è in certi [LAm]sguard[SOL]i ch[FA]e..[SOL]. si [FA]vede l''infi[SOL]ni--[DO]--to[SOL]        [LAm]     [SOL]
 
 [FA]   [LAm] [SOL]
-
 [DO]Stridono le auto[SOL]... come bison[LAm]ti infuriat[SOL]i,
 [FA] le strade [SOL]sono prate[DO]ri-[SOL]e...   [FA] accanto a [SOL]grattacieli as[FA]solati,
 come pos[SOL]siamo... tenere na[LAm]scosta... la nostra [SOL]intesa
@@ -504,7 +508,6 @@ ed [DO]è in certi [LAm]sguard[SOL]i...[FA]   [SOL] che s''[FA]intravede l''[SOL
 [FA]tutto.[SOL].. l''uni[LAm]verso... obbe[FA]disce.[SOL].. all''a[LAm]more
 
 [DO]    [FA]   [DO]
-
 come pos[SOL]siamo... tenere na[LAm]scosta... la nostra [SOL]intesa
 ed [DO]è in certi [LAm]sguard[SOL]i...[FA]   [SOL] che [FA]si nasconde l''[SOL]infin[DO]ito [SOL]        [FA]       [SOL]
 

@@ -2,8 +2,10 @@
 SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
+
+-- ha parole inglesi
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Baila Morena', 'Zucchero', 'ITA', '[SOLm7]   [DO7] [SOLm7]   [DO7]
+('Baila Morena', 'Zucchero', 'it', '[SOLm7]   [DO7] [SOLm7]   [DO7]
 [SOLm7]   [DO7] [SOLm7]   [DO7]
 [SOLm7]  Adesso credo nei miracol[DO7]i
 [SOLm7] in questa notte di tequila boom [DO7]boom
@@ -67,7 +69,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Come il Sole all''Improvviso', 'Zucchero', 'ITA', 'Nel mond[LA]o io cam[RE]minerò[LA]
+('Come il Sole all''Improvviso', 'Zucchero', 'it', 'Nel mond[LA]o io cam[RE]minerò[LA]
 [RE]tanto che [LA]poi i [MI7]piedi mi faranno [LA]male  [MI]
 io ca[MI]mminer[MI]ò    [MI7]
 un''altra [LA]volta  [SIm7]
@@ -113,8 +115,9 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'REm'),
 (@last_song_id, 'SIm');
 
+-- ha parole inglesi
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Diavolo In Me', 'Zucchero', 'ITA', 'I''ve got a devil in [MI7]me  [LA7]     [MI7]    [LA7]
+('Diavolo In Me', 'Zucchero', 'it', 'I''ve got a devil in [MI7]me  [LA7]     [MI7]    [LA7]
 [MI7] [LA7]  [MI7] [LA7]
 [MI7]Gloria nell''[LA7]alto dei[MI7] cieli [LA7]
 [MI7]  ma non c''è [LA7]pace quag[MI7]giù    [LA7]
@@ -177,7 +180,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'RE');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Guantanamera', 'Zucchero', 'ITA', '[SOL] [DO]  [RE7]   [SOL] [DO]  [RE7]
+('Guantanamera', 'Zucchero', 'it', '[SOL] [DO]  [RE7]   [SOL] [DO]  [RE7]
 [SOL] [DO]  [RE7]  [SOL] [DO]  [RE7]
 Sono un ra[SOL]gazzo[DO] sincero [RE7]
 da dove [SOL]cresce [DO]la pa[RE7]lma
@@ -260,7 +263,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Non Mi Avrai', 'Zucchero', 'ITA', '[REbadd9]
+('Non Mi Avrai', 'Zucchero', 'it', '[REbadd9]
 [FAm] Dimmi chi è che come me[MIb] combatterà con lealtà
 [REb] io fuggirò e correrò
 da un''altra notte me ne andrò
@@ -308,8 +311,9 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SIb'),
 (@last_song_id, 'SIbm');
 
+-- ha parole inglesi
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Occhi', 'Zucchero', 'ITA', '[FA]  [SIb]  [FA]  [SIb]
+('Occhi', 'Zucchero', 'it', '[FA]  [SIb]  [FA]  [SIb]
 [FA]Poi, ho visto gli occhi [SIb]tuoi
 [FA]Rotolando verso cas[SIb]a
 Chi[FA]amare i miei
@@ -375,8 +379,10 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SIb'),
 (@last_song_id, 'SOLm');
 
+
+-- ha parole inglesi
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Senza una Donna', 'Zucchero', 'ITA', '[SIm]  I change the world
+('Senza una Donna', 'Zucchero', 'it', '[SIm]  I change the world
 I change the world
 I change the world
 I wanna change the world
@@ -448,8 +454,9 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SIm'),
 (@last_song_id, 'SOL');
 
+-- ha parole inglesi
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Vedo Nero', 'Zucchero', 'ITA', '[DO4] [DO] [DOadd9] [DO]
+('Vedo Nero', 'Zucchero', 'it', '[DO4] [DO] [DOadd9] [DO]
 [DO4]  [DO]  [DOadd9] [DO]
 [DO4]  [DO]  [DOadd9]  [DO]
 [DO]   [SOL]

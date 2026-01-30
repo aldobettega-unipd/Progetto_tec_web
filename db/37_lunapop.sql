@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('50 Special', 'Lunapop', 'ITA', '[SOL]  [DO]  [MIm]  [RE]  [DO]  [SOL]  [RE]
+('50 Special', 'Lunapop', 'it', '[SOL]  [DO]  [MIm]  [RE]  [DO]  [SOL]  [RE]
 [SOL]  [DO]  [MIm]  [RE]  [DO]  [SOL]  [RE]
 [SOL]Vespe truccate [SOL4+]anni sessanta
 [SOL4]girano in centro sfio[SOL]rando i novanta
@@ -59,7 +59,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Qualcosa di Grande', 'Lunapop', 'ITA', '[FA]  [SOL]  [LAm]
+('Qualcosa di Grande', 'Lunapop', 'it', '[FA]  [SOL]  [LAm]
 Cos''è suc[FA]cesso, sei scap[SOL]pata
 da una [LAm]vita che hai vis[MIm]suto
 da una [FA]storia che hai bru[SOL]ciato
@@ -134,7 +134,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Un Giorno Migliore', 'Lunapop', 'ITA', '[SI]  [SI]  [SOL#m]  [FA#]  [MI]   [SI]  [DO#m]  [FA#]
+('Un Giorno Migliore', 'Lunapop', 'it', '[SI]  [SI]  [SOL#m]  [FA#]  [MI]   [SI]  [DO#m]  [FA#]
 [SI]  cosa mi a[SI]spetto dal do[SOL#m]mani
 [FA#]  il [MI]sole in faccia no[SI]
 ma in [DO#m]fondo io ci s[FA#]pero ancora

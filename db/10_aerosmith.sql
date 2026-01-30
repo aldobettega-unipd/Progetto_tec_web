@@ -4,7 +4,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('I Don''t Want To Miss A Thing', 'Aerosmith', 'ENG', 'I could [RE]stay awake [LA]just to hear you [SIm]breathing,
+('I Don''t Want To Miss A Thing', 'Aerosmith', 'en', 'I could [RE]stay awake [LA]just to hear you [SIm]breathing,
 Watch you [SOL]smile while you are [RE]sleeping,
 While you are [MIm]far away and dreaming,
 I could [RE]spend my life [LA]in this sweet sur[SIm]render
@@ -77,7 +77,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Dream On', 'Aerosmith', 'ENG', '[FAm]  [SIbm6]  [FAm]  [SIbm6]  [FAm]  [FAm7]  [FAm]
+('Dream On', 'Aerosmith', 'en', '[FAm]  [SIbm6]  [FAm]  [SIbm6]  [FAm]  [FAm7]  [FAm]
 [FAm]  [SIbm6]  [FAm]  [SIbm6]  [FAm]  [FAm7]  [FAm]
 [SIb]  [DO]  [FAm]
 [FAm]  Every [SIbm6]time I [FAm]look in the [SIbm6]mirror
@@ -92,7 +92,6 @@ INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzo
 [FAm]  I know, it''s [MIb]everybody''s sin
 [REb]you got to lose to [MIb]know how to [FAm]win
 
-Strumentale:
 [FAm]  [SIbm6]  [FAm]  [SIbm6]  [FAm]  [FAm7]  [FAm]
 [FAm]  Half my [SIbm6]life''s in [FAm]books'' written [SIbm6]pages
 [FAm]  lived and [SIbm6]learned from [FAm]fools and from [SIbm6]sages
@@ -104,7 +103,6 @@ Strumentale:
 [FAm]  Sing with me, if it''s [MIb]just for today
 [FAm]Maybe tomorrow the [REb]good Lord will take you [DO]away
 
-Strumentale:
 [FAm]  [FAm]  [FAm]  [SIb]  [FAm7]  [FAm7]  [FAm7]  [FAm]
 [FAm]  [FAm]  [FAm]  [SIb]  [FAm7]  [FAm7]
 [FAm]  Sing with me, [MIb]sing for the years

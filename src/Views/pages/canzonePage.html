@@ -1,24 +1,83 @@
-<link rel="stylesheet" href="/css/style.css" type="text/css" />
 <link rel="stylesheet" href="/css/song-style.css">
 
-<div class="container">
-    
-    <header class="song-header" style="margin-bottom: 30px;">
-        
-        <h1>##TITOLO_CANZONE##</h1>
-        <button type="button" class="btn-favorite" id="btn-fav" aria-label="Aggiungi ai preferiti" onclick="this.classList.toggle('active')">
-                <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                </svg>
-            </button>
+<header class="song-header">
+    <div class="container header-inner">
+        <div class="header-row">
+            <h1>##TITOLO_CANZONE##</h1>
+            <div class="header-actions">
+                <button type="button" class="btn-favorite" id="btn-fav" aria-label="Aggiungi ai preferiti">
+                    <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg>
+                </button>
+                <div class="playlist-dropdown-wrapper">
+                    
+                    <button type="button" id="playlist-toggle" class="btn-add-playlist" aria-expanded="false" aria-controls="playlist-menu">
+                        <span>Salva</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </button>
 
+                    <div id="playlist-menu" class="playlist-dropdown-menu">
+                        <div class="dropdown-header">Le tue Playlist</div>
+                        
+                        <ul class="playlist-checklist">
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" value="1">
+                                    <span class="checkmark"></span>
+                                    <span class="playlist-name">Rock Anni 70</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" value="2">
+                                    <span class="checkmark"></span>
+                                    <span class="playlist-name">Falò in spiaggia</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" value="2">
+                                    <span class="checkmark"></span>
+                                    <span class="playlist-name">prova</span>
+                                </label>
+                            </li>
+                        </ul>
+
+                        <a href="/crea-playlist" class="btn-create-new-sm">+ Nuova Playlist</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <p class="artist">Di: <a href="/artisti/##SLUG_ARTISTA##">##NOME_ARTISTA##</a></p>
-        <p class="accordi">Accordi: ##ACCORDI_CANZONE##</p>
-        
-    </header>
+        ##ACCORDI_CANZONE##
+    </div>
+</header>
+
+<div class="container">
 
     <div id="song-container" class="song-body">
         ##TESTO_CANZONE_HTML##
+</div>
+<!-- Alert autenticazione-->
+<div id="auth-modal" class="auth-modal-overlay" aria-hidden="true">
+    <div class="auth-modal-content">
+        <button type="button" class="btn-close-modal" id="close-auth-modal">&times;</button>
+        
+        <h3>Ehi, Musicista! 🎸</h3>
+        <p>Per salvare le canzoni nei preferiti o nelle playlist devi accedere al tuo account.</p>
+        
+        <div class="auth-buttons">
+            <a href="/login" class="btn-login-modal">Accedi</a>
+            <a href="/register" class="btn-register-modal">Registrati</a>
+        </div>
     </div>
+</div>
 
 </div>

@@ -4,7 +4,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Another Brick In The Wall', 'Pink Floyd', 'ENG', '[REm]
+('Another Brick In The Wall', 'Pink Floyd', 'en', '[REm]
 [REm]We don''t need no education
 [REm]We don''t need no thoughts controlled
 No [REm]dark sarcasm in the class room
@@ -30,7 +30,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Comfortably Numb', 'Pink Floyd', 'ENG', '[SIm]
+('Comfortably Numb', 'Pink Floyd', 'en', '[SIm]
 [SIm]Hello,
 is there anybody [LA]in there?
 Just [SOL]nod if you can [MIm]hear me;
@@ -89,7 +89,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Wish You Were Here', 'Pink Floyd', 'ENG', '[MIm7]  [SOL]  [MIm7]  [SOL]
+('Wish You Were Here', 'Pink Floyd', 'en', '[MIm7]  [SOL]  [MIm7]  [SOL]
 [MIm7]  [LA7]  [MIm7]  [LA7]  [SOL]
 [MIm7]  [SOL]  [MIm7]  [SOL]
 [MIm7]  [LA7]  [MIm7]  [LA7]  [SOL]
@@ -124,7 +124,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Breathe', 'Pink Floyd', 'ENG', '[MIm9]   [LA]   [MIm9]   [LA]   [MIm9]   [LA]   [MIm9]   [LA]
+('Breathe', 'Pink Floyd', 'en', '[MIm9]   [LA]   [MIm9]   [LA]   [MIm9]   [LA]   [MIm9]   [LA]
 [MIm9]   [LA]   [MIm9]   [LA]   [MIm9]   [LA]   [MIm9]   [LA]
 [DO7+]   [SIm]   [FA7+]   [SOL]   [RE7] [RE#dim]
 [MIm7] Breathe, breathe in the [LA]air

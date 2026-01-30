@@ -4,7 +4,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Master of Puppets', 'Metallica', 'ENG', '[MI5]   [RE5] [DO#5] [DO5]
+('Master of Puppets', 'Metallica', 'en', '[MI5]   [RE5] [DO#5] [DO5]
 [MI5] [RE5] [RE5] [DO#5] [DO]
 [MI5] [LA#5] [LA5] [SOL#5] [SOL5] [FA#5]
 [MI5]
@@ -126,7 +126,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL#');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Nothing Else Matters', 'Metallica', 'ENG', '[MIm]  [LAm] [DO] [RE] [MIm]
+('Nothing Else Matters', 'Metallica', 'en', '[MIm]  [LAm] [DO] [RE] [MIm]
 [MIm]  [RE] [DO]   [MIm]  [RE] [DO]   [MIm]  [RE] [DO]
 [SOL] [SI7] [MIm]
 

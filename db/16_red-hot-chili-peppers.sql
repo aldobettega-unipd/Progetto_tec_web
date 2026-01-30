@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Californication', 'Red Hot Chili Peppers', 'ENG', '[LAm]Psychic spies from China
+('Californication', 'Red Hot Chili Peppers', 'en', '[LAm]Psychic spies from China
 Try to [FA]steal your mind''s elation
 And [LAm]little girls from Sweden
 Dreams of [FA]silver screen quotation
@@ -87,7 +87,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Can’t Stop', 'Red Hot Chili Peppers', 'ENG', '[MIm] Can''t stop, addicted to the shindig
+('Can’t Stop', 'Red Hot Chili Peppers', 'en', '[MIm] Can''t stop, addicted to the shindig
 [RE] Chop top, he says I''m gonna win big
 [SIm] Choose not a life of imitation
 [DO]Distant cousin to the reservation
@@ -188,7 +188,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Otherside', 'Red Hot Chili Peppers', 'ENG', '[LAm] How long how [FA]long will I [DO]slide
+('Otherside', 'Red Hot Chili Peppers', 'en', '[LAm] How long how [FA]long will I [DO]slide
 [SOL]Separate my [LAm]si--[FA]de I [DO]don''t
 I [SOL]don''t believe it''s [LAm]bad  [FA]
 [DO]Slit my throat
@@ -259,7 +259,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Scar Tissue', 'Red Hot Chili Peppers', 'ENG', '
+('Scar Tissue', 'Red Hot Chili Peppers', 'en', '
 [FA]  [DO]  [REm]  [DO]  [FA]  [DO]  [REm]
 [FA]  Scar tissue that I wish you saw
 [REm]  Sarcastic mister know it all
@@ -317,7 +317,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'REm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Under The Bridge', 'Red Hot Chili Peppers', 'ENG', 'None
+('Under The Bridge', 'Red Hot Chili Peppers', 'en', 'None
 [LAm]yeah, [SOL]yeah,[FA] yeah  [LA]
 oh [LAm]no, no, no, [SOL]yeah, [FA]yeah
 [LA]love [LAm]me, i say, [SOL]yeah [FA]yeah  [MI7]     [SOL]

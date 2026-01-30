@@ -1,72 +1,587 @@
+/* ============================================================
+   FILE: css/song-style.css
+   Descrizione: Stile specifico per la visualizzazione canzone
+   ============================================================ */
 
-/* --- CONTENITORE PRINCIPALE --- */
-.song-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px; /* Dimensione base leggibile */
-  line-height: 1.5;
-  background-color: #fff;
-  color: #333;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+/* ------------------------------------------------------------
+   1. HEADER CANZONE (Full Width + Sfondo Fretboard)
+   ------------------------------------------------------------ */
+
+/* =========================================
+   UTILITY CONTAINER
+   ========================================= */
+
+/* Definisce la classe .container che mancava */
+.container {
+    width: var(--container-width, 70%); /* Usa la variabile globale o 70% di default */
+    margin: 0 auto; /* Centra orizzontalmente */
+    max-width: 1400px; /* Opzionale: evita che su schermi giganti diventi enorme */
 }
 
-/* --- RIGA DELLA CANZONE --- */
+/* FIX SPECIFICO PER L'HEADER 
+   Sovrascrive le regole vecchie di style.css che forzavano l'header al 70% 
+*/
+body .song-header {
+    width: 100%;       /* L'header deve essere largo tutto lo schermo per lo sfondo */
+    margin-left: 0;    /* Azzera margini laterali */
+    margin-right: 0;
+    left: 0;
+    transform: none;   /* Rimuove eventuali trasformazioni del layout base */
+    box-sizing: border-box; /* Include padding nella larghezza */
+}
+
+/* Assicura che il contenuto interno dell'header sia centrato */
+.header-inner {
+    width: var(--container-width, 70%);
+    margin: 0 auto;
+}
+
+.song-header {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 3rem 0 4rem 0; /* Spazio verticale abbondante */
+    
+    /* SFONDO: Gradiente + Immagine */
+    /* Il gradiente serve a rendere leggibile il testo sopra l'immagine */
+
+    background-image:linear-gradient(rgba(246, 238, 196, 0.5), rgba(246, 238, 196, 0.4)), 
+    url('/img/fretboard1.webp'); /* Assicurati di avere questa immagine! */
+  
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: auto;
+}
+
+/* Container interno all'header per allineare il testo al centro */
+.header-inner {
+    position: relative;
+    z-index: 20;
+    padding: 0.9rem 2rem;
+    border-radius: 16px;
+    background-color: var(--main-bg); /* Leggero sfondo bianco trasparente per leggibilità */
+    /* Eredita la larghezza dal tuo layout principale (70%) */
+}
+
+
+/* Titolo Canzone */
+.song-header h1 {
+    font-size: 2.5rem;
+    line-height: 1.1;
+    color: var(--main-text);
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    
+    /* Flex grow per spingere il cuore a destra */
+    flex: 1; 
+}
+
+/* Riga superiore (Titolo + Cuore) */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Artista */
+.song-header .artist {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.song-header .artist a {
+    color: var(--wood-accent);
+    font-weight: 700;
+    color: var(--main-text);
+    text-decoration: none;
+}
+
+.song-header .artist a:hover {
+    text-decoration: underline;
+}
+
+/* ------------------------------------------------------------
+   2. BOTTONE PREFERITI (Cuore Animato)
+   ------------------------------------------------------------ */
+
+.btn-favorite {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    
+    /* Colore inattivo (grigio/marrone) */
+    color: var(--layout-text-color-accent);
+    opacity: 0.8;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-favorite:hover {
+    background-color: rgba(0,0,0,0.05);
+    opacity: 1;
+    color: var(--wood-accent);
+    transform: scale(1.1);
+}
+
+.btn-favorite svg {
+    fill: transparent; /* Cuore vuoto */
+    stroke: currentColor;
+    transition: fill 0.3s;
+}
+
+/* Stato ATTIVO (Cliccato) */
+.btn-favorite.active {
+    opacity: 1;
+    color: #E31C25; /* Rosso */
+}
+
+.btn-favorite.active svg {
+    fill: #E31C25; /* Cuore pieno */
+    stroke: #E31C25;
+    animation: heartPop 0.4s forwards;
+}
+
+@keyframes heartPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* ------------------------------------------------------------
+   3. TAG ACCORDI (Stile Chips/Pillole)
+   ------------------------------------------------------------ */
+
+.accordi-section {
+    margin-top: 1rem;
+}
+
+
+.chord-tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chord-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 14px;
+    border-radius: 50px;
+    
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    
+    /* Colori Pillola */
+    background-color: var(--wood-accent);
+    color: var(--layout-text-color);
+    transition: all 0.2s ease;
+}
+
+
+/* ------------------------------------------------------------
+   4. CORPO CANZONE (Foglio Spartito)
+   ------------------------------------------------------------ */
+
+.song-body {
+    /* Sfondo "carta" pulito sopra lo sfondo legno del body */
+    background-color: var(--main-bg); 
+    padding: 3rem;
+    border-radius: 12px;
+    
+    /* Ombra profonda per effetto sollevamento */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0,0,0,0.05);
+    
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 4rem; /* Spazio prima del footer */
+    position: relative;
+    z-index: 10;
+    margin-top: -2rem; /* Sovrapposizione leggera sull'header (effetto moderno) */
+}
+
+/* ------------------------------------------------------------
+   5. LOGICA TESTO & ACCORDI
+   ------------------------------------------------------------ */
+
+/* La riga intera */
 .song-line {
-  display: flex;
-  flex-wrap: wrap; /* Fondamentale: va a capo se la riga è lunga (mobile friendly) */
-  align-items: flex-end; /* Allinea tutto in basso (linea del testo) */
-  margin-bottom: 1.5rem; /* Spazio tra le righe della canzone */
-  min-height: 3rem; /* Altezza minima per non far collassare le righe vuote */
+    display: flex;
+    flex-wrap: wrap; /* Permette di andare a capo su mobile */
+    align-items: flex-end; /* Allinea il testo in basso */
+    min-height: 3.8rem; /* Altezza minima riga */
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
 }
 
 .song-line.empty-line {
-  margin-bottom: 0.5rem;
-  min-height: 1rem;
+    height: 1.5rem;
+    min-height: auto;
 }
 
-/* --- GRUPPO ATOMICO (Accordo + Sillaba) --- */
+/* Gruppo (Accordo sopra + Testo sotto) */
 .chord-group {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    white-space: pre;
-    margin-right: 0; 
+    white-space: pre; /* Mantiene spazi originali */
+    margin-right: 0;
 }
 
-/* NUOVA REGOLA */
-/* Si applica solo quando NON c'è testo sotto l'accordo */
-.chord-group.instrumental {
-    margin-right: 0.8rem; /* O 1.5ch, spazio abbondante per staccare gli accordi */
-}
-
-/* --- L'ACCORDO --- */
+/* Accordo */
 .chord {
-  font-family: "Courier New", monospace; /* Monospace per chiarezza simboli */
-  font-weight: 700;
-  color: #e74c3c; /* Rosso acceso */
-  font-size: 0.85em;
-  margin-bottom: 2px; /* Un po' di aria tra accordo e testo */
-  cursor: pointer; /* Opzionale: se in futuro vuoi cliccarci per sentire il suono */
-  user-select: none; /* Evita che venga selezionato copiando il testo */
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--wood-accent);
+    margin-bottom: 2px;
+    height: 1.3rem; /* Altezza fissa */
+    display: block;
+}
+
+/* Testo Cantato */
+.lyric {
+    font-size: 1.15rem;
+    color: var(--main-text);
+    font-weight: 400;
+}
+
+/* Accordi Strumentali (senza testo) */
+.chord-group.instrumental {
+    margin-right: 1.2rem; /* Spaziatura laterale */
 }
 
 .chord.spacer {
-  height: 1em; /* Occupa spazio verticale anche se vuoto */
+    visibility: hidden; /* Invisibile ma occupa spazio */
 }
 
-/* --- IL TESTO (LYRIC) --- */
-.lyric {
-  white-space: pre; /* FONDAMENTALE: Rispetta gli spazi vuoti tra le parole! */
-  color: #2c3e50;
+/* ------------------------------------------------------------
+   6. DARK MODE OVERRIDES
+   ------------------------------------------------------------ */
+
+body.dark-mode .song-header {
+    /* Gradiente scuro sopra l'immagine */
+    background-image: 
+        linear-gradient(to bottom, rgba(17, 16, 21, 0.85), rgba(17, 16, 21, 0.98)),
+        url('/img/fretboard-bg.webp');
+    border-bottom-color: rgba(255,255,255,0.1);
 }
 
-/* --- MODALITÀ LETTURA (Nascondi Accordi) --- */
-/* Questa classe viene aggiunta via JS al container padre */
-.song-body.hide-chords .chord {
-  display: none; /* Rimuove visivamente e per screen reader */
+body.dark-mode .song-body {
+    background-color: #1e1e24; /* Grigio scuro carta */
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
-.song-body.hide-chords .song-line {
-  margin-bottom: 0.5rem; /* Riduce lo spazio tra le righe quando è solo testo */
+body.dark-mode .chord-tag {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--wood-accent);
+    color: var(--wood-accent);
+}
+
+body.dark-mode .chord-tag:hover {
+    background-color: var(--wood-accent);
+    color: #1a1a20; /* Testo scuro su tag acceso */
+}
+
+/* ------------------------------------------------------------
+   7. RESPONSIVE MOBILE
+   ------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+    .song-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .song-body {
+        padding: 1.5rem;
+        margin-top: 0; /* Rimuovi sovrapposizione su mobile */
+    }
+    
+    .lyric { font-size: 1rem; }
+    .chord { font-size: 0.85rem; }
+}
+
+
+/* =========================================
+   HEADER ACTIONS & DROPDOWN
+   ========================================= */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+/* Wrapper per il posizionamento relativo */
+.playlist-dropdown-wrapper {
+    position: relative;
+}
+
+/* Bottone "Salva" */
+.btn-add-playlist {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--wood-accent);
+    color: var(--layout-text-color-accent);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-add-playlist:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Menu a tendina (Nascosto di default) */
+.playlist-dropdown-menu {
+    display: none; /* NASCOSTO */
+    position: absolute;
+    top: 130%; /* Poco sotto il bottone */
+    right: 0;
+    width: 260px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+    padding: 15px;
+    z-index: 15;
+    border: 1px solid rgba(0,0,0,0.1);
+    animation: slideIn 0.2s ease-out;
+}
+
+/* Classe che aggiungeremo via JS per mostrarlo */
+.playlist-dropdown-menu.show {
+    display: block;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-header {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+/* --- CHECKBOX STILE CUSTOM --- */
+.playlist-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 220px;
+    overflow-y: auto; /* Scroll se la lista è lunga */
+}
+
+.playlist-checklist li {
+    margin-bottom: 8px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--main-text);
+    padding: 5px 0;
+    transition: color 0.2s;
+}
+
+.checkbox-container:hover {
+    color: var(--wood-accent);
+}
+
+/* Nascondiamo l'input nativo brutto */
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Il quadratino personalizzato */
+.checkmark {
+    height: 20px;
+    width: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-right: 12px;
+    position: relative;
+    border: 1px solid #ccc;
+    transition: all 0.2s;
+}
+
+/* Quando è checkato */
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--wood-accent);
+    border-color: var(--wood-accent);
+}
+
+/* La spunta (segno di check) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Link crea nuova playlist */
+.btn-create-new-sm {
+    display: block;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    color: var(--wood-accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-create-new-sm:hover {
+    text-decoration: underline;
+}
+
+/* --- DARK MODE --- */
+body.dark-mode .playlist-dropdown-menu {
+    background-color: #25252b;
+    border-color: rgba(255,255,255,0.1);
+}
+body.dark-mode .checkbox-container { color: #e0e0e0; }
+body.dark-mode .checkmark { background-color: #333; border-color: #444; }
+body.dark-mode .checkbox-container:hover .checkmark { background-color: #444; }
+body.dark-mode .btn-create-new-sm { border-top-color: rgba(255,255,255,0.1); }
+
+
+
+/* ------------------------------------------------------------
+   Modale autenticazione
+   ------------------------------------------------------------ */
+
+
+   /* Sfondo scuro che copre tutto lo schermo */
+.auth-modal-overlay {
+    display: none; /*  Nascosto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Velo scuro */
+    z-index: 9999; /* Sopra a TUTTO, anche al menu playlist */
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px); /* Effetto sfocato moderno */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Quando è attivo */
+.auth-modal-overlay.show {
+    display: flex; /* Flex per centrare il contenuto */
+    opacity: 1;
+}
+
+/* La finestrella bianca */
+.auth-modal-content {
+    background-color: var(--main-bg); /* Il tuo beige */
+    padding: 2rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    position: relative;
+    border: 2px solid var(--wood-accent);
+}
+
+.auth-modal-overlay.show .auth-modal-content {
+    transform: translateY(0);
+}
+
+.auth-modal-content h3 {
+    margin-top: 0;
+    color: var(--wood-accent);
+}
+
+/* Bottoni */
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-login-modal, .btn-register-modal {
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.btn-login-modal {
+    background-color: var(--wood-accent);
+    color: #fff;
+}
+
+.btn-register-modal {
+    background-color: transparent;
+    border: 2px solid var(--wood-accent);
+    color: var(--wood-accent);
+}
+
+.btn-login-modal:hover, .btn-register-modal:hover {
+    transform: scale(1.05);
+}
+
+/* Croce di chiusura */
+.btn-close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #888;
 }

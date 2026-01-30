@@ -8,6 +8,7 @@ use App\Models\ArtistaModel;
 use App\Helpers\CarouselHelper;
 use App\Helpers\ChordParser;
 use App\Helpers\ListHelper;
+use App\Helpers\TagAccordiHelper;
 use App\Helpers\BreadcrumbHelper;
 
 class CanzoneController extends Controller {
@@ -46,6 +47,7 @@ class CanzoneController extends Controller {
         }
         $slug_artista = $this->Canzone->get_artista($slug)['slug_artista'];
         $accordi = $this->Canzone->get_accordi($canzone['id_canzone']);
+        $accordi = array_column($accordi, 'accordo');
         
         // 2. Parsifichi il testo grezzo
         // Assumendo che $canzone['testo'] sia "[C]Siamo solo [G]noi..."
@@ -55,7 +57,7 @@ class CanzoneController extends Controller {
 
         // 3. Render
         $this->render('canzonePage', [
-            'ACCORDI_CANZONE' => implode(", ", array_column($accordi, 'accordo')),
+            'ACCORDI_CANZONE' => TagAccordiHelper::generaTags($accordi),
             'TITOLO_CANZONE' => $canzone['titolo_canzone'],
             'NOME_ARTISTA' => $canzone['autore_canzone'],
             'SLUG_ARTISTA' => $slug_artista,

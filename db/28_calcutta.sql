@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Gaetano', 'Calcutta', 'ITA', 'Gae[DO]tano mi ha detto che vi[MI7]viamo nel ghetto
+('Gaetano', 'Calcutta', 'it', 'Gae[DO]tano mi ha detto che vi[MI7]viamo nel ghetto
 ma nel [FA]mentre io penso che
 Se io dor[MIm]missi disteso
 sul tuo l[FA]ato del letto, io forse sarei te
@@ -63,7 +63,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'MIm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Giro con Te', 'Calcutta', 'ITA', '[MI] Poi non te l''ho chie[LA#m7]sto
+('Giro con Te', 'Calcutta', 'it', '[MI] Poi non te l''ho chie[LA#m7]sto
 se era un sorriso o un col[LA7+]tello
 [MI] Tu volevi sal[LA#m7]ire, io volevo par[LA7+]larti all''orecchio
 [MI] E sotto casa mia[LA#m7] mi sembrava di [LA7+]perdermi
@@ -132,7 +132,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL#m');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Hubner', 'Calcutta', 'ITA', '[DO]       [FA7+]
+('Hubner', 'Calcutta', 'it', '[DO]       [FA7+]
 [DO] Venezia è bella, ma non è il mio [FA7+]mare
 [DO] Il treno è fer[MIm]mo, io sono [LAm]stufo di aspettare
 In questo mondo [MIm]che pieno di [LAm]lacrim[MIm]e
@@ -168,7 +168,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Oroscopo', 'Calcutta', 'ITA', '[SIm]  [FA#m7]  [MIm7]    [SIm]  [FA#m7] [MIm7]
+('Oroscopo', 'Calcutta', 'it', '[SIm]  [FA#m7]  [MIm7]    [SIm]  [FA#m7] [MIm7]
 [SIm]  Sono uscito sta[FA#m7]sera ma non ho letto l''o[MIm7]roscopo
 [SIm]  Non è Rio de Ja[FA#m7]neiro ma c''è un clima fan[MIm7]tastico
 [SIm]  Io ti giuro sta[FA#m7]sera che ti cerco nel [MIm7]traffico
@@ -217,7 +217,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SIm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Paracetamolo', 'Calcutta', 'ITA', 'Lo [RE]sai che la tachipi[SIm]rina 500 [FA#m]se ne prendi [LA7]due
+('Paracetamolo', 'Calcutta', 'it', 'Lo [RE]sai che la tachipi[SIm]rina 500 [FA#m]se ne prendi [LA7]due
 Diventa [RE]1000  [SIm]     [FA#m]      [LA7]
 Si [RE]vede che hai provato [SIm]qualcosina parla[FA#m]no
 Parlano le tue pupil[RE]le  [SIm]     [FA#m]      [LA7]
@@ -256,7 +256,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SIm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Pesto', 'Calcutta', 'ITA', '[SOL#m]Esco o non [MI7+]esco?
+('Pesto', 'Calcutta', 'it', '[SOL#m]Esco o non [MI7+]esco?
 Fuori è [RE#m7]caldo ma è normale ad agosto [SOL#m]
 Non ci penso ma poi [DO#7]sudo lo stesso[MI]   [MIm]
 Un''[SOL#m]ombra sul sof[MI7+]fitto

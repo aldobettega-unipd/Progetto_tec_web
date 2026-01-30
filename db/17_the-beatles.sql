@@ -4,7 +4,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Across the Universe', 'The Beatles', 'ENG', '[REb]        [FAm]    [LAb]
+('Across the Universe', 'The Beatles', 'en', '[REb]        [FAm]    [LAb]
 
 [REb]Words are flowing [SIbm]out like endless [FAm]rain
 into a paper cup
@@ -61,7 +61,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLbm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('A Hard Day’s Night', 'The Beatles', 'ENG', '[REm7]
+('A Hard Day’s Night', 'The Beatles', 'en', '[REm7]
 
 It''s been a [SOL]hard [DO]day''s [SOL]night,
 and I''ve been [FA]working like a [SOL]dog
@@ -122,7 +122,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('All My Loving', 'The Beatles', 'ENG', 'Close your [FA#m]eyes and I''ll [SI]kiss you
+('All My Loving', 'The Beatles', 'en', 'Close your [FA#m]eyes and I''ll [SI]kiss you
 To[MI]morrow, I''ll [DO#m]miss you
 Re[LA]member I''ll [FA#m]always be [RE]true  [SI7]
 And then [FA#m]while I''m a[SI]way
@@ -162,7 +162,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SI');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('All You Need Is Love', 'The Beatles', 'ENG', '[SOL]Love, [RE]love,   [MIm7]love
+('All You Need Is Love', 'The Beatles', 'en', '[SOL]Love, [RE]love,   [MIm7]love
 [SOL]Love, [RE]love,   [MIm7]love
 [RE7]Love,   [SOL]love, [RE]love    [RE]       [RE]    [RE7]
 
@@ -214,7 +214,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Back in the U.S.S.R.', 'The Beatles', 'ENG', '[MI7]
+('Back in the U.S.S.R.', 'The Beatles', 'en', '[MI7]
 
 [LA]Flew in from Miami Beach B.[RE]O.A.C
 D[DO]idn''t get to bed last n[RE]ight
@@ -280,7 +280,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Don’t Let Me Down', 'The Beatles', 'ENG', '[MI]Don''t let me [FA#m]down, don''t let me [MI]down
+('Don’t Let Me Down', 'The Beatles', 'en', '[MI]Don''t let me [FA#m]down, don''t let me [MI]down
 Don''t let me [FA#m]down, don''t let me [MI]down
 
 Nobody ever loved me like she [FA#m]does
@@ -317,7 +317,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SI');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Hello, Goodbye', 'The Beatles', 'ENG', '[FA6]You say yes, [DO]I say no
+('Hello, Goodbye', 'The Beatles', 'en', '[FA6]You say yes, [DO]I say no
 [SOL7]You say stop and [LAm]I say go go [SOL7]go, [LAm]   oh [SOL7]no
 You say goodbye and [FA]I say hel[DO]lo  [SOL]
 Hello hel[LAm7]lo     [SOL]
@@ -372,7 +372,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Help', 'The Beatles', 'ENG', '[SIm]Help! I need some[SIm]body
+('Help', 'The Beatles', 'en', '[SIm]Help! I need some[SIm]body
 [SOL]Help! Not just [SOL]anybody
 [MI]Help! You know I need someone,
 [LA]Help!
@@ -418,7 +418,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Here Comes The Sun', 'The Beatles', 'ENG', '[LA]  Here comes the sun
+('Here Comes The Sun', 'The Beatles', 'en', '[LA]  Here comes the sun
 [RE]  here comes the [SI7]sun and I say [RE] it''s all right
 
 [LA]  Little darling it''s been a [RE]long cold lonely [MI7]winter
@@ -457,7 +457,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Hey Jude', 'The Beatles', 'ENG', 'Hey [FA]Jude, don''t make it [DO]bad
+('Hey Jude', 'The Beatles', 'en', 'Hey [FA]Jude, don''t make it [DO]bad
 take a [DO7]sad song and make it [FA]better
 Re[SIb]member to let her into your [FA]heart
 then you can [DO]start to [DO7]make it [FA]better
@@ -511,7 +511,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('I Feel Fine', 'The Beatles', 'ENG', '[RE7]   [DO7]   [SOL7]
+('I Feel Fine', 'The Beatles', 'en', '[RE7]   [DO7]   [SOL7]
 
 [SOL7]Baby''s good to me, you know
 She''s happy as can be, you know
@@ -552,7 +552,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('I’ve Just Seen a Face', 'The Beatles', 'ENG', '[FA#m]        [MI] [RE] [MIm] [RE]   [RE] [MI]  [MI7]
+('I’ve Just Seen a Face', 'The Beatles', 'en', '[FA#m]        [MI] [RE] [MIm] [RE]   [RE] [MI]  [MI7]
 
 [LA]I''ve just seen a face
 I can''t forget the time or place
@@ -613,7 +613,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'RE');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('I Want to Hold Your Hand', 'The Beatles', 'ENG', '[DO]  [RE]    [DO]  [RE]     [DO]  [RE]
+('I Want to Hold Your Hand', 'The Beatles', 'en', '[DO]  [RE]    [DO]  [RE]     [DO]  [RE]
 
 Oh, ye[SOL]ah, I''ll tell you [RE]somethin''
 [MIm] I think you''ll under[SI5]stand
@@ -668,7 +668,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Let It Be', 'The Beatles', 'ENG', '[DO]  [SOL]  [LAm]  [SOL] [FA7+]  [FA6]
+('Let It Be', 'The Beatles', 'en', '[DO]  [SOL]  [LAm]  [SOL] [FA7+]  [FA6]
 
 [DO]  [SOL]  [FA] [MIm] [REm] [DO]
 
@@ -745,7 +745,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Norwegian Wood', 'The Beatles', 'ENG', '[MI]                       [RE] [LA] [MI]
+('Norwegian Wood', 'The Beatles', 'en', '[MI]                       [RE] [LA] [MI]
 
 [MI]I once had a girl, or should I say, [RE]she once [LA]had [MI]me
 She showed me her room, isn''t it good, [RE]Norwe-[LA]gian [MI]wood
@@ -775,7 +775,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SI');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Ob-La-Di, Ob-La-Da', 'The Beatles', 'ENG', '[FA7]     [SIb]
+('Ob-La-Di, Ob-La-Da', 'The Beatles', 'en', '[FA7]     [SIb]
 
 [SIb]Desmond has a barrow in the [FA]market place
 Molly is the singer in a [SIb]band
@@ -833,7 +833,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Oh! Darling', 'The Beatles', 'ENG', '[MI7]  ...Oh [LA]darling, please be[MI]lieve me
+('Oh! Darling', 'The Beatles', 'en', '[MI7]  ...Oh [LA]darling, please be[MI]lieve me
 [FA#m]I''ll never do you no [RE]harm
 Be[SIm7]lieve me when I tell [MI7]you
 [SIm7]I''ll never [MI7]do you no [LA]harm  [RE]      [LA]      [MI]
@@ -876,7 +876,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SIm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('While My Guitar Gently Weeps', 'The Beatles', 'ENG', '[LAm]  [LAm]  [FA#m7]  [FA]
+('While My Guitar Gently Weeps', 'The Beatles', 'en', '[LAm]  [LAm]  [FA#m7]  [FA]
 [LAm]  [SOL]  [RE]  [MI]
 
 I [LAm]look at you a[LAm]ll see the [FA#m7]lover that''s [FA]sleeping
@@ -923,7 +923,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Yellow Submarine', 'The Beatles', 'ENG', 'In the [RE]town where [DO]I was [SOL]born
+('Yellow Submarine', 'The Beatles', 'en', 'In the [RE]town where [DO]I was [SOL]born
 [MIm]Lived a [LAm]man who [DO]sailed to [RE7]sea
 [SOL]And he [RE]told us [DO]of his [SOL]life
 [MIm]In the [LAm]land of [DO]submari[RE7]nes
@@ -971,7 +971,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Yesterday', 'The Beatles', 'ENG', '[FA]
+('Yesterday', 'The Beatles', 'en', '[FA]
 
 [FA]Yesterday,[MIm7]  All my [LA7]troubles seemed so [REm]far away, [REm]
 [SIb]  Now it [DO]looks as though they''re [FA]here to stay,

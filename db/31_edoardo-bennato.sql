@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Il Gatto e La Volpe', 'Edoardo Bennato', 'ITA', '[LA]Quanta fretta, ma [FA#m]dove corri, [SIm]dove [MI]vai?
+('Il Gatto e La Volpe', 'Edoardo Bennato', 'it', '[LA]Quanta fretta, ma [FA#m]dove corri, [SIm]dove [MI]vai?
 [LA]Se ci ascolti per [FA#m]un momento [SIm]capi[MI]rai
 [LA]Lui è il gatto ed [DO#7]io la volpe s[FA#]tiamo in società
 di [SIm]noi ti [MI]puoi fi[LA]dar  [FA#m]      [LA]    [FA#m]
@@ -56,7 +56,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SIm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('L''Isola Che Non C''è', 'Edoardo Bennato', 'ITA', 'Seconda s[FA]tella a destra, questo é il cam[DO]mino
+('L''Isola Che Non C''è', 'Edoardo Bennato', 'it', 'Seconda s[FA]tella a destra, questo é il cam[DO]mino
 e poi d[SIb]ritto, fino al mat[FA]tino
 poi la st[REm]rada la t[LA7]rovi da [SIb]te
 porta all''[FA]isola[DO] che non [FA]c''é
@@ -107,7 +107,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Non C''È', 'Edoardo Bennato', 'ITA', '[MI]
+('Non C''È', 'Edoardo Bennato', 'it', '[MI]
 
 
 Quello lì è un ragazzo speciale

@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Est-ce Que Tu M’Aimes?', 'Gims', 'FRA', '[SIm]  [RE]  [LA]  [SOL]  [SIm]  [RE]  [LA]  [SOL]
+('Est-ce Que Tu M’Aimes?', 'Gims', 'fr', '[SIm]  [RE]  [LA]  [SOL]  [SIm]  [RE]  [LA]  [SOL]
 [SIm] J''ai retrou[RE]vé le sou[LA]rire
 quand j''ai vu le [SOL]bout du tunn[SIm]el
 Où nous mè[RE]nera ce je[LA]u du mâle et de [SOL]la femel[SIm]le   [RE]

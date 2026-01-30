@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Albachiara', 'Vasco Rossi', 'ITA', '[FA7+]  [DO]   [SOL7]
+('Albachiara', 'Vasco Rossi', 'it', '[FA7+]  [DO]   [SOL7]
 [DO] Respiri piano per non [SOL]far rumore
 ti addor[LAm]menti di sera e ti ris[DO]vegli col sole
 [FA] sei chiara come un'' [DO]alba
@@ -55,7 +55,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Come nelle Favole', 'Vasco Rossi', 'ITA', '[RE]Quello che potremmo fare io e [SIm]te
+('Come nelle Favole', 'Vasco Rossi', 'it', '[RE]Quello che potremmo fare io e [SIm]te
 [SOL]senza dar retta a nessuno
 [LA]senza pensare a qualcuno
 q[RE]uello che potremmo fare io e [SIm]te
@@ -132,7 +132,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Vita Spericolata', 'Vasco Rossi', 'ITA', '[DO]  [DO5+]  [DO]  [DO5+]  [DO]  [DO5+]  [DO]  [DO7]
+('Vita Spericolata', 'Vasco Rossi', 'it', '[DO]  [DO5+]  [DO]  [DO5+]  [DO]  [DO5+]  [DO]  [DO7]
 
 [FA]   Voglio una vita [SOL]maleducata
 di quelle [DO]vite fatte fatte co[DO7]sì
@@ -205,7 +205,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Ti Prendo E Ti Porto Via', 'Vasco Rossi', 'ITA', '[RE]                [REadd9]  [SIm7]             [SOL]
+('Ti Prendo E Ti Porto Via', 'Vasco Rossi', 'it', '[RE]                [REadd9]  [SIm7]             [SOL]
 
 [RE]  Sai ti conosco oramai
 [RE]  Ho capito chi sei
@@ -271,7 +271,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Un Senso', 'Vasco Rossi', 'ITA', '
+('Un Senso', 'Vasco Rossi', 'it', '
 [SOL]  [MIm7]  [FA]  [RE]
 [SOL]Voglio trovare un [MIm7]senso a questa sera
 [FA]Anche se questa sera un [RE]senso non ce l''ha
@@ -326,7 +326,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Non L''Hai Mica Capito', 'Vasco Rossi', 'ITA', '[SOLb]  [SOLb4] [SOLb]    [REb]
+('Non L''Hai Mica Capito', 'Vasco Rossi', 'it', '[SOLb]  [SOLb4] [SOLb]    [REb]
 [LAb]  [LAb4] [LAb]     [REb]   [REb4] [REb]
 Scusa non ho ca[SOLb]pito
 vuoi ri[SOLb4]petere, che [SOLb]cosa avev[SOLb4]i da fare
@@ -413,7 +413,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLb');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Sally', 'Vasco Rossi', 'ITA', '[RE] [RE7+] [RE7]  [SOL] [RE] [MIm7]
+('Sally', 'Vasco Rossi', 'it', '[RE] [RE7+] [RE7]  [SOL] [RE] [MIm7]
 [LA]  [SOL]  [LA]  [RE4] [RE]  [LA]
 [RE]Sally cammina per la [RE7+]strada senza nemmeno..[RE7]
 guardare per [SOL]terra [RE]        [MIm7]
@@ -478,7 +478,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('La Nostra Relazione', 'Vasco Rossi', 'ITA', '[LAm]  [REm]  [SOL]  [DO4] [DO]  [RE] [MI7]
+('La Nostra Relazione', 'Vasco Rossi', 'it', '[LAm]  [REm]  [SOL]  [DO4] [DO]  [RE] [MI7]
 [LAm]  [REm]  [SOL]  [DO4] [DO]  [RE] [MI7]
 [LAm]  La nostra relazione
 [REm]  è qualche cosa di diverso
@@ -528,7 +528,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('E…', 'Vasco Rossi', 'ITA', '[MIm7] [DOadd9] [SOL] [RE]
+('E…', 'Vasco Rossi', 'it', '[MIm7] [DOadd9] [SOL] [RE]
 [MIm7] [DOadd9] [SOL] [RE]
 [MIm7]E...
 vuoi da [DOadd9]bere?

@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Formidable', 'Stromae', 'FRA', 'Formid[MIm]able,[RE]   formi[SOL]dable
+('Formidable', 'Stromae', 'fr', 'Formid[MIm]able,[RE]   formi[SOL]dable
 [DO] Tu étais formi[LAm]dable, j''étais fort mi[MIm]nable
 [SI7] Nous étions formi[MIm]dables
 [RE]Formi--[SOL]dable
@@ -76,7 +76,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Papaoutai', 'Stromae', 'FRA', '[MIbm]    [REb] [SIbm7]  [SOLb]  [LAb]
+('Papaoutai', 'Stromae', 'fr', '[MIbm]    [REb] [SIbm7]  [SOLb]  [LAb]
 [MIbm]    [REb] [SIbm7]  [MIbm]    [REb]
 [SIbm]Dites-moi d''où il [LAb]vient
 Enfin [SIbm]je saurai où je [LAb]vais
@@ -184,7 +184,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Alors on Danse', 'Stromae', 'FRA', '[DO#m]    [LA]  [SOL#5]  [DO#m]    [LA]  [SOL#5]
+('Alors on Danse', 'Stromae', 'fr', '[DO#m]    [LA]  [SOL#5]  [DO#m]    [LA]  [SOL#5]
 Alors [DO#m]on      [LA]    [SOL#5]
 Alors [DO#m]on      [LA]    [SOL#5]
 

@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Castle on the Hill', 'Ed Sheeran', 'ENG', '[RE] When I was six years [SOLadd9]old, I broke my leg[SIm7]      [LA4]
+('Castle on the Hill', 'Ed Sheeran', 'en', '[RE] When I was six years [SOLadd9]old, I broke my leg[SIm7]      [LA4]
 [RE] I was running [SOLadd9]from my brother and [SIm7]his friends [LA4]
 [RE] And tasted the [SOLadd9]sweet perfume
 of the [SIm7]mountain grass I [LA4]rolled down
@@ -67,7 +67,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Galway Girl', 'Ed Sheeran', 'ENG', 'She [FA#m]played the fiddle [LA]in an Irish band
+('Galway Girl', 'Ed Sheeran', 'en', 'She [FA#m]played the fiddle [LA]in an Irish band
 But she [MI]fell in love [REadd9]with an English man
 Kissed her on the neck
 [LA]and then I took her by the hand
@@ -153,7 +153,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SIm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('I See Fire', 'Ed Sheeran', 'ENG', '[SIbm]Oh, misty eye of the mountain below
+('I See Fire', 'Ed Sheeran', 'en', '[SIbm]Oh, misty eye of the mountain below
 Keep careful watch of my brothers'' souls
 And should the sky be filled
 with fire and smoke
@@ -244,7 +244,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLb');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Perfect', 'Ed Sheeran', 'ENG', 'I found a [LAb]love for [FAm7]me
+('Perfect', 'Ed Sheeran', 'en', 'I found a [LAb]love for [FAm7]me
 Darling, just [REbadd9]dive right in and follow my [MIb]lead
 Well, I found a [LAb]girl, beauti[FAm7]ful and sweet
 Oh, I never [REbadd9]knew you were the someone waiting for [MIb]me
@@ -305,7 +305,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'REb');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Photograph', 'Ed Sheeran', 'ENG', '[MI]  [DO#m7]  [SI4]  [LAadd9]
+('Photograph', 'Ed Sheeran', 'en', '[MI]  [DO#m7]  [SI4]  [LAadd9]
 Loving can h[MI]urt, loving can h[DO#m]urt sometimes
 But it''s the [SI]only thing that I know[LA]
 When it gets h[MI]ard, you know it can get h[DO#m]ard sometimes
@@ -368,7 +368,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SI');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Shape of You', 'Ed Sheeran', 'ENG', '[DO#m]  [FA#m7]  [LA]  [SI]
+('Shape of You', 'Ed Sheeran', 'en', '[DO#m]  [FA#m7]  [LA]  [SI]
 [DO#m]  [FA#m7]  [LA]  [SI]
 The [DO#m]club isn''t the best [FA#m7]place to find a lover
 So the [LA]bar is where I g[SI]o
@@ -477,7 +477,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SI');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Thinking Out Loud', 'Ed Sheeran', 'ENG', '[RE] When your [RE]legs don''t work like they [SOL]used to before[LA]
+('Thinking Out Loud', 'Ed Sheeran', 'en', '[RE] When your [RE]legs don''t work like they [SOL]used to before[LA]
 [RE] And I [RE]can''t sweep you off of your [SOL]feet  [LA]
 [RE] Will[RE] your mouth still remember the [SOL]taste of my love[LA]?
 [RE]  Wil[RE]l your eyes still smile [SOL]from your cheeks[LA]?

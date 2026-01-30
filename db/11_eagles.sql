@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Hotel California', 'Eagles', 'ENG', '[SIm]  On a dark desert highway
+('Hotel California', 'Eagles', 'en', '[SIm]  On a dark desert highway
 [FA#]  cool wind in my hair
 [LA]  Warm smell of colitas
 [MI]  rising up through the air
@@ -83,7 +83,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Take It Easy', 'Eagles', 'ENG', '[SOL]      [DO]  [RE]
+('Take It Easy', 'Eagles', 'en', '[SOL]      [DO]  [RE]
 [SOL]      [DO]  [RE]   [SOL]
 Well, I''m a-[SOL]running down the road
 Tryin'' to loosen my load
@@ -144,7 +144,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('I Can’t Tell You Why', 'Eagles', 'ENG', '[SIm]  [LA]  [SIm]  [LA]
+('I Can’t Tell You Why', 'Eagles', 'en', '[SIm]  [LA]  [SIm]  [LA]
 [SIm]  [LA]  [SIm]  [FA#m7]
 [RE7+]Look at us baby, up all night
 [SOL7+]Tearing our love apart
@@ -189,7 +189,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Life in the Fast Lane', 'Eagles', 'ENG', '[MI5]
+('Life in the Fast Lane', 'Eagles', 'en', '[MI5]
 He was a [MI5]hard-headed man, he was brutally handsome
 And she was terminally pretty
 She held him up and he held her for ransom
@@ -257,7 +257,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SI');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Tequila Sunrise', 'Eagles', 'ENG', '[SOL] [SOL6] [SOL] [SOL6]
+('Tequila Sunrise', 'Eagles', 'en', '[SOL] [SOL6] [SOL] [SOL6]
 [SOL] [SOL6] [SOL] [SOL6]
 [LAm]  [RE]  [SOL]
 [SOL] It''s another tequila sunrise

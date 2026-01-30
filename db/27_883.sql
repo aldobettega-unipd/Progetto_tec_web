@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Ci Sono Anch’io', '883', 'ITA', '[LA]  [REadd9]  [LA]  [REadd9]
+('Ci Sono Anch’io', '883', 'it', '[LA]  [REadd9]  [LA]  [REadd9]
 [LA]  [REadd9]  [LA]  [REadd9]
 [LA]Io di ri[REadd9]sposte non ne [LA]ho mai a[REadd9]vute e mai ne a[LA]vrò
 Di do[REadd9]mande ne ho [SIm7]quante ne [REadd9]vuoi
@@ -48,7 +48,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SIm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Come Mai', '883', 'ITA', '[FA]   [DO]   [SIb]   [FA]
+('Come Mai', '883', 'it', '[FA]   [DO]   [SIb]   [FA]
 [SIb]  [FA]   [DO]    [FA]
 Le [FA]notti non fi[REm]niscono, all''[SIb]alba nella [DO]via
 le [FA]porto a casa in[REm]sieme a me, ne [SIb]faccio melo[DO]dia
@@ -109,7 +109,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Gli Anni', '883', 'ITA', '[SOL]
+('Gli Anni', '883', 'it', '[SOL]
 [MIm]  Stessa s[DO]toria, stesso [SOL]posto, stesso [RE]bar
 [MIm]  stessa [DO]gente che vien [SOL]dentro, con[RE]suma e poi [MIm]va
 non lo [DO]so,  [RE]   che faccio [SOL]qui
@@ -166,7 +166,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Hanno Ucciso L’Uomo Ragno', '883', 'ITA', '[LAm]Solita notte da [FA]lupi nel Bronx
+('Hanno Ucciso L’Uomo Ragno', '883', 'it', '[LAm]Solita notte da [FA]lupi nel Bronx
 [SOL]nel locale stan suonando un [RE]blues degli Stones
 [LAm]loschi individui al ban[FA]cone del bar
 [SOL]pieni di whisky e [DO]mar - [SOL]ga - [LAm]ri - [SOL]das
@@ -231,7 +231,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Nessun Rimpianto', '883', 'ITA', '[DO]  [FA]  [LAm]  [SOL]  [DO]  [FA]  [LAm]  [SOL]  [FA]
+('Nessun Rimpianto', '883', 'it', '[DO]  [FA]  [LAm]  [SOL]  [DO]  [FA]  [LAm]  [SOL]  [FA]
 [DO]  Tutti mi diceva[FA]no ve[SOL]drai [FA]
 [DO]  è successo  a tutti [FA]però [SOL]poi   [MIm]
 [LAm]  ti alzi un gior[SOL]no e non [FA]ci pensi più[SOL]
@@ -279,7 +279,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Nord Sud Ovest Est', '883', 'ITA', '[SOL]   [DO] [RE]   [DO] [MIm]  [RE]  [DO]   [RE]
+('Nord Sud Ovest Est', '883', 'it', '[SOL]   [DO] [RE]   [DO] [MIm]  [RE]  [DO]   [RE]
 [SOL]  Ma perché sei an[DO]data vi[RE]a,
 mi son persa [DO]nella not[SOL]te
 perché non mi hai [DO]detto [RE]che

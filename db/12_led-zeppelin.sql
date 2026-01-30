@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Stairway To Heaven', 'Led Zeppelin', 'ENG', '
+('Stairway To Heaven', 'Led Zeppelin', 'en', '
 There''s a [LAm]lady who''s [MI]sure all that [DO]glitters is [RE]gold
 And she''s [FA7+]buying a stairway to [SOL]heav[LAm]en
 When she gets there she [MI]knows, if the [DO]stars are all [RE]close
@@ -78,7 +78,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Black Dog', 'Led Zeppelin', 'ENG', '
+('Black Dog', 'Led Zeppelin', 'en', '
 [LA5]Hey, hey mama, said the way you move,
 Gonna make you sweat, gonna make you groove
 

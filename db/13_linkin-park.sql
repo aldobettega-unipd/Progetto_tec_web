@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('In The End', 'Linkin Park', 'ENG', '[MIbm]  [REb]  [SI7+]  [REb]
+('In The End', 'Linkin Park', 'en', '[MIbm]  [REb]  [SI7+]  [REb]
 [MIbm]  [REb]  [SI7+]  [REb]
 It starts with [MIbm]One thing I don''t know why
 It [REb]doesn''t even matter how hard you try
@@ -80,7 +80,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLb');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Numb', 'Linkin Park', 'ENG', '
+('Numb', 'Linkin Park', 'en', '
 [FA#m]  [RE]  [LA]  [MI]   [FA#m]  [RE]  [LA]  [MI]
 [FA#m] I''m tired o[RE]f being what you want me to be
 [LA]Feeling so fai[MI]thless lost under the surface

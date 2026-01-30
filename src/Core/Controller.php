@@ -32,7 +32,8 @@ abstract class Controller {
                 'LINKS_FOOTER' => Auth::getFooterLinks(),
                 'TITOLO_PAGINA' => $this->page_title,
                 'DESCRIZIONE_PAGINA' => $this->page_description,
-                'BREADCRUMB' => BreadcrumbHelper::render()
+                'BREADCRUMB' => BreadcrumbHelper::render(),
+                'UTENTE_LOGGATO' => Auth::isLogged() ? "true" : "false"
                 ];
 
                 $layout_file = new Template("layouts/{$layout}");

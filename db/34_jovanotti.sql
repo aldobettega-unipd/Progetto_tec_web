@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('A Te', 'Jovanotti', 'ITA', '[LA]  [MI]  [FA#m7]  [LA]  [RE]  [LA]  [SIm7]  [MI7]
+('A Te', 'Jovanotti', 'it', '[LA]  [MI]  [FA#m7]  [LA]  [RE]  [LA]  [SIm7]  [MI7]
 [LA]   A te che sei l''unica al [MI]mondo l''unica ragione
 [FA#m7]   per arrivare fino in fond[LA]o ad ogni mio respiro
 [RE]   Quando ti guardo Dopo un [LA]giorno pieno di parole
@@ -47,7 +47,7 @@ Sostanza dei sogni[DOm7] miei [SIb] Sostanza dei giorn[FA]i miei [SOL]
 [FA]   A te che hai reso la mia [DO]vita Bella da morire
 [RE7]   Che riesci a render la fa[SOL]tica Un immenso piacere
 [DO]   A te che sei il mio grande a[SOL]more Ed il mio amore grande
-[LAm7]   A te che hai preso la mia v[DO]ita E ne hai fatto molto di più
+[LAm7]   A te che hai preso la mia v[DO]it E ne hai fatto molto di più
 [FA]   A te che hai dato senso al [DO]tempo Senza misurarlo
 [RE7]   A te che sei il mio amore [SOL]grande Ed il mio grande amore
 
@@ -76,7 +76,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Chiaro di Luna', 'Jovanotti', 'ITA', '[RE]  [FA#]  [SOL]  [LA]
+('Chiaro di Luna', 'Jovanotti', 'it', '[RE]  [FA#]  [SOL]  [LA]
 Hey, hey, hey, hey, he[RE]y
 Proverò a pensarti mentre mi sorr[FA#]idi
 La capacità che hai di rasseren[SOL]are
@@ -150,7 +150,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Fango', 'Jovanotti', 'ITA', '[SI]  [SOL#m7]  [FA#]  [MI]
+('Fango', 'Jovanotti', 'it', '[SI]  [SOL#m7]  [FA#]  [MI]
 Io lo [SI]so che non sono solo
 anche quando sono solo
 [SOL#m7]io lo so che non sono solo
@@ -236,7 +236,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL#m');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Gli Immortali', 'Jovanotti', 'ITA', '[LAm]  [FA]  [DO]  [SOL]
+('Gli Immortali', 'Jovanotti', 'it', '[LAm]  [FA]  [DO]  [SOL]
 [LAm]  Sotto la curva del c[FA]ielo
 [DO]  in un applauso di s[SOL]telle
 [LAm]  ho salutato la mia [FA]gioventù
@@ -321,7 +321,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('L’Estate Addosso', 'Jovanotti', 'ITA', '[MI]  [DO#m] [MI]   [SI] [DO#m]   [SI] [DO#m]
+('L’Estate Addosso', 'Jovanotti', 'it', '[MI]  [DO#m] [MI]   [SI] [DO#m]   [SI] [DO#m]
 [SI] [LA]   [DO#m] [LA]   [DO#m] [MI]   [DO#m] [MI]   [DO#m]
 [MI] L''estate addosso
 [DO#m]  un [MI]anno è già passato  [SI]
@@ -393,7 +393,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SI');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Mezzogiorno', 'Jovanotti', 'ITA', '[LA]  [RE]  [LA]  [RE]
+('Mezzogiorno', 'Jovanotti', 'it', '[LA]  [RE]  [LA]  [RE]
 Ca[LA]selli d''autostrada tutto il tempo si consuma
 ma [RE]Venere riappare sempre fresca dalla schiuma
 la [LA]foto della scuola non mi assomiglia più
@@ -460,7 +460,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL#m');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Mi Fido Di Te', 'Jovanotti', 'ITA', '[LAm]  [FA]  [DO]  [SOL]  [LAm]  [FA]  [DO]  [SOL]
+('Mi Fido Di Te', 'Jovanotti', 'it', '[LAm]  [FA]  [DO]  [SOL]  [LAm]  [FA]  [DO]  [SOL]
 [LAm]Case di pane, riunioni di rane
 [FA]vecchie che ballano nelle cadillac
 [DO]muscoli d''oro, corone d''alloro

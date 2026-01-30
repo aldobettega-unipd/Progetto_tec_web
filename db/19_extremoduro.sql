@@ -6,7 +6,7 @@ INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzo
 (
         "Dulce Introducción al Caos",
         "Extremoduro",
-        "SPA",
+        'es',
         "
 [SOL]Como quieres qu[RE]e escriba una can[DO]ción  [RE]
 [SOL]si a tu lado no[RE] hay reivindicaci[DO]ón.   [RE]
@@ -79,7 +79,7 @@ INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzo
 (
         "La Vereda De La Puerta De Atras",
         "Extremoduro",
-        "SPA",
+        'es',
         "
 Si no[LAm] fuera
 [SOL]porque hic[FA]e colocado

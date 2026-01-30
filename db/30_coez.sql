@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Domenica', 'Coez', 'ITA', '[FA]   [REm]   [SIb] [DO7] [REm]
+('Domenica', 'Coez', 'it', '[FA]   [REm]   [SIb] [DO7] [REm]
 Vorrei fosse [FA]domenica
 Andare in bici senza mani
 Una risata is[REm]terica
@@ -77,7 +77,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('È Sempre Bello', 'Coez', 'ITA', '[LAb]  [DOm7]  [FAm7]  [REb]
+('È Sempre Bello', 'Coez', 'it', '[LAb]  [DOm7]  [FAm7]  [REb]
 È quasi sempre [LAb]bello se dal buio arriva il giorno
 È bello se le [DOm7]nuvole sono solo un contorno
 A volte è bello a[FAm]vere diciott''anni
@@ -133,7 +133,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'REb');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('E Yo Mamma', 'Coez', 'ITA', '[FA]  [FA7+]  [FA6]
+('E Yo Mamma', 'Coez', 'it', '[FA]  [FA7+]  [FA6]
 Questa va per [FA]te che hai lottato per [DO]me
 C''è chi ha due geni[REm7]tori, ma tu vali per tre
 Per tutte le [FA]volte che ho perso la [DO]calma
@@ -199,7 +199,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'REm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Faccio un Casino', 'Coez', 'ITA', '[SOL]  [SI7]  [DO]  [MIm] [DO]  [SOL]
+('Faccio un Casino', 'Coez', 'it', '[SOL]  [SI7]  [DO]  [MIm] [DO]  [SOL]
 Ho scritto ti [SI7]amo sulla sabb[DO]ia, no
 Posso [MIm]fare di [DO]meglio [SOL]
 Strappo lo [SI7]scalpo di quest''alb[DO]a
@@ -267,7 +267,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('La Musica Non C’è', 'Coez', 'ITA', '[LAm]  [SOL]  [FA]  [DO]  [MIm]
+('La Musica Non C’è', 'Coez', 'it', '[LAm]  [SOL]  [FA]  [DO]  [MIm]
 
 [LAm]Volevo dirti [SOL]tante cose
 ma non so da do[FA]ve iniz[DO]iare
@@ -330,7 +330,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('La Tua Canzone', 'Coez', 'ITA', '[REb]  [SOLb]  [SIbm]  [LAb]
+('La Tua Canzone', 'Coez', 'it', '[REb]  [SOLb]  [SIbm]  [LAb]
 [REb]  [SOLb]  [SIbm]  [LAb]
 [REb]  Amare t[SOLb]e è faci[SIbm]le
 Come o[LAb]diare la poli[REb]zia

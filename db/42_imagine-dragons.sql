@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Bad Liar', 'Imagine Dragons', 'ENG', '[MIbadd9]
+('Bad Liar', 'Imagine Dragons', 'en', '[MIbadd9]
 Oh, [MIb]hush, my dear, it''s been a difficult year
 And [DOm7]terrors don''t prey on innocent victims
 [LAb] Trust me, darlin''[SIb], trust me, darlin'' [MIb]
@@ -63,7 +63,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Believer', 'Imagine Dragons', 'ENG', '[SIbm]First things first
+('Believer', 'Imagine Dragons', 'en', '[SIbm]First things first
 I''mma say all the words inside my [SOLb]head
 I''m fired up and [FA7]tired of
 the way that things have [SIbm]been, oh ooh
@@ -150,7 +150,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLb');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Enemy', 'Imagine Dragons', 'ENG', '[SOL]      [FA#]
+('Enemy', 'Imagine Dragons', 'en', '[SOL]      [FA#]
 
 I [SOL]wake up to the sounds of the silence that allows
 For my [FA#]mind to run around
@@ -232,7 +232,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Monster', 'Imagine Dragons', 'ENG', '[FAm]   [MIb]
+('Monster', 'Imagine Dragons', 'en', '[FAm]   [MIb]
 [FAm] Ever since [LAb]I could remembe[MIb]r
 Every[SIb]thing inside of [FAm]me
 Just [LAb]wanted to fit [MIb]in (oh, [SIb]oh, oh, [FAm]oh)

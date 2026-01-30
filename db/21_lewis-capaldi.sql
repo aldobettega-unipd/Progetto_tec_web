@@ -4,7 +4,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Before You Go', 'Lewis Capaldi', 'ENG', '[MIb] I fell by the wayside like everyone e[DOm]lse
+('Before You Go', 'Lewis Capaldi', 'en', '[MIb] I fell by the wayside like everyone e[DOm]lse
 I hate you, I hate you,
 I hate you but I was just kidding mysel[LAb]f
 Our every moment, I start to repla[SIb4]ce
@@ -65,7 +65,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SIb');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Someone You Loved', 'Lewis Capaldi', 'ENG', '[REb]  [LAb]  [SIbm]  [SOLb]
+('Someone You Loved', 'Lewis Capaldi', 'en', '[REb]  [LAb]  [SIbm]  [SOLb]
 
 [REb] I''m going under and this [LAb]time
 I fear there''s no one to [SIbm]save me [SOLb]

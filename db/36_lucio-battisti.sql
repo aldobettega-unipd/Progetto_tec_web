@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Acqua Azzurra Acqua Chiara', 'Lucio Battisti', 'ITA', '[RE]  [LA]  [SOL]  [FA#] [SOL] [LA]
+('Acqua Azzurra Acqua Chiara', 'Lucio Battisti', 'it', '[RE]  [LA]  [SOL]  [FA#] [SOL] [LA]
 [RE]  [LA]  [SOL]  [LA]  [SOL]  [LA]
 Ogni notte ritor[LA]nar per cercarla in qualche [MI]bar
 domandare ciao che [SIm]fai e poi u[MI]scire insieme a [LA]lei
@@ -56,7 +56,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL#m');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Dieci Ragazze', 'Lucio Battisti', 'ITA', '[LAm]  Ho visto un uomo che moriva per amore,
+('Dieci Ragazze', 'Lucio Battisti', 'it', '[LAm]  Ho visto un uomo che moriva per amore,
 ne ho visto un altro che più lacrime [FA]non ha
 Nessun col[LAm]tello mai ti può fe[FA]rir di più
 di un grande amore che ti stringe il c[MI]uor
@@ -126,7 +126,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLb');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('I Giardini di Marzo', 'Lucio Battisti', 'ITA', '[SOL#m] [RE#m7] [MI7+]    [SOL#m] [RE#m7] [MI7+]
+('I Giardini di Marzo', 'Lucio Battisti', 'it', '[SOL#m] [RE#m7] [MI7+]    [SOL#m] [RE#m7] [MI7+]
 Il car[SOL#m]retto passava e quell''[RE#m]uomo
 gridava ”[MI7+]gelati”
 al ven[SOL#m]tuno del mese i nostri [RE#m]soldi
@@ -196,7 +196,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL#m');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Il Mio Canto Libero', 'Lucio Battisti', 'ITA', '[LA]  [DO#m]  [RE]  [LA]
+('Il Mio Canto Libero', 'Lucio Battisti', 'it', '[LA]  [DO#m]  [RE]  [LA]
 In un mondo [LA]che non ci vuole [DO#m]più
 il mio canto [RE7+]libero sei [LA]tu
 e l''immensità si apre intorno a [DO#m]noi
@@ -257,7 +257,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Il Tempo di Morire', 'Lucio Battisti', 'ITA', '
+('Il Tempo di Morire', 'Lucio Battisti', 'it', '
 (continua come Intro)
 Motoci[DO]cletta, [FA]   [DO]
 dieci H. [DO]P.   [FA]   [DO]
@@ -334,7 +334,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('La Collina dei Ciliegi', 'Lucio Battisti', 'ITA', 'E se dav[DO]vero tu vuoi vivere
+('La Collina dei Ciliegi', 'Lucio Battisti', 'it', 'E se dav[DO]vero tu vuoi vivere
 una vita luminosa e più frag[MI7]rante
 can[FA]cella col coraggio quella [SOL]supplica dagli occhi[DO]
 troppo spesso la saggezza è solamente
@@ -390,7 +390,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('La Canzone del Sole', 'Lucio Battisti', 'ITA', '[LA] [MI] [RE] [MI]
+('La Canzone del Sole', 'Lucio Battisti', 'it', '[LA] [MI] [RE] [MI]
 [LA] [MI] [RE] [MI]
 [LA]   Le bionde [MI]trecce gli occhi az[RE]zurri e poi [MI]
 [LA]   le tue cal[MI]zette rosse [RE]      [MI]
@@ -455,7 +455,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'RE');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Un’Avventura', 'Lucio Battisti', 'ITA', '[LAb]  [REb]  [LAb] [MIb]
+('Un’Avventura', 'Lucio Battisti', 'it', '[LAb]  [REb]  [LAb] [MIb]
 [LAb]  [REb]  [MIb]
 Non sa[LAb]rà
 Un''avventura

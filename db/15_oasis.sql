@@ -4,7 +4,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Don’t Look Back In Anger', 'Oasis', 'ENG', '[DO]  [FA]  [DO]  [FA]
+('Don’t Look Back In Anger', 'Oasis', 'en', '[DO]  [FA]  [DO]  [FA]
 
 [DO]Slip inside the [SOL]eye of your [LAm]mind
 Don''t you [MI]know you might [FA]find
@@ -76,7 +76,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Live Forever', 'Oasis', 'ENG', '[SOL]Maybe I don''t [RE]really wanna know
+('Live Forever', 'Oasis', 'en', '[SOL]Maybe I don''t [RE]really wanna know
 How your [LAm7]garden grows
 ''Cause [DO]I just wanna [RE]fly
 [SOL]Lately did you [RE]ever feel the pain
@@ -137,7 +137,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Supersonic', 'Oasis', 'ENG', 'I need to [FA#m7]be myself   [LA]    [SI]
+('Supersonic', 'Oasis', 'en', 'I need to [FA#m7]be myself   [LA]    [SI]
 I can''t be [FA#m7]no one else  [LA]    [SI]
 I''m f[FA#m7]eeling supersonic, [LA]Give me gin and [SI]tonic
 [FA#m7]You can have it all but h[LA]ow much do you w[SI]ant it?
@@ -191,7 +191,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SI');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Wonderwall', 'Oasis', 'ENG', '[MIm7]  [SOL]  [RE4]  [LA7]
+('Wonderwall', 'Oasis', 'en', '[MIm7]  [SOL]  [RE4]  [LA7]
 [MIm7]  [SOL]  [RE4]  [LA7]
 [MIm7]  Today is [SOL]gonna be the day
 That they''re [RE4]gonna throw it back to [LA7]you,

@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Balliamo Sul Mondo', 'Luciano Ligabue', 'ITA', '[RE]  [SOL]  [DO]  [LAm]
+('Balliamo Sul Mondo', 'Luciano Ligabue', 'it', '[RE]  [SOL]  [DO]  [LAm]
 Siamo [RE]della stessa [SOL]pasta bionda [DO]non la bevo [LAm]sai
 Ce l''hai [RE]scritto che la [SOL]vita non ti [DO]viene come [LAm]vuoi
 Ma è la tua [RE]e per me è spe[SOL]ciale e se ti [DO]può bastare [LAm]sai
@@ -54,7 +54,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Certe Notti', 'Luciano Ligabue', 'ITA', 'Certe [MI]notti la macchina è [LA]calda
+('Certe Notti', 'Luciano Ligabue', 'it', 'Certe [MI]notti la macchina è [LA]calda
 e dove ti [SI]porta lo [LA]decide [MI]lei
 Certe [DO#m]notti la strada non [LA]conta
 che quello che [SI]conta è sentire che vai
@@ -125,7 +125,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL#m');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Non è Tempo Per Noi', 'Luciano Ligabue', 'ITA', '[DO]Ci han concesso solo una [RE]vita
+('Non è Tempo Per Noi', 'Luciano Ligabue', 'it', '[DO]Ci han concesso solo una [RE]vita
 Soddisfatti o [SOL]no qua non rimb[RE]orsano  [MIm]mai
 E [DO]calendari a chiederci [RE]se
 stiamo prendendo abbas[SOL]tanza [RE]    abbas[MIm]tanza
@@ -178,7 +178,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Piccola Stella Senza Cielo', 'Luciano Ligabue', 'ITA', '[SIm7]  [SOL7+]  [RE]
+('Piccola Stella Senza Cielo', 'Luciano Ligabue', 'it', '[SIm7]  [SOL7+]  [RE]
 [LA] [SOL]
 [SIm]  Cosa ci f[SOL7+]ai
 In [RE]mezzo a tutta
@@ -223,7 +223,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Questa È la Mia Vita', 'Luciano Ligabue', 'ITA', '[MIm]  [RE4] [RE]  [DO]
+('Questa È la Mia Vita', 'Luciano Ligabue', 'it', '[MIm]  [RE4] [RE]  [DO]
 [SOL]  [DO] [DO7+]  [MIm]  [RE4] [RE]  [RE4] [RE]
 [SOL]Questa è la mia vita
 Se ho bisogno te lo dico
@@ -282,7 +282,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Urlando Contro il Cielo', 'Luciano Ligabue', 'ITA', '[LA]  [LA]  [RE]  [MI]
+('Urlando Contro il Cielo', 'Luciano Ligabue', 'it', '[LA]  [LA]  [RE]  [MI]
 [LA]  [LA]  [RE]  [MI]
 [RE]  [MI]
 [LA]come vedi sono qua:

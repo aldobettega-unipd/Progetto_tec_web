@@ -3,7 +3,7 @@ SET NAMES 'utf8mb4';
 
 -- 2. Inserimento Canzoni e Accordi Semplificati
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Buon Viaggio', 'Cesare Cremonini', 'ITA', '[FA]  [FA7+]  [FA]  [FA7+]  [FA7] [SIb] [SIbm] [DO7]
+('Buon Viaggio', 'Cesare Cremonini', 'it', '[FA]  [FA7+]  [FA]  [FA7+]  [FA7] [SIb] [SIbm] [DO7]
 Buon v[FA]iaggio
 Che sia un''an[FA7+]data o un ri[FA]torno
 Che sia una [FA7+]vita o solo un g[SIb]iorno
@@ -78,7 +78,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SIbm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('La Nuova Stella di Broadway', 'Cesare Cremonini', 'ITA', '[SIm7]  [SOLadd9]  [RE]  [RE7+]
+('La Nuova Stella di Broadway', 'Cesare Cremonini', 'it', '[SIm7]  [SOLadd9]  [RE]  [RE7+]
 [SIm7]  [SOLadd9]  [RE]  [REadd9]
 Lui era un [SIm7]businessman con un''i[SOL]dea in testa
 [RE]Lei ballerina di [REadd9]jazz     [RE7+]
@@ -154,7 +154,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Logico #1', 'Cesare Cremonini', 'ITA', '[LAb] [SOLm] [DOm]  [MIb] [MIb]  [LAb]
+('Logico #1', 'Cesare Cremonini', 'it', '[LAb] [SOLm] [DOm]  [MIb] [MIb]  [LAb]
 [LAb] [SOLm] [DOm]  [MIb] [MIb]  [LAb]
 [LAb] [SOLm] [DOm]  [MIb] [MIb]  [LAb]
 [LAb] [SOLm] [DOm]  [MIb] [MIb]  [LAb]
@@ -213,7 +213,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOLm');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Poetica', 'Cesare Cremonini', 'ITA', '[LAm]  [FA7+]  [DO6]  [MI7]
+('Poetica', 'Cesare Cremonini', 'it', '[LAm]  [FA7+]  [DO6]  [MI7]
 [LAm]  [FA7+]  [DO6]  [MI7]
 [LAm]Anche quando poi saremo s[FA6]tanchi
 troveremo il modo [DO]per

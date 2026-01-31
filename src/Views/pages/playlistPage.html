@@ -1,84 +1,30 @@
 <section class="listaCanzoniInPlaylist">
+  
   <div class="section-header">
     <h2>##NOME_PLAYLIST##</h2>
     <p>##DESCRIZIONE_PLAYLIST##</p>
-    <button id="open-search-modal" data-playlist-id="##ID_PLAYLIST##">
-      Aggiungi Canzone
+    
+    <button id="open-search-modal" class="btn-add-song" data-playlist-id="##ID_PLAYLIST##">
+      + Aggiungi Canzone
     </button>
-
-    <div id="search-modal" style="display: none;">
-      <div class="modal-content">
-        <button id="close-search-modal">Chiudi</button>
-
-        <input type="text" id="search-input" placeholder="Cerca...">
-
-        <ul id="search-results">
-        </ul>
-      </div>
-    </div>
-
   </div>
+
   <div class="content-grid">
     ##LISTA_CANZONI##
   </div>
+
+  <div id="search-modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Cerca una canzone</h3>
+        <button id="close-search-modal" class="btn-close">×</button>
+      </div>
+
+      <input type="text" id="search-input" placeholder="Scrivi titolo o artista...">
+
+      <ul id="search-results">
+        </ul>
+    </div>
+  </div>
+
 </section>
-
-<!--STILE DI PROVA DA RIFARE E METTERE NEL CSS-->
-<style>
-    /* 1. Forza la lista in verticale */
-    .content-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 10px;
-        width: 100%;
-        max-width: 800px; /* Evita che si allarghi troppo */
-        margin: 0 auto;   /* Centra la lista */
-    }
-
-    /* 2. Nascondi il menu di default */
-    .dropdown-content {
-        display: none !important; /* FONDAMENTALE */
-        position: absolute;
-        right: 40px;
-        top: 10px;
-        background-color: white;
-        border: 1px solid #ccc;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        z-index: 1000;
-        min-width: 150px;
-        border-radius: 4px;
-    }
-
-    /* 3. Mostra il menu solo quando ha la classe 'show' */
-    .dropdown-content.show {
-        display: block !important;
-    }
-
-    /* 4. Stile della riga canzone */
-    .song-list-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px;
-        background: rgba(255, 255, 255, 0.8); /* Leggermente trasparente */
-        border-bottom: 1px solid #ddd;
-        position: relative;
-    }
-
-    /* Bottone tre puntini */
-    .kebab-btn {
-        background: none;
-        border: none;
-        font-size: 24px;
-        cursor: pointer;
-        padding: 0 10px;
-    }
-    
-    .dropdown-item {
-        padding: 10px;
-        cursor: pointer;
-        color: red;
-    }
-    .dropdown-item:hover { background: #f0f0f0; }
-</style>
-

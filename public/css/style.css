@@ -1029,21 +1029,21 @@ PROFILO PAGE
 
 #############################################################*/
 
-/* 1. Contenitore Principale Fluid & Responsive */
+/* 1. LAYOUT PRINCIPALE */
 .profilo-container {
   width: 90%;
-  max-width: 1200px; /* Limite massimo per schermi giganti */
+  max-width: 1200px;
   display: flex;
-  gap: 3rem;         /* Più aria tra sidebar e contenuto */
+  gap: 3rem;
   margin: 3rem auto;
   padding: 0 1rem;
-  align-items: flex-start; /* Fondamentale per far funzionare lo sticky */
+  align-items: flex-start;
 }
 
-/* 2. Sidebar Sinistra (Dati Utente) */
+/* 2. SIDEBAR SINISTRA (Sticky) */
 .dati-profilo {
   position: sticky;
-  top: 6rem; /* Scende un po' sotto l'header */
+  top: 6rem;
   width: 300px;
   flex-shrink: 0;
   
@@ -1065,23 +1065,19 @@ PROFILO PAGE
   font-weight: 700;
   font-size: 1.8rem;
   margin: 0;
-  color: var(--main-text); /* Corretto da --text-color */
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: center;
+  color: var(--main-text);
+  word-break: break-word; /* Evita che nomi lunghi rompano il layout */
 }
 
-/* --- FIX FOTO PROFILO (Il problema del quadrato) --- */
-/* Il bottone che avvolge l'immagine */
+/* FOTO PROFILO ROTONDA */
 #btn-open-modal {
   background: transparent;
   border: none;
   padding: 0;
-  border-radius: 50%; /* Forza la forma rotonda al contenitore */
+  border-radius: 50%;
   cursor: pointer;
   transition: transform 0.3s ease;
-  display: block; /* Rimuove spazi indesiderati inline */
+  display: block;
 }
 
 #btn-open-modal:hover {
@@ -1093,34 +1089,18 @@ PROFILO PAGE
   outline-offset: 4px;
 }
 
-/* L'immagine vera e propria */
 .dati-profilo img {
   display: block;
   width: 160px;
   height: 160px;
   object-fit: cover;
   border-radius: 50%;
-  
-  /* Stili estetici */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  border: 5px solid var(--header-bg); /* Corretto da --header-background */
-  pointer-events: none; /* Il click lo prende il bottone */
+  border: 5px solid var(--header-bg);
+  pointer-events: none;
 }
 
-/* Bottone Modifica Nome (Matita) */
-.btn-edit-username {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.2rem;
-  opacity: 0.6;
-  transition: opacity 0.2s;
-}
-.btn-edit-username:hover {
-  opacity: 1;
-}
-
-/* 3. Menu Navigazione (Tab) */
+/* 3. MENU DI NAVIGAZIONE */
 .profilo-menu {
   width: 100%;
   display: flex;
@@ -1137,10 +1117,9 @@ PROFILO PAGE
   padding: 1rem 1.2rem;
   
   background-color: transparent;
-  color: var(--main-text); /* Corretto */
+  color: var(--main-text);
   border: 2px solid transparent;
   border-radius: 12px;
-  
   font-size: 1rem;
   font-weight: 600;
   font-family: inherit;
@@ -1148,35 +1127,33 @@ PROFILO PAGE
   transition: all 0.2s ease;
 }
 
-.menu-btn span {
-  font-size: 1.3rem;
-}
+.menu-btn span { font-size: 1.3rem; }
 
 .menu-btn:hover {
-  background-color: rgba(0,0,0,0.05); /* Generico hover leggero */
+  background-color: rgba(0,0,0,0.05);
   border-color: var(--wood-accent);
 }
 
 .menu-btn.active {
-  background-color: var(--header-bg); /* Sfondo scuro attivo */
-  color: var(--main-bg); /* Testo chiaro */
+  background-color: var(--header-bg);
+  color: var(--main-bg); /* Testo chiaro su sfondo scuro */
   border-color: var(--header-bg);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* 4. Contenuto Destro (Playlist/Likes) */
+/* 4. CONTENUTO DESTRO */
 .profilo-content {
   flex: 1;
-  min-width: 0; /* Evita che la grid rompa il layout */
+  min-width: 0; 
 }
 
 .sezione-lista {
-  display: none; /* Nascosto di default */
+  display: none;
   animation: slideInUp 0.4s ease;
 }
 
 .sezione-lista.active {
-  display: block; /* Visibile se attivo */
+  display: block;
 }
 
 @keyframes slideInUp {
@@ -1190,7 +1167,7 @@ PROFILO PAGE
   align-items: center;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 2px solid var(--wood-accent); /* Più elegante del nero */
+  border-bottom: 2px solid var(--wood-accent);
 }
 
 .section-header h2 {
@@ -1201,15 +1178,20 @@ PROFILO PAGE
 
 .btn-crea {
   background-color: var(--wood-accent);
-  color: var(--layout-text-color-accent);
+  color: #fff; 
   border: none;
-  border-radius: 50px; /* Pillola */
+  border-radius: 50px;
   padding: 0.8em 1.5em;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  
+  display: inline-block; /* Fondamentale se usi un tag <a> */
+  text-align: center;    /* Centra il testo */
+  text-decoration: none; /* Rimuove la sottolineatura se è un link */
+  line-height: normal;   /* Evita schiacciamenti del testo */
 }
 
 .btn-crea:hover {
@@ -1217,39 +1199,111 @@ PROFILO PAGE
   transform: translateY(-2px);
 }
 
-/* 5. Griglia Cards */
+/* 5. GESTIONE LAYOUT GRIGLIA vs LISTA */
+
+/* Default: Griglia (per i Mi Piace) */
 .content-grid {
-  display: grid !important; /* Forza grid qui */
+  display: grid; 
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1.5rem;
 }
 
-/* Messaggio se vuoto */
-.content-grid > p {
-  grid-column: 1 / -1;
-  text-align: center;
-  color: var(--main-text);
-  opacity: 0.6;
-  font-size: 1.2rem;
-  padding: 3rem 0;
+/* OVERRIDE: Lista Verticale (SOLO per la tab Playlist) */
+/* Usiamo ID + Classe per vincere su qualsiasi !important precedente */
+#le-tue-playlist .content-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px;
 }
 
-/* 6. Modale Avatar */
+/* 6. STILE DELLA RIGA PLAYLIST */
+.playlist-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 100%; /* Occupa tutta la larghezza */
+    box-sizing: border-box; /* Include il padding nella larghezza */
+    
+    background-color: rgba(255, 255, 255, 0.6); /* Sfondo chiaro per contrasto */
+    padding: 1.2rem 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+}
+
+.playlist-row:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-color: var(--wood-accent);
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.playlist-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.playlist-title {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--header-bg); /* Colore scuro per il titolo */
+}
+
+.playlist-meta {
+    font-size: 0.95rem;
+    color: var(--main-text);
+    opacity: 0.7;
+}
+
+.btn-visualizza {
+    background-color: transparent;
+    color: var(--wood-accent);
+    border: 2px solid var(--wood-accent);
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-visualizza:hover {
+    background-color: var(--wood-accent);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* 7. DARK MODE FIXES */
+body.dark-mode .playlist-row {
+    background-color: rgba(30, 30, 36, 0.7);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+body.dark-mode .playlist-row:hover {
+    background-color: rgba(30, 30, 36, 1);
+}
+body.dark-mode .playlist-title {
+    color: #fff;
+}
+body.dark-mode .menu-btn.active {
+    color: #fff; /* Testo bianco su sfondo attivo scuro */
+}
+
+/* 8. MODALE AVATAR */
 .modal-overlay {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     z-index: 10000;
     display: flex;
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(5px);
 }
-
-.modal-overlay.hidden {
-    display: none !important;
-}
+.modal-overlay.hidden { display: none !important; }
 
 .modal-content {
     background: var(--main-bg);
@@ -1276,7 +1330,7 @@ PROFILO PAGE
     height: 70px;
     padding: 0;
     background: transparent;
-    border: 3px solid transparent; /* Bordo invisibile base */
+    border: 3px solid transparent;
     border-radius: 50%;
     cursor: pointer;
     overflow: hidden;
@@ -1296,7 +1350,7 @@ PROFILO PAGE
 }
 
 .avatar-option-btn.selected {
-    border-color: var(--wood-accent); /* Qui si vede la selezione! */
+    border-color: var(--wood-accent);
     transform: scale(1.15);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
@@ -1308,19 +1362,18 @@ PROFILO PAGE
     gap: 1rem;
 }
 
-/* --- MEDIA QUERY PER MOBILE (< 900px) --- */
+/* 9. MEDIA QUERY MOBILE */
 @media (max-width: 900px) {
     .profilo-container {
-        flex-direction: column; /* Impila sidebar e contenuto */
+        flex-direction: column;
         gap: 2rem;
         width: 95%;
     }
 
     .dati-profilo {
         width: 100%;
-        position: static; /* Rimuove lo sticky su mobile */
+        position: static;
         padding: 1.5rem;
-        /* Layout orizzontale su mobile */
         display: grid;
         grid-template-columns: auto 1fr;
         grid-template-areas: 
@@ -1330,7 +1383,6 @@ PROFILO PAGE
         text-align: left;
     }
 
-    /* Riorganizza gli elementi interni col Grid Area */
     #btn-open-modal { grid-area: img; margin: 0 auto; }
     .dati-profilo h2  { grid-area: info; align-self: center; justify-content: flex-start;}
     .profilo-menu     { grid-area: menu; flex-direction: row; overflow-x: auto; padding-bottom: 5px; }
@@ -1340,13 +1392,458 @@ PROFILO PAGE
         justify-content: center;
         white-space: nowrap;
     }
-
-    .section-header h2 {
-        font-size: 1.5rem;
-    }
 }
 
+/* =========================================
+   PAGE CREAZIONE PLAYLIST (Mancante nel tuo codice)
+========================================= */
 
+.playlist-form-container {
+    width: 90%;
+    max-width: 500px;
+    margin: 5rem auto; /* Centra verticalmente e orizzontalmente */
+    
+    background-color: var(--header-bg); /* Sfondo scuro (marrone) */
+    color: var(--layout-text-color);    /* Testo chiaro */
+    
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.playlist-form-container h1 {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: var(--wood-accent); /* Titolo arancione */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left; /* Etichette allineate a sinistra */
+}
+
+.playlist-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.playlist-form input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    color: #333;
+    box-sizing: border-box; 
+    transition: all 0.3s ease;
+}
+
+.playlist-form input[type="text"]:focus {
+    outline: none;
+    border-color: var(--wood-accent);
+    background-color: white;
+    box-shadow: 0 0 10px rgba(227, 147, 77, 0.3);
+}
+
+/* Fix per Dark Mode se necessario */
+body.dark-mode .playlist-form-container {
+    background-color: #1e1e24;
+    border-color: rgba(255,255,255,0.05);
+}
+
+/* =========================================
+   MIGLIORAMENTO UX PLAYLIST ROW
+========================================= */
+
+/* 1. Il Contenitore (La riga bianca) */
+.playlist-row {
+    position: relative; /* FONDAMENTALE: blocca l'espansione del link qui dentro */
+    
+    /* Le altre regole estetiche rimangono uguali... */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: transform 0.2s, background-color 0.2s;
+    
+    /* Aggiungi cursore per far capire che è tutto cliccabile */
+    cursor: pointer;
+}
+
+/* 2. Il Link "Visualizza" (L'area attiva) */
+.btn-visualizza {
+    /* Stile estetico del bottone (rimane uguale) */
+    text-decoration: none;
+    color: var(--wood-accent);
+    border: 2px solid var(--wood-accent);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all 0.2s;
+    
+    /* TRUCCO UX: Espandiamo il click su tutta la riga */
+}
+
+.btn-visualizza::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Copre tutta la .playlist-row */
+    border-radius: 12px; /* Segue i bordi della card */
+}
+
+/* 3. Hover Effect */
+/* Quando passi sopra LA RIGA (.playlist-row:hover), 
+   illumina il bottone come se lo stessimo premendo */
+.playlist-row:hover .btn-visualizza {
+    background-color: var(--wood-accent);
+    color: white;
+}
+
+/* Mantieni il movimento fluido (senza scrollbars indesiderate) */
+.playlist-row:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+    transform: translateY(-3px); /* Muove in alto invece che a destra */
+    border-color: var(--wood-accent);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ==========================================================================
+   SEZIONE PLAYLIST PAGE (Codice Unificato & Definitivo)
+   ========================================================================== */
+
+/* --- 1. CONTENITORE PRINCIPALE --- */
+.playlist-page-container {
+    width: 90%;
+    max-width: 950px; /* Larghezza controllata per leggibilità */
+    margin: 4rem auto;
+    padding: 0 1rem;
+}
+
+/* --- 2. HEADER DELLA PLAYLIST --- */
+.playlist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--wood-accent);
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.playlist-header-info h1 {
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--main-text);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.playlist-description {
+    font-size: 1.1rem;
+    color: var(--main-text);
+    opacity: 0.8;
+    margin: 0;
+    max-width: 600px;
+}
+
+/* Bottone "+ Aggiungi Canzone" */
+.btn-add-song {
+    background-color: var(--wood-accent);
+    color: #fff; /* Testo bianco */
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.btn-add-song:hover {
+    background-color: var(--highlited-button);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* --- 3. GRIGLIA/LISTA CANZONI --- */
+/* Usiamo un selettore specifico per non rompere altre griglie nel sito */
+.listaCanzoniInPlaylist .content-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Spazio tra le schede */
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* --- 4. SCHEDA CANZONE (Song Card) --- */
+.song-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* FONDAMENTALE per il link espanso */
+    
+    /* Stile "Glassmorphism" */
+    background-color: rgba(255, 255, 255, 0.75); /* Bianco semitrasparente */
+    backdrop-filter: blur(8px); /* Sfocatura sfondo */
+    padding: 1.2rem 1.8rem;
+    border-radius: 16px; /* Angoli arrotondati */
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    cursor: pointer; /* Manina su tutta la card */
+    user-select: none; /* Evita selezione testo indesiderata al click */
+}
+
+/* Effetto Hover sulla scheda */
+.song-list-item:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border-color: var(--wood-accent);
+}
+
+/* INFO CANZONE (Titolo e Artista) */
+.song-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-grow: 1; /* Occupa lo spazio disponibile */
+}
+
+/* LINK ESPANSO (Titolo) */
+.song-title {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--header-bg); /* Marrone scuro */
+    text-decoration: none;
+    letter-spacing: -0.3px;
+}
+
+/* TRUCCO CLICK TOTALE:
+   Espandiamo l'area cliccabile del titolo per coprire tutta la scheda */
+.song-title::after {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    z-index: 1; /* Livello 1: sopra lo sfondo, sotto le azioni */
+}
+
+.song-artist {
+    font-size: 0.95rem;
+    color: #555;
+    font-weight: 500;
+}
+
+/* --- 5. AZIONI (Tasto Rimuovi Diretto) --- */
+.song-actions {
+    position: relative;
+    z-index: 2; /* Livello 2: DEVE stare sopra il link espanso per funzionare */
+    margin-left: 15px;
+}
+
+.btn-remove-song {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    
+    /* Stile Testo */
+    color: #000000; /* Nero come richiesto */
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    
+    /* Allineamento */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+    opacity: 0.5; /* Discreto di default */
+    transition: all 0.2s ease;
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
+.btn-remove-song:hover {
+    opacity: 1;
+    background-color: rgba(0,0,0,0.05); /* Leggero sfondo al passaggio */
+    transform: scale(1.02);
+}
+
+/* Icona SVG */
+.icon-remove {
+    width: 18px; 
+    height: 18px;
+    display: block;
+}
+
+/* --- 6. MODALE DI RICERCA --- */
+#search-modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6); /* Sfondo scuro */
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+/* Nasconde modale se ha style inline o classe hidden */
+#search-modal[style*="display: none"],
+#search-modal.hidden {
+    display: none !important;
+}
+
+#search-modal .modal-content {
+    width: 90%;
+    max-width: 500px;
+    background: var(--main-bg);
+    color: var(--main-text);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.modal-header h3 { margin: 0; }
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 0.5;
+    cursor: pointer;
+    color: var(--main-text);
+    opacity: 0.7;
+}
+.btn-close:hover { opacity: 1; }
+
+#search-input {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 12px;
+    border: 2px solid rgba(0,0,0,0.1);
+    background-color: rgba(255,255,255,0.8);
+    font-size: 1rem;
+    color: #333;
+}
+#search-input:focus {
+    outline: none;
+    border-color: var(--wood-accent);
+    background-color: #fff;
+}
+
+#search-results {
+    list-style: none;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+#search-results li {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- 7. DARK MODE OVERRIDES --- */
+body.dark-mode .song-list-item {
+    background-color: rgba(30, 30, 36, 0.7); /* Scuro semitrasparente */
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .song-list-item:hover {
+    background-color: rgba(30, 30, 36, 1);
+    border-color: var(--wood-accent);
+}
+
+body.dark-mode .song-title { color: #fff; }
+body.dark-mode .song-artist { color: #ccc; }
+
+/* Adatta il bottone Rimuovi al tema scuro */
+body.dark-mode .btn-remove-song {
+    color: #e0e0e0; 
+}
+body.dark-mode .btn-remove-song:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+/* Inverte l'icona nera per farla diventare bianca */
+body.dark-mode .icon-remove {
+    filter: invert(1);
+}
+
+body.dark-mode #search-input {
+    background-color: #1e1e24;
+    color: white;
+    border-color: rgba(255,255,255,0.2);
+}
+
+/* --- 8. MOBILE RESPONSIVE --- */
+@media (max-width: 600px) {
+    .playlist-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .btn-add-song {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .song-list-item {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .song-actions {
+        margin-left: 0;
+        align-self: flex-end; /* Sposta il tasto rimuovi a destra su mobile */
+    }
+    
+    .song-title {
+        font-size: 1rem;
+    }
+}
 
 /* =========================================
     ARTISTA PAGE
@@ -1564,145 +2061,6 @@ body.dark-mode .search-input-wrapper:hover {
   background: rgba(0, 0, 0, 0.1);
   width: 80%;
   margin: 1rem auto;
-}
-
-
-
-
-
-
-
-
-
-/* --- 1. Mette la lista in verticale --- */
-.content-grid {
-    display: flex !important;
-    flex-direction: column !important; /* Forza la colonna verticale */
-    gap: 10px;
-}
-
-/* --- 2. Stile della singola riga --- */
-.song-list-item {
-    display: flex;
-    justify-content: space-between; /* Spinge il menu a destra */
-    align-items: center;
-    padding: 15px;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-    position: relative; /* FONDAMENTALE per posizionare il menu */
-}
-
-/* --- 3. MECCANICA DEL MENU (FONDAMENTALE) --- */
-.dropdown-content {
-    display: none; /* <--- Questo nasconde il menu di default! */
-    position: absolute;
-    right: 40px; /* Lo sposta a sinistra del bottone */
-    top: 10px;
-    background-color: white;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    z-index: 1000;
-    min-width: 150px;
-}
-
-/* Quando il JS aggiunge questa classe, il menu appare */
-.dropdown-content.show {
-    display: block !important;
-}
-
-/* Stile del link elimina */
-.dropdown-item {
-    padding: 10px 15px;
-    cursor: pointer;
-    color: red;
-    font-weight: bold;
-}
-.dropdown-item:hover {
-    background-color: #f0f0f0;
-}
-
-/* Bottone tre puntini */
-.kebab-btn {
-    border: none;
-    background: transparent;
-    font-size: 20px;
-    cursor: pointer;
-    padding: 5px 10px;
-}
-/* =========================================
-    PLAYLIST FORM PAGE
-========================================= */
-
-.playlist-form {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-}
-
-.playlist-form form {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-}
-.playlist-form input {
-  display: flex;
-  align-items: center;
-
-  background-color: var(--header-bg);
-
-  padding: 4px 12px;
-  border-radius: 500px;
-  border: 2px solid transparent;
-
-  margin: 0 auto;
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--layout-text-color);
-
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  outline: none;
-  margin-bottom: 1em;
-}
-
-.playlist-form input:focus-within {
-  border-color: var(--wood-accent);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-  transform: scale(1.01);
-}
-
-.playlist-form input:hover {
-  background-color: #42281a;
-}
-
-body.dark-mode .playlist-form input:hover {
-  background-color: #000000e9;
-}
-
-.playlist-form label {
-  font-weight: bold;
-}
-
-.playlist-form button {
-  background-color: var(--wood-accent);
-  color: var(--layout-text-color-accent);
-  border-radius: 6px;
-  font-weight: 550;
-  border: none;
-  transition:
-    color 0.3s ease,
-    background-color 0.3s ease,
-    transform 0.3s ease;
-  margin: 0 0;
-}
-
-.playlist-form button:hover {
-  cursor: pointer;
-  background-color: var(--highlited-button);
-  transform: translateY(-2px);
 }
 
 

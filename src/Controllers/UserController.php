@@ -103,9 +103,14 @@ class UserController extends Controller
 
         $Playlist = new PlaylistModel();
         $user_playlists = $Playlist->get_user_playlist($user['username']);
+        
+        // popolo $data con tutti i contenuti necessari a renderizzare la pagina
         $data = $user;
-
-        $data["LISTA_PLAYLIST"] = CarouselHelper::carousel($user_playlists, 'playlistCard');
+        $data["LISTA_PLAYLIST"] = ListHelper::render(
+            $user_playlists,
+            'playlistRow',
+            ['USERNAME' => $user['username']]
+        );
         $data['FOTO_PROFILO'] = $user['foto_profilo'] ?? '1';
 
         $this->page_title = "Profilo Utente: {$user['username']}";

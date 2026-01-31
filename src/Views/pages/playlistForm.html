@@ -1,10 +1,12 @@
-<link rel="stylesheet" href="/css/style.css" />
-<section class="playlist-form">
+<section class="playlist-form-container">
   <h1>Creazione nuova playlist</h1>
-  <form action="create" method="POST">
-    <label for="nome_playlist">Nome playlist:</label>
-    <input type="text" id="nome_playlist" name="nome_playlist" required />
-    <br />
-    <button type="submit">Crea Playlist</button>
+  
+  <form action="create" method="POST" class="playlist-form">
+    <div class="form-group">
+      <label for="nome_playlist">Nome playlist:</label>
+      <input type="text" id="nome_playlist" name="nome_playlist" required />
+    </div>
+    
+    <button type="submit" class="btn-crea">Crea Playlist</button>
   </form>
 </section>

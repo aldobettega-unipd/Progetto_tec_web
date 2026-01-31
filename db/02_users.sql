@@ -7,6 +7,6 @@ VALUES
     ('admin', '$2y$10$sBFFBR7FIDX/CfZi1rwAP.vP8BZXVU3yyT1c.j6so1xgDQgQ.Nl8q', 1);
 
 INSERT INTO 
-    playlist (nome_playlist, username)
+    playlist (nome_playlist, id_username)
 VALUES  
-    ('Preferiti', 'user');
+    ('Preferiti', 1);

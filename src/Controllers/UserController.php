@@ -7,6 +7,7 @@ use App\Models\PlaylistModel;
 use App\Helpers\CarouselHelper;
 use App\Helpers\BreadcrumbHelper;
 use App\Helpers\ListHelper;
+use App\Core\Auth;
 
 class UserController extends Controller
 {
@@ -90,9 +91,9 @@ class UserController extends Controller
         $this->redirect('/login');
     }
 
-    public function view_profile($username)
+    public function view_profile()
     {
-
+        $username = Auth::getUser()['username'];
         $user = $this->User->find_user($username);
         if (!$user) {
             $this->abort(404, "Utente non trovato.");
@@ -102,9 +103,8 @@ class UserController extends Controller
 
 
         $Playlist = new PlaylistModel();
-        $user_playlists = $Playlist->get_user_playlist($user['username']);
-        
-        // popolo $data con tutti i contenuti necessari a renderizzare la pagina
+        $user_playlists = $Playlist->get_user_playlist($user['id_utente']);
+
         $data = $user;
         $data["LISTA_PLAYLIST"] = ListHelper::render(
             $user_playlists,

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\Controller;
+use App\Core\Auth;
 use App\Core\Template;
 use App\Models\UserModel;
 use App\Models\CanzoneModel;
@@ -22,9 +23,9 @@ class AdminController extends Controller
         BreadcrumbHelper::add('Home', '/');
     }
 
-    public function view_profile_admin($username)
+    public function view_profile_admin()
     {
-
+        $username = Auth::getUser()['username'];
         $admin = $this->Admin->find_user($username);
         if (!$admin) {
             $this->abort(404, "Utente non trovato.");

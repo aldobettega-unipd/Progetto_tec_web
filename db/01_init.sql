@@ -5,14 +5,16 @@ ALTER DATABASE miosito CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE miosito;
 
 CREATE TABLE utente (
-    username VARCHAR(30) PRIMARY KEY,
+    id_utente INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(30) NOT NULL UNIQUE,
     hash_password VARCHAR(255) NOT NULL,
-    is_admin TINYINT(1) NOT NULL DEFAULT 0,
+    is_admin TINYINT(1) DEFAULT 0,
     foto_profilo INT UNSIGNED DEFAULT 1
 );
 
 CREATE TABLE artista (
-    nome_artista VARCHAR(50) PRIMARY KEY,
+    id_utente INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nome_artista VARCHAR(50) NOT NULL UNIQUE,
     descrizione_artista TEXT NOT NULL,
     slug_artista VARCHAR(30) NOT NULL
 );
@@ -20,7 +22,7 @@ CREATE TABLE artista (
 CREATE TABLE canzone (
     id_canzone INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     titolo_canzone VARCHAR(50) NOT NULL,
-    autore_canzone VARCHAR(50) NOT NULL,
+    autore_canzone VARCHAR(50) NOT NULL, -- da valutare se usare l'id dell'artista
     lingua_canzone VARCHAR(3) NOT NULL,
     testo_canzone TEXT NOT NULL,
     slug_canzone VARCHAR(50) NOT NULL,
@@ -30,8 +32,8 @@ CREATE TABLE canzone (
 CREATE TABLE playlist (
     id_playlist INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nome_playlist VARCHAR(50) NOT NULL,
-    username VARCHAR(20) NOT NULL,
-    FOREIGN KEY (username) REFERENCES utente(username) ON DELETE CASCADE
+    id_username INT UNSIGNED NOT NULL,
+    FOREIGN KEY (id_username) REFERENCES utente(id_utente) ON DELETE CASCADE
 );
 
 CREATE TABLE canzoni_playlist (

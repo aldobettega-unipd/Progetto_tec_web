@@ -7,12 +7,12 @@ class ArtistaModel extends Model {
     protected $table = 'artista';
 
     public function get_dati_artista($artista) {
-        $sql = "SELECT nome_artista, descrizione_artista, slug_artista FROM artista WHERE slug_artista=?";
+        $sql = "SELECT * FROM artista WHERE slug_artista=?";
         return $this->fetchOne($sql, [$artista]);
     }
 
     public function cerca_artisti($testo) {
-        $sql = "SELECT * FROM artista WHERE nome_artista LIKE ? LIMIT 10";
+        $sql = "SELECT * FROM artista WHERE nome_artista LIKE ? ORDER BY nome_artista LIMIT 10";
         $param = "%" . $testo . "%";
         return $this->fetchAll($sql, [$param]);
     }
@@ -22,8 +22,8 @@ class ArtistaModel extends Model {
         return $this->fetchOne($sql, [$nome_artista]);
     }
 
-    public function get_canzoni($artista){
-        $sql = "SELECT c.* FROM canzone c JOIN artista a ON a.nome_artista = c.autore_canzone WHERE slug_artista LIKE ?";
+    public function get_canzoni($artista){ /*qua si puo cambiare con l'id_artista*/
+        $sql = "SELECT c.* FROM canzone c JOIN artista a ON a.nome_artista = c.autore_canzone WHERE slug_artista LIKE ? ORDER BY c.titolo_canzone";
         return $this->fetchAll($sql, [$artista]);
     }
 

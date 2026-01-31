@@ -12,18 +12,12 @@ class PlaylistModel extends Model {
     }
 
     public function get_user_playlist($username){
-        $sql = "SELECT * FROM playlist WHERE username = ?";
+        $sql = "SELECT * FROM playlist WHERE id_username = ?";
         return $this->fetchAll($sql, [$username]);
     }
 
-    public function get_preferiti_id($username) {
-        $sql = "SELECT id_playlist FROM playlist WHERE username = ? AND nome_playlist = 'Preferiti'";
-        return $this->fetchOne($sql, [$username])['id_playlist'];
-    }
-
-
     public function insert_playlist($nome_playlist, $username) {
-            $sql = "INSERT INTO playlist (nome_playlist, username) VALUES (?, ?)";
+            $sql = "INSERT INTO playlist (nome_playlist, id_username) VALUES (?, ?)";
             return $this->query($sql, [$nome_playlist, $username]);
     }
 
@@ -66,7 +60,7 @@ class PlaylistModel extends Model {
 }
 
     public function is_playlist_owner($playlistId, $username) {
-        $sql = "SELECT 1 FROM playlist WHERE id_playlist = ? AND username = ?";
+        $sql = "SELECT 1 FROM playlist WHERE id_playlist = ? AND id_username = ?";
         return (bool) $this->fetchOne($sql, [$playlistId, $username]);
     }
 

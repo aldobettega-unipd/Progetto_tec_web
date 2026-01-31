@@ -1,26 +1,39 @@
 <div class="profilo-container">
   <aside class="dati-profilo">
-    <h2 id="personalInfo">##username##<button id="edit-username-btn" class="btn-edit-username">✏️</button></h2>
+    <h2 id="personalInfo">
+      ##username##
+      </h2>
     
-    <button id="btn-open-modal">
-      <img src="/img/avatar/avatar##FOTO_PROFILO##.svg" id="current-profile-pic" alt="Foto profilo" />
+    <button id="btn-open-modal" aria-label="Cambia foto profilo" aria-haspopup="dialog">
+      <img src="/img/avatar/avatar##FOTO_PROFILO##.svg" id="current-profile-pic" alt="Foto profilo attuale" width="160" height="160" />
     </button>
 
-    <nav class="profilo-menu">
-      <button class="menu-btn active" data-section="playlist">
-        <span>📋</span> Playlist
+    <div role="tablist" aria-label="Sezioni profilo" class="profilo-menu">
+      <button 
+        class="menu-btn active js-tab-btn" 
+        role="tab" 
+        aria-selected="true" 
+        aria-controls="le-tue-playlist" 
+        id="tab-playlist"
+        data-target="le-tue-playlist"> <span aria-hidden="true">📋</span> Playlist
       </button>
-      <button class="menu-btn" data-section="mi-piace">
-        <span>❤️</span> Mi Piace
+
+      <button 
+        class="menu-btn js-tab-btn" 
+        role="tab" 
+        aria-selected="false" 
+        aria-controls="canzoni-mi-piace" 
+        id="tab-mipiace" 
+        data-target="canzoni-mi-piace"> <span aria-hidden="true">❤️</span> Mi Piace
       </button>
-    </nav>
+    </div>
   </aside>
 
-  <section class="profilo-content">
-    <section class="sezione-lista active" id="le-tue-playlist" data-content="playlist">
+  <div class="profilo-content">
+    <section id="le-tue-playlist" role="tabpanel" aria-labelledby="tab-playlist" class="sezione-lista active">
       <div class="section-header">
         <h2>Le tue playlist</h2>
-        <a href="/profilo/##username##/playlist/new">
+        <a href="/profilo/##username##/playlist/new" class="btn-crea-link">
           <button class="btn-crea">+ Crea playlist</button>
         </a>
       </div>
@@ -29,7 +42,7 @@
       </div>
     </section>
 
-    <section class="sezione-lista" id="canzoni-mi-piace" data-content="mi-piace">
+    <section id="canzoni-mi-piace" role="tabpanel" aria-labelledby="tab-mipiace" class="sezione-lista" hidden>
       <div class="section-header">
         <h2>Canzoni con "Mi Piace"</h2>
       </div>
@@ -37,23 +50,44 @@
         ##LISTA_MIPIACE##
       </div>
     </section>
-  </section>
+  </div>
 </div> 
-<div id="photo-modal" class="modal-overlay hidden">
-  <div class="modal-content">
-    <h3>Scegli il tuo avatar</h3>
 
+<div id="photo-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-content">
+    <h3 id="modal-title">Scegli il tuo avatar</h3>
+    
     <div class="avatar-grid">
-      <img src="/img/avatar/avatar1.svg" class="avatar-option" data-id="1" alt="Avatar 1">
-      <img src="/img/avatar/avatar2.svg" class="avatar-option" data-id="2" alt="Avatar 2">
-      <img src="/img/avatar/avatar3.svg" class="avatar-option" data-id="3" alt="Avatar 3">
-      <img src="/img/avatar/avatar4.svg" class="avatar-option" data-id="4" alt="Avatar 4">
-      <img src="/img/avatar/avatar5.svg" class="avatar-option" data-id="5" alt="Avatar 5">
-      <img src="/img/avatar/avatar6.svg" class="avatar-option" data-id="6" alt="Avatar 6">
-      <img src="/img/avatar/avatar7.svg" class="avatar-option" data-id="7" alt="Avatar 7">
-      <img src="/img/avatar/avatar8.svg" class="avatar-option" data-id="8" alt="Avatar 8">
-      <img src="/img/avatar/avatar9.svg" class="avatar-option" data-id="9" alt="Avatar 9">
-      <img src="/img/avatar/avatar10.svg" class="avatar-option" data-id="10" alt="Avatar 10">
+      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="1" aria-label="Seleziona avatar 1">
+        <img src="/img/avatar/avatar1.svg" alt="" loading="lazy">
+      </button>
+      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="2" aria-label="Seleziona avatar 2">
+        <img src="/img/avatar/avatar2.svg" alt="" loading="lazy">
+      </button>
+      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="3" aria-label="Seleziona avatar 3">
+        <img src="/img/avatar/avatar3.svg" alt="" loading="lazy">
+      </button>
+      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="4" aria-label="Seleziona avatar 4">
+        <img src="/img/avatar/avatar4.svg" alt="" loading="lazy">
+      </button>
+      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="5" aria-label="Seleziona avatar 5">
+        <img src="/img/avatar/avatar5.svg" alt="" loading="lazy">
+      </button>
+      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="6" aria-label="Seleziona avatar 6">
+        <img src="/img/avatar/avatar6.svg" alt="" loading="lazy">
+      </button>
+      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="7" aria-label="Seleziona avatar 7">
+        <img src="/img/avatar/avatar7.svg" alt="" loading="lazy">
+      </button>
+      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="8" aria-label="Seleziona avatar 8">
+        <img src="/img/avatar/avatar8.svg" alt="" loading="lazy">
+      </button>
+      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="9" aria-label="Seleziona avatar 9">
+        <img src="/img/avatar/avatar9.svg" alt="" loading="lazy">
+      </button>
+      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="10" aria-label="Seleziona avatar 10">
+        <img src="/img/avatar/avatar10.svg" alt="" loading="lazy">
+      </button>
     </div>
 
     <div class="modal-actions">

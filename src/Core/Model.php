@@ -19,7 +19,6 @@ abstract class Model{
 
     }
 
-
     protected function fetchOne($sql, $params = []) {
         return $this->query($sql, $params)->fetch();
     }
@@ -54,5 +53,5 @@ abstract class Model{
             return false;
         }
     }
-
+    
 }

@@ -88,9 +88,9 @@ set_exception_handler(function ($e) {
     $router->add('/profilo/{username:alphanum}/playlist/{id_playlist:num}', PlaylistController::class, 'view_playlist_page', ['auth', 'owner']);
 
 
-    $router->add('/admin/{username:alphanum}', AdminController::class, 'view_profile_admin', ['auth', 'admin']);
     $router->add('/admin/gestione-utenti', AdminController::class, 'view_gestisci_account', ['auth', 'admin']);
     $router->add('/admin/gestione-contenuti', AdminController::class, 'view_gestisci_contenuti', ['auth', 'admin']);
+    $router->add('/admin/{username:alphanum}', AdminController::class, 'view_profile_admin', ['auth', 'admin']);
     $router->add('/admin/{type:alphanum}/new', AdminController::class, 'view_add_item', ['auth', 'admin']);
     $router->add('/admin/canzoni/save', AdminController::class, 'save_canzone', ['auth', 'admin']);
     $router->add('/admin/artisti/save', AdminController::class, 'save_artista', ['auth', 'admin']);

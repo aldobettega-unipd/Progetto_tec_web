@@ -8,14 +8,14 @@
 
     /* Colori Struttura */
     --main-bg: #F6EEC4;
-    --wood-accent: #E3934D;
+    --wood-accent: #E49753;
     --header-bg: #573524;
 
     --footer-bg: #573524;
     --footer-border: rgba(255, 255, 255, 0.1);
     --profilo-bg: #f6eec4;
 
-    --highlited-button: #ffaa60;
+    --highlighted-button: #ffaa60;
 
     /* MISURE */
     --container-width: 70%;
@@ -37,6 +37,7 @@ html.dark-mode, body.dark-mode {
     --profilo-bg: #1e1e24;
     --wood-accent: #ffd93d;
     --layout-text-color-accent: #1a1a20;
+    --highlighted-button: #ffc03d;
 }
 
 
@@ -81,7 +82,6 @@ body.dark-mode {
 }
 
 a {
-    text-decoration: none;
     color: inherit;
     transition: 0.2s;
 }
@@ -108,7 +108,7 @@ ul {
     color: var(--layout-text-color-accent); 
     font-size: 0.8rem;
     
-    opacity: 0.8;
+    opacity: 0.9;
     padding: 6px 10px;
     border-radius: 0 0 10px 10px;
     transition: top 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
@@ -173,15 +173,20 @@ body.homepage header {
 
 
 /* Logo & Menu */
-.logo a {
+.logo {
     display: flex;
     align-items: center;
+    gap: 0.8rem;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.logo span {
     gap: 0.8rem;
     font-weight: 700;
     font-size: 1.2rem;
     text-transform: uppercase;
     color: var(--layout-text-color);
-    ;
 }
 
 .logo img {
@@ -197,7 +202,7 @@ body.homepage header {
 
 .menu .nav-link a {
     color: var(--layout-text-color);
-    opacity:0.8;
+    opacity:0.82;
     font-weight: 500;
     padding: 0.5rem;
 }
@@ -217,7 +222,7 @@ body.homepage header {
 }
 
 .menu .nav-btn a:hover {
-    background-color: var(--highlited-button);
+    background-color: var(--highlighted-button);
     transform: translateY(-2px);
 }
 
@@ -256,6 +261,10 @@ body.homepage header {
     transform: translateY(-50%) translateX(-100%);
 }
 
+.bookmark-btn:hover {
+  background-color: var(--highlighted-button);
+}
+
 /* ======
    BREADCRUMB (Stile Plettro & Minimal)
    ====== */
@@ -278,8 +287,7 @@ body.homepage .breadcrumb-nav {
     padding: 2px 1rem;
     margin: 0;
     gap: 0.5rem;
-    background-color: #573524;
-    opacity: 0.8;
+    background-color: var(--footer-bg);
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 
@@ -292,23 +300,18 @@ body.homepage .breadcrumb-nav {
 }
 
 .breadcrumb-nav li:not(:last-child)::after {
-    content: "›";
+    content: ">";
     margin-left: 0.5rem;
     font-size: 1.1rem;
     color: black;
-    opacity: 0.4;
 }
 
 .breadcrumb-nav a {
-    color: var(--highlited-button);
-    opacity: 1;
-    text-decoration: none;
-    transition: all 0.2s ease;
+    color: var(--wood-accent);
 }
 
 .breadcrumb-nav a:hover {
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    color: var(--highlighted-button);
 }
 
 .active-crumb {
@@ -381,7 +384,7 @@ footer {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    opacity: 0.7;
+    opacity: 0.82;
     font-weight: 500;
 }
 
@@ -394,7 +397,7 @@ footer {
 .footer-bottom {
     text-align: center;
     font-size: 0.85rem;
-    opacity: 0.5;
+    opacity: 0.82;
 }
 
 .footer-bottom p {
@@ -558,7 +561,7 @@ footer {
 }
 
 #barraricerca input[type="submit"]:hover {
-    background-color: var(--wood-accent);
+    background-color: var(--highlighted-button);
 }
 /* ======
    TITOLO "ISPIRAZIONE" (Il Ponte)
@@ -720,7 +723,7 @@ body.dark-mode .carosello-group h2 {
 
 .card-artista .btn-link {
     font-size: 0.85rem;
-    color: var(--wood-accent);
+    color: #333;
     font-weight: 600;
     display: inline-block;
 }
@@ -748,8 +751,8 @@ body.dark-mode .carosello-group h2 {
 
 .music-icon {
     font-size: 1.5rem;
-    color: var(--wood-accent);
-    opacity: 0.5;
+    color: #333;
+    opacity: 1;
     margin-bottom: 0.5rem;
 }
 
@@ -776,7 +779,7 @@ body.dark-mode .carosello-group h2 {
 /* Il bottone "Suona ora" */
 .btn-primary {
     background-color: var(--wood-accent);
-    color: #fff; /* Testo bianco */
+    color: var(--layout-text-color-accent);
     padding: 0.5rem 1rem;
     border-radius: 50px;
     font-size: 0.85rem;
@@ -785,8 +788,8 @@ body.dark-mode .carosello-group h2 {
     display: inline-block;
 }
 
-.card-canzone:hover .btn-primary {
-    background-color: #d68a44;
+.btn-primary:hover {
+    background-color: var(--highlighted-button);
 }
 
 .secondary-action {
@@ -1013,7 +1016,7 @@ REGISTER AND LOGIN PAGES
 }
 
 .loginRegisterForm button:hover {
-    background-color: var(--highlited-button);
+    background-color: var(--highlighted-button);
 }
 
 .erroreLoginRegister {
@@ -1195,8 +1198,7 @@ PROFILO PAGE
 }
 
 .btn-crea:hover {
-  background-color: var(--highlited-button);
-  transform: translateY(-2px);
+  background-color: var(--highlighted-button);
 }
 
 /* 5. GESTIONE LAYOUT GRIGLIA vs LISTA */
@@ -2061,6 +2063,145 @@ body.dark-mode .search-input-wrapper:hover {
   background: rgba(0, 0, 0, 0.1);
   width: 80%;
   margin: 1rem auto;
+}
+
+
+
+
+
+
+
+
+
+/* --- 1. Mette la lista in verticale --- */
+.content-grid {
+    display: flex !important;
+    flex-direction: column !important; /* Forza la colonna verticale */
+    gap: 10px;
+}
+
+/* --- 2. Stile della singola riga --- */
+.song-list-item {
+    display: flex;
+    justify-content: space-between; /* Spinge il menu a destra */
+    align-items: center;
+    padding: 15px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    position: relative; /* FONDAMENTALE per posizionare il menu */
+}
+
+/* --- 3. MECCANICA DEL MENU (FONDAMENTALE) --- */
+.dropdown-content {
+    display: none; /* <--- Questo nasconde il menu di default! */
+    position: absolute;
+    right: 40px; /* Lo sposta a sinistra del bottone */
+    top: 10px;
+    background-color: white;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 1000;
+    min-width: 150px;
+}
+
+/* Quando il JS aggiunge questa classe, il menu appare */
+.dropdown-content.show {
+    display: block !important;
+}
+
+/* Stile del link elimina */
+.dropdown-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+}
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Bottone tre puntini */
+.kebab-btn {
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+/* =========================================
+    PLAYLIST FORM PAGE
+========================================= */
+
+.playlist-form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.playlist-form form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+.playlist-form input {
+  display: flex;
+  align-items: center;
+
+  background-color: var(--header-bg);
+
+  padding: 4px 12px;
+  border-radius: 500px;
+  border: 2px solid transparent;
+
+  margin: 0 auto;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--layout-text-color);
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  outline: none;
+  margin-bottom: 1em;
+}
+
+.playlist-form input:focus-within {
+  border-color: var(--wood-accent);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
+}
+
+.playlist-form input:hover {
+  background-color: #42281a;
+}
+
+body.dark-mode .playlist-form input:hover {
+  background-color: #000000e9;
+}
+
+.playlist-form label {
+  font-weight: bold;
+}
+
+.playlist-form button {
+  background-color: var(--wood-accent);
+  color: var(--layout-text-color-accent);
+  border-radius: 6px;
+  font-weight: 550;
+  border: none;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    transform 0.3s ease;
+  margin: 0 0;
+}
+
+.playlist-form button:hover {
+  cursor: pointer;
+  background-color: var(--highlighted-button);
+  transform: translateY(-2px);
 }
 
 

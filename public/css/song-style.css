@@ -99,7 +99,6 @@ body .song-header {
     color: var(--wood-accent);
     font-weight: 700;
     color: var(--main-text);
-    text-decoration: none;
 }
 
 .song-header .artist a:hover {

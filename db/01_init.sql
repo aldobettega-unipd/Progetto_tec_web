@@ -7,7 +7,8 @@ USE miosito;
 CREATE TABLE utente (
     username VARCHAR(30) PRIMARY KEY,
     hash_password VARCHAR(255) NOT NULL,
-    is_admin TINYINT(1) NOT NULL DEFAULT 0
+    is_admin TINYINT(1) NOT NULL DEFAULT 0,
+    foto_profilo INT UNSIGNED DEFAULT 1
 );
 
 CREATE TABLE artista (

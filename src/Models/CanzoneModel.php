@@ -92,4 +92,8 @@ class CanzoneModel extends Model {
         return $this->fetchAll($sql);
     }
 
+    public function get_playlist($username, $id_canzone) {
+        $sql = "SELECT * FROM playlist p JOIN canzoni_playlist cp ON p.id_playlist = cp.playlist WHERE p.username = ? AND cp.canzone = ? ORDER BY nome_playlist";
+        return $this->fetchAll($sql, [$username, $id_canzone]);
+    }
 }

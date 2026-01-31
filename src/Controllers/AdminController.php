@@ -11,28 +11,55 @@ use App\Helpers\ListHelper;
 use App\Helpers\BreadcrumbHelper;
 
 
-Class AdminController extends Controller {
+class AdminController extends Controller
+{
     private $Admin;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->Admin = new UserModel();
         BreadcrumbHelper::reset();
         BreadcrumbHelper::add('Home', '/');
     }
 
-    public function view_gestisci_account() {
+    public function view_profile_admin($username)
+    {
+
+        $admin = $this->Admin->find_user($username);
+        if (!$admin) {
+            $this->abort(404, "Utente non trovato.");
+        }
+
+        BreadcrumbHelper::add('Profilo');
+        $data = $admin;
+
+        $data['FOTO_PROFILO'] = $admin['foto_profilo'] ?? '1';
+
+        $this->page_title = "Profilo Admin: {$admin['username']}";
+        $this->page_description = "Profilo amministrativo di {$admin['username']} - visualizza e gestisci le impostazioni dell'account amministratore.";
+        $this->scriptPathList[] = 'admin';
+        $this->render('admin/admin', $data);
+    }
+
+    public function view_gestisci_account()
+    {
         $utenti_base_list = $this->Admin->get_all_base_user();
         $lista_html = ListHelper::render($utenti_base_list, 'genericListItem', 'utente', [
             'NAME_ITEM' => 'username',
             'ID_ITEM' => 'username',
         ]);
-        
+
+        $this->page_title = "Gestisci Utenti";
+        $this->page_description = "Gestisci gli utenti registrati nel sistema.";
+        $this->scriptPathList[] = 'admin';
+
         $this->render('admin/users', [
             'LISTA_UTENTI' => $lista_html,
         ]);
     }
 
-    public function view_gestisci_contenuti() {
+    public function view_gestisci_contenuti()
+    {
         $canzoneModel = new CanzoneModel();
         $lista_canzoni = $canzoneModel->get_all_songs();
         $lista_html_canzoni = ListHelper::render($lista_canzoni, 'genericListItem', 'canzone', [
@@ -47,14 +74,19 @@ Class AdminController extends Controller {
             'ID_ITEM' => 'slug_artista'
         ]);
 
+        $this->page_title = "Gestisci Contenuti";
+        $this->page_description = "Gestisci le canzoni e gli artisti registrati nel sistema.";
+        $this->scriptPathList[] = 'admin';
+
         $this->render('admin/content', [
             'LISTA_CANZONI' => $lista_html_canzoni,
             'LISTA_ARTISTI' => $lista_html_artisti
         ]);
     }
 
-    public function view_add_item($type) {
-        
+    public function view_add_item($type)
+    {
+
         $views = [
             'canzoni' => 'admin/formCanzone',
             'artisti' => 'admin/formArtista'
@@ -64,13 +96,18 @@ Class AdminController extends Controller {
             $this->abort(404, "Il tipo di contenuto '$type' non è gestito.");
         }
 
+        $this->page_title = "Aggiungi Contenuto";
+        $this->page_description = "Aggiungi una nuova canzone o artista al database.";
+        $this->scriptPathList[] = 'admin';
+
         $this->render($views[$type], [
             'ERROR_MSG' => '',
             'USERNAME' => $_SESSION['user']['username']
         ]);
     }
 
-    public function save_canzone() {
+    public function save_canzone()
+    {
 
         $titolo = $_POST['titolo'] ?? '';
         $slug_canzone = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $titolo)));
@@ -106,16 +143,17 @@ Class AdminController extends Controller {
     }
 
 
-    public function save_artista() {
+    public function save_artista()
+    {
         $nome = $_POST['nome'] ?? '';
-        
+
         $slug_generato = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $nome)));
-        $slug_generato = substr($slug_generato, 0, 30); 
+        $slug_generato = substr($slug_generato, 0, 30);
 
         $dati_artista = [
-            'nome_artista'        => $nome,
+            'nome_artista' => $nome,
             'descrizione_artista' => $_POST['descrizione'] ?? '',
-            'slug_artista'        => $slug_generato
+            'slug_artista' => $slug_generato
         ];
 
         $artistaModel = new ArtistaModel();

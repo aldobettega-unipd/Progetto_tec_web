@@ -44,7 +44,7 @@ class ApiPlaylistController extends ApiBaseController {
     }
 
     public function remove_song() {
-    if (!\App\Core\Auth::isLogged()) { // Assicurati che il path di Auth sia giusto
+    if (!Auth::isLogged()) { // Assicurati che il path di Auth sia giusto
         $this->sendError("Non autorizzato", 401);
         return;
     }
@@ -58,7 +58,7 @@ class ApiPlaylistController extends ApiBaseController {
         return;
     }
 
-    $model = new \App\Models\PlaylistModel();
+    $model = new PlaylistModel();
     
     // Controlla proprietà (opzionale ma consigliato)
     $username = $_SESSION['user']['username'] ?? $_SESSION['username'];

@@ -5,23 +5,29 @@ namespace App\Controllers;
 use App\Core\Controller;
 use App\Models\CanzoneModel;
 use App\Models\ArtistaModel;
+use App\Models\PlaylistModel;
 use App\Helpers\CarouselHelper;
 use App\Helpers\ChordParser;
 use App\Helpers\ListHelper;
 use App\Helpers\TagAccordiHelper;
 use App\Helpers\BreadcrumbHelper;
+use App\Core\Auth;
 
-class CanzoneController extends Controller {
+class CanzoneController extends Controller
+{
     private $Canzone;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->Canzone = new CanzoneModel();
         BreadcrumbHelper::reset();
         BreadcrumbHelper::add('Home', '/');
         BreadcrumbHelper::add('Canzoni', '/canzoni');
     }
 
-    public function view_all_canzoni() {
+
+    public function view_all_canzoni()
+    {
         $canzoni = $this->Canzone->get_all();
 
         // Raggruppa le canzoni per iniziale del titolo
@@ -38,7 +44,8 @@ class CanzoneController extends Controller {
         ]);
     }
 
-    public function view_canzone($slug) {
+    public function view_canzone($slug)
+    {
         // 1. Recuperi dal DB
         $canzone = $this->Canzone->get_dati_canzone($slug);
 
@@ -48,11 +55,18 @@ class CanzoneController extends Controller {
         $slug_artista = $this->Canzone->get_artista($slug)['slug_artista'];
         $accordi = $this->Canzone->get_accordi($canzone['id_canzone']);
         $accordi = array_column($accordi, 'accordo');
-        
-        // 2. Parsifichi il testo grezzo
-        // Assumendo che $canzone['testo'] sia "[C]Siamo solo [G]noi..."
         $htmlTesto = ChordParser::render($canzone['testo_canzone'], $canzone['lingua_canzone']);
 
+
+        $playlistsData = $this->get_playlists_data($canzone['id_canzone']);
+        $playlistHtml = ListHelper::playlistChecklist($playlistsData['checklist']);
+        $favId = $playlistsData['favorite']['id'];
+        $favClass = $playlistsData['favorite']['is_active'] ? 'active' : '';
+
+
+        $this->page_title = $canzone['titolo_canzone'];
+        $this->page_description = "Testo e accordi della canzone {$canzone['titolo_canzone']} di {$canzone['autore_canzone']}.";
+        $this->scriptPathList[] = 'song';
         BreadcrumbHelper::add($canzone['titolo_canzone']);
 
         // 3. Render
@@ -60,16 +74,21 @@ class CanzoneController extends Controller {
             'ACCORDI_CANZONE' => TagAccordiHelper::generaTags($accordi),
             'TITOLO_CANZONE' => $canzone['titolo_canzone'],
             'NOME_ARTISTA' => $canzone['autore_canzone'],
+            'ID_CANZONE'       => $canzone['id_canzone'],
             'SLUG_ARTISTA' => $slug_artista,
-            'TESTO_CANZONE_HTML' => $htmlTesto
+            'TESTO_CANZONE_HTML' => $htmlTesto,
+            'LISTA_PLAYLIST' => $playlistHtml,
+            'ID_PREFERITI'  => $favId,
+            'PREFERITI_CLASS'  => $favClass
         ]);
     }
 
-    public function view_search() {
+    public function view_search()
+    {
         $Artista = new ArtistaModel();
 
-        $artisti = $Artista->get_all(); 
-        $canzoni = $this->Canzone->get_all(); 
+        $artisti = $Artista->get_all();
+        $canzoni = $this->Canzone->get_all();
 
         $html_artisti = CarouselHelper::carousel($artisti, 'artistaCard');
         $html_canzoni = CarouselHelper::carousel($canzoni, 'canzoneCard');
@@ -81,5 +100,47 @@ class CanzoneController extends Controller {
             'CAROUSEL_ARTISTI' => $html_artisti,
             'CAROUSEL_CANZONI' => $html_canzoni
         ]);
+    }
+
+    private function get_playlists_data($id_canzone)
+    {
+        $checklistData = [];
+        $favData = [
+            'id' => null,
+            'is_active' => false
+        ];
+        if (!Auth::isUser()) {
+            return [
+                'checklist' => $checklistData,
+                'favorite' => $favData
+            ];
         }
+
+        $Playlist = new PlaylistModel();
+        $username = Auth::getUser()['username'];
+        $all_playlists = $Playlist->get_all();
+        $playlists_containing_song = $this->Canzone->get_playlist($username, $id_canzone);
+        $ids_containing_song = array_column($playlists_containing_song, 'id_playlist');
+
+
+        foreach ($all_playlists as $playlist) {
+            $id = $playlist['id_playlist'];
+            $nome = $playlist['nome_playlist'];
+
+            $isChecked = in_array($id, $ids_containing_song);
+
+            if ($nome === 'Preferiti') {
+                $favData['id'] = $id;
+                $favData['is_active'] = $isChecked;
+            } else {
+                $checklistData[$id] = [$nome, $isChecked];
+            }
+        }
+        return [
+            'checklist' => $checklistData,
+            'favorite' => $favData
+        ];
+    }
+
+
 }

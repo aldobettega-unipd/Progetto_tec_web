@@ -8,16 +8,19 @@ use App\Helpers\CarouselHelper;
 use App\Helpers\BreadcrumbHelper;
 use App\Helpers\ListHelper;
 
-Class UserController extends Controller{
+class UserController extends Controller
+{
     private $User;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->User = new UserModel();
         BreadcrumbHelper::reset();
         BreadcrumbHelper::add('Home', '/');
     }
 
-    public function view_register(){
+    public function view_register()
+    {
         $this->require_guest();
         $this->page_title = "Crea un account";
         $this->page_description = "Registrati per accedere a tutte le funzionalita` di EasyGuitar.";
@@ -26,25 +29,28 @@ Class UserController extends Controller{
         $this->render('user/register');
     }
 
-    public function register(){
+    public function register()
+    {
         $username = $this->post('username');
         $password = $this->post('password');
 
-        if(!$username || !$password){
+        if (!$username || !$password) {
             $this->redirect('/register');
         }
 
 
 
-        if($this->User->insert_user($username, $password)){
-            $this->redirect('/login');
+        if ($this->User->insert_user($username, $password)) {
+            //$this->redirect('/login');
+            $this->login();
         } else {
             $_SESSION['flash_error'] = "Username gia` in uso"; //implementare controllo instantaeno in frontend con js
             $this->redirect('/register');
         }
     }
 
-    public function view_login(){
+    public function view_login()
+    {
         $this->require_guest();
         $this->page_title = "Accedi al tuo account";
         $this->page_description = "Accedi al tuo account per gestire le tue playlist e scoprire nuova musica.";
@@ -52,7 +58,8 @@ Class UserController extends Controller{
         $this->render('user/login');
     }
 
-    public function login() {
+    public function login()
+    {
         $username = $this->post('username');
         $password = $this->post('password');
 
@@ -63,11 +70,11 @@ Class UserController extends Controller{
 
             $_SESSION['user'] = [
                 'username' => $user['username'],
-                'is_admin' => (bool)$user['is_admin']
+                'is_admin' => (bool) $user['is_admin']
             ];
-            
-            
-            $this->redirect('/'); 
+
+
+            $this->redirect('/');
 
         } else {
             http_response_code(401);
@@ -76,36 +83,35 @@ Class UserController extends Controller{
         }
     }
 
-    public function logout(){
+    public function logout()
+    {
         session_unset();
         session_destroy();
         $this->redirect('/login');
     }
 
-    public function view_profile($username){
+    public function view_profile($username)
+    {
 
         $user = $this->User->find_user($username);
         if (!$user) {
             $this->abort(404, "Utente non trovato.");
         }
-        
+
         BreadcrumbHelper::add('Profilo');
 
-        if(!$user['is_admin']) {
-            $Playlist = new PlaylistModel();
-            $user_playlists = $Playlist->get_user_playlist($user['username']);
-            $data = $user;
-            
-            $data["LISTA_PLAYLIST"] = CarouselHelper::carousel($user_playlists, 'playlistCard');
-            $data['FOTO_PROFILO'] = $user['foto_profilo'] ?? '1'; 
 
-            $this->page_title = "Profilo Utente: {$user['username']}";
-            $this->render('user/profilo', $data);
+        $Playlist = new PlaylistModel();
+        $user_playlists = $Playlist->get_user_playlist($user['username']);
+        $data = $user;
 
-        } else {
-            $this->page_title = "Profilo Admin: {$user['username']}";
-            $this->render('admin/admin', $user);
-        }
+        $data["LISTA_PLAYLIST"] = CarouselHelper::carousel($user_playlists, 'playlistCard');
+        $data['FOTO_PROFILO'] = $user['foto_profilo'] ?? '1';
+
+        $this->page_title = "Profilo Utente: {$user['username']}";
+        $this->page_description = "Profilo di {$user['username']} - visualizza le playlist create e i preferiti.";
+        $this->scriptPathList[] = 'profile';
+        $this->render('user/profilo', $data);
     }
 
 }

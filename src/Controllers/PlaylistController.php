@@ -47,12 +47,14 @@ Class PlaylistController extends Controller {
 
 
         $nome_playlist = $dati_playlist['nome_playlist'];
-        $descrizione_playlist = "Playlist: " . $dati_playlist['nome_playlist'] . " creata da " . $dati_playlist['username'] . ".";
-
+        
+        $this->page_title = "Playlist: " . $nome_playlist;
+        $this->page_description = "Playlist: " . $nome_playlist . " creata da " . $username . ".";
+        $this->scriptPathList[] = 'playlistSearch';
         BreadcrumbHelper::add($nome_playlist);
 
         $this->render('playlistPage', [
-            'NOME_PLAYLIST' => $dati_playlist['nome_playlist'],
+            'NOME_PLAYLIST' => $nome_playlist,
             'DESCRIZIONE_PLAYLIST' => "Playlist di " . $username,
             'LISTA_CANZONI' => $lista_html,
             'ID_PLAYLIST' => $id_playlist
@@ -76,49 +78,13 @@ Class PlaylistController extends Controller {
 
         $this->page_title = "Aggiungi Canzoni alla Playlist: " . $dati_playlist['nome_playlist'];
         $this->page_description = "Aggiungi canzoni alla tua playlist: " . $dati_playlist['nome_playlist'] . ".";
+        BreadcrumbHelper::add($dati_playlist['nome_playlist'], "/playlist/$username/$id_playlist");
 
         $this->render('playlistSearchSong', $dati_playlist);
         //capire gli errori 404 derivati dal db
     }
 
-    /*
-    public function mostra_selezione_playlist($id_canzone) {
 
-        $playlist_utente = $this->Playlist->get_all_playlist($_SESSION['username']);
-
-        $playlist_HTML = "";
-
-        foreach($playlist_utente as $playlist) {
-            $template_card = new Template(__DIR__ . "/../Views/components/playlistCard.html");
-            $template_card->set_dati_pagina([
-                'nome_playlist' => $playlist['nome_playlist'],
-                'id' => $playlist['id'],
-                'testo_azione' => 'aggiungi qui',
-                'link_azione' => "index.php?action=aggiungi_canzone_in_playlist&id_canzone=$id_canzone&id_playlist=" . $playlist['id']
-            ]);
-            $playlist_HTML .= $template_card->get_pagina();
-        }
-
-        $template = new Template(__DIR__ . '/../Views/components/selezionePlaylist.html');
-        $template->set_dati_pagina([
-            'lista_playlist' => $playlist_HTML
-        ]);
-
-        return $template->get_pagina();
-
-    }
-
-    public function aggiungi_canzone($id_playlist, $id_canzone) {
-        $this->Playlist->insert_canzone_in_playlist($id_playlist, $id_canzone);
-        header('Location: index.php?action=profilo');
-    }
-
-    public function rimuovi_canzone($id_playlist, $id_canzone) {
-        $this->Playlist->delete_canzone_da_playlist($id_playlist, $id_canzone);
-        header('Location: index.php?action=apri_playlist&id=' . $id_playlist);
-    }
-
-    */
 
 }
 

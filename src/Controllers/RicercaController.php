@@ -11,6 +11,11 @@ use App\Helpers\FormHelper;
 
 class RicercaController extends Controller {
 
+    public function __construct() {
+        BreadcrumbHelper::reset();
+        BreadcrumbHelper::add('Home', '/');
+    }
+
     public function esegui_ricerca() {
         
         $query = $this->get('query', '');
@@ -78,8 +83,6 @@ class RicercaController extends Controller {
                 break;
         }
 
-        BreadcrumbHelper::reset();
-        BreadcrumbHelper::add('Home', '/');
         BreadcrumbHelper::add('Esplora');
 
         $this->render('searchPage', [

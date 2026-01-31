@@ -59,9 +59,9 @@ class PlaylistModel extends Model {
     }
 }
 
-    public function is_playlist_owner($playlistId, $username) {
+    public function is_playlist_owner($playlistId, $id_username) {
         $sql = "SELECT 1 FROM playlist WHERE id_playlist = ? AND id_username = ?";
-        return (bool) $this->fetchOne($sql, [$playlistId, $username]);
+        return (bool) $this->fetchOne($sql, [$playlistId, $id_username]);
     }
 
     public function isInPlaylist($id_playlist, $id_canzone) {

@@ -7,7 +7,6 @@ use App\Models\CanzoneModel;
 use App\Models\ArtistaModel;
 use App\Helpers\CarouselHelper;
 use App\Helpers\BreadcrumbHelper;
-use App\Helpers\FormHelper;
 
 class RicercaController extends Controller {
 
@@ -32,10 +31,13 @@ class RicercaController extends Controller {
         $activeCanzoni = ($active_tab === 'canzoni') ? 'active' : '';
         $activeArtisti = ($active_tab === 'artisti') ? 'active' : '';
 
+        $is_filters_open = (!empty($filtro_lingua) || !empty($filtro_accordi));
+        $panel_class = $is_filters_open ? 'open' : '';
+        $btn_active_class = $is_filters_open ? 'active' : '';
+
         switch ($active_tab) {
             case 'artisti':
                 $visibility_filtri = 'hidden';
-                
                 if ($query !== '') {
                     $artistaModel = new ArtistaModel();
                     $risultati = $artistaModel->cerca_artisti($query);
@@ -48,19 +50,63 @@ class RicercaController extends Controller {
 
             case 'canzoni':
             default:
-                $visibility_filtri = ''; 
-                
+                $visibility_filtri = '';
                 $canzoneModel = new CanzoneModel();
 
+                // 1. LINGUE
                 $lingue_raw = $canzoneModel->get_lingue_canzoni();
-                $accordi_raw = $canzoneModel->get_accordi_canzoni();
-
                 $array_lingue = array_column($lingue_raw, 'lingua_canzone');
+                
+                $options_lingua = '<option value="">Tutte le lingue</option>';
+                foreach ($array_lingue as $lingua) {
+                    $safeLingua = htmlspecialchars($lingua);
+                    $selected = ($lingua === $filtro_lingua) ? 'selected' : '';
+                    $options_lingua .= "<option value='{$safeLingua}' {$selected}>{$safeLingua}</option>";
+                }
+
+                // 2. ACCORDI (Layout a Righe)
+                $accordi_raw = $canzoneModel->get_accordi_canzoni();
                 $array_accordi = array_column($accordi_raw, 'accordo');
+                
+                $gruppi = [
+                    'DO' => [], 'RE' => [], 'MI' => [], 'FA' => [], 
+                    'SOL' => [], 'LA' => [], 'SI' => [], 'ALTRO' => []
+                ];
 
-                $options_lingua = FormHelper::createRadios($array_lingue, 'lingua', $filtro_lingua);
-                $options_accordi = FormHelper::createCheckboxes($array_accordi, 'accordi[]', $filtro_accordi);
+                foreach ($array_accordi as $accordo) {
+                    $upper = strtoupper($accordo);
+                    if (str_starts_with($upper, 'DO')) $gruppi['DO'][] = $accordo;
+                    elseif (str_starts_with($upper, 'RE')) $gruppi['RE'][] = $accordo;
+                    elseif (str_starts_with($upper, 'MI')) $gruppi['MI'][] = $accordo;
+                    elseif (str_starts_with($upper, 'FA')) $gruppi['FA'][] = $accordo;
+                    elseif (str_starts_with($upper, 'SOL')) $gruppi['SOL'][] = $accordo;
+                    elseif (str_starts_with($upper, 'LA')) $gruppi['LA'][] = $accordo;
+                    elseif (str_starts_with($upper, 'SI')) $gruppi['SI'][] = $accordo;
+                    else $gruppi['ALTRO'][] = $accordo;
+                }
 
+                // Generazione HTML: Usiamo 'chord-row-group'
+                foreach ($gruppi as $radice => $lista) {
+                    if (empty($lista)) continue;
+
+                    $options_accordi .= "<div class='chord-row-group'>";
+                    $options_accordi .= "<h4>{$radice}</h4>";
+                    $options_accordi .= "<div class='chord-checkbox-list'>";
+                    
+                    foreach ($lista as $acc) {
+                        $checked = in_array($acc, $filtro_accordi) ? 'checked' : '';
+                        $safeAcc = htmlspecialchars($acc);
+                        
+                        $options_accordi .= "
+                            <label class='checkbox-item'>
+                                <input type='checkbox' name='accordi[]' value='{$safeAcc}' {$checked}>
+                                <span>{$safeAcc}</span>
+                            </label>";
+                    }
+                    $options_accordi .= "</div></div>"; 
+                }
+
+                // RICERCA
                 $filtri_attivi = !empty($filtro_lingua) || !empty($filtro_accordi);
                 
                 if ($query !== '' || $filtri_attivi) {
@@ -78,26 +124,26 @@ class RicercaController extends Controller {
                         $htmlRisultati = "<p style='padding:20px; text-align:center;'>Nessun brano corrisponde ai criteri.</p>";
                     }
                 } else {
-                    $messaggio = "Usa la ricerca o i filtri per esplorare le canzoni.";
+                    $messaggio = "Usa la ricerca o i filtri per esplorare.";
                 }
                 break;
         }
         
-        $this->page_title = "Esplora Canzoni e Artisti";
-        $this->page_description = "Cerca e scopri nuove canzoni e artisti nella nostra collezione.";
-
+        $this->page_title = "Esplora";
         BreadcrumbHelper::add('Esplora');
 
+        $this->scriptPathList[] = 'search';
+        
         $this->render('searchPage', [
             'SEARCH_VALUE'        => htmlspecialchars($query),
             'TAB_CORRENTE'        => $active_tab,
             'ACTIVE_CANZONI'      => $activeCanzoni,
             'ACTIVE_ARTISTI'      => $activeArtisti,
-
-            'VISIBILITY_FILTRI'   => $visibility_filtri,
+            'VISIBILITY_FILTRI_BTN' => $visibility_filtri,
+            'PANEL_OPEN_CLASS'    => $panel_class,
+            'BTN_ACTIVE_CLASS'    => $btn_active_class,
             'OPTIONS_LINGUA'      => $options_lingua,
             'OPTIONS_ACCORDI'     => $options_accordi,
-
             'MESSAGGIO_RISULTATI' => $messaggio,
             'LISTA_RISULTATI'     => $htmlRisultati,
         ]);

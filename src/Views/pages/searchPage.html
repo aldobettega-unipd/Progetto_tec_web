@@ -1,112 +1,3 @@
-<style>
-    /* --- STILE PER I FILTRI --- */
-    
-    /* Box scrollabile per gli Accordi (Checkbox) */
-    .scroll-box {
-        width: 100%;
-        height: 150px; /* Altezza fissa */
-        overflow-y: auto; /* Abilita scroll verticale */
-        background: rgba(255, 255, 255, 0.9);
-        border: 2px solid rgba(0,0,0, 0.1);
-        border-radius: 8px;
-        padding: 10px;
-        
-        /* Griglia automatica: crea colonne in base allo spazio */
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); 
-        gap: 8px;
-    }
-
-    /* Stile singolo Checkbox */
-    .checkbox-item label {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        cursor: pointer;
-        font-size: 0.9rem;
-        user-select: none;
-        color: #333;
-        font-weight: 500;
-    }
-    
-    .checkbox-item input[type="checkbox"] {
-        accent-color: var(--wood-accent); /* Colora la spunta di arancione */
-        width: 16px;
-        height: 16px;
-    }
-
-    /* --- STILE PER LE LINGUE (Radio) --- */
-    .radio-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 5px;
-    }
-
-    .radio-item label {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        cursor: pointer;
-        font-weight: 500;
-        background: rgba(255, 255, 255, 0.6); /* Sfondo semitrasparente */
-        padding: 6px 12px;
-        border-radius: 20px;
-        transition: 0.2s;
-        border: 1px solid transparent;
-        color: var(--layout-text-color-accent); /* O un colore scuro */
-    }
-
-    .radio-item label:hover {
-        background: rgba(255, 255, 255, 1);
-        border-color: var(--wood-accent);
-    }
-
-    .radio-item input[type="radio"] {
-        accent-color: var(--wood-accent);
-    }
-
-    /* Utilità generali */
-    .filters-container {
-        margin-top: 20px;
-        animation: fadeIn 0.4s ease;
-    }
-    
-    .filter-section {
-        margin-bottom: 20px;
-    }
-
-    .filter-title {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: bold;
-        font-size: 1rem;
-        color: white; /* O var(--layout-text-color) */
-        text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-    }
-
-    .btn-filter {
-        width: 100%;
-        padding: 10px;
-        background-color: var(--wood-accent);
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: bold;
-        font-size: 1rem;
-        text-transform: uppercase;
-        transition: background 0.3s;
-    }
-
-    .btn-filter:hover {
-        background-color: #d68a44; /* Un po' più scuro */
-    }
-    
-    /* Nasconde filtri */
-    .hidden { display: none !important; }
-</style>
-
 <div class="search-page-container">
   <header class="search-hero">
     <h1 class="page-title">Esplora il Catalogo</h1>
@@ -121,47 +12,51 @@
     </form>
 
     <nav class="telegram-tabs">
-      <a href="/search?query=##SEARCH_VALUE##&tab=canzoni" class="tab-link ##ACTIVE_CANZONI##">
-        Canzoni
-      </a>
-
-      <a href="/search?query=##SEARCH_VALUE##&tab=artisti" class="tab-link ##ACTIVE_ARTISTI##">
-        Artisti
-      </a>
+      <a href="/search?query=##SEARCH_VALUE##&tab=canzoni" class="tab-link ##ACTIVE_CANZONI##">Canzoni</a>
+      <a href="/search?query=##SEARCH_VALUE##&tab=artisti" class="tab-link ##ACTIVE_ARTISTI##">Artisti</a>
     </nav>
 
-    <div class="filters-container ##VISIBILITY_FILTRI##">
-      <form action="/search" method="GET" class="filters-bar-vertical">
-        <input type="hidden" name="query" value="##SEARCH_VALUE##">
-        <input type="hidden" name="tab" value="canzoni">
+    <div class="filters-wrapper ##VISIBILITY_FILTRI_BTN##">
+      <button type="button" class="btn-toggle-filters ##BTN_ACTIVE_CLASS##" id="filtersToggleBtn">
+        <span>Filtri Avanzati</span>
+        <span class="arrow-icon">▼</span>
+      </button>
 
-        <div class="filter-section">
-            <span class="filter-title">Lingua:</span>
-            <div class="radio-group">
-                <div class="radio-item">
-                    <label>
-                        <input type="radio" name="lingua" value="" checked> 
-                        Tutte
-                    </label>
-                </div>
+      <div class="filters-panel ##PANEL_OPEN_CLASS##" id="filtersPanel">
+        <form action="/search" method="GET">
+          <input type="hidden" name="query" value="##SEARCH_VALUE##">
+          <input type="hidden" name="tab" value="canzoni">
+
+          <div class="filters-grid">
+
+            <div class="filter-group">
+              <label for="selectLingua">Lingua:</label>
+              <select name="lingua" id="selectLingua" class="custom-select">
                 ##OPTIONS_LINGUA##
+              </select>
             </div>
-        </div>
 
-        <div class="filter-section">
-            <span class="filter-title">Accordi (Seleziona quelli che conosci):</span>
-            <div class="scroll-box">
+            <div class="filter-group">
+              <div class="chords-section-header">
+                <label>Filtra per Accordi:</label>
+                <div class="actions-links">
+                  <button type="button" id="btnSelectAll">Seleziona Tutti</button>
+                  <button type="button" id="btnDeselectAll">Deseleziona</button>
+                </div>
+              </div>
+
+              <div class="chords-macro-grid">
                 ##OPTIONS_ACCORDI##
+              </div>
             </div>
-        </div>
 
-        <button type="submit" class="btn-filter">Applica Filtri</button>
-      </form>
+          </div> <button type="submit" class="btn-apply">Applica Filtri</button>
+        </form>
+      </div>
     </div>
-
   </header>
 
-  <div class="results-container">
+  <div class="results-container" id="anchor-risultati">
     <div class="results-message">##MESSAGGIO_RISULTATI##</div>
     <hr class="separator" />
     <div class="carosello-wrapper">
@@ -170,4 +65,3 @@
       </ul>
     </div>
   </div>
-</div>

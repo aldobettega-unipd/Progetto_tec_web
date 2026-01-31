@@ -82,6 +82,9 @@ class RicercaController extends Controller {
                 }
                 break;
         }
+        
+        $this->page_title = "Esplora Canzoni e Artisti";
+        $this->page_description = "Cerca e scopri nuove canzoni e artisti nella nostra collezione.";
 
         BreadcrumbHelper::add('Esplora');
 

@@ -61,31 +61,6 @@ Class PlaylistController extends Controller {
         ]);
     }
 
-    
-    public function elimina_playlist($username, $id_playlist) {
-        
-        $this->Playlist->delete_playlist($id_playlist);
-        $this->redirect("/profilo/". $username);
-    }
-
-    public function view_playlist_search($username, $id_playlist) {
-        $dati_playlist = $this->Playlist->get_dati_playlist($id_playlist);
-
-        if (!$dati_playlist) {
-
-            $this->abort(404, "Ci dispiace, la playlist #$id_playlist non esiste o e` stata cancellata.");
-        }
-
-        $this->page_title = "Aggiungi Canzoni alla Playlist: " . $dati_playlist['nome_playlist'];
-        $this->page_description = "Aggiungi canzoni alla tua playlist: " . $dati_playlist['nome_playlist'] . ".";
-        BreadcrumbHelper::add($dati_playlist['nome_playlist'], "/playlist/$username/$id_playlist");
-
-        $this->render('playlistSearchSong', $dati_playlist);
-        //capire gli errori 404 derivati dal db
-    }
-
-
-
 }
 
 

@@ -43,34 +43,42 @@ class ApiPlaylistController extends ApiBaseController {
         }
     }
 
-    public function remove_song() {
-    if (!Auth::isLogged()) { // Assicurati che il path di Auth sia giusto
-        $this->sendError("Non autorizzato", 401);
-        return;
-    }
+    public function delete() {
+        if (!Auth::isLogged()) {
+            $this->sendError("Devi essere loggato", 401);
+            return;
+        }
 
-    $input = $this->getJsonInput();
-    $playlistId = $input['playlist_id'] ?? null;
-    $songId = $input['song_id'] ?? null;
+        $input = $this->getJsonInput();
+        $id_playlist = $input['id_playlist'] ?? null;
+        $username = $_SESSION['user']['username'];
 
-    if (!$playlistId || !$songId) {
-        $this->sendError("Dati mancanti", 400);
-        return;
-    }
+        if (!$id_playlist) {
+            $this->sendError("ID Playlist mancante", 400);
+            return;
+        }
 
-    $model = new PlaylistModel();
-    
-    // Controlla proprietà (opzionale ma consigliato)
-    $username = $_SESSION['user']['username'] ?? $_SESSION['username'];
-    if (!$model->is_playlist_owner($playlistId, $username)) {
-         $this->sendError("Non è la tua playlist", 403);
-         return;
-    }
+        $playlistModel = new PlaylistModel();
 
-    if ($model->delete_song_from_playlist($playlistId, $songId)) {
-        $this->sendJson(['success' => true]);
-    } else {
-        $this->sendError("Errore durante la rimozione", 500);
+        // 1. Sicurezza: Controlla che la playlist appartenga all'utente
+        if (!$playlistModel->is_playlist_owner($id_playlist, $username)) {
+            $this->sendError("Non hai i permessi per eliminare questa playlist", 403);
+            return;
+        }
+
+        // 2. Protezione: Non eliminare la playlist "Preferiti" di default
+        // (Opzionale, ma consigliato se gestisci i preferiti come playlist)
+        $dati = $playlistModel->get_dati_playlist($id_playlist);
+        if ($dati && $dati['nome_playlist'] === 'Preferiti') {
+             $this->sendError("Non puoi eliminare la playlist Preferiti", 403);
+             return;
+        }
+
+        // 3. Eliminazione
+        if ($playlistModel->delete_playlist($id_playlist)) {
+            $this->sendJson(['success' => true]);
+        } else {
+            $this->sendError("Errore del server durante l'eliminazione", 500);
+        }
     }
-}
 }

@@ -86,6 +86,7 @@ set_exception_handler(function ($e) {
     $router->add('/profilo/{username:alphanum}/playlist/new', PlaylistController::class, 'view_playlist_form', ['auth', 'owner']);
     $router->add('/profilo/{username:alphanum}/playlist/create', PlaylistController::class, 'create_playlist', ['auth', 'owner']);
     $router->add('/profilo/{username:alphanum}/playlist/{id_playlist:num}', PlaylistController::class, 'view_playlist_page', ['auth', 'owner']);
+    $router->add('/api/playlist/delete', ApiPlaylistController::class, 'delete', ['auth']);
 
 
     $router->add('/admin/gestione-utenti', AdminController::class, 'view_gestisci_account', ['auth', 'admin']);
@@ -103,6 +104,7 @@ set_exception_handler(function ($e) {
     $router->add('/api/search/songs', ApiCanzoneController::class, 'search');
     $router->add('/api/playlist/add-song', ApiPlaylistController::class, 'add_song', ['auth']);
     $router->add('/api/playlist/remove-song', ApiPlaylistController::class, 'remove_song', ['auth']);
+
 
     $router->dispatch($_SERVER['REQUEST_URI']);
 

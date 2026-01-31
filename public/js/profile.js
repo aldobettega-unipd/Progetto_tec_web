@@ -169,4 +169,77 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // ============================================================
+    // 3. GESTIONE ELIMINAZIONE PLAYLIST
+    // ============================================================
+    const playlistContainer = document.getElementById('le-tue-playlist');
+
+    if (playlistContainer) {
+        playlistContainer.addEventListener('click', async (e) => {
+            
+            // 1. Trova il bottone cliccato (Delegation)
+            const deleteBtn = e.target.closest('.js-delete-playlist');
+            if (!deleteBtn) return;
+
+            // 2. Ferma la propagazione (EVITA che si apra la playlist)
+            e.preventDefault();
+            e.stopPropagation();
+
+            const playlistId = deleteBtn.dataset.id;
+            const row = deleteBtn.closest('.playlist-row');
+
+            // 3. Conferma (Consigliato per intere playlist)
+            if (!confirm("Sei sicuro di voler eliminare questa playlist? L'azione è irreversibile.")) {
+                return;
+            }
+
+            // 4. Feedback Visivo (Opacità)
+            if (row) {
+                row.style.pointerEvents = 'none'; // Blocca click
+                row.style.transition = 'opacity 0.3s';
+                row.style.opacity = '0.4';
+            }
+
+            try {
+                // 5. Chiamata API
+                const response = await fetch('/api/playlist/delete', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id_playlist: playlistId })
+                });
+
+                const res = await response.json().catch(() => ({ success: false }));
+
+                if (res.success) {
+                    // Successo: Rimuovi riga
+                    if (row) {
+                        row.style.transform = 'translateX(20px)';
+                        row.style.opacity = '0';
+                        setTimeout(() => {
+                            row.remove();
+                            // Controllo vuoto
+                            const grid = playlistContainer.querySelector('.content-grid');
+                            if (grid && grid.children.length === 0) {
+                                grid.innerHTML = '<p>Non hai ancora creato nessuna playlist.</p>';
+                            }
+                        }, 300);
+                    }
+                } else {
+                    alert("Errore: " + (res.message || "Impossibile eliminare"));
+                    if (row) { 
+                        row.style.opacity = '1'; 
+                        row.style.pointerEvents = 'auto';
+                    }
+                }
+            } catch (err) {
+                console.error(err);
+                alert("Errore di connessione");
+                if (row) { 
+                    row.style.opacity = '1'; 
+                    row.style.pointerEvents = 'auto';
+                }
+            }
+        });
+    }
 });

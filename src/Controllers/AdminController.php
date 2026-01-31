@@ -43,15 +43,15 @@ class AdminController extends Controller
 
     public function view_gestisci_account()
     {
+        BreadcrumbHelper::add('gestione-account');
         $utenti_base_list = $this->Admin->get_all_base_user();
-        $lista_html = ListHelper::render($utenti_base_list, 'genericListItem', 'utente', [
-            'NAME_ITEM' => 'username',
-            'ID_ITEM' => 'username',
-        ]);
+        
+        // Colleghiamo al template userRow
+        $lista_html = ListHelper::render($utenti_base_list, 'admin/userRow'); 
 
         $this->page_title = "Gestisci Utenti";
         $this->page_description = "Gestisci gli utenti registrati nel sistema.";
-        $this->scriptPathList[] = 'admin';
+        $this->scriptPathList[] = 'admin'; // Carica admin.js
 
         $this->render('admin/users', [
             'LISTA_UTENTI' => $lista_html,
@@ -60,22 +60,17 @@ class AdminController extends Controller
 
     public function view_gestisci_contenuti()
     {
+        BreadcrumbHelper::add('gestione-contenuti');
         $canzoneModel = new CanzoneModel();
         $lista_canzoni = $canzoneModel->get_all_songs();
-        $lista_html_canzoni = ListHelper::render($lista_canzoni, 'genericListItem', 'canzone', [
-            'NAME_ITEM' => 'titolo_canzone',
-            'ID_ITEM' => 'id_canzone'
-        ]);
+        $lista_html_canzoni = ListHelper::render($lista_canzoni, 'admin/canzoneRow');
 
         $artistaModel = new ArtistaModel();
         $lista_artisti = $artistaModel->get_all_artisti();
-        $lista_html_artisti = ListHelper::render($lista_artisti, 'genericListItem', 'artista', [
-            'NAME_ITEM' => 'nome_artista',
-            'ID_ITEM' => 'slug_artista'
-        ]);
+        $lista_html_artisti = ListHelper::render($lista_artisti, 'admin/artistaRow');
 
         $this->page_title = "Gestisci Contenuti";
-        $this->page_description = "Gestisci le canzoni e gli artisti registrati nel sistema.";
+        $this->page_description = "Gestisci canzoni e artisti.";
         $this->scriptPathList[] = 'admin';
 
         $this->render('admin/content', [
@@ -84,6 +79,7 @@ class AdminController extends Controller
         ]);
     }
 
+    
     public function view_add_item($type)
     {
 

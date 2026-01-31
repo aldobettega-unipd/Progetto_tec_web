@@ -25,8 +25,8 @@ class AdminController extends Controller
 
     public function view_profile_admin()
     {
-        $username = Auth::getUser()['username'];
-        $admin = $this->Admin->find_user($username);
+
+        $admin = $this->Admin->get_current_user();
         if (!$admin) {
             $this->abort(404, "Utente non trovato.");
         }

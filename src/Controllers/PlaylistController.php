@@ -30,7 +30,7 @@ Class PlaylistController extends Controller {
 
     public function create_playlist() {
         $nome_playlist = $this->post('nome_playlist');
-        $id_user = $this->get_user()['id'];
+        $id_user = $this->get_user()['id_utente'];
         $this->Playlist->insert_playlist($nome_playlist, $id_user);
         $this->redirect('/profilo');
     } 
@@ -43,7 +43,7 @@ Class PlaylistController extends Controller {
         }
 
         $canzoni_playlist = $this->Playlist->get_canzoni_playlist($id_playlist);
-        
+
         $lista_html = ListHelper::render($canzoni_playlist, 'canzoneRow');
 
         $nome_playlist = $dati_playlist['nome_playlist'];
@@ -63,10 +63,8 @@ Class PlaylistController extends Controller {
     }
 
     private function get_user(){
-        $username = Auth::getUser()['username'];
         $User = new UserModel();
-        $id = $User->find_user($username)['id_utente'];
-        return ['id' => $id, 'username' => $username];
+        return  $User->get_current_user();
     }
 
 }

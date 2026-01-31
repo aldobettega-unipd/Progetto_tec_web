@@ -22,9 +22,9 @@ Class ApiUserController extends ApiBaseController {
             return;
         }
 
-        $userModel = new UserModel();
-        $username = $_SESSION['user']['username'];
-        if ($userModel->update_foto($id_foto, $username)) {
+        $User = new UserModel();
+        $id_user = $User->get_current_user()['id_utente'];
+        if ($User->update_foto($id_foto, $id_user)) {
             $_SESSION['user']['foto_profilo'] = $id_foto;
             $this->sendJson(['success' => true]);
         } else {

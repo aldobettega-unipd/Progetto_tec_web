@@ -1,14 +1,21 @@
 <?php
 namespace App\Models;
 use App\Core\Model;
+use App\Core\Auth;
 
 class UserModel extends Model {
     protected $table = 'utente';
 
 
+
     public function find_user($username) {
         $sql = "SELECT * FROM utente WHERE username = ?";
         return $this->fetchOne($sql, [$username]);
+    }
+
+    public function get_current_user() {
+        $username = Auth::getUser()['username'];
+        return $this->find_user($username);
     }
 
     public function get_all_base_user() {
@@ -21,9 +28,10 @@ class UserModel extends Model {
         try {
             $sql = "INSERT INTO utente (username, hash_password, is_admin) VALUES (?, ?, ?)";
             $this->query($sql, [$username, $hash, $admin]);
+            $lastId = $this->db->lastInsertId();
             if(!$admin){
-                $sql2 = "INSERT INTO playlist (nome_playlist, username) VALUES (?, ?)";
-                $this->query($sql2, ["Preferiti", $username]);
+                $sql2 = "INSERT INTO playlist (nome_playlist, id_username) VALUES (?, ?)";
+                $this->query($sql2, ["Preferiti", $lastId]);
             }
             return true;
         } catch (\PDOException $e) {

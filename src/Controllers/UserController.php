@@ -93,8 +93,7 @@ class UserController extends Controller
 
     public function view_profile()
     {
-        $username = Auth::getUser()['username'];
-        $user = $this->User->find_user($username);
+        $user = $this->User->get_current_user();
         if (!$user) {
             $this->abort(404, "Utente non trovato.");
         }

@@ -1622,7 +1622,7 @@ body.dark-mode .playlist-form-container {
 }
 
 .btn-add-song:hover {
-    background-color: var(--highlited-button);
+    background-color: var(--highlighted-button);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
@@ -2130,6 +2130,8 @@ body.dark-mode .search-input-wrapper:hover {
     background: #fff;
     border-bottom: 1px solid #ddd;
     position: relative; /* FONDAMENTALE per posizionare il menu */
+    margin-left: 3em;
+  width: 90%;
 }
 
 /* --- 3. MECCANICA DEL MENU (FONDAMENTALE) --- */
@@ -2374,4 +2376,55 @@ body.dark-mode .btn-delete {
 body.dark-mode .btn-delete:hover {
     background-color: #ff6b6b;
     color: #fff;
+}
+
+/* =========================================
+  PLAYLIST PAGE
+========================================= */
+
+.header-playlist {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.5em;
+  margin-left: 6em;
+  margin-top: 1.5em;
+  background-color: var(--header-bg);
+  padding: 1.5em;
+  border-radius: 8px;
+  margin-right: 6em;
+  position: relative;
+}
+
+.header-playlist img {
+  height: 100px;
+  width: 100px;
+  filter: brightness(0) invert(1);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5em;
+}
+
+.header-playlist h1 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.header-playlist p {
+  font-weight: bold;
+}
+
+#open-search-modal {
+  width: 13em;
+}
+
+.empty-message {
+  text-align: center;
+  margin: 3em 3em;
+}
+
+@media (max-width: 768px) {
+  .header-playlist img {
+    display: none;
+  }
 }

@@ -32,7 +32,6 @@ class CanzoneController extends Controller
 
         // Raggruppa le canzoni per iniziale del titolo
         $canzoni_raggruppate = ListHelper::groupByIndex($canzoni, 'titolo_canzone');
-
         // Costruisci l'HTML della lista raggruppata
         $lista_html = ListHelper::costruisciListaCanzoni($canzoni_raggruppate);
 

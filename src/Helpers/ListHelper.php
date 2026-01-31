@@ -34,6 +34,8 @@ class ListHelper
         return $html;
     }
 
+
+
     public static function groupByIndex($items, $key) {
         $grouped = [];
 
@@ -66,7 +68,7 @@ class ListHelper
             unset($grouped['#']);
             $grouped['#'] = $hashGroup;
         }*/
-
+        
         return $grouped;
     }
 
@@ -76,24 +78,16 @@ class ListHelper
         $html_finale = '<div class="classic-index">';
 
         foreach ($dati_raggruppati as $lettera => $lista) {
-
-
-            // Iniziamo la sezione della lettera
-            // HEREDOC: Tutto tra <<<HTML e HTML; viene trattato come stringa
             $html_finale .= <<<HTML
             <section class="letter-block" aria-labelledby="heading-{$lettera}">
                 <h2 id="heading-{$lettera}" class="letter-title">{$lettera}</h2>
                 <ul class="plain-list">
 HTML;
 
-            // Ciclo interno per le canzoni di questa lettera
             foreach ($lista as $canzone) {
-                // Sanificazione dati DB (FONDAMENTALE)
                 $titolo = htmlspecialchars($canzone['titolo_canzone']);
                 $autore = htmlspecialchars($canzone['autore_canzone']);
                 $slug = htmlspecialchars($canzone['slug_canzone']);
-
-                // Aggiungo la riga della lista (li)
                 $html_finale .= <<<HTML
                     <li>
                         <a href="/canzoni/{$slug}">
@@ -104,14 +98,13 @@ HTML;
                     HTML;
             }
 
-            // Chiudo la lista e la sezione
             $html_finale .= <<<HTML
                 </ul>
             </section>
             HTML;
         }
 
-        $html_finale .= '</div>'; // Chiudo il contenitore principale
+        $html_finale .= '</div>';
 
         return $html_finale;
     }
@@ -131,8 +124,6 @@ HTML;
             foreach ($lista as $artista) {
                 $name = htmlspecialchars($artista['nome_artista']);
                 $slug = htmlspecialchars($artista['slug_artista']);
-
-                // Aggiungo la riga della lista (li)
                 $html_finale .= <<<HTML
                     <li>
                         <a href="/artisti/{$slug}">
@@ -141,8 +132,6 @@ HTML;
                     </li>
                     HTML;
             }
-
-            // Chiudo la lista e la sezione
             $html_finale .= <<<HTML
                 </ul>
             </section>

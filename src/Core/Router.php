@@ -71,15 +71,6 @@ Class Router {
             }
         }
 
-        if (in_array('owner', $middleware)) {
-            $currentUser = \App\Core\Auth::getUser()['username'] ?? null;
-            $urlUser = $params['username'] ?? null;
-
-            if ($urlUser && $currentUser !== $urlUser) {
-                throw new \App\Exceptions\ForbiddenException("Non hai i permessi.");
-            }
-        }
-
         if (in_array('admin', $middleware)) {
             $currentUser = \App\Core\Auth::getUser()['is_admin'] ?? null;
 

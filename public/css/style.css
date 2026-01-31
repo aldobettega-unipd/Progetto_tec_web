@@ -2428,3 +2428,173 @@ body.dark-mode .btn-delete:hover {
     display: none;
   }
 }
+
+
+/* ============================================================
+   PAGINE INDICIZZATE (Canzoni & Artisti Ordinati)
+   ============================================================ */
+
+/* 1. Contenitore Principale Condiviso */
+.canzoniordinatepage .main-container,
+.artistiordinatipage .main-container {
+    width: var(--container-width);
+    margin: 3rem auto;
+    padding: 0 1rem;
+    min-height: 60vh;
+}
+
+/* 2. Titolo H1 Condiviso */
+.canzoniordinatepage h1,
+.artistiordinatipage h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    color: var(--main-text);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    width: 100%;
+}
+
+/* Decorazione sotto il titolo */
+.canzoniordinatepage h1::after,
+.artistiordinatipage h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--wood-accent);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* =========================================
+   LISTA COMPATTA (Singola Colonna)
+   ========================================= */
+
+/* Contenitore stretto e centrato per massima leggibilità */
+.classic-index {
+    max-width: 800px; /* Larghezza controllata per non avere righe infinite */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Spazio tra i blocchi A, B, C */
+}
+
+/* Blocco Lettera (A, B, C...) */
+.letter-block {
+    background-color: var(--main-bg);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    border: 1px solid rgba(0,0,0,0.05);
+    
+    /* Ombra leggera */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.letter-block:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-color: var(--wood-accent);
+}
+
+/* Titolo della Lettera */
+.letter-block h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--wood-accent);
+    margin: 0 0 0.8rem 0;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+    line-height: 1;
+}
+
+/* --- LA LISTA --- */
+.plain-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Singola Riga */
+.plain-list li {
+    margin-bottom: 0;
+    border-bottom: 1px dashed rgba(0,0,0,0.08); /* Separatore sottile */
+    padding: 0.4rem 0; /* Spazio cliccabile verticale */
+}
+
+.plain-list li:last-child {
+    border-bottom: none;
+}
+
+/* Il Link (Titolo + Artista sulla stessa riga) */
+.plain-list a {
+    text-decoration: none;
+    display: flex;
+    align-items: baseline; /* Allinea i testi alla base */
+    gap: 0.6rem; /* Spazio tra titolo e artista */
+    color: var(--main-text);
+    transition: transform 0.1s ease, color 0.1s ease;
+}
+
+.plain-list a:hover {
+    color: var(--wood-accent);
+    transform: translateX(4px); /* Piccolo movimento a destra */
+}
+
+/* Nome Principale (Titolo Canzone o Nome Artista) */
+.plain-list strong, 
+.plain-list .entry-name {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Nome Secondario (Es. "- The Beatles") */
+.plain-list .artist-ref, 
+.plain-list .artist-inline {
+    font-size: 0.85rem;
+    color: var(--layout-text-color-accent);
+    opacity: 0.7;
+    font-weight: 400;
+    white-space: nowrap;      /* Cerca di non andare a capo */
+    overflow: hidden;
+    text-overflow: ellipsis;  /* Mette i puntini ... se troppo lungo */
+}
+
+/* =========================================
+   DARK MODE OVERRIDES
+   ========================================= */
+body.dark-mode .letter-block {
+    background-color: rgba(255,255,255,0.03); /* Sfondo appena visibile */
+    border-color: rgba(255,255,255,0.05);
+}
+
+body.dark-mode .letter-block h2 {
+    border-bottom-color: rgba(255,255,255,0.1);
+}
+
+body.dark-mode .plain-list li {
+    border-bottom-color: rgba(255,255,255,0.1);
+}
+
+body.dark-mode .plain-list .artist-ref,
+body.dark-mode .plain-list .artist-inline {
+    color: #bbb; /* Più leggibile sul nero */
+}
+
+/* =========================================
+   OPTIMIZATION (Desktop)
+   ========================================= */
+/* Se lo schermo è largo, dividiamo la lista interna in 2 colonne 
+   per risparmiare altezza senza rompere l'ordine A-Z */
+@media (min-width: 700px) {
+    .plain-list {
+        column-count: 2;
+        column-gap: 3rem;
+    }
+    
+    .plain-list li {
+        break-inside: avoid; /* Non spezzare una riga a metà */
+    }
+}
+

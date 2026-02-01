@@ -7,7 +7,7 @@ INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzo
 (
         "Knockin' On Heaven's Door",
         "Guns N' Roses",
-        "ENG",
+        "en",
         "
         [SOL]   Mamma [RE]take this badge off of [LAm]me  
         [SOL]   I can't [RE]use it any[DO]more 

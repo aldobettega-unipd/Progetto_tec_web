@@ -576,6 +576,21 @@ footer {
     opacity: 0.9;
     line-height: 1.2;
 }
+.intestazione {
+  display: flex;
+  justify-content: space-between;
+}
+
+.intestazione a {
+  margin-top: 2.15em;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+.intestazione a:hover {
+  text-decoration: underline;
+}
 
 /* ======
    CAROSELLI & CARDS

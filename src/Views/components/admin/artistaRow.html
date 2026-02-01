@@ -1,15 +1,18 @@
-<div class="admin-list-item artista-item">
-    <div class="item-info">
-        <span class="item-title">##NOME_ARTISTA##</span>
-        <span class="item-subtitle">ID: ##ID_ARTISTA##</span>
+<div class="glass-row">
+    <div class="row-icon">
+        <img src="/img/icone/user.png" alt="Artista" class="icon-img-small"> </div>
+
+    <div class="row-info">
+        <span class="row-title">##nome_artista##</span>
+        <span class="row-subtitle">Artista</span>
     </div>
 
-    <div class="item-actions">
-        <button class="btn-delete js-delete-btn" 
-                data-type="artista" 
-                data-id="##ID_ARTISTA##" 
-                aria-label="Elimina artista">
-            🗑️ Elimina
+    <div class="row-actions">
+        <a href="/admin/artisti/edit/##id_artista##" class="btn-icon-action edit" title="Modifica">
+            ✏️
+        </a>
+        <button class="btn-icon-action delete js-delete-artist" data-id="##id_artista##" title="Elimina">
+            🗑️
         </button>
     </div>
 </div>

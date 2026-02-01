@@ -2811,115 +2811,274 @@ body.dark-mode .admin-card-text h3 {
 }
 
 /*
-=================================================================================
-GESTIONE CONTENUTI E UTENTI
-=================================================================================
+================================================
+   ADMIN CONTENT PAGE (Gestione Contenuti)
+================================================
 */
 
-/* 1. CONTENITORE RIGA (Lo stile "Vetro") */
-.admin-list-item {
+.admin-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 400px);
+    min-height: 400px;
+
+    width: 90%;
+    max-width: 1400px; 
+    margin: 2rem auto 0 auto; 
+
+    overflow: hidden;
+    align-items: stretch !important;
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+
+    width: 100%; 
+    
+    flex: 1;      
+    min-height: 0;  
+    
+    padding-bottom: 0px;
+}
+
+.admin-column {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    
+    background-color: rgba(255, 255, 255, 0.3); 
+    border-radius: 16px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+    
+    box-sizing: border-box;
+    overflow: hidden; 
+}
+
+/* Fix per Dark Mode */
+body.dark-mode .admin-column {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* --- HEADER E BOTTONI "PILLOLA" --- */
+.admin-header-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-    background-color: rgba(255, 255, 255, 0.6); /* Bianco semitrasparente */
-    backdrop-filter: blur(5px);                 /* Sfocatura sfondo */
-    padding: 1rem 1.5rem;
-    margin-bottom: 10px;                        /* Spazio tra le righe */
-    border-radius: 12px;
-    border: 1px solid rgba(0,0,0,0.05);
-    
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-/* Effetto Hover sulla riga */
-.admin-list-item:hover {
-    background-color: rgba(255, 255, 255, 0.95);
-    transform: translateY(-3px); /* Si alza leggermente */
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+.header-text h1 { margin: 0; font-size: 2.2rem; color: var(--header-bg); }
+.header-text p { margin: 5px 0 0 0; opacity: 0.7; font-size: 1rem; color: var(--main-text); }
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-action-pill {
+    background-color: var(--wood-accent);
+    color: var(--layout-text-color-accent);
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.btn-action-pill:hover {
+    background-color: var(--highlighted-button);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+.separator-soft {
+    border: 0;
+    border-top: 2px solid rgba(0,0,0,0.05);
+}
+
+.column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--wood-accent);
+}
+
+.column-header h3 { margin: 0; font-size: 1.4rem; color: var(--header-bg); }
+
+/* Input di ricerca "Mini" */
+.mini-search-input {
+    background: rgba(255,255,255,0.5);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 20px;
+    padding: 6px 15px;
+    font-size: 0.9rem;
+    width: 150px;
+    transition: all 0.2s;
+}
+.mini-search-input:focus {
+    background: #fff;
+    width: 180px; /* Si allarga quando scrivi */
+    outline: none;
     border-color: var(--wood-accent);
 }
 
-/* 2. TESTI (Info Elemento) */
-.item-info {
+.admin-list-scroll {
+    flex: 1;            /* Espanditi per occupare tutto lo spazio rimasto nella colonna */
+    overflow-y: auto;   /* Abilita lo scroll SOLO qui dentro */
+    max-height: none;   /* Rimuovi il limite di 600px */
+    
+    padding-right: 5px; /* Spazio per evitare che la scrollbar copra il contenuto */
+    margin-top: 10px;
+    
+    /* Scrollbar personalizzata sottile (funziona su Chrome/Safari/Edge) */
+    scrollbar-width: thin;
+    scrollbar-color: var(--wood-accent) transparent;
+}
+
+/* Stile scrollbar Webkit */
+.admin-list-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+.admin-list-scroll::-webkit-scrollbar-thumb {
+    background-color: var(--wood-accent);
+    border-radius: 10px;
+}
+.admin-list-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* --- ROW STYLE "GLASS" (Vetro) --- */
+.glass-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    background-color: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(8px);
+    
+    padding: 12px 18px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.glass-row:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+    transform: translateX(4px);
+    border-color: var(--wood-accent);
+}
+
+.row-icon {
+    margin-right: 15px;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+}
+.icon-img-small {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.row-info {
+    flex-grow: 1; /* Occupa tutto lo spazio centrale */
     display: flex;
     flex-direction: column;
-    gap: 4px;
 }
 
-.item-title {
-    font-size: 1.1rem;
+.row-title {
     font-weight: 700;
-    color: var(--header-bg); /* Marrone scuro */
+    color: var(--header-bg);
+    font-size: 1rem;
 }
 
-.item-subtitle {
-    font-size: 0.9rem;
+.row-subtitle {
+    font-size: 0.85rem;
     color: var(--main-text);
     opacity: 0.7;
 }
 
-/* 3. BOTTONE ELIMINA */
-.btn-delete {
-    background-color: transparent;
-    color: #e74c3c; /* Rosso spento */
-    border: 1px solid rgba(231, 76, 60, 0.3);
-    border-radius: 50px;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
+/* --- AZIONI (Edit / Delete) --- */
+.row-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-icon-action {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
     display: flex;
     align-items: center;
-    gap: 6px;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+    text-decoration: none; /* Per i link */
 }
 
-.btn-delete:hover {
+.btn-icon-action.edit {
+    background-color: rgba(0,0,0,0.05);
+    color: #333;
+}
+.btn-icon-action.edit:hover {
+    background-color: var(--wood-accent);
+    color: #fff;
+}
+
+.btn-icon-action.delete {
+    background-color: transparent;
+    color: #e74c3c;
+    border: 1px solid rgba(231, 76, 60, 0.2);
+}
+.btn-icon-action.delete:hover {
     background-color: #e74c3c;
     color: white;
-    border-color: #e74c3c;
-    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
-    transform: scale(1.05);
 }
 
-/* Stato disabilitato (mentre elimina) */
-.btn-delete:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none !important;
+/* --- DARK MODE --- */
+body.dark-mode .header-text h1,
+body.dark-mode .column-header h3,
+body.dark-mode .row-title {
+    color: #fff;
 }
 
-/* =========================================
-   DARK MODE ADMIN
-========================================= */
-body.dark-mode .admin-list-item {
+body.dark-mode .glass-row {
     background-color: rgba(30, 30, 36, 0.7);
-    border-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255,255,255,0.05);
 }
-
-body.dark-mode .admin-list-item:hover {
+body.dark-mode .glass-row:hover {
     background-color: rgba(30, 30, 36, 1);
-    border-color: var(--wood-accent);
 }
-
-body.dark-mode .item-title {
+body.dark-mode .mini-search-input {
+    background-color: rgba(0,0,0,0.3);
     color: #fff;
+    border-color: rgba(255,255,255,0.1);
 }
 
-body.dark-mode .item-subtitle {
-    color: #bbb;
-}
-
-body.dark-mode .btn-delete {
-    color: #ff6b6b; /* Rosso più chiaro per dark mode */
-    border-color: rgba(255, 107, 107, 0.3);
-}
-
-body.dark-mode .btn-delete:hover {
-    background-color: #ff6b6b;
-    color: #fff;
+/* --- RESPONSIVE --- */
+@media (max-width: 850px) {
+    .admin-grid {
+        grid-template-columns: 1fr; /* Una colonna su mobile */
+        gap: 2rem;
+    }
 }
 
 /* =========================================

@@ -2703,8 +2703,6 @@ body.dark-mode .playlist-form input:hover {
    STILE PAGINA ADMIN (Dashboard)
 ========================================= */
 
-/* --- 1. AVATAR ADMIN (Fisso e Unico) --- */
-
 
 .admin-avatar-wrapper {
     margin: 1.5rem 0;
@@ -2797,7 +2795,6 @@ body.dark-mode .playlist-form input:hover {
     margin-top: 4px;
 }
 
-/* --- DARK MODE FIXES --- */
 body.dark-mode .admin-card {
     background-color: rgba(30, 30, 36, 0.7);
     border-color: rgba(255, 255, 255, 0.05);
@@ -2810,6 +2807,11 @@ body.dark-mode .admin-card-text h3 {
     color: #fff;
 }
 
+body.dark-mode .admin-card-icon {
+    filter: invert(1);
+    opacity: 0.9;
+}
+
 /*
 ================================================
    ADMIN CONTENT PAGE (Gestione Contenuti)
@@ -2819,34 +2821,40 @@ body.dark-mode .admin-card-text h3 {
 .admin-page-wrapper {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 400px);
-    min-height: 400px;
-
+    
+    /* MODIFICA CHIAVE: Altezza automatica basata sul contenuto */
+    height: auto; 
+    min-height: 60vh; /* Almeno un po' di altezza */
+    
     width: 90%;
     max-width: 1400px; 
-    margin: 2rem auto 0 auto; 
+    margin: 2rem auto 4rem auto; /* Un po' di margine sotto per respirare */
 
-    overflow: hidden;
-    align-items: stretch !important;
+    /* Rimuoviamo overflow: hidden per permettere lo scroll della pagina */
+    overflow: visible; 
+    align-items: stretch;
 }
 
 .admin-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
-
     width: 100%; 
     
-    flex: 1;      
-    min-height: 0;  
-    
-    padding-bottom: 0px;
+    /* Togliamo flex: 1 perché ora l'altezza la decide il contenuto */
+    height: auto;
+    align-items: start; /* Le colonne partono dall'alto */
 }
 
 .admin-column {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    
+    /* Altezza fissa per ogni "pannello". 
+       80vh significa "80% dell'altezza dello schermo dell'utente".
+       È un ottimo compromesso: su schermi grandi è alta, su piccoli è giusta. */
+    height: 75vh; 
+    min-height: 500px; /* Non scende mai sotto i 500px */
     
     background-color: rgba(255, 255, 255, 0.3); 
     border-radius: 16px;
@@ -2856,6 +2864,35 @@ body.dark-mode .admin-card-text h3 {
     
     box-sizing: border-box;
     overflow: hidden; 
+}
+
+.admin-list-scroll {
+    flex: 1;            
+    overflow-y: auto;   /* Scroll interno sempre attivo se serve */
+    max-height: 100%;   
+    
+    padding-right: 5px; 
+    margin-top: 10px;
+    
+    scrollbar-width: thin;
+    scrollbar-color: var(--wood-accent) transparent;
+}
+
+/* Specifico per la pagina Utenti (Colonna Unica) */
+.admin-column.full-width {
+    width: 100%;
+    max-width: 1000px; 
+    margin: 0 auto;    /* Centra la colonna se c'è spazio extra */
+}
+
+@media (max-width: 850px) {
+    .admin-grid {
+        grid-template-columns: 1fr; /* Una sola colonna */
+    }
+    
+    .admin-column {
+        height: 600px; /* Altezza fissa su mobile */
+    }
 }
 
 /* Fix per Dark Mode */
@@ -2938,32 +2975,6 @@ body.dark-mode .column-header h3 img {
 
 .column-header h3 { margin: 0; font-size: 1.4rem; color: var(--header-bg); }
 
-
-.admin-list-scroll {
-    flex: 1;            /* Espanditi per occupare tutto lo spazio rimasto nella colonna */
-    overflow-y: auto;   /* Abilita lo scroll SOLO qui dentro */
-    max-height: none;   /* Rimuovi il limite di 600px */
-    
-    padding-right: 5px; /* Spazio per evitare che la scrollbar copra il contenuto */
-    margin-top: 10px;
-    
-    /* Scrollbar personalizzata sottile (funziona su Chrome/Safari/Edge) */
-    scrollbar-width: thin;
-    scrollbar-color: var(--wood-accent) transparent;
-}
-
-/* Stile scrollbar Webkit */
-.admin-list-scroll::-webkit-scrollbar {
-    width: 6px;
-}
-.admin-list-scroll::-webkit-scrollbar-thumb {
-    background-color: var(--wood-accent);
-    border-radius: 10px;
-}
-.admin-list-scroll::-webkit-scrollbar-track {
-    background: transparent;
-}
-
 /* --- ROW STYLE "GLASS" (Vetro) --- */
 .glass-row {
     display: flex;
@@ -3012,6 +3023,39 @@ body.dark-mode .column-header h3 img {
 .row-actions {
     display: flex;
     gap: 8px;
+}
+
+/*
+===================================
+LISTA UTENTI DI GESTIONE UTENTI
+===================================
+*/
+
+.glass-row.admin-list-item {
+    cursor: default;
+    transition: none;
+}
+
+.glass-row.admin-list-item:hover {
+    transform: none; 
+    background-color: rgba(255, 255, 255, 0.65); 
+    border-color: rgba(255,255,255,0.4);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.glass-row.admin-list-item .btn-icon-action {
+    cursor: pointer;
+    z-index: 2;
+}
+
+body.dark-mode .glass-row.admin-list-item:hover {
+    background-color: rgba(30, 30, 36, 0.7); /* Colore base dark mode */
+    border-color: rgba(255,255,255,0.05);
+}
+
+body.dark-mode .icon-img-small {
+    filter: invert(1);
+    opacity: 0.9;
 }
 
 .btn-icon-action {
@@ -3100,14 +3144,14 @@ body.dark-mode .mini-search-input {
     min-height: calc(100vh - 200px);
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* flex-start evita problemi se il form è lungo */
+    align-items: flex-start;
     padding-top: 3rem;
     padding-bottom: 3rem;
 }
 
 /* 2. La Card del Form */
 .admin-form-card {
-    background-color: rgba(255, 255, 255, 0.95); /* Quasi opaco per leggibilità */
+    background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     
     width: 100%;
@@ -3143,7 +3187,6 @@ body.dark-mode .mini-search-input {
     gap: 10px;
     font-weight: 500;
 }
-/* Se il placeholder è vuoto, nascondilo (o usa logica PHP) */
 .alert-box:empty { display: none; }
 
 /* 4. Input e Labels */
@@ -3165,33 +3208,35 @@ body.dark-mode .mini-search-input {
     width: 100%;
     padding: 12px 15px;
     border-radius: 10px;
-    border: 2px solid rgba(0,0,0,0.1); /* Bordo sottile */
+    border: 2px solid rgba(0,0,0,0.1);
     background-color: #fff;
     font-size: 1rem;
     font-family: inherit;
     color: #333;
-    box-sizing: border-box; /* Fondamentale per padding */
+    box-sizing: border-box;
     transition: all 0.3s ease;
 }
 
 .form-group textarea { resize: vertical; min-height: 100px; }
 
-/* Stati Focus e Validazione */
+/* Stati Focus */
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--wood-accent);
-    box-shadow: 0 0 0 4px rgba(228, 151, 83, 0.2); /* Alone arancione */
+    box-shadow: 0 0 0 4px rgba(228, 151, 83, 0.2);
 }
 
-/* Validazione HTML5: Verde se valido, Rosso se invalido (solo quando non è focus) */
-.form-group input:not(:placeholder-shown):valid {
-    border-color: #4caf50;
-}
-.form-group input:not(:placeholder-shown):invalid {
-    border-color: #e53935;
+/* --- STILE INPUT PULITO (Senza Validazione Colori) --- */
+
+/* Manteniamo solo lo stile di base neutro */
+.form-group input:invalid,
+.form-group textarea:invalid {
+    border-color: rgba(0,0,0,0.1); /* Grigio standard */
+    box-shadow: none;
 }
 
+/* Testo di aiuto sotto input */
 .form-text {
     display: block;
     margin-top: 5px;
@@ -3202,7 +3247,7 @@ body.dark-mode .mini-search-input {
 /* 5. Bottoni Azione */
 .form-actions {
     display: flex;
-    justify-content: flex-end; /* Bottoni a destra */
+    justify-content: flex-end;
     gap: 15px;
     margin-top: 2rem;
     padding-top: 1.5rem;
@@ -3246,7 +3291,7 @@ body.dark-mode .mini-search-input {
 
 /* --- DARK MODE --- */
 body.dark-mode .admin-form-card {
-    background-color: #1e1e24; /* Grigio scuro solido */
+    background-color: #1e1e24;
     border-color: rgba(255,255,255,0.05);
 }
 body.dark-mode .form-header h1,
@@ -3261,6 +3306,14 @@ body.dark-mode .form-group textarea {
 }
 body.dark-mode .form-text { color: #aaa; }
 body.dark-mode .btn-secondary { color: #fff; border-color: rgba(255,255,255,0.2); }
+
+/* Fix Validazione Dark Mode */
+body.dark-mode .styled-form.submitted input:invalid,
+body.dark-mode .styled-form.submitted textarea:invalid {
+    background-color: rgba(229, 57, 53, 0.1); /* Rosso trasparente scuro */
+    border-color: #ef5350;
+}
+
 
 /* =========================================
   PLAYLIST PAGE

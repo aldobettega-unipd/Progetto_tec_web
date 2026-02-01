@@ -1353,8 +1353,8 @@ body.dark-mode .menu-btn.active {
     color: var(--main-text);
     padding: 2rem;
     border-radius: 16px;
-    width: 90%;
-    max-width: 450px;
+    width: 95%;
+    max-width: 700px;
     text-align: center;
     box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     border: 1px solid rgba(255,255,255,0.1);
@@ -1364,27 +1364,34 @@ body.dark-mode .menu-btn.active {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 25px;
     margin: 2rem 0;
 }
 
 .avatar-option-btn {
-    width: 70px;
-    height: 70px;
-    padding: 0;
+    width: 110px;
+    height: 110px;
+    padding: 10px;
+
     background: transparent;
-    border: 3px solid transparent;
+    border: 4px solid transparent;
     border-radius: 50%;
+
     cursor: pointer;
     overflow: hidden;
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .avatar-option-btn img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
 }
 
 .avatar-option-btn:hover {
@@ -2283,31 +2290,42 @@ body.dark-mode .search-input-wrapper:hover {
     width: 100%;
     padding: 14px 18px;
     border-radius: 12px;
+
     border: 2px solid rgba(255,255,255,0.1);
-    background-color: rgba(255,255,255,0.05); /* Sfondo scuro */
-    color: #fff;
+    background-color: rgba(255,255,255,0.05);
+    color: var(--layout-text-color);
+
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
     outline: none;
-    appearance: none; /* Rimuove freccia default */
+    appearance: none;
     
-    /* Freccia Arancione Custom */
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E49753' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right 1rem center;
     background-size: 1.2em;
+
+    transition: border-color 0.3s ease;
 }
 
-.custom-select:hover {
+.custom-select:hover,
+.custom-select:focus {
     border-color: var(--wood-accent);
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .custom-select option {
-    background-color: #222; /* Sfondo opzioni dropdown */
+    background-color: var(--header-bg) !important; 
+    color: var(--layout-text-color) !important;
+    
+    padding: 12px;
+    font-size: 1rem;
+}
+
+body.dark-mode .custom-select option {
+    background-color: #1e1e24;
     color: #fff;
-    padding: 10px;
 }
 
 /* --- 4. GRIGLIA ACCORDI (MASONRY) --- */

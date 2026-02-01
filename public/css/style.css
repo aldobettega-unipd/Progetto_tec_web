@@ -3836,7 +3836,7 @@ body.dark-mode .plain-list .artist-inline {
     ******************************************/
 
     .carosello-wrapper{
-        width: 90%;
+        width: 82%;
         padding: 0;
     }
 
@@ -3902,11 +3902,11 @@ body.dark-mode .plain-list .artist-inline {
     }
     
     .carrbutton.prev {
-        left: -0.5rem;
+        left: -2.5rem;
     }
     
     .carrbutton.next {
-        right: -0.5rem;
+        right: -2.5rem;
     }
     
     .carrbutton img {
@@ -4004,6 +4004,10 @@ body.dark-mode .plain-list .artist-inline {
     CAROSELLO
     ******************************************/
     
+    .carosello-wrapper {
+        width: 80%;
+    }
+    
     .card-artista {
         width: 120px;
     }
@@ -4053,11 +4057,11 @@ body.dark-mode .plain-list .artist-inline {
     }
     
     .carrbutton.prev {
-        left: -0.8rem;
+        left: -2.5rem;
     }
     
     .carrbutton.next {
-        right: -0.8rem;
+        right: -2.5rem;
     }
     
     .carrbutton img {

@@ -40,15 +40,15 @@ class Auth {
     public static function getFooterLinks() {
         if (self::isAdmin()) {
             $user = self::getUser();
-            return '<a href="/admin' . '">Admin</a>' . '
-            <a href="/logout">Logout</a>';
+            return '<a href="/admin' . '"><span class="icon" aria-hidden="true"><img src="/img/icone/admin.webp" alt="icona admin" /></span>Admin</a>' . '
+            <a href="/logout"><span class="icon" aria-hidden="true"><img src="/img/icone/logout.webp" alt="icona logout" /></span>Logout</a>';
         }elseif (self::isLogged()) {
             $user = self::getUser();
-            return '<a href="/profilo' . '">Profilo</a>' . '
-            <a href="/logout">Logout</a>';
+            return '<a href="/profilo"><span class="icon" aria-hidden="true"><img src="/img/icone/user.webp" alt="home" /></span>Profilo</a>' . '
+            <a href="/logout"><span class="icon" aria-hidden="true"><img src="/img/icone/logout.webp" alt="icona logout" /></span>Logout</a>';
         } else {
-            return '<a href="/login">Login</a>' . '
-            <a href="/register">Registrati</a>';
+            return '<a href="/login"><span class="icon" aria-hidden="true"><img src="/img/icone/login.webp" alt="icona login" /></span>Login</a>' . '
+            <a href="/register"><span class="icon" aria-hidden="true"><img src="/img/icone/register.webp" alt="icona register" /></span>Registrati</a>';
         }
     }
 }

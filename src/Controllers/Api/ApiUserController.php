@@ -13,7 +13,6 @@ Class ApiUserController extends ApiBaseController {
             $this->sendError("Accesso negato", 403);
             return;
         }
-
         $input = $this->getJsonInput();
         $id_foto = $input['id_foto'] ?? null;
 

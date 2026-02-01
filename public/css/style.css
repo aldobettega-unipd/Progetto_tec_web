@@ -3414,37 +3414,57 @@ body.dark-mode .btn-secondary { color: #fff; border-color: rgba(255,255,255,0.2)
 }
 
 /* Il Link (Titolo + Artista sulla stessa riga) */
+/* Il Link Container */
 .plain-list a {
     text-decoration: none;
-    display: flex;
-    align-items: baseline; /* Allinea i testi alla base */
-    gap: 0.6rem; /* Spazio tra titolo e artista */
+    display: flex;       /* Modalità Flex */
+    align-items: baseline; /* Allinea i testi sulla riga di base */
+    gap: 0.5rem;         /* Spazio tra titolo e artista */
     color: var(--main-text);
     transition: transform 0.1s ease, color 0.1s ease;
+    padding: 2px 0;
+    
+    /* FONDAMENTALE: impedisce che il link stesso esca dal contenitore genitore */
+    max-width: 100%; 
 }
 
 .plain-list a:hover {
     color: var(--wood-accent);
-    transform: translateX(4px); /* Piccolo movimento a destra */
+    transform: translateX(4px);
 }
 
-/* Nome Principale (Titolo Canzone o Nome Artista) */
+/* 1. IL TITOLO (Deve essere flessibile) */
 .plain-list strong, 
 .plain-list .entry-name {
     font-weight: 600;
     font-size: 1rem;
+    
+    /* LA MAGIA FLEXBOX: */
+/* 1. "Prenditi tutto lo spazio libero..." */
+    min-width: 0;      /* 2. "...ma accetta di restringerti sotto la tua larghezza minima" */
+    
+    /* Gestione a capo */
+    white-space: normal;       /* Permette il testo su più righe */
+    overflow-wrap: break-word; /* Spezza le parole lunghissime se serve */
 }
 
-/* Nome Secondario (Es. "- The Beatles") */
+/* 2. L'ARTISTA (Deve rimanere fisso o accorciarsi solo se estremo) */
 .plain-list .artist-ref, 
 .plain-list .artist-inline {
     font-size: 0.85rem;
     color: var(--layout-text-color-accent);
     opacity: 0.7;
     font-weight: 400;
-    white-space: nowrap;      /* Cerca di non andare a capo */
+    
+    /* Impedisce che l'artista venga schiacciato a zero */
+    flex: 1;
+    min-width: 40%;   
+
+    /* Opzionale: Se vuoi che anche l'artista si tronchi se lo schermo è minuscolo */
+    max-width: 40%; /* Non occupare più del 40% della riga */
+    white-space: nowrap; 
     overflow: hidden;
-    text-overflow: ellipsis;  /* Mette i puntini ... se troppo lungo */
+    text-overflow: ellipsis; /* Mette i puntini "..." se l'artista è troppo lungo */
 }
 
 /* =========================================

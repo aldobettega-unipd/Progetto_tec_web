@@ -1133,7 +1133,7 @@ PROFILO PAGE
   align-items: center;
   gap: 0.8rem;
   padding: 1rem 1.2rem;
-  
+
   background-color: transparent;
   color: var(--main-text);
   border: 2px solid transparent;
@@ -1145,10 +1145,12 @@ PROFILO PAGE
   transition: all 0.2s ease;
 }
 
-.menu-btn span { font-size: 1.3rem; }
+.menu-btn span {
+  font-size: 1.3rem;
+}
 
 .menu-btn:hover {
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(0, 0, 0, 0.05);
   border-color: var(--wood-accent);
 }
 
@@ -1159,6 +1161,14 @@ PROFILO PAGE
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+#logout-btn {
+  width: 87%;
+  text-decoration: none;
+}
+
+#logout-btn.active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
 /* 4. CONTENUTO DESTRO */
 .profilo-content {
   flex: 1;

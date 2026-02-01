@@ -14,9 +14,14 @@
         id="tab-playlist" data-target="le-tue-playlist"> <span aria-hidden="true">📋</span> Playlist
       </button>
 
-      <button class="menu-btn js-tab-btn" role="tab" aria-selected="false" aria-controls="canzoni-mi-piace"
-        id="tab-mipiace" data-target="canzoni-mi-piace"> <span aria-hidden="true">❤️</span> Mi Piace
-      </button>
+           <a
+        class="menu-btn js-tab-btn"
+        id="logout-btn"
+        href="/logout"
+        aria-label="logout"
+      >
+        <span aria-hidden="true">➜]</span>Logout</a
+      >
     </div>
   </aside>
 
@@ -35,14 +40,7 @@
       </div>
     </section>
 
-    <section id="canzoni-mi-piace" role="tabpanel" aria-labelledby="tab-mipiace" class="sezione-lista" hidden>
-      <div class="section-header">
-        <h2>Canzoni con "Mi Piace"</h2>
-      </div>
-      <div class="content-grid">
-        ##LISTA_MIPIACE##
-      </div>
-    </section>
+ 
   </div>
 </div>
 

@@ -6,6 +6,7 @@ use App\Core\Controller;
 use App\Models\CanzoneModel;
 use App\Models\ArtistaModel;
 use App\Models\PlaylistModel;
+use App\Models\UserModel;
 use App\Helpers\CarouselHelper;
 use App\Helpers\ChordParser;
 use App\Helpers\ListHelper;
@@ -116,9 +117,10 @@ class CanzoneController extends Controller
         }
 
         $Playlist = new PlaylistModel();
-        $username = Auth::getUser()['username'];
-        $all_playlists = $Playlist->get_all();
-        $playlists_containing_song = $this->Canzone->get_playlist($username, $id_canzone);
+        $User = new UserModel() ;
+        $id_user = $User->get_current_user()['id_utente'];
+        $all_playlists = $Playlist->get_user_playlist($id_user);
+        $playlists_containing_song = $this->Canzone->get_playlist($id_user, $id_canzone);
         $ids_containing_song = array_column($playlists_containing_song, 'id_playlist');
 
 

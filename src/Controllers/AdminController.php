@@ -44,7 +44,8 @@ class AdminController extends Controller
 
     public function view_gestisci_account()
     {
-        BreadcrumbHelper::add('gestione-account');
+        BreadcrumbHelper::add('Profilo', '/admin');
+        BreadcrumbHelper::add('Gestione Utenti');
         $utenti_base_list = $this->Admin->get_all_base_user();
         
         // Colleghiamo al template userRow
@@ -61,7 +62,8 @@ class AdminController extends Controller
 
     public function view_gestisci_contenuti()
     {
-        BreadcrumbHelper::add('gestione-contenuti');
+        BreadcrumbHelper::add('Profilo', '/admin');
+        BreadcrumbHelper::add('Gestione Contenuti');
         $canzoneModel = new CanzoneModel();
         $lista_canzoni = $canzoneModel->get_all_songs();
         $lista_html_canzoni = ListHelper::render($lista_canzoni, 'admin/canzoneRow');

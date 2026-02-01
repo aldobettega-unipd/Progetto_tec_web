@@ -1,17 +1,48 @@
-<section class="dati-profilo">
-    <h2>Informazioni Personali</h2>
-    <img src="img/##username##.jpeg" alt="Foto profilo ##username##" width="120" height="180">
-    <dl>
-        <dt>Username:</dt>
-        <dd>##username##</dd>
-    </dl>
-</section>
-<section>
-    <h3>Azioni disponibili</h3>
-    <a href="/admin/gestione-contenuti"><button>Gestione Contenuti</button></a>
-    <a href="/admin/gestione-utenti"><button>Gestione Utenti</button></a>
-</section>
-<hr>
+<div class="profilo-container">
+  
+  <aside class="dati-profilo admin-sidebar">
+    <h2 id="personalInfo">
+      ##username##
+    </h2>
 
-<section class="sezione-lista" id="canzoni-recenti">
-</section>
+    <div class="admin-avatar-wrapper">
+      <img src="/img/admin/admin.webp" alt="Admin Avatar" class="admin-avatar-img" />
+    </div>
+
+    <div class="admin-badge">
+        Amministratore
+    </div>
+  </aside>
+
+  <div class="profilo-content">
+    
+    <div class="section-header">
+      <h2>Pannello di Controllo</h2>
+    </div>
+
+    <div class="admin-dashboard-grid">
+        
+        <a href="/admin/gestione-contenuti" class="admin-card">
+            <div class="admin-card-icon">
+                <img src="/img/admin/gestione-contenuti.webp" alt="Gestione Contenuti">
+            </div>
+            <div class="admin-card-text">
+                <h3>Contenuti</h3>
+                <span>Modifica Canzoni e Artisti</span>
+            </div>
+        </a>
+
+        <a href="/admin/gestione-utenti" class="admin-card">
+            <div class="admin-card-icon">
+                <img src="/img/admin/gestione-utenti.webp" alt="Gestione Utenti">
+            </div>
+            <div class="admin-card-text">
+                <h3>Utenti</h3>
+                <span>Gestisci gli account registrati</span>
+            </div>
+        </a>
+
+    </div>
+  </div>
+
+</div>

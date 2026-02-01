@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
-    // 2. GESTIONE MODALE AVATAR E SALVATAGGIO
+// ============================================================
+    // 2. GESTIONE MODALE AVATAR E SALVATAGGIO (FIXED)
     // ============================================================
     const modal = document.getElementById('photo-modal');
     const btnOpen = document.getElementById('btn-open-modal');
@@ -56,16 +56,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnSave = document.getElementById('btn-save-photo');
     const profilePic = document.getElementById('current-profile-pic');
     
-    // Selettore aggiornato per i nuovi bottoni accessibili
     const avatarOptions = document.querySelectorAll('.js-avatar-btn');
 
     let selectedId = null;
+
+    // Funzione centralizzata per aggiornare lo stato del bottone Salva
+    const updateSaveButtonState = () => {
+        if (btnSave) {
+            if (selectedId) {
+                // ABILITATO
+                btnSave.disabled = false;
+                btnSave.classList.remove('disabled'); 
+                btnSave.style.opacity = '1';
+                btnSave.style.cursor = 'pointer';
+            } else {
+                // DISABILITATO
+                btnSave.disabled = true;
+                btnSave.classList.add('disabled');
+                btnSave.style.opacity = '0.6';
+                btnSave.style.cursor = 'not-allowed';
+            }
+        }
+    };
 
     // Funzione per aprire il modale
     const openModal = () => {
         if (!modal) return;
         modal.classList.remove('hidden');
-        // A11Y: Porta il focus sul primo elemento interattivo del modale
+        resetSelection(); // Resetta SEMPRE lo stato quando apri
         if (btnClose) btnClose.focus();
     };
 
@@ -73,62 +91,65 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModal = () => {
         if (!modal) return;
         modal.classList.add('hidden');
-        resetSelection();
-        // A11Y: Riporta il focus al bottone che ha aperto il modale
+        resetSelection(); // Pulisce la selezione uscendo
         if (btnOpen) btnOpen.focus();
     };
 
     // Resetta la selezione interna
     const resetSelection = () => {
         selectedId = null;
-        if (btnSave) btnSave.disabled = true;
         avatarOptions.forEach(btn => btn.classList.remove('selected'));
+        if (btnSave) {
+            btnSave.textContent = 'Salva'; // Forza il ripristino del testo
+        }
+        updateSaveButtonState(); // Sincronizza visivamente il bottone
     };
 
-    // Event Listeners Modale
-    if (btnOpen) btnOpen.addEventListener('click', openModal);
-    if (btnClose) btnClose.addEventListener('click', closeModal);
+    // Event Listeners Apertura/Chiusura
+    if (btnOpen) btnOpen.addEventListener('click', (e) => {
+        e.preventDefault(); 
+        openModal();
+    });
+    
+    if (btnClose) btnClose.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeModal();
+    });
 
-    // Chiudi cliccando fuori (Overlay)
-    if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
-        });
-        
-        // Chiudi con tasto ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                closeModal();
-            }
-        });
-    }
-
-    // Selezione Avatar (Logica aggiornata per i <button>)
+    // Selezione Avatar
     avatarOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            // Rimuovi selezione dagli altri
+        option.addEventListener('click', function(e) {
+            e.preventDefault(); // Previene comportamenti strani
+            
+            // Rimuovi selezione visiva dagli altri
             avatarOptions.forEach(btn => btn.classList.remove('selected'));
             
-            // Aggiungi a questo
+            // Aggiungi selezione a questo
             this.classList.add('selected');
             
-            // Ottieni l'ID dal data-attribute
+            // Ottieni l'ID e aggiorna lo stato
             selectedId = this.dataset.id;
+            updateSaveButtonState();
             
-            // Abilita salvataggio
-            if (btnSave) btnSave.disabled = false;
+            console.log("Avatar selezionato:", selectedId); // Debug utile
         });
     });
 
-    // Salvataggio (Logica FETCH esistente mantenuta)
+    // Salvataggio
+    // Salvataggio
     if (btnSave) {
-        btnSave.addEventListener('click', async () => {
+        btnSave.addEventListener('click', async (e) => {
+            e.preventDefault();
+
             if (!selectedId) return;
 
-            // Feedback visivo immediato (Opzionale: spinner)
-            const originalText = btnSave.textContent;
+            // Salva il testo originale (es. "Salva")
+            const originalText = 'Salva'; 
+            
+            // Cambia stato visivo
             btnSave.textContent = 'Salvataggio...';
             btnSave.disabled = true;
+            btnSave.style.cursor = 'wait'; // Cursore di attesa
 
             try {
                 const response = await fetch('/api/user/update-photo', {
@@ -137,36 +158,47 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify({ id_foto: selectedId })
                 });
 
-                // Gestione risposta JSON sicura
                 const text = await response.text();
                 let result;
                 try {
                     result = JSON.parse(text);
-                } catch (e) {
-                    console.error("Risposta server non valida:", text);
-                    throw new Error("Errore formato server");
+                } catch (err) {
+                    throw new Error("Risposta server non valida");
                 }
 
                 if (result.success) {
-                    // Aggiorna l'immagine principale
+                    // Successo!
                     if (profilePic) {
-                        profilePic.src = `/img/avatar/avatar${selectedId}.svg`;
-                        // Aggiorna anche l'alt text per accessibilità
-                        profilePic.alt = `Avatar profilo ${selectedId}`;
+                        // Aggiorna l'immagine con timestamp per evitare la cache
+                        profilePic.src = `/img/avatar/avatar${selectedId}.svg?t=${new Date().getTime()}`;
                     }
-                    closeModal();
+                    closeModal(); // Questo chiamerà resetSelection() che rimetterà "Salva"
                 } else {
+                    // Errore logico (es. utente non loggato)
                     alert(result.error || "Errore durante l'aggiornamento");
+                    // Qui dobbiamo ripristinare manualmente perché il modale non si chiude
+                    btnSave.textContent = originalText;
+                    btnSave.disabled = false;
+                    btnSave.style.cursor = 'pointer';
                 }
 
             } catch (err) {
+                // Errore di rete o eccezione
                 console.error(err);
-                alert("Errore di connessione o server.");
-            } finally {
-                // Ripristina bottone
+                alert("Errore di connessione.");
+                
+                // Ripristino manuale
                 btnSave.textContent = originalText;
-                btnSave.disabled = false; // Sarà disabilitato da resetSelection() comunque
+                btnSave.disabled = false;
+                btnSave.style.cursor = 'pointer';
             }
+        });
+    }
+
+    // Chiudi cliccando fuori (Overlay)
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
         });
     }
 

@@ -1405,6 +1405,80 @@ body.dark-mode .menu-btn.active {
     gap: 1rem;
 }
 
+/* =========================================
+   STILI BOTTONI MODALE AVATAR (Salva / Annulla)
+========================================= */
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 2rem;
+}
+
+/* --- BOTTONE SALVA (btn-success) --- */
+.btn-success {
+    background-color: var(--wood-accent);
+    color: var(--layout-text-color-accent);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    opacity: 1; 
+}
+
+.btn-success:hover:not(:disabled) {
+    background-color: var(--highlighted-button);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+.btn-success:disabled {
+    background-color: #ccc;
+    color: #888;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+    opacity: 0.6;
+}
+
+/* --- BOTTONE ANNULLA (btn-secondary) --- */
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--main-text);
+    color: var(--main-text);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(0,0,0,0.05);
+    transform: scale(1.02);
+}
+
+/* --- DARK MODE FIXES --- */
+body.dark-mode .btn-success:disabled {
+    background-color: #333;
+    color: #555;
+}
+
+body.dark-mode .btn-secondary {
+    border-color: #fff;
+    color: #fff;
+}
+
+body.dark-mode .btn-secondary:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
 /* 9. MEDIA QUERY MOBILE */
 @media (max-width: 900px) {
     .profilo-container {
@@ -2424,14 +2498,7 @@ body.dark-mode .search-input-wrapper:hover {
     box-shadow: 0 4px 10px rgba(228, 151, 83, 0.3);
 }
 
-
-
-/*=========================================================================================*
-
-
-
-
-
+/*=========================================================================================*/
 
 /* --- 1. Mette la lista in verticale --- */
 .content-grid {

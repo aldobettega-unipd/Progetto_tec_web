@@ -1,23 +1,49 @@
-<h1>Aggiungi Canzone</h1>
+<section class="admin-form-page">
 
-<p>##ERROR_MSG##</p>
+    <div class="admin-form-card">
+        <div class="form-header">
+            <h1>Aggiungi Canzone</h1>
+            <p>Inserisci una nuova canzone nel catalogo musicale.</p>
+        </div>
 
-<form action="/admin/canzoni/save" method="POST">
-    
-    <label>Titolo:</label><br>
-    <input type="text" name="titolo" required><br><br>
+        <div class="alert-box ##VISIBILITY_ERROR##" role="alert">
+            <span class="alert-icon">⚠️</span>
+            <span class="alert-text">##ERROR_MSG##</span>
+        </div>
 
-    <label>Nome Autore (deve già esistere):</label><br>
-    <input type="text" name="autore" required><br><br>
+        <form action="/admin/canzoni/save" method="POST" class="styled-form">
 
-    <label>Lingua (es. IT, EN):</label><br>
-    <input type="text" name="lingua" maxlength="3" required><br><br>
+            <div class="form-group">
+                <label for="titolo">Titolo Canzone <span class="required">*</span></label>
+                <input type="text" id="titolo" name="titolo" required maxlength="50">
+            </div>
 
-    <label>Testo:</label><br>
-    <textarea name="testo" rows="10" cols="50" required></textarea><br><br>
+            <div class="form-group">
+                <label for="autore">Nome Autore <span class="required">*</span></label>
+                <input type="text" id="autore" name="autore" required maxlength="50" aria-describedby="autoreHelp">
+                <small id="autoreHelp" class="form-text">
+                    Attenzione: L'artista deve essere già registrato nel sito.
+                </small>
+            </div>
 
-    <button type="submit">Salva Canzone</button>
-</form>
+            <div class="form-group">
+                <label for="lingua">Lingua <span class="required">*</span></label>
+                <input type="text" id="lingua" name="lingua" required maxlength="3"
+                    style="text-transform: uppercase; width: 100px;"> <small class="form-text">Codice a 2 o 3 lettere
+                    (ISO).</small>
+            </div>
 
-<br>
-<a href="/admin/gestione-contenuti"><button>Annulla e torna indietro</button></a>
+            <div class="form-group">
+                <label for="testo">Testo e accordi canzone <span class="required">*</span></label>
+                <textarea id="testo" name="testo" rows="10" required minlength="20"></textarea>
+            </div>
+
+            <div class="form-actions">
+                <a href="/admin/gestione-contenuti" class="btn-secondary">Annulla</a>
+                <button type="submit" class="btn-primary">Salva Canzone</button>
+            </div>
+
+        </form>
+    </div>
+
+</section>

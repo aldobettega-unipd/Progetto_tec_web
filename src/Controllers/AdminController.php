@@ -101,6 +101,7 @@ class AdminController extends Controller
 
         $this->render($views[$type], [
             'ERROR_MSG' => '',
+            'VISIBILITY_ERROR' => 'hidden',
             'USERNAME' => $_SESSION['user']['username']
         ]);
     }

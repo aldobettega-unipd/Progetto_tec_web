@@ -1,18 +1,19 @@
-<div class="glass-row">
-    <div class="row-icon">
-        <img src="/img/icone/note.png" alt="Canzone" class="icon-img-small"> </div>
+<div class="glass-row admin-list-item">
 
     <div class="row-info">
-        <span class="row-title">##titolo_canzone##</span>
-        <span class="row-subtitle">##autore_canzone##</span>
+        <span class="row-title">##TITOLO_CANZONE##</span>
+        <span class="row-subtitle">##AUTORE_CANZONE##</span>
     </div>
 
     <div class="row-actions">
-        <a href="/admin/canzoni/edit/##id_canzone##" class="btn-icon-action edit" title="Modifica">
-            ✏️
+        <a href="/admin/canzoni/edit/##ID_CANZONE##" class="btn-icon-action edit" title="Modifica">
+            <img src="/img/icone/pencil-simple.svg" alt="Modifica">
         </a>
-        <button class="btn-icon-action delete js-delete-song" data-id="##id_canzone##" title="Elimina">
-            🗑️
+        <button class="btn-icon-action delete js-delete-btn" 
+                data-type="canzone" 
+                data-id="##ID_CANZONE##" 
+                title="Elimina">
+            <img src="/img/icone/delete.svg" alt="Elimina">
         </button>
     </div>
 </div>

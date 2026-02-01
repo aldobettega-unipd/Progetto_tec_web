@@ -1,17 +1,36 @@
-<h1>Aggiungi Artista</h1>
+<section class="admin-form-page">
 
-<p>##ERROR_MSG##</p>
+    <div class="admin-form-card">
+        <div class="form-header">
+            <h1>Aggiungi Artista</h1>
+            <p>Inserisci i dettagli del nuovo artista nel database.</p>
+        </div>
 
-<form action="/admin/artisti/save" method="POST">
-    
-    <label>Nome Artista (Univoco):</label><br>
-    <input type="text" name="nome" required><br><br>
+        <div class="alert-box ##VISIBILITY_ERROR##" role="alert">
+            <span class="alert-icon">⚠️</span>
+            <span class="alert-text">##ERROR_MSG##</span>
+        </div>
 
-    <label>Descrizione:</label><br>
-    <textarea name="descrizione" rows="5" cols="50" required></textarea><br><br>
+        <form action="/admin/artisti/save" method="POST" class="styled-form">
 
-    <button type="submit">Salva Artista</button>
-</form>
+            <div class="form-group">
+                <label for="nome">Nome Artista <span class="required">*</span></label>
+                <input type="text" id="nome" name="nome" required minlength="2" maxlength="50" aria-describedby="nomeHelp">
+                <small id="nomeHelp" class="form-text">Il nome deve essere univoco nel sistema.</small>
+            </div>
 
-<br>
-<a href="/admin/gestione-contenuti"><button>Annulla e torna indietro</button></a>
+            <div class="form-group">
+                <label for="descrizione">Descrizione <span class="required">*</span></label>
+                <textarea id="descrizione" name="descrizione" rows="6" placeholder="Scrivi una breve biografia..."
+                    required minlength="10"></textarea>
+            </div>
+
+            <div class="form-actions">
+                <a href="/admin/gestione-contenuti" class="btn-secondary">Annulla</a>
+                <button type="submit" class="btn-primary">Salva Artista</button>
+            </div>
+
+        </form>
+    </div>
+
+</section>

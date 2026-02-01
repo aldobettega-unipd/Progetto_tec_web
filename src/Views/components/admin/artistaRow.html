@@ -1,18 +1,18 @@
-<div class="glass-row">
-    <div class="row-icon">
-        <img src="/img/icone/user.png" alt="Artista" class="icon-img-small"> </div>
+<div class="glass-row admin-list-item">
 
     <div class="row-info">
-        <span class="row-title">##nome_artista##</span>
-        <span class="row-subtitle">Artista</span>
+        <span class="row-title">##NOME_ARTISTA##</span>
     </div>
 
     <div class="row-actions">
-        <a href="/admin/artisti/edit/##id_artista##" class="btn-icon-action edit" title="Modifica">
-            ✏️
+        <a href="/admin/artisti/edit/##SLUG_ARTISTA##" class="btn-icon-action edit" title="Modifica">
+            <img src="/img/icone/pencil-simple.svg" alt="Modifica">
         </a>
-        <button class="btn-icon-action delete js-delete-artist" data-id="##id_artista##" title="Elimina">
-            🗑️
+        <button class="btn-icon-action delete js-delete-btn" 
+                data-type="artista" 
+                data-id="##SLUG_ARTISTA##" 
+                title="Elimina">
+            <img src="/img/icone/delete.svg" alt="Elimina">
         </button>
     </div>
 </div>

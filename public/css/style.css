@@ -2881,6 +2881,26 @@ body.dark-mode .admin-column {
     gap: 15px;
 }
 
+.column-header h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;          
+
+    margin: 0;
+    font-size: 1.4rem;
+    color: var(--header-bg);
+}
+
+.column-header h3 img {
+    width: 28px;         
+    height: 28px;
+    object-fit: contain;
+}
+
+body.dark-mode .column-header h3 img {
+    filter: invert(1);
+}
+
 .btn-action-pill {
     background-color: var(--wood-accent);
     color: var(--layout-text-color-accent);
@@ -2918,22 +2938,6 @@ body.dark-mode .admin-column {
 
 .column-header h3 { margin: 0; font-size: 1.4rem; color: var(--header-bg); }
 
-/* Input di ricerca "Mini" */
-.mini-search-input {
-    background: rgba(255,255,255,0.5);
-    border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 20px;
-    padding: 6px 15px;
-    font-size: 0.9rem;
-    width: 150px;
-    transition: all 0.2s;
-}
-.mini-search-input:focus {
-    background: #fff;
-    width: 180px; /* Si allarga quando scrivi */
-    outline: none;
-    border-color: var(--wood-accent);
-}
 
 .admin-list-scroll {
     flex: 1;            /* Espanditi per occupare tutto lo spazio rimasto nella colonna */
@@ -2984,17 +2988,7 @@ body.dark-mode .admin-column {
     border-color: var(--wood-accent);
 }
 
-.row-icon {
-    margin-right: 15px;
-    opacity: 0.7;
-    display: flex;
-    align-items: center;
-}
-.icon-img-small {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-}
+
 
 .row-info {
     flex-grow: 1; /* Occupa tutto lo spazio centrale */
@@ -3053,7 +3047,21 @@ body.dark-mode .admin-column {
     color: white;
 }
 
-/* --- DARK MODE --- */
+body.dark-mode .btn-icon-action img {
+    filter: invert(1);
+    opacity: 0.9; 
+}
+
+.btn-icon-action.delete:hover img {
+    filter: invert(1);
+}
+
+body.dark-mode .btn-icon-action.delete:hover img {
+    filter: invert(0);
+    filter: brightness(0) invert(1);
+}
+
+
 body.dark-mode .header-text h1,
 body.dark-mode .column-header h3,
 body.dark-mode .row-title {
@@ -3080,6 +3088,179 @@ body.dark-mode .mini-search-input {
         gap: 2rem;
     }
 }
+
+/*
+========================================================
+   ADMIN FORM PAGES (Aggiungi Artista/Canzone)
+========================================================
+*/
+
+/* 1. Wrapper della pagina (Centra la card) */
+.admin-form-page {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* flex-start evita problemi se il form è lungo */
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* 2. La Card del Form */
+.admin-form-card {
+    background-color: rgba(255, 255, 255, 0.95); /* Quasi opaco per leggibilità */
+    backdrop-filter: blur(10px);
+    
+    width: 100%;
+    max-width: 600px;
+    padding: 2.5rem;
+    border-radius: 20px;
+    
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.4);
+    
+    /* Bordo superiore colorato */
+    border-top: 5px solid var(--wood-accent);
+}
+
+/* Header del Form */
+.form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.form-header h1 { margin: 0; color: var(--header-bg); font-size: 2rem; }
+.form-header p { color: var(--main-text); opacity: 0.7; margin-top: 5px; }
+
+/* 3. Gestione Errori (Alert Box) */
+.alert-box {
+    background-color: #ffebee;
+    border-left: 5px solid #e53935;
+    color: #c62828;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+/* Se il placeholder è vuoto, nascondilo (o usa logica PHP) */
+.alert-box:empty { display: none; }
+
+/* 4. Input e Labels */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--header-bg);
+}
+
+.required { color: #e53935; }
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 2px solid rgba(0,0,0,0.1); /* Bordo sottile */
+    background-color: #fff;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #333;
+    box-sizing: border-box; /* Fondamentale per padding */
+    transition: all 0.3s ease;
+}
+
+.form-group textarea { resize: vertical; min-height: 100px; }
+
+/* Stati Focus e Validazione */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--wood-accent);
+    box-shadow: 0 0 0 4px rgba(228, 151, 83, 0.2); /* Alone arancione */
+}
+
+/* Validazione HTML5: Verde se valido, Rosso se invalido (solo quando non è focus) */
+.form-group input:not(:placeholder-shown):valid {
+    border-color: #4caf50;
+}
+.form-group input:not(:placeholder-shown):invalid {
+    border-color: #e53935;
+}
+
+.form-text {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* 5. Bottoni Azione */
+.form-actions {
+    display: flex;
+    justify-content: flex-end; /* Bottoni a destra */
+    gap: 15px;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--wood-accent);
+    color: #fff;
+}
+.btn-primary:hover {
+    background-color: var(--highlighted-button);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--main-text);
+    border: 2px solid rgba(0,0,0,0.1);
+}
+.btn-secondary:hover {
+    background-color: rgba(0,0,0,0.05);
+    border-color: #999;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- DARK MODE --- */
+body.dark-mode .admin-form-card {
+    background-color: #1e1e24; /* Grigio scuro solido */
+    border-color: rgba(255,255,255,0.05);
+}
+body.dark-mode .form-header h1,
+body.dark-mode .form-group label {
+    color: #fff;
+}
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background-color: #2a2a30;
+    border-color: rgba(255,255,255,0.1);
+    color: #fff;
+}
+body.dark-mode .form-text { color: #aaa; }
+body.dark-mode .btn-secondary { color: #fff; border-color: rgba(255,255,255,0.2); }
 
 /* =========================================
   PLAYLIST PAGE

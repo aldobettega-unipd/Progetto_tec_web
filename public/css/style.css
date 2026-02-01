@@ -2242,7 +2242,7 @@ body.dark-mode .search-input-wrapper:hover {
     border-radius: 16px;
     
     /* Stile Vetro Scuro */
-    background-color: rgba(30, 30, 36, 0.95); 
+    background-color: var(--header-bg); 
     border: 1px solid rgba(255,255,255,0.1);
     box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     visibility: hidden;

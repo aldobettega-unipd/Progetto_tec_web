@@ -1706,8 +1706,8 @@ body.dark-mode .playlist-form-container {
 .listaCanzoniInPlaylist .content-grid {
     display: flex;
     flex-direction: column;
-    gap: 12px; /* Spazio tra le schede */
-    width: 100%;
+    gap: 10px; /* Spazio tra le schede */
+    width: 85%;
     margin: 0 auto;
 }
 
@@ -1878,6 +1878,7 @@ body.dark-mode .playlist-form-container {
     background-color: rgba(255,255,255,0.8);
     font-size: 1rem;
     color: #333;
+    box-sizing: border-box;
 }
 #search-input:focus {
     outline: none;
@@ -2516,8 +2517,19 @@ body.dark-mode .search-input-wrapper:hover {
     background: #fff;
     border-bottom: 1px solid #ddd;
     position: relative; /* FONDAMENTALE per posizionare il menu */
-    margin-left: 3em;
-  width: 90%;
+    margin: 0;
+    width: 100%;
+}
+
+.listaCanzoniInPlaylist .content-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px;
+    
+    /* AGGIUNTA FONDAMENTALE: Copia i margini dell'header */
+    margin-left: 6em;
+    margin-right: 6em;
+    width: auto; /* Lascia che si adatti allo spazio disponibile */
 }
 
 /* --- 3. MECCANICA DEL MENU (FONDAMENTALE) --- */
@@ -2771,14 +2783,15 @@ body.dark-mode .btn-delete:hover {
 .header-playlist {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2.5em;
-  margin-left: 6em;
-  margin-top: 1.5em;
   background-color: var(--header-bg);
   padding: 1.5em;
   border-radius: 8px;
-  margin-right: 6em;
   position: relative;
+  color: var(--layout-text-color);
+  
+  width: 85%;        
+  max-width: 1200px; 
+  margin: 1.5em auto 2.5em auto; 
 }
 
 .header-playlist img {
@@ -2798,6 +2811,7 @@ body.dark-mode .btn-delete:hover {
 
 .header-playlist p {
   font-weight: bold;
+  color: var(--layout-text-color);
 }
 
 #open-search-modal {

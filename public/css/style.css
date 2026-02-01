@@ -839,11 +839,12 @@ body.dark-mode .card-canzone h3 {
 body.dark-mode .author-name {
     color: #aaa;
 }
+/* 
 @media (max-width: 768px) {
     #ricerca h1 { font-size: 2rem; }
     
     #barraricerca form {
-        flex-direction: column; /* Input e bottone uno sotto l'altro */
+        flex-direction: column; // Input e bottone uno sotto l'altro
         background: transparent;
         border: none;
         box-shadow: none;
@@ -865,13 +866,13 @@ body.dark-mode .author-name {
     }
     
     .carosello-artisti {
-        width: 90%; /* Più largo su mobile */
+        width: 90%;
     }
     
     .card-item {
-        width: 160px; /* Card più piccole su mobile */
+        width: 160px;
     }
-}
+} */
 
 
 #dark-mode-toggle img {
@@ -964,11 +965,11 @@ body.dark-mode .icon-moon {
 }
 
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .carrbutton {
     display: none;
   }
-}
+} */
 
 
 /*##########################################################
@@ -3567,3 +3568,515 @@ body.dark-mode .plain-list .artist-inline {
     }
 }
 
+/* =========================================
+   MEDIA QUERIES - HEADER, FOOTER, HOMEPAGE
+========================================= */
+
+/* --- MEDIA QUERY @ 900px --- */
+@media (max-width: 900px) {
+    /* HEADER */
+    header {
+        width: 85%;
+    }
+    
+    body.homepage header {
+        width: 85%;
+    }
+    
+    .header-wrapper {
+        padding: 0.8em 1.5em;
+    }
+    
+    .logo span {
+        font-size: 1.1rem;
+    }
+    
+    .menu ul {
+        gap: 0.7rem;
+    }
+    
+    .menu .nav-link a {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.95rem;
+    }
+    
+    .menu .nav-btn a {
+        padding: 0.4rem 1rem;
+        font-size: 0.95rem;
+    }
+    
+    /* FOOTER */
+    .footer-container {
+        width: 85%;
+    }
+    
+    .footer-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    /* HOMEPAGE - Sezione Ricerca */
+    #ricerca h1 {
+        font-size: 2.5rem;
+    }
+    
+    #ricerca #descr {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+    
+    #barraricerca input[type="text"],
+    #barraricerca input[type="search"] {
+        width: 250px;
+        font-size: 0.95rem;
+    }
+    
+    .inspiration-title {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    /* CAROSELLO - Card più piccole */
+    .card-artista {
+        width: 160px;
+    }
+    
+    .card-img-container {
+        height: 150px;
+    }
+    
+    .card-artista .card-content {
+        padding: 0.8rem;
+    }
+    
+    .card-artista h3 {
+        font-size: 1rem;
+    }
+    
+    .card-canzone {
+        width: 200px;
+    }
+    
+    .card-canzone .card-content {
+        padding: 1.2rem;
+    }
+    
+    .card-canzone h3 {
+        font-size: 1.05rem;
+    }
+    
+    /* Frecce Carosello */
+    .carrbutton {
+        width: 3em;
+        height: 3em;
+        opacity: 1;
+        visibility: visible;
+        z-index: 5;
+    }
+    
+    .carrbutton.prev {
+        left: -1.2em;
+    }
+    
+    .carrbutton.next {
+        right: -1.2em;
+    }
+}
+
+/* --- MEDIA QUERY @ 600px --- */
+@media (max-width: 600px) {
+
+    /****************************************
+    HEADER
+    ****************************************/
+
+    header {
+        width: 95%;
+        margin: 1rem auto auto auto;
+    }
+    
+    body.homepage header {
+        width: 95%;
+        top: 1rem;
+    }
+    
+    .header-wrapper {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .logo {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .logo span {
+        font-size: 1rem;
+    }
+    
+    .logo img {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .menu ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .menu .nav-link a {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.85rem;
+    }
+    
+    .menu .nav-btn a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+    /* Bottone Dark Mode - Posizionamento fisso mobile */
+    .bookmark-btn {
+        position: fixed;
+        top: auto;
+        bottom: 20px;
+        left: auto;
+        right: 20px;
+        transform: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+    
+    .bookmark-btn.retracted {
+        transform: none;
+    }
+    
+    .bookmark-btn .icon {
+        font-size: 1.3rem;
+    }
+    
+    /******************************************
+    FOOTER
+    ******************************************/
+
+    .footer-container {
+        width: 90%;
+    }
+    
+    footer {
+        padding: 2rem 0 1rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+    
+    .footer-links a {
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        font-size: 0.8rem;
+    }
+    
+    /******************************************
+    HOMEPAGE - Sezione Ricerca
+    ******************************************/
+
+    #ricerca {
+        height: 100vh;
+        min-height: 500px;
+        padding: 1rem;
+    }
+    
+    #ricerca h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    #ricerca #descr {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+    
+    #barraricerca form {
+        max-width: 400px;
+        padding: 8px;
+    }
+    
+    #barraricerca input[type="text"],
+    #barraricerca input[type="search"] {
+        width: 220px;
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    #barraricerca input[type="submit"] {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .inspiration-title {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    /******************************************
+    HOMEPAGE - Carosello
+    ******************************************/
+
+    .carosello-wrapper{
+        width: 90%;
+        padding: 0;
+    }
+
+    .carosello-group {
+        padding: 0 1rem;
+    }
+    
+    .card-artista {
+        width: 140px;
+    }
+    
+    .card-img-container {
+        height: 130px;
+    }
+    
+    .card-artista .card-content {
+        padding: 0.6rem;
+    }
+    
+    .card-artista h3 {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .card-artista .btn-link {
+        font-size: 0.75rem;
+    }
+    
+    .card-canzone {
+        width: 140px;
+    }
+
+    .music-icon{
+        display: none;
+    }
+    
+    .card-canzone .card-content {
+        padding: 1rem;
+    }
+    
+    .card-canzone h3 {
+        font-size: 0.9rem;
+    }
+    
+    .author-name {
+        font-size: 0.7rem;
+        margin-bottom: 1rem;
+    }
+    
+    .btn-primary {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.65rem;
+    }
+    
+    /* Frecce Carosello - Più piccole e sempre visibili */
+    .carrbutton {
+        width: 2.5em;
+        height: 2.5em;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        z-index: 5;
+    }
+    
+    .carrbutton.prev {
+        left: -0.5rem;
+    }
+    
+    .carrbutton.next {
+        right: -0.5rem;
+    }
+    
+    .carrbutton img {
+        width: 1em;
+    }
+}
+
+/* --- MEDIA QUERY @ 400px --- */
+@media (max-width: 400px) {
+    /******************************************
+    HEADER
+    ******************************************/
+    
+    header {
+        width: 98%;
+    }
+    
+    body.homepage header {
+        width: 98%;
+    }
+    
+    .header-wrapper {
+        padding: 0.8rem;
+    }
+    
+    .logo span {
+        font-size: 0.9rem;
+    }
+    
+    .logo img {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .menu .nav-link a {
+        padding: 0.3rem 0.4rem;
+        font-size: 0.8rem;
+    }
+    
+    .menu .nav-btn a {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.8rem;
+    }
+
+    .bookmark-btn {
+        width: 45px;
+        height: 45px;
+        right: 10px;
+    }
+    
+    /******************************************
+    HOMEPAGE - Sezione Ricerca
+    ******************************************/
+    
+    #ricerca {
+        min-height: 450px;
+        padding: 0.5rem;
+    }
+    
+    #ricerca h1 {
+        font-size: 1.7rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    #ricerca #descr {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        padding: 0 0.5rem;
+    }
+    
+    /* BARRA DI RICERCA ORIZZONTALE */
+    #barraricerca form {
+        max-width: 320px;
+        padding: 6px;
+    }
+    
+    #barraricerca input[type="text"],
+    #barraricerca input[type="search"] {
+        width: 180px;
+        padding: 0.7rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+    #barraricerca input[type="submit"] {
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .inspiration-title {
+        font-size: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    /******************************************
+    CAROSELLO
+    ******************************************/
+    
+    .card-artista {
+        width: 120px;
+    }
+    
+    .card-img-container {
+        height: 110px;
+    }
+    
+    .card-artista .card-content {
+        padding: 0.5rem;
+    }
+    
+    .card-artista h3 {
+        font-size: 0.85rem;
+    }
+    
+    .card-artista .btn-link {
+        font-size: 0.7rem;
+    }
+    
+    .card-canzone {
+        width: 120px;
+    }
+    
+    .card-canzone .card-content {
+        padding: 0.8rem;
+    }
+    
+    .card-canzone h3 {
+        font-size: 0.85rem;
+    }
+    
+    .author-name {
+        font-size: 0.75rem;
+    }
+    
+    .btn-primary {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.7rem;
+    }
+    
+    /* Frecce ancora più piccole */
+    .carrbutton {
+        width: 2.2em;
+        height: 2.2em;
+        z-index: 5;
+    }
+    
+    .carrbutton.prev {
+        left: -0.8rem;
+    }
+    
+    .carrbutton.next {
+        right: -0.8rem;
+    }
+    
+    .carrbutton img {
+        width: 0.9em;
+    }
+    
+    /******************************************
+    FOOTER
+    ******************************************/
+    
+    .footer-container {
+        width: 95%;
+    }
+    
+    footer {
+        padding: 1.5rem 0 1rem;
+    }
+    
+    .footer-links {
+        font-size: 0.85rem;
+    }
+}

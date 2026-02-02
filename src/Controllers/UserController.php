@@ -27,7 +27,8 @@ class UserController extends Controller
         $this->page_description = "Registrati per accedere a tutte le funzionalita` di EasyGuitar.";
 
         BreadcrumbHelper::add('Registrati');
-        $this->render('user/register');
+        $redirect = $_GET['redirect'] ?? '/profilo';
+        $this->render('user/register', ["REDIRECT_TO"=>$redirect]);
     }
 
     public function register()
@@ -42,7 +43,6 @@ class UserController extends Controller
 
 
         if ($this->User->insert_user($username, $password)) {
-            //$this->redirect('/login');
             $this->login();
         } else {
             $_SESSION['flash_error'] = "Username gia` in uso"; //implementare controllo instantaeno in frontend con js
@@ -56,13 +56,16 @@ class UserController extends Controller
         $this->page_title = "Accedi al tuo account";
         $this->page_description = "Accedi al tuo account per gestire le tue playlist e scoprire nuova musica.";
         BreadcrumbHelper::add('Accedi');
-        $this->render('user/login');
+        $redirect = $_GET['redirect'] ?? '/profilo';
+        $this->render('user/login', ["REDIRECT_TO"=>$redirect]);
     }
 
     public function login()
     {
         $username = $this->post('username');
         $password = $this->post('password');
+
+        $redirect_to = $this->post('redirect_to');
 
         $user = $this->User->find_user($username);
 
@@ -74,8 +77,7 @@ class UserController extends Controller
                 'is_admin' => (bool) $user['is_admin']
             ];
 
-
-            $this->redirect('/');
+            $this->redirect($redirect_to);
 
         } else {
             http_response_code(401);

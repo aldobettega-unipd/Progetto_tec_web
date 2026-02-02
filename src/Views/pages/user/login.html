@@ -1,6 +1,7 @@
 <section class="loginRegisterSection">
     <h2>Accedi al tuo account</h2>
     <form class="loginRegisterForm" action="/login/auth" method="POST">
+        <input type="hidden" name="redirect_to" value="##REDIRECT_TO##">
         <label for="username">Username:</label>
         <input type="text" name="username" id="username" required>
         <label for="password">Password:</label>

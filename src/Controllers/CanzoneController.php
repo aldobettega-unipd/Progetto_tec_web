@@ -79,7 +79,8 @@ class CanzoneController extends Controller
             'SLUG_ARTISTA' => $slug_artista,
             'TESTO_CANZONE_HTML' => $htmlTesto,
             'LISTA_PLAYLIST' => $playlistHtml,
-            'PULSANTE_PREFERITI'  => FavoriteBtnHelper::render($canzone['id_canzone'], 'btn-favorite')
+            'PULSANTE_PREFERITI'  => FavoriteBtnHelper::render($canzone['id_canzone'], 'btn-favorite'),
+            'REDIRECT_URL' => rawurlencode($_SERVER['REQUEST_URI'])
         ]);
     }
 

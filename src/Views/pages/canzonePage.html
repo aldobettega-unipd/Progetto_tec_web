@@ -21,7 +21,7 @@
                     <div id="playlist-menu" class="playlist-dropdown-menu">
                         <div class="dropdown-header">Le tue Playlist</div>
                         ##LISTA_PLAYLIST##
-                        <a href="/profilo/playlist/new" class="btn-create-new-sm">+ Nuova Playlist</a>
+                        <a href="/profilo/playlist/new?redirect=##REDIRECT_URL##" class="btn-create-new-sm">+ Nuova Playlist</a>
                     </div>
                 </div>
             </div>
@@ -64,8 +64,8 @@
             <p>Per salvare le canzoni nei preferiti o nelle playlist devi accedere al tuo account.</p>
 
             <div class="auth-buttons">
-                <a href="/login" class="btn-login-modal">Accedi</a>
-                <a href="/register" class="btn-register-modal">Registrati</a>
+                <a href="/login?redirect=##REDIRECT_URL##" class="btn-login-modal">Accedi</a>
+                <a href="/register?redirect=##REDIRECT_URL##" class="btn-register-modal">Registrati</a>
             </div>
         </div>
     </div>

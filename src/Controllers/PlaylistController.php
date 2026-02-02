@@ -25,14 +25,17 @@ Class PlaylistController extends Controller {
         $this->page_title = "Crea Playlist";
         $this->page_description = "Crea una nuova playlist per organizzare le tue canzoni preferite.";
         BreadcrumbHelper::add('Crea Playlist');
-        $this->render('playlistForm');
+        $redirect_to = $_GET['redirect'] ?? '/profilo';
+        $this->render('playlistForm', ["REDIRECT_TO" => $redirect_to]);
     }
 
     public function create_playlist() {
         $nome_playlist = $this->post('nome_playlist');
         $id_user = $this->get_user()['id_utente'];
         $this->Playlist->insert_playlist($nome_playlist, $id_user);
-        $this->redirect('/profilo');
+
+        $target = $this->post('redirect_to');
+        $this->redirect($target);
     } 
 
     public function view_playlist_page($id_playlist) {

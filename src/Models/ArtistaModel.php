@@ -58,13 +58,15 @@ public function cerca_artisti($testo) {
             $sql = "UPDATE artista SET 
                     nome_artista = ?,
                     descrizione_artista = ?,
-                    slug_artista = ?
+                    slug_artista = ?,
+                    lingua_artista = ?
                     WHERE slug_artista = ?";
 
             $params = [
                 $dati_aggiornati['nome_artista'],
                 $dati_aggiornati['descrizione_artista'],
                 $dati_aggiornati['slug_artista'],
+                $dati_aggiornati['lingua_artista'],
                 $old_slug
             ];
 

@@ -82,21 +82,23 @@ class AdminController extends Controller
         ]);
     }
 
-    
     public function view_add_item($type)
     {
-        // 1. Definiamo quali tipi sono validi e quale template usare per ognuno
         $views = [
             'canzoni' => 'admin/formCanzone',
             'artisti' => 'admin/formArtista'
         ];
 
-        // 2. Controllo validità: Se il tipo non è nell'array $views, errore 404
         if (!array_key_exists($type, $views)) {
             $this->abort(404, "Il tipo di contenuto '$type' non è gestito.");
         }
 
-        // 3. Prepariamo i dati per il template
+        
+        $optionsLingua = '';
+        if ($type === 'canzoni') {
+            $optionsLingua = $this->generateLanguageOptions(); 
+        }
+
         $placeholders = [
             'ERROR_MSG' => '',
             'VISIBILITY_ERROR' => 'hidden',
@@ -104,24 +106,20 @@ class AdminController extends Controller
             'TITOLO_PAGINA' => ($type === 'canzoni') ? 'Aggiungi Canzone' : 'Aggiungi Artista',
             'ID_VAL' => '', 
             
-            // Campi Artista
+            'OPTIONS_LINGUA' => $optionsLingua, 
+            
             'NOME_VAL' => '', 
             'DESCRIZIONE_VAL' => '',
-
-            // Campi Canzone
             'TITOLO_VAL' => '',
             'AUTORE_VAL' => '',
             'LINGUA_VAL' => '',
             'TESTO_VAL' => '',
-            
             'USERNAME' => $_SESSION['user']['username']
         ];
 
         $this->page_title = "Aggiungi Contenuto";
-        $this->page_description = "Aggiungi un nuovo contenuto alla piattaforma.";
         $this->scriptPathList[] = 'admin';
 
-        // 4. Renderizziamo il template corretto mappato dall'array $views
         $this->render($views[$type], $placeholders);
     }
 
@@ -137,6 +135,8 @@ class AdminController extends Controller
         $this->page_title = "Modifica Artista";
         $this->scriptPathList[] = 'admin';
 
+        $optionsLingua = $this->generateLanguageOptions($artista['lingua_artista'] ?? '');
+
         $this->render('admin/formArtista', [
             'TITOLO_PAGINA' => 'Modifica Artista',
             'FORM_ACTION' => '/admin/artisti/update',
@@ -146,6 +146,7 @@ class AdminController extends Controller
             'ID_VAL' => $artista['slug_artista'],
             'NOME_VAL' => $artista['nome_artista'],
             'DESCRIZIONE_VAL' => $artista['descrizione_artista'],
+            'OPTIONS_LINGUA' => $optionsLingua,
             
             'USERNAME' => $_SESSION['user']['username']
         ]);
@@ -163,7 +164,8 @@ class AdminController extends Controller
         $dati_aggiornati = [
             'nome_artista' => $nome,
             'descrizione_artista' => $descrizione,
-            'slug_artista' => $new_slug
+            'slug_artista' => $new_slug,
+            'lingua_artista' => $_POST['lingua'] ?? ''
         ];
 
         $artistaModel = new ArtistaModel();
@@ -172,13 +174,15 @@ class AdminController extends Controller
             $this->redirect('/admin/gestione-contenuti');
         } else {
             // Errore -> viene ricaricato il form così l'admin non perde i dati
-             $this->render('admin/formArtista', [
+            $optionsLingua = $this->generateLanguageOptions($_POST['lingua'] ?? '');
+                $this->render('admin/formArtista', [
                 'TITOLO_PAGINA' => 'Modifica Artista',
                 'FORM_ACTION' => '/admin/artisti/update',
                 'ERROR_MSG' => 'Errore durante l\'aggiornamento (Nome duplicato?)',
                 'VISIBILITY_ERROR' => '',
                 'ID_VAL' => $old_slug,
                 'NOME_VAL' => $nome,
+                'OPTIONS_LINGUA' => $optionsLingua,
                 'DESCRIZIONE_VAL' => $descrizione,
                 'USERNAME' => $_SESSION['user']['username']
             ]);
@@ -195,7 +199,8 @@ class AdminController extends Controller
         $dati_artista = [
             'nome_artista' => $nome,
             'descrizione_artista' => $_POST['descrizione'] ?? '',
-            'slug_artista' => $slug_generato
+            'slug_artista' => $slug_generato,
+            'lingua_artista' => $_POST['lingua'] ?? ''
         ];
 
         $artistaModel = new ArtistaModel();
@@ -229,36 +234,68 @@ class AdminController extends Controller
         $this->page_title = "Modifica Canzone";
         $this->scriptPathList[] = 'admin';
 
+        $optionsLingua = $this->generateLanguageOptions($canzone['lingua_canzone']);
+
         $this->render('admin/formCanzone', [
             'TITOLO_PAGINA' => 'Modifica Canzone',
             'FORM_ACTION' => '/admin/canzoni/update',
             'ERROR_MSG' => '',
             'VISIBILITY_ERROR' => 'hidden',
             
-            'ID_VAL' => $canzone['slug_canzone'],
+            'ID_VAL' => $canzone['id_canzone'], 
             'TITOLO_VAL' => $canzone['titolo_canzone'],
             'AUTORE_VAL' => $canzone['autore_canzone'],
-            'LINGUA_VAL' => $canzone['lingua_canzone'],
+            'OPTIONS_LINGUA' => $optionsLingua,
             'TESTO_VAL' => $canzone['testo_canzone'],
             
             'USERNAME' => $_SESSION['user']['username']
         ]);
+    }
 
-        $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $titolo)));
+    public function update_canzone()
+    {
+        $id = $_POST['id'] ?? null;
+        $titolo = $_POST['titolo'] ?? '';
+        $autore = $_POST['autore'] ?? '';
+        $lingua = $_POST['lingua'] ?? '';
+        $testo = $_POST['testo'] ?? '';
+
+        $artistaModel = new ArtistaModel();
+        if (!$artistaModel->find_artista_by_name($autore)) {
+            
+            $optionsLingua = $this->generateLanguageOptions($lingua);
+
+            return $this->render('admin/formCanzone', [
+                'TITOLO_PAGINA' => 'Modifica Canzone',
+                'FORM_ACTION' => '/admin/canzoni/update',
+                'ERROR_MSG' => "Errore: L'artista '$autore' non esiste.",
+                'VISIBILITY_ERROR' => '',
+                
+                'ID_VAL' => $id,
+                'TITOLO_VAL' => $titolo,
+                'AUTORE_VAL' => $autore,
+                'OPTIONS_LINGUA' => $optionsLingua,
+                'TESTO_VAL' => $testo,
+                'USERNAME' => $_SESSION['user']['username']
+            ]);
+        }
+
+        $slug_canzone = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $titolo)));
+        
         $dati = [
             'titolo_canzone' => $titolo,
             'autore_canzone' => $autore,
-            'lingua_canzone' => $_POST['lingua'],
-            'testo_canzone' => $_POST['testo'],
-            'slug_canzone' => $slug
+            'lingua_canzone' => $lingua,
+            'testo_canzone' => $testo,
+            'slug_canzone' => $slug_canzone
         ];
 
         $canzoneModel = new CanzoneModel();
-
+        
         if ($canzoneModel->update_canzone($id, $dati)) {
             $this->redirect('/admin/gestione-contenuti');
         } else {
-             $this->abort(500, "Errore aggiornamento canzone");
+            $this->abort(500, "Errore durante l'aggiornamento della canzone.");
         }
     }
 
@@ -296,6 +333,19 @@ class AdminController extends Controller
                 'USERNAME' => $_SESSION['user']['username']
             ]);
         }
+    }
+
+    private function generateLanguageOptions($selectedLang = null) {
+        $lingue = ['IT', 'EN', 'FR', 'ES']; 
+        
+        $options = '<option value="">Seleziona</option>';
+
+        foreach ($lingue as $lang) {
+            $selected = ($selectedLang && strtoupper($selectedLang) == $lang) ? 'selected' : '';
+            $options .= "<option value=\"{$lang}\" {$selected}>{$lang}</option>";
+        }
+
+        return $options;
     }
 
 

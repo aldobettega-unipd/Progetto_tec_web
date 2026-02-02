@@ -22,7 +22,16 @@ class ListHelper
                 $data[strtoupper($key)] = $value;
             }
 
-            // 2. Aggiunge i dati di contesto
+            $langAttr = '';
+            if (isset($item['lingua_canzone'])) {
+                $lingua = strtolower($item['lingua_canzone']);
+                if ($lingua !== 'it' && !empty($lingua)) {
+                    $langAttr = 'lang="' . htmlspecialchars($lingua) . '"';
+                }
+            }
+
+            $data['LANG_ATTR'] = $langAttr;
+
             foreach ($context as $key => $value) {
                 $data[strtoupper($key)] = $value;
             }

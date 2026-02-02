@@ -133,6 +133,7 @@ class CanzoneModel extends Model {
             ];
 
             $this->query($sql, $params);
+            return true;
         } catch(\PDOException $e) {
             error_log("Errore aggiornamento canzone: " . $e->getMessage());
             return false;

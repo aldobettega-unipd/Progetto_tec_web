@@ -3429,7 +3429,43 @@ body.dark-mode .mini-search-input {
     box-shadow: 0 0 0 4px rgba(228, 151, 83, 0.2);
 }
 
-/* --- STILE INPUT PULITO (Senza Validazione Colori) --- */
+.custom-select-admin {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 2px solid rgba(0,0,0,0.1);
+    background-color: #fff;
+    font-size: 1rem;
+    color: #333;
+    
+    appearance: auto;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+
+.custom-select-admin:focus {
+    outline: 3px solid var(--wood-accent);
+    outline-offset: 2px;
+    border-color: var(--wood-accent);
+}
+
+/* Dark Mode */
+body.dark-mode .custom-select-admin {
+    background-color: #2a2a30;
+    border-color: rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+.input-mini {
+    width: 120px !important; 
+    text-align: center;      
+    display: inline-block;
+}
+
+.input-mini option {
+    text-transform: uppercase;
+}
 
 /* Manteniamo solo lo stile di base neutro */
 .form-group input:invalid,

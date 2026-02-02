@@ -94,10 +94,7 @@ class AdminController extends Controller
         }
 
         
-        $optionsLingua = '';
-        if ($type === 'canzoni') {
-            $optionsLingua = $this->generateLanguageOptions(); 
-        }
+        $optionsLingua = $this->generateLanguageOptions(); 
 
         $placeholders = [
             'ERROR_MSG' => '',
@@ -338,7 +335,7 @@ class AdminController extends Controller
     private function generateLanguageOptions($selectedLang = null) {
         $lingue = ['IT', 'EN', 'FR', 'ES']; 
         
-        $options = '<option value="">Seleziona</option>';
+        $options = '';
 
         foreach ($lingue as $lang) {
             $selected = ($selectedLang && strtoupper($selectedLang) == $lang) ? 'selected' : '';

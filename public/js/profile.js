@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btnSave.style.cursor = 'wait'; // Cursore di attesa
 
             try {
-                const response = await fetch('/api/user/update-photo', {
+                const response = await fetch('${BASE_URL}/api/user/update-photo', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ id_foto: selectedId })
@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 // 5. Chiamata API
-                const response = await fetch('/api/playlist/delete', {
+                const response = await fetch('${BASE_URL}/api/playlist/delete', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ id_playlist: playlistId })
@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!conferma) {
                 e.preventDefault();
             }
-            // Se clicca "OK", il browser seguirà normalmente il link href="/profilo/elimina-account"
+            // Se clicca "OK", il browser seguirà normalmente il link href="##BASE_URL##/profilo/elimina-account"
         });
     }
 });

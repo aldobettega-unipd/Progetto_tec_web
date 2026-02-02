@@ -32,6 +32,7 @@ abstract class Controller
 
         if ($layout) {
             $layout_data = [
+                'BASE_URL' => BASE_URL,
                 'CLASSE_PAGINA' => strtolower($view),
                 'LINK_UTENTE' => Auth::getHeaderLinks(),
                 'LINKS_FOOTER' => Auth::getFooterLinks(),

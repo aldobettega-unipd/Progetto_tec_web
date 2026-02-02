@@ -22,9 +22,9 @@ class Router
 
         $uri = parse_url($requestedUri, PHP_URL_PATH);
 
-        if (defined('BASE_PATH') && BASE_PATH !== '/') {
-            if (strpos($uri, BASE_PATH) === 0) {
-                $uri = substr($uri, strlen(BASE_PATH));
+        if (defined('BASE_URL') && BASE_URL !== '/') {
+            if (strpos($uri, BASE_URL) === 0) {
+                $uri = substr($uri, strlen(BASE_URL));
             }
         }
 

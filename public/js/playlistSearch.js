@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.textContent = "..."; // Feedback visivo
             btn.disabled = true;
 
-            const response = await fetch('/api/playlist/add-song', {
+            const response = await fetch('${BASE_URL}/api/playlist/add-song', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ playlist_id: currentPlaylistId, song_id: songId })
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // 5. Chiamata API di rimozione
-            const response = await fetch('/api/playlist/remove-song', {
+            const response = await fetch('${BASE_URL}/api/playlist/remove-song', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 

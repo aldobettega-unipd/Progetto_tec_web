@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Configurazione Endpoint
     const API_ENDPOINTS = {
-        'utente': '/api/admin/users/delete',
-        'canzone': '/api/admin/canzoni/delete',
-        'artista': '/api/admin/artisti/delete'
+        'utente': '${BASE_URL}/api/admin/users/delete',
+        'canzone': '${BASE_URL}/api/admin/canzoni/delete',
+        'artista': '${BASE_URL}/api/admin/artisti/delete'
     };
 
     document.addEventListener('click', async (e) => {

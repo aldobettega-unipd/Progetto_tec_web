@@ -1685,7 +1685,8 @@ body.dark-mode .avatar-option-btn {
 
 .avatar-option-btn.selected {
     border-color: var(--wood-accent);
-    transform: scale(1.15);
+    border-width: 5px;
+    transform: scale(1.40);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 

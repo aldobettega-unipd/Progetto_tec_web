@@ -19,40 +19,50 @@ class CanzoneModel extends Model {
     }
 
     public function cerca_canzoni($testo) {
-        
-        $sql = "SELECT id_canzone, titolo_canzone, autore_canzone, slug_canzone 
-                FROM canzone 
-                WHERE titolo_canzone LIKE ? 
-                LIMIT 10"; // Limitiamo per performance
-                
-        $param = "%" . $testo . "%";
-        return $this->fetchAll($sql, [$param]);
-    }
+    // LOCATE ritorna la posizione (1-based). Se è all'inizio, ritorna 1.
+    // Ordiniamo per posizione (ASC) così i risultati con posizione 1 arrivano primi.
+    $sql = "SELECT id_canzone, titolo_canzone, autore_canzone, slug_canzone,
+                   LOCATE(?, titolo_canzone) as posizione
+            FROM canzone 
+            WHERE titolo_canzone LIKE ? 
+            ORDER BY posizione ASC, titolo_canzone ASC
+            LIMIT 10";
+            
+    $param = "%" . $testo . "%";
+    // Passiamo il testo due volte: una per LOCATE e una per LIKE
+    return $this->fetchAll($sql, [$testo, $param]);
+}
 
     public function cerca_canzoni_avanzata($testo, $lingua_selezionata, $accordi_selezionati) {
-        // query avanzata che cerca canzoni che hanno la lingua selezionata e i cui accordi sono un
-        // sottoinsieme degli accordi selezionati
-        $params = [];
+    $params = [];
+    // Aggiungiamo il parametro per LOCATE all'inizio
+    $params[] = $testo; 
 
-        $sql = "SELECT * FROM canzone WHERE titolo_canzone LIKE ?";
-        $params[] = "%" . $testo . "%";
+    $sql = "SELECT *, LOCATE(?, titolo_canzone) as posizione 
+            FROM canzone 
+            WHERE titolo_canzone LIKE ?";
+    $params[] = "%" . $testo . "%";
 
-        if (!empty($lingua_selezionata)) {
-            $sql .= " AND lingua_canzone = ?";
-            $params[] = $lingua_selezionata;
-        }
-
-        if (!empty($accordi_selezionati) && is_array($accordi_selezionati)) {
-            $placeholders = implode(',', array_fill(0, count($accordi_selezionati), '?'));
-            $sql .= " AND id_canzone NOT IN 
-                        (SELECT id_canzone FROM accordi_canzone WHERE accordo NOT IN ($placeholders))";
-            
-            foreach ($accordi_selezionati as $accordo) {
-                $params[] = $accordo;
-            }
-        }        
-        return $this->fetchAll($sql, $params);
+    if (!empty($lingua_selezionata)) {
+        $sql .= " AND lingua_canzone = ?";
+        $params[] = $lingua_selezionata;
     }
+
+    if (!empty($accordi_selezionati) && is_array($accordi_selezionati)) {
+        $placeholders = implode(',', array_fill(0, count($accordi_selezionati), '?'));
+        $sql .= " AND id_canzone NOT IN 
+                    (SELECT id_canzone FROM accordi_canzone WHERE accordo NOT IN ($placeholders))";
+        
+        foreach ($accordi_selezionati as $accordo) {
+            $params[] = $accordo;
+        }
+    }
+
+    // Ordiniamo per posizione e poi alfabeticamente
+    $sql .= " ORDER BY posizione ASC, titolo_canzone ASC";
+    
+    return $this->fetchAll($sql, $params);
+}
 
 
 

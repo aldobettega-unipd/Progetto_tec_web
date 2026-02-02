@@ -1,14 +1,23 @@
 <section id="ricerca">
-    <h1>Cerca la canzone e inizia a suonare</h1>
-    <p id="descr">
-        Puoi cercare tra migliaia di canzoni e autori da tutto il mondo
-    </p>
+
+    <div class="hero-content-wrapper">
+
+        <h1 class="text-banner-title">
+            Cerca la canzone e inizia a suonare
+        </h1>
+        
+        <p class="text-banner-sub" id="descr">
+            Puoi cercare tra migliaia di canzoni e autori da tutto il mondo
+        </p>
+    </div>
+
     <div id="barraricerca">
         <form action="/search" method="GET">
-            <input type="text" name="query" required />
+            <input type="text" name="query" required placeholder="Cerca un brano..." />
             <input type="submit" value="Cerca" />
         </form>
     </div>
+
 </section>
 
 <section class="carosello-group">

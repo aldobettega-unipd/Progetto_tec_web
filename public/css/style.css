@@ -344,6 +344,74 @@ body.homepage .breadcrumb-nav {
     }
 }
 
+/* Wrapper invisibile per gestire l'impaginazione */
+.hero-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* CENTRATURA PERFETTA ORIZZONTALE */
+    justify-content: center;
+    gap: 15px; /* Spazio tra il titolo e il sottotitolo */
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 900px;
+}
+
+/* STILE 1: Banner per il Titolo H1 */
+.text-banner-title {
+    background-color: rgba(0, 0, 0, 0.8); /* Nero deciso */
+    backdrop-filter: blur(6px);
+    
+    padding: 10px 25px;      /* Padding ridotto per essere più aderente */
+    border-radius: 15px;     /* Angoli stondati */
+    
+    /* FONDAMENTALE: Il box si adatta al contenuto */
+    width: fit-content;      
+    max-width: 90%;          /* Non sfora su mobile */
+    
+    /* Testo */
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    text-shadow: none;
+    text-align: center;
+    
+    /* Bordo sottile opzionale per staccare ancora di più */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* STILE 2: Banner per il Sottotitolo P */
+.text-banner-sub {
+    background-color: rgba(0, 0, 0, 0.8); /* Leggermente più trasparente */
+    backdrop-filter: blur(6px);
+    
+    padding: 8px 20px;
+    border-radius: 50px;     /* Forma a "pillola" */
+    
+    width: fit-content;
+    max-width: 85%;
+    
+    /* Testo */
+    font-size: 1.1rem;
+    margin: 0;
+    color: #f0f0f0;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- ADATTAMENTO MOBILE --- */
+@media (max-width: 768px) {
+    .text-banner-title {
+        font-size: 2rem;     /* Più piccolo su mobile */
+        padding: 10px 15px;
+    }
+    
+    .text-banner-sub {
+        font-size: 0.95rem;
+        padding: 6px 15px;
+    }
+}
+
 
 
 

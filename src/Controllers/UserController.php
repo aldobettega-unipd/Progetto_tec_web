@@ -56,6 +56,7 @@ class UserController extends Controller
         $this->page_title = "Accedi al tuo account";
         $this->page_description = "Accedi al tuo account per gestire le tue playlist e scoprire nuova musica.";
         BreadcrumbHelper::add('Accedi');
+        
         $redirect = $_GET['redirect'] ?? '/profilo';
         $this->render('user/login', ["REDIRECT_TO"=>$redirect]);
     }
@@ -65,7 +66,7 @@ class UserController extends Controller
         $username = $this->post('username');
         $password = $this->post('password');
 
-        $redirect_to = $this->post('redirect_to');
+        
 
         $user = $this->User->find_user($username);
 
@@ -76,7 +77,8 @@ class UserController extends Controller
                 'username' => $user['username'],
                 'is_admin' => (bool) $user['is_admin']
             ];
-
+                
+            $redirect_to = $user['is_admin'] ? '/admin': $this->post('redirect_to');
             $this->redirect($redirect_to);
 
         } else {

@@ -2,86 +2,95 @@
 namespace App\Models;
 use App\Core\Model;
 
-class CanzoneModel extends Model {
+class CanzoneModel extends Model
+{
 
-        protected $table= "canzone";
+    protected $table = "canzone";
 
 
-    public function get_dati_canzone($canzone) {
+    public function get_dati_canzone($canzone)
+    {
         $sql = "SELECT c.*, a.slug_artista FROM artista a INNER JOIN canzone c ON a.nome_artista = c.autore_canzone WHERE c.slug_canzone = ?";
         return $this->fetchOne($sql, [$canzone]);
     }
 
-    public function get_canzone_by_id($id) {
+    public function get_canzone_by_id($id)
+    {
         $sql = "SELECT * FROM canzone WHERE id_canzone=?";
         return $this->fetchOne($sql, [$id]);
     }
 
-    public function cerca_titolo($canzone) {
+    public function cerca_titolo($canzone)
+    {
         $canzone = "%$canzone%";
         $sql = "SELECT titolo_canzone FROM canzone WHERE titolo_canzone LIKE ?";
-        return $this->fetchAll($sql, [$canzone]);        
+        return $this->fetchAll($sql, [$canzone]);
     }
 
-    public function cerca_canzoni($testo) {
-    // LOCATE ritorna la posizione (1-based). Se è all'inizio, ritorna 1.
-    // Ordiniamo per posizione (ASC) così i risultati con posizione 1 arrivano primi.
-    $sql = "SELECT id_canzone, titolo_canzone, autore_canzone, slug_canzone,
+    public function cerca_canzoni($testo)
+    {
+        // LOCATE ritorna la posizione (1-based). Se è all'inizio, ritorna 1.
+        // Ordiniamo per posizione (ASC) così i risultati con posizione 1 arrivano primi.
+        $sql = "SELECT id_canzone, titolo_canzone, autore_canzone, slug_canzone,
                    LOCATE(?, titolo_canzone) as posizione
             FROM canzone 
             WHERE titolo_canzone LIKE ? 
             ORDER BY posizione ASC, titolo_canzone ASC
             LIMIT 10";
-            
-    $param = "%" . $testo . "%";
-    // Passiamo il testo due volte: una per LOCATE e una per LIKE
-    return $this->fetchAll($sql, [$testo, $param]);
-}
 
-    public function cerca_canzoni_avanzata($testo, $lingua_selezionata, $accordi_selezionati) {
-    $params = [];
-    // Aggiungiamo il parametro per LOCATE all'inizio
-    $params[] = $testo; 
+        $param = "%" . $testo . "%";
+        // Passiamo il testo due volte: una per LOCATE e una per LIKE
+        return $this->fetchAll($sql, [$testo, $param]);
+    }
 
-    $sql = "SELECT *, LOCATE(?, titolo_canzone) as posizione 
+    public function cerca_canzoni_avanzata($testo, $lingua_selezionata, $accordi_selezionati)
+    {
+        $params = [];
+        // Aggiungiamo il parametro per LOCATE all'inizio
+        $params[] = $testo;
+
+        $sql = "SELECT *, LOCATE(?, titolo_canzone) as posizione 
             FROM canzone 
             WHERE titolo_canzone LIKE ?";
-    $params[] = "%" . $testo . "%";
+        $params[] = "%" . $testo . "%";
 
-    if (!empty($lingua_selezionata)) {
-        $sql .= " AND lingua_canzone = ?";
-        $params[] = $lingua_selezionata;
-    }
-
-    if (!empty($accordi_selezionati) && is_array($accordi_selezionati)) {
-        $placeholders = implode(',', array_fill(0, count($accordi_selezionati), '?'));
-        $sql .= " AND id_canzone NOT IN 
-                    (SELECT id_canzone FROM accordi_canzone WHERE accordo NOT IN ($placeholders))";
-        
-        foreach ($accordi_selezionati as $accordo) {
-            $params[] = $accordo;
+        if (!empty($lingua_selezionata)) {
+            $sql .= " AND lingua_canzone = ?";
+            $params[] = $lingua_selezionata;
         }
+
+        if (!empty($accordi_selezionati) && is_array($accordi_selezionati)) {
+            $placeholders = implode(',', array_fill(0, count($accordi_selezionati), '?'));
+            $sql .= " AND id_canzone NOT IN 
+                    (SELECT id_canzone FROM accordi_canzone WHERE accordo NOT IN ($placeholders))";
+
+            foreach ($accordi_selezionati as $accordo) {
+                $params[] = $accordo;
+            }
+        }
+
+        // Ordiniamo per posizione e poi alfabeticamente
+        $sql .= " ORDER BY posizione ASC, titolo_canzone ASC";
+
+        return $this->fetchAll($sql, $params);
     }
 
-    // Ordiniamo per posizione e poi alfabeticamente
-    $sql .= " ORDER BY posizione ASC, titolo_canzone ASC";
-    
-    return $this->fetchAll($sql, $params);
-}
 
 
-
-    public function get_artista($canzone){
+    public function get_artista($canzone)
+    {
         $sql = "SELECT a.* FROM artista a JOIN canzone c ON a.nome_artista = c.autore_canzone WHERE slug_canzone LIKE ?";
         return $this->fetchOne($sql, [$canzone]);
     }
 
-    public function get_all_songs(){
+    public function get_all_songs()
+    {
         $sql = "SELECT * FROM canzone ORDER BY titolo_canzone";
         return $this->fetchAll($sql);
     }
 
-    public function delete_canzone($id_canzone) {
+    public function delete_canzone($id_canzone)
+    {
         try {
             $sql = "DELETE FROM canzone WHERE id_canzone = ?";
             $this->query($sql, [$id_canzone]);
@@ -91,28 +100,33 @@ class CanzoneModel extends Model {
             return false;
         }
     }
-    public function get_accordi($canzone){
+    public function get_accordi($canzone)
+    {
         $sql = "SELECT accordo FROM accordi_canzone WHERE id_canzone = ?";
         return $this->fetchAll($sql, [$canzone]);
 
     }
 
-    public function get_lingue_canzoni() {
+    public function get_lingue_canzoni()
+    {
         $sql = "SELECT DISTINCT lingua_canzone FROM canzone ORDER BY lingua_canzone";
         return $this->fetchAll($sql);
     }
 
-    public function get_accordi_canzoni() {
+    public function get_accordi_canzoni()
+    {
         $sql = "SELECT DISTINCT accordo FROM accordi_canzone ORDER BY accordo";
         return $this->fetchAll($sql);
     }
 
-    public function get_playlist($username, $id_canzone) {
+    public function get_playlist($username, $id_canzone)
+    {
         $sql = "SELECT * FROM playlist p JOIN canzoni_playlist cp ON p.id_playlist = cp.playlist WHERE p.id_username = ? AND cp.canzone = ? ORDER BY nome_playlist";
         return $this->fetchAll($sql, [$username, $id_canzone]);
     }
 
-    public function update_canzone($id, $dati_aggiornati) {
+    public function update_canzone($id, $dati_aggiornati)
+    {
         try {
             $sql = "UPDATE canzone SET 
                     titolo_canzone = ?,
@@ -133,10 +147,12 @@ class CanzoneModel extends Model {
             ];
 
             $this->query($sql, $params);
-        } catch(\PDOException $e) {
+        } catch (\PDOException $e) {
             error_log("Errore aggiornamento canzone: " . $e->getMessage());
             return false;
         }
-        
+
     }
+
+
 }

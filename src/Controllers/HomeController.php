@@ -14,8 +14,8 @@ class HomeController extends Controller{
         $Artista = new ArtistaModel(); 
         $Canzone = new CanzoneModel();
 
-        $artisti = $Artista->get_all() ?? [];
-        $canzoni = $Canzone->get_all() ?? [];
+        $artisti = $Artista->get_rand(8) ?? [];
+        $canzoni = $Canzone->get_rand(15) ?? [];
 
         $this->page_title = "HomePage";
         $this->page_description = "Benvenuto nella nostra raccolta di canzoni e artisti.";

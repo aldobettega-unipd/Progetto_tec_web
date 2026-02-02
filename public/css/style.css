@@ -4275,3 +4275,38 @@ body.dark-mode .plain-list .artist-inline {
         font-size: 0.85rem;
     }
 }
+
+
+/* =========================================
+   COPYRIGHT DISCLAIMER (Progetto Didattico)
+   ========================================= */
+
+.copyright-disclaimer {
+    margin-top: 3rem;       /* Spazio dal testo della canzone */
+    margin-bottom: 2rem;    /* Spazio dal footer */
+    padding: 1.5rem;
+    
+    /* Stile riquadro leggero */
+    background-color: rgba(0, 0, 0, 0.1); 
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    
+    /* Testo */
+    text-align: center;
+    font-size: 0.85rem;     /* Più piccolo del testo normale */
+    line-height: 1.5;
+    color: var(--main-text);
+    opacity: 0.7;           /* Meno invasivo visivamente */
+}
+
+.copyright-disclaimer strong {
+    display: block;            /* Manda a capo il testo dopo il titolo */
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Adattamento Dark Mode */
+body.dark-mode .copyright-disclaimer {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.05);
+}

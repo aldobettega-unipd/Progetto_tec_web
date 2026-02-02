@@ -44,7 +44,25 @@
 
     <div id="song-container" class="song-body">
         ##TESTO_CANZONE_HTML##
+
+
+        <div id="autoscroll-widget" role="region" aria-label="Controlli scorrimento automatico">
+            <button id="scrollToggle" class="scroll-btn-main">
+                <span id="scrollIcon">▶</span>
+                <span id="scrollText">Autoscroll</span>
+            </button>
+
+            <div class="scroll-speed-ctrl">
+                <label for="scrollSpeed">
+                    <span>Velocità</span>
+                    <span id="speedValDisplay">1.5x</span>
+                </label>
+                <input type="range" id="scrollSpeed" class="speed-slider" min="1" max="10" step="0.25" value="1.5">
+            </div>
+        </div>
     </div>
+
+
 
     <!-- Alert autenticazione-->
     <div id="auth-modal" class="auth-modal-overlay" aria-hidden="true">

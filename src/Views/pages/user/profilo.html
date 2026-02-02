@@ -9,38 +9,51 @@
         height="160" />
     </button>
 
-    <div role="tablist" aria-label="Sezioni profilo" class="profilo-menu">
-      <button class="menu-btn active js-tab-btn" role="tab" aria-selected="true" aria-controls="le-tue-playlist"
-        id="tab-playlist" data-target="le-tue-playlist"> <span aria-hidden="true">📋</span> Playlist
-      </button>
+    <div class="profilo-menu">
+      <a class="menu-btn js-tab-btn" id="logout-btn" href="/logout" aria-label="logout">
+        <span aria-hidden="true">➜]</span>Logout</a>
 
-           <a
-        class="menu-btn js-tab-btn"
-        id="logout-btn"
-        href="/logout"
-        aria-label="logout"
-      >
-        <span aria-hidden="true">➜]</span>Logout</a
-      >
+      <a href="/profilo/elimina-account" id="btn-delete-account" class="btn-delete-profile">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="3 6 5 6 21 6"></polyline>
+          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+        </svg>
+        Elimina Profilo
+      </a>
     </div>
   </aside>
 
   <div class="profilo-content">
-    <section id="le-tue-playlist" role="tabpanel" aria-labelledby="tab-playlist" class="sezione-lista active">
+    <section id="le-tue-playlist" role="tabpanel" aria-labelledby="tab-playlist" class="sezione-lista">
       <div class="section-header">
         <h2>Le tue playlist</h2>
 
         <a href="/profilo/playlist/new" class="btn-crea-link">
           <button class="btn-crea">+ Crea playlist</button>
-
         </a>
       </div>
+
+
       <div class="content-grid">
+
+        <article class="playlist-row favorites-row">
+          <div class="playlist-info">
+            <h3 class="playlist-title">Preferiti</h3>
+            <span class="playlist-meta">Playlist personale</span>
+          </div>
+          <div class="playlist-actions">
+            <a href="/profilo/playlist/##ID_PREFERITI##" class="btn-visualizza">
+              Visualizza
+            </a>
+          </div>
+        </article>
+
         ##LISTA_PLAYLIST##
       </div>
     </section>
 
- 
+
   </div>
 </div>
 

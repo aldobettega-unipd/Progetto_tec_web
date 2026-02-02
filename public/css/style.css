@@ -1313,18 +1313,13 @@ body.dark-mode #btn-open-modal {
 }
 /* 4. CONTENUTO DESTRO */
 .profilo-content {
+  background-color: var(--main-bg);
+  border-radius: 24px;
+  padding:2rem;
   flex: 1;
   min-width: 0; 
 }
 
-.sezione-lista {
-  display: none;
-  animation: slideInUp 0.4s ease;
-}
-
-.sezione-lista.active {
-  display: block;
-}
 
 @keyframes slideInUp {
   from { opacity: 0; transform: translateY(10px); }
@@ -1446,6 +1441,35 @@ body.dark-mode #btn-open-modal {
 }
 
 /* =========================================
+   STILE SPECIALE BANNER "PREFERITI"
+   ========================================= */
+
+/* 1. Stile Base della Riga */
+.playlist-row.favorites-row {
+    background-color:  rgba(228, 151, 83, 0.75);
+}
+
+/* 2. Effetto Hover */
+.playlist-row.favorites-row:hover {
+    /* Diventa più luminoso */
+    background-color:  rgba(228, 151, 83, 0.95);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* 4. Bottone "Visualizza" (Versione Rossa) */
+.favorites-row .btn-visualizza {
+    color: white;
+}
+
+/* Hover sul bottone Visualizza dentro i preferiti */
+.favorites-row .btn-visualizza:hover {
+    background-color: #fffffff2;
+    color: var(--wood-accent);
+}
+
+
+/* =========================================
    TASTO ELIMINA PLAYLIST (Profilo)
 ========================================= */
 
@@ -1500,6 +1524,8 @@ body.dark-mode .playlist-title {
 body.dark-mode .menu-btn.active {
     color: #fff; /* Testo bianco su sfondo attivo scuro */
 }
+
+
 
 /* 8. MODALE AVATAR */
 .modal-overlay {
@@ -1688,6 +1714,33 @@ body.dark-mode .btn-secondary:hover {
         justify-content: center;
         white-space: nowrap;
     }
+}
+
+
+.btn-delete-profile {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #e31c25; /* Rosso acceso */
+    color: #ffffff !important; /* Forza testo bianco */
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-delete-profile:hover {
+    background-color: #c0161d; /* Rosso più scuro */
+    box-shadow: 0 4px 12px rgba(227, 28, 37, 0.3);
+    transform: translateY(-1px);
+}
+
+.btn-delete-profile svg {
+    stroke: white;
 }
 
 /* =========================================
@@ -4342,7 +4395,7 @@ body.dark-mode .plain-list .artist-inline {
     /* Stile riquadro leggero */
     background-color: rgba(0, 0, 0, 0.1); 
     border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid #0000000d;
     
     /* Testo */
     text-align: center;

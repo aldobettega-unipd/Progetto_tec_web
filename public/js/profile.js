@@ -274,4 +274,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    const deleteAccountBtn = document.getElementById('btn-delete-account');
+
+    if (deleteAccountBtn) {
+        deleteAccountBtn.addEventListener('click', function(e) {
+            
+            // Il messaggio che apparirà nel popup
+            const conferma = confirm(
+                "⚠️ ATTENZIONE: Sei sicuro di voler eliminare il tuo profilo?\n\n" +
+                "Questa azione è IRREVERSIBILE. Perderai tutte le tue playlist e i tuoi preferiti per sempre."
+            );
+
+            // Se l'utente clicca "Annulla" (false), blocchiamo il link
+            if (!conferma) {
+                e.preventDefault();
+            }
+            // Se clicca "OK", il browser seguirà normalmente il link href="/profilo/elimina-account"
+        });
+    }
 });

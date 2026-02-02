@@ -28,7 +28,7 @@ class UserController extends Controller
 
         BreadcrumbHelper::add('Registrati');
         $redirect = $_GET['redirect'] ?? '/profilo';
-        $this->render('user/register', ["REDIRECT_TO"=>$redirect]);
+        $this->render('user/register', ["REDIRECT_TO" => $redirect]);
     }
 
     public function register()
@@ -56,9 +56,9 @@ class UserController extends Controller
         $this->page_title = "Accedi al tuo account";
         $this->page_description = "Accedi al tuo account per gestire le tue playlist e scoprire nuova musica.";
         BreadcrumbHelper::add('Accedi');
-        
+
         $redirect = $_GET['redirect'] ?? '/profilo';
-        $this->render('user/login', ["REDIRECT_TO"=>$redirect]);
+        $this->render('user/login', ["REDIRECT_TO" => $redirect]);
     }
 
     public function login()
@@ -66,7 +66,7 @@ class UserController extends Controller
         $username = $this->post('username');
         $password = $this->post('password');
 
-        
+
 
         $user = $this->User->find_user($username);
 
@@ -77,8 +77,8 @@ class UserController extends Controller
                 'username' => $user['username'],
                 'is_admin' => (bool) $user['is_admin']
             ];
-                
-            $redirect_to = $user['is_admin'] ? '/admin': $this->post('redirect_to');
+
+            $redirect_to = $user['is_admin'] ? '/admin' : $this->post('redirect_to');
             $this->redirect($redirect_to);
 
         } else {
@@ -95,6 +95,16 @@ class UserController extends Controller
         $this->redirect('/login');
     }
 
+    public function delete_account()
+    {
+        $username = $this->User->get_current_user()['username'];
+        session_unset();
+        session_destroy();
+        error_log($username);
+        $this->User->delete_user($username);
+        $this->redirect('/');
+    }
+
     public function view_profile()
     {
         $user = $this->User->get_current_user();
@@ -107,10 +117,22 @@ class UserController extends Controller
 
         $Playlist = new PlaylistModel();
         $user_playlists = $Playlist->get_user_playlist($user['id_utente']);
+        $id_preferiti = null; 
+        $playlist_filtrate = []; 
 
+        foreach ($user_playlists as $playlist) {
+            if ($playlist['nome_playlist'] === 'Preferiti') {
+              
+                $id_preferiti = $playlist['id_playlist'];
+            } else {
+
+                $playlist_filtrate[] = $playlist;
+            }
+        }
         $data = $user;
+        $data["ID_PREFERITI"] = $id_preferiti;
         $data["LISTA_PLAYLIST"] = ListHelper::render(
-            $user_playlists,
+            $playlist_filtrate,
             'playlistRow',
             ['USERNAME' => $user['username']]
         );

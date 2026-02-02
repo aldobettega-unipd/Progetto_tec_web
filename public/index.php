@@ -89,6 +89,7 @@ set_exception_handler(function ($e) {
     $router->add('/profilo/playlist/new', PlaylistController::class, 'view_playlist_form', ['auth']);
     $router->add('/profilo/playlist/create', PlaylistController::class, 'create_playlist', ['auth']);
     $router->add('/profilo/playlist/{id_playlist:num}', PlaylistController::class, 'view_playlist_page', ['auth']);
+    $router->add('/profilo/elimina-account', UserController::class, 'delete_account', ['auth']);
 
 
     $router->add('/admin/gestione-utenti', AdminController::class, 'view_gestisci_account', ['auth', 'admin']);

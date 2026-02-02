@@ -33,6 +33,12 @@ abstract class Model{
         return $this->fetchAll($sql);
     }
 
+    public function get_rand($limit = 15) {
+        $limit = (int)$limit;
+        $sql = "SELECT * FROM " . $this->table . " ORDER BY RAND() LIMIT $limit";
+        return $this->fetchAll($sql);
+    }
+
     public function insert($data) {
         if (empty($this->table)) {
             throw new \Exception("Nessuna tabella definita nel model.");

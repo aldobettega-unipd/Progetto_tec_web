@@ -2,80 +2,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- 0. SETUP & VARIABILI ---
 
-    // Elementi principali
-    const favBtn = document.getElementById('btn-fav');
+    
     const authModal = document.getElementById('auth-modal');
     const closeAuthBtn = document.getElementById('close-auth-modal');
     const playlistToggleBtn = document.getElementById('playlist-toggle');
     const playlistMenu = document.getElementById('playlist-menu');
 
-    // Se manca il bottone principale, probabilmente c'è un errore nel template, usciamo.
-    if (!favBtn) return;
 
-    // Recuperiamo l'ID della canzone dal bottone preferiti (come da tuo HTML)
-    const currentSongId = favBtn.dataset.songId;
-
-    // --- 1. FUNZIONI HELPER (Login & API) ---
-
-    // Controlla se l'utente è loggato guardando l'attributo sul body
-    function isUserLoggedIn() {
-        return document.body.dataset.loggedIn === 'true';
-    }
-
-    // Mostra il modale di login
-    function showLoginBanner() {
-        if (authModal) {
-            authModal.classList.add('show');
-            authModal.setAttribute('aria-hidden', 'false');
-        }
-    }
-
-    // Nasconde il modale di login
-    function hideLoginBanner() {
-        if (authModal) {
-            authModal.classList.remove('show');
-            authModal.setAttribute('aria-hidden', 'true');
-        }
-    }
-
-    // Chiamata API generica per aggiungere/rimuovere
-    async function toggleSongInPlaylist(playlistId, songId, isAdding) {
-        const endpoint = isAdding ? '/api/playlist/add-song' : '/api/playlist/remove-song';
-
-        try {
-            const response = await fetch(endpoint, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    playlist_id: playlistId,
-                    song_id: songId
-                })
-            });
-
-            const res = await response.json();
-
-            if (!res.success) {
-                throw new Error(res.message || "Errore API");
-            }
-            return true; // Successo
-
-        } catch (err) {
-            console.error(err);
-            // Opzionale: alert("Errore: " + err.message);
-            return false; // Fallimento
-        }
-    }
-
-    // --- 2. GESTIONE CHIUSURA MODALE LOGIN ---
-    if (closeAuthBtn) {
-        closeAuthBtn.addEventListener('click', hideLoginBanner);
-    }
-    // Chiudi cliccando sullo sfondo scuro
-    if (authModal) {
-        authModal.addEventListener('click', (e) => {
-            if (e.target === authModal) hideLoginBanner();
-        });
-    }
+    // Recuperiamo l'ID della canzone dal bottone playlist (come da tuo HTML)
+    const currentSongId = playlistToggleBtn.dataset.songId;
 
 
     // --- 3. GESTIONE MENU A TENDINA (Apri/Chiudi) ---
@@ -134,42 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-
-    // --- 5. GESTIONE PREFERITI (Cuore) ---
-    favBtn.addEventListener('click', async function () {
-
-        // CHECK LOGIN
-        if (!isUserLoggedIn()) {
-            showLoginBanner();
-            return;
-        }
-
-        // Recupera ID playlist preferiti dall'attributo data-id-preferiti
-        // Nota: dataset trasforma "data-id-preferiti" in "idPreferiti" (camelCase)
-        const favPlaylistId = this.dataset.idPreferiti;
-
-        if (!favPlaylistId) {
-            console.error("ID Playlist Preferiti mancante nell'HTML");
-            return;
-        }
-
-        // Determina azione: se ha la classe che lo colora (es. active o btn-favorite-active), stiamo rimuovendo
-        // Nota: nel tuo HTML hai messo '##PREFERITI_CLASS##' dentro class="btn-favorite ...". 
-        // Assumo che la classe che lo rende rosso sia 'active' (come nel CSS che abbiamo fatto prima).
-        const isRemoving = this.classList.contains('active');
-        const isAdding = !isRemoving;
-
-        // UI Ottimistica: Cambia subito stato
-        this.classList.toggle('active');
-
-        // Chiamata API
-        const success = await toggleSongInPlaylist(favPlaylistId, currentSongId, isAdding);
-
-        if (!success) {
-            // Rollback in caso di errore
-            this.classList.toggle('active');
-        }
-    });
+    
 
     function autoscroll() {
         let isScrolling = false;

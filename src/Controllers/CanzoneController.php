@@ -8,6 +8,7 @@ use App\Models\ArtistaModel;
 use App\Models\PlaylistModel;
 use App\Models\UserModel;
 use App\Helpers\CarouselHelper;
+use App\Helpers\FavoriteBtnHelper;
 use App\Helpers\ChordParser;
 use App\Helpers\ListHelper;
 use App\Helpers\TagAccordiHelper;
@@ -74,12 +75,11 @@ class CanzoneController extends Controller
             'ACCORDI_CANZONE' => TagAccordiHelper::generaTags($accordi),
             'TITOLO_CANZONE' => $canzone['titolo_canzone'],
             'NOME_ARTISTA' => $canzone['autore_canzone'],
-            'ID_CANZONE'       => $canzone['id_canzone'],
+            'ID_CANZONE' => $canzone['id_canzone'],
             'SLUG_ARTISTA' => $slug_artista,
             'TESTO_CANZONE_HTML' => $htmlTesto,
             'LISTA_PLAYLIST' => $playlistHtml,
-            'ID_PREFERITI'  => $favId,
-            'PREFERITI_CLASS'  => $favClass
+            'PULSANTE_PREFERITI'  => FavoriteBtnHelper::render($canzone['id_canzone'], 'btn-favorite')
         ]);
     }
 

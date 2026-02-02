@@ -705,12 +705,15 @@ body.dark-mode .carosello-group h2 {
 /* --- SPECIFICO: CARD ARTISTA (Verticale, Foto Grande) --- */
 .card-artista {
     width: 200px;
+    height: 300px; /* --- NEW: Altezza fissa per uniformità --- */
     text-align: center;
+    /* Flex column è già ereditato dalla regola comune */
 }
 
 .card-img-container {
     width: 100%;
-    height: 180px;
+    height: 180px; /* Altezza fissa immagine */
+    flex-shrink: 0; /* --- NEW: Impedisce all'immagine di schiacciarsi */
     overflow: hidden;
     background-color: #eee;
 }
@@ -718,23 +721,38 @@ body.dark-mode .carosello-group h2 {
 .card-artista img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ritaglia la foto senza deformarla */
+    object-fit: cover;
     transition: transform 0.5s ease;
+}
+
+.card-artista .card-content {
+    padding: 1rem;
+    /* --- NEW: Flexbox per distribuire lo spazio verticalmente --- */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Contenuto parte dall'alto */
+    flex-grow: 1; /* Occupa tutto lo spazio rimanente sotto la foto */
+    align-items: center;
+}
+
+.card-artista h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: #333;
+    
+    /* --- NEW: Gestione righe multiple (Line Clamp) --- */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Numero massimo di righe prima dei puntini */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3; /* Importante per il calcolo dell'altezza */
 }
 
 .card-artista:hover img {
     transform: scale(1.05); /* Zoom leggero sulla foto */
 }
 
-.card-artista .card-content {
-    padding: 1rem;
-}
-
-.card-artista h3 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.1rem;
-    color: #333; /* Testo sempre scuro nella card bianca */
-}
 
 .card-artista .btn-link {
     font-size: 0.85rem;
@@ -749,12 +767,38 @@ body.dark-mode .carosello-group h2 {
 
 /* --- SPECIFICO: CARD CANZONE (Orizzontale/Compatta, No Foto) --- */
 .card-canzone {
-    width: 240px;
+    width: 220px;
+    height: 240px; 
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; /* Spinge il footer in basso */
     
-    /* Un tocco di design: bordo colorato a sinistra */
     border-left: 6px solid var(--wood-accent);
+}
+
+.card-main-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Sta sopra al contenuto base, ma sotto al cuore */
+    cursor: pointer;
+}
+
+/* Effetto Hover sulla Card (attivato dal link o dalla card stessa) */
+.card-canzone:hover,
+.card-canzone:focus-within { /* Focus-within attiva l'effetto se usi tab */
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    border-color: var(--wood-accent);
+}
+
+.card-canzone:hover .btn-primary,
+.card-canzone:focus-within .btn-primary {
+background-color: var(--wood-accent);
+    color: #fff;                      /* Testo bianco (o scuro se preferisci contrasto) */
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Ombra leggera */
 }
 
 .card-canzone .card-content {
@@ -762,6 +806,7 @@ body.dark-mode .carosello-group h2 {
     display: flex;
     flex-direction: column;
     height: 100%;
+    box-sizing: border-box; /* Assicura che il padding non sballi l'altezza */
 }
 
 .music-icon {
@@ -769,48 +814,128 @@ body.dark-mode .carosello-group h2 {
     color: #333;
     opacity: 1;
     margin-bottom: 0.5rem;
+    flex-shrink: 0; /* Non si schiaccia mai */
 }
 
 .card-canzone h3 {
     margin: 0;
     font-size: 1.2rem;
     color: #222;
-    line-height: 1.2;
+    line-height: 1.3;
+    
+    /* --- NEW: Gestione righe multiple --- */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Massimo 2 righe per il titolo */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: clip;
 }
 
 .author-name {
-    margin: 0.2rem 0 1.5rem 0;
+    margin: 0.2rem 0 auto 0; /* --- NEW: 'auto' spinge actions in basso */
     font-size: 0.9rem;
     color: #666;
+    
+    /* Opzionale: limita anche l'autore a 1 riga */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 1rem; /* Spazio minimo prima dei bottoni */
 }
 
+
+
 .card-actions {
-    margin-top: auto; /* Spinge i bottoni in fondo */
+    position: relative; /* Serve per gestire gli z-index interni */
+    margin-top: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    
+    /* Impedisce che i bottoni si schiaccino */
+    flex-shrink: 0; 
 }
 
 /* Il bottone "Suona ora" */
-.btn-primary {
-    background-color: var(--wood-accent);
-    color: var(--layout-text-color-accent);
-    padding: 0.5rem 1rem;
+/* Il bottone "Suona ora" - Versione Leggera (Ghost Button) */
+.card-canzone .btn-primary {
+    position: relative;
+    z-index: 0;
+    background-color: transparent;    /* Sfondo trasparente per leggerezza */
+    color: var(--wood-accent);        /* Testo colorato */
+    border: 1px solid var(--wood-accent); /* Solo un bordo sottile */
+    
+    padding: 0.35rem 0.8rem;          /* Dimensioni ridotte */
     border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    transition: background 0.3s;
+    font-size: 0.75rem;               /* Font più piccolo */
+    font-weight: 600;                 /* Grassetto leggero */
+    text-transform: uppercase;        /* Più elegante in piccolo */
+    letter-spacing: 0.5px;
+    
+    transition: all 0.2s ease;
     display: inline-block;
+    text-decoration: none;
 }
 
-.btn-primary:hover {
-    background-color: var(--highlighted-button);
-}
+
+
 
 .secondary-action {
-    /* Per il cuore o preferiti */
-    color: #888;
+    position: relative;
+    z-index: 2; /* FONDAMENTALE: Sta sopra al link esteso */
+}
+
+.btn-favorite.in-card{
+    background: transparent;
+    border: none;
     cursor: pointer;
+    padding: 6px; /* Padding ridotto rispetto alla pagina singola */
+    border-radius: 50%;
+    color: #888; /* Grigio di base */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.btn-favorite.in-card svg {
+    width: 22px; /* Icona più piccola */
+    height: 22px;
+    stroke-width: 2px;
+}
+
+/* Hover sul cuore */
+.btn-favorite.in-card:hover {
+    background-color: rgba(227, 28, 37, 0.1); /* Sfondo rossino leggero */
+    color: #E31C25;
+    transform: scale(1.15);
+}
+
+/* Stato Attivo (Cuore Rosso Pieno) */
+.btn-favorite.in-card.active {
+    color: #E31C25;
+}
+
+.btn-favorite.in-card.active svg {
+    fill: #E31C25;
+    stroke: #E31C25;
+    animation: heartPopSmall 0.3s forwards;
+}
+
+/* Animazione pop ridotta per la card */
+@keyframes heartPopSmall {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Dark Mode Fix */
+body.dark-mode .btn-favorite.in-card {
+    color: #aaa;
+}
+body.dark-mode .btn-favorite.in-card:hover {
+    color: #ff6b6b;
 }
 
 /* --- SEPARATORE --- */
@@ -839,12 +964,16 @@ body.dark-mode .card-canzone h3 {
 body.dark-mode .author-name {
     color: #aaa;
 }
-/* 
+
+body.dark-mode .card-canzone .btn-primary:hover {
+    color: var(--layout-text-color-accent); /* Testo scuro su sfondo arancio */
+}
+
 @media (max-width: 768px) {
     #ricerca h1 { font-size: 2rem; }
     
     #barraricerca form {
-        flex-direction: column; // Input e bottone uno sotto l'altro
+        flex-direction: column;
         background: transparent;
         border: none;
         box-shadow: none;
@@ -872,7 +1001,7 @@ body.dark-mode .author-name {
     .card-item {
         width: 160px;
     }
-} */
+} 
 
 
 #dark-mode-toggle img {
@@ -1997,38 +2126,100 @@ body.dark-mode #search-input {
 }
 
 /* =========================================
-    ARTISTA PAGE
-========================================= */
+   PAGINA ARTISTA (Restyling)
+   ========================================= */
 
-.artistipage-carosello-wrapper {
-  position: relative;
-  width: var(--container-width);
+/* 1. HERO SECTION (La scheda principale) */
+.artista-page {
+    /* Layout e Dimensioni */
+    width: var(--container-width);
+    margin: 3rem auto 4rem auto;
+    
+    /* Stile "Header Scuro" simile alla pagina canzoni */
+    background-color: var(--main-bg); 
+    color: var(--layout-text-color);
+    
+    /* Decorazione Box */
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden; /* Per eventuali effetti sfumati */
 
-  /* MODIFICA QUI: Riduco spazio tra i vari caroselli (era 3rem) */
-
-  padding: 0 2.2rem; /* Togliamo il padding verticale interno superfluo */
-  padding-top: 0.9rem;
+    /* GRIGLIA INTERNA: Immagine a sinistra, Testo a destra */
+    display: grid;
+    grid-template-columns: auto 1fr; /* Colonna auto per img, resto per testo */
+    grid-template-rows: auto 1fr;    /* Riga titolo, Riga descrizione */
+    column-gap: 2.5rem;
+    row-gap: 1rem;
+    align-items: start;
 }
 
-.artista-page h1,
-.artista-page p,
-.artista-page h2 {
-  padding: 0 1.2rem;
+/* Sfondo sfumato decorativo dietro (Opzionale) */
+.artista-page::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(228, 151, 83, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
 }
 
-.carosello-canzoni h2 {
-  margin: 0 1rem;
-  padding: 0 0.2rem;
-  border-left: 5px solid var(--wood-accent);
-}
-
+/* 2. IMMAGINE ARTISTA */
 .artista-page img {
-  margin: 1rem 1.2rem;
-  border-radius: 25%;
-  width: 200px;
-  height: 200px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* Posizionamento nella griglia: occupa 2 righe a sinistra */
+    grid-column: 1;
+    grid-row: 1 /span 2;
+    
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%; /* Cerchio perfetto */
+    
+    /* Bordo stile Admin/Profilo */
+    border: 5px solid var(--wood-accent);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    
+    transition: transform 0.3s ease;
 }
+
+.artista-page img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* 3. TITOLO (H1) */
+.artista-page h1 {
+    grid-column: 2;
+    grid-row: 1;
+    
+    margin: 0;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--wood-accent);
+    line-height: 1.1;
+    z-index: 1;
+    align-self: end; /* Si allinea al fondo della riga 1 */
+    padding: 0; /* Override del padding generico */
+}
+
+/* 4. DESCRIZIONE */
+.artista-page .descrizione-artista {
+    grid-column: 2;
+    grid-row: 2;
+    
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--layout-text-color-accent);
+    opacity: 0.9;
+    margin: 0;
+    max-width: 700px; /* Evita righe troppo lunghe */
+    z-index: 1;
+    padding: 0; /* Override */
+}
+
 
 
 /* =========================================

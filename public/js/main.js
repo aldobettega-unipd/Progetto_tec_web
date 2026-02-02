@@ -2,7 +2,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   initDarkMode();
   initBackToTop();
-  toggleLoginBanner();
+  initToggleLoginBanner();
+  initProfileAction();
+  initCarosello();
+  initFavButton();
 
 });
 
@@ -49,7 +52,9 @@ function initBackToTop() {
     });
   });
 
+}
 
+function initCarosello() {
   const wrappers = document.querySelectorAll(".carosello-wrapper");
 
   // Funzione per determinare lo scroll amount basato sulla larghezza dello schermo
@@ -80,36 +85,39 @@ function initBackToTop() {
 
 }
 
-// Gestione navigazione pagina profilo
-const menuButtons = document.querySelectorAll('.menu-btn');
-const contentSections = document.querySelectorAll('.sezione-lista');
-const hiddenTabInput = document.getElementById('active-tab-input');
+ // Gestione navigazione pagina profilo
+function initProfileAction() {
+ 
+  const menuButtons = document.querySelectorAll('.menu-btn');
+  const contentSections = document.querySelectorAll('.sezione-lista');
+  const hiddenTabInput = document.getElementById('active-tab-input');
 
-if (menuButtons.length > 0 && contentSections.length > 0) {
-  menuButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const targetSection = button.getAttribute('data-section');
+  if (menuButtons.length > 0 && contentSections.length > 0) {
+    menuButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetSection = button.getAttribute('data-section');
 
-      // Rimuovi classe active da tutti i pulsanti
-      menuButtons.forEach(btn => btn.classList.remove('active'));
+        // Rimuovi classe active da tutti i pulsanti
+        menuButtons.forEach(btn => btn.classList.remove('active'));
 
-      // Aggiungi classe active al pulsante cliccato
-      button.classList.add('active');
+        // Aggiungi classe active al pulsante cliccato
+        button.classList.add('active');
 
-      // Nascondi tutte le sezioni
-      contentSections.forEach(section => section.classList.remove('active'));
+        // Nascondi tutte le sezioni
+        contentSections.forEach(section => section.classList.remove('active'));
 
-      // Mostra la sezione corrispondente
-      const sectionToShow = document.querySelector(`[data-content="${targetSection}"]`);
-      if (sectionToShow) {
-        sectionToShow.classList.add('active');
-      }
+        // Mostra la sezione corrispondente
+        const sectionToShow = document.querySelector(`[data-content="${targetSection}"]`);
+        if (sectionToShow) {
+          sectionToShow.classList.add('active');
+        }
 
-      if (hiddenTabInput) {
-        hiddenTabInput.value = targetSection;
-      }
+        if (hiddenTabInput) {
+          hiddenTabInput.value = targetSection;
+        }
+      });
     });
-  });
+  }
 }
 
 
@@ -139,7 +147,7 @@ function hideLoginBanner() {
     authModal.setAttribute('aria-hidden', 'true');
   }
 }
-function toggleLoginBanner() {
+function initToggleLoginBanner() {
   // Eventi chiusura Banner (X o Click fuori)
   if (closeModalBtn) closeModalBtn.addEventListener('click', hideLoginBanner);
   if (authModal) {
@@ -147,4 +155,72 @@ function toggleLoginBanner() {
       if (e.target === authModal) hideLoginBanner();
     });
   }
+}
+
+// Chiamata API generica per aggiungere/rimuovere
+    async function toggleSongInPlaylist(playlistId, songId, isAdding) {
+        const endpoint = isAdding ? '/api/playlist/add-song' : '/api/playlist/remove-song';
+
+        try {
+            const response = await fetch(endpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    playlist_id: playlistId,
+                    song_id: songId
+                })
+            });
+
+            const res = await response.json();
+
+            if (!res.success) {
+                throw new Error(res.message || "Errore API");
+            }
+            return true; // Successo
+
+        } catch (err) {
+            console.error(err);
+            // Opzionale: alert("Errore: " + err.message);
+            return false; // Fallimento
+        }
+    }
+
+//gestion pulsante preferiti
+function initFavButton(){
+  const allFavBtns = document.querySelectorAll('.btn-favorite');
+
+    allFavBtns.forEach(btn => {
+        btn.addEventListener('click', async function(e) {
+            // STOP PROPAGATION: Impedisce che il click passi al link della card sottostante
+            e.stopPropagation(); 
+            e.preventDefault();
+            // CHECK LOGIN
+            if (!isUserLoggedIn()) {
+                showLoginBanner();
+                return;
+            }
+
+            const favPlaylistId = this.dataset.idPreferiti;
+            const songId = this.dataset.songId; // Recuperiamo l'ID specifico di QUESTA card
+
+            if (!favPlaylistId || !songId) {
+                console.error("Dati mancanti sul bottone preferiti");
+                return;
+            }
+
+            const isRemoving = this.classList.contains('active');
+            const isAdding = !isRemoving;
+
+            // UI Ottimistica
+            this.classList.toggle('active');
+
+            // Chiamata API
+            const success = await toggleSongInPlaylist(favPlaylistId, songId, isAdding);
+
+            if (!success) {
+                // Rollback
+                this.classList.toggle('active');
+            }
+        });
+    });
 }

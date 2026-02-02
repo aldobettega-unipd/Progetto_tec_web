@@ -69,6 +69,11 @@ class PlaylistModel extends Model {
         return (bool) $this->fetchOne($sql, [$id_playlist, $id_canzone]);
     }
 
+    public function get_preferiti_id($id_username){
+        $sql = "SELECT id_playlist FROM playlist WHERE nome_playlist = 'Preferiti' AND id_username = ?";
+        return $this->fetchOne($sql, [$id_username])['id_playlist'];
+    }
+
 }
 
 

@@ -1,13 +1,16 @@
 <li>
-  <a href="/canzoni/##slug_canzone##" class="card-canzone" role="button">
-    <article class="card-content">
+  <article class="card-canzone">
+    <a href="/canzoni/##slug_canzone##" class="card-main-link" aria-label="Vai a ##titolo_canzone##"></a>
+    <div class="card-content">
       <div class="music-icon" aria-hidden="true">♫</div>
       <h3>##titolo_canzone##</h3>
       <p class="author-name">di ##autore_canzone##</p>
       <div class="card-actions">
         <span class="btn-primary">Suona ora</span>
-        <div class="secondary-action">##LINK_AZIONE##</div>
+        <div class="secondary-action">
+          ##PULSANTE_PREFERITI##
+        </div>
       </div>
-    </article>
-  </a>
+    </div>
+  </article>
 </li>

@@ -175,6 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let isScrolling = false;
         let currentSpeed = 1.5;
         let animationFrameId = null;
+        let scrollAccumulator = 0;
 
         const btn = document.getElementById('scrollToggle');
         const btnText = document.getElementById('scrollText');
@@ -183,21 +184,32 @@ document.addEventListener('DOMContentLoaded', function () {
         const speedDisplay = document.getElementById('speedValDisplay');
 
         function performScroll() {
-            if (!isScrolling) return;
+           if (!isScrolling) return;
 
-            // Calcolo spostamento (pixel per frame)
-            // Dividiamo per 2 per avere un controllo più granulare alle basse velocità
-            window.scrollBy(0, currentSpeed / 2);
+        // Invece di scrollare subito, aggiungiamo il valore all'accumulatore
+        // Qui non dividiamo più per 4, usiamo il valore puro o un fattore fisso
+        scrollAccumulator += (currentSpeed / 10); 
 
-            // Controllo fine pagina
-            const isAtBottom = (window.innerHeight + window.pageYOffset) >= document.documentElement.scrollHeight - 2;
-
-            if (isAtBottom) {
-                stopScrolling();
-            } else {
-                animationFrameId = requestAnimationFrame(performScroll);
-            }
+        // Se abbiamo accumulato almeno 1 pixel...
+        if (scrollAccumulator >= 1) {
+            // Calcoliamo quanti pixel interi possiamo muovere
+            const pixelsToMove = Math.floor(scrollAccumulator);
+            
+            // Muoviamo la pagina di pixel INTERI
+            window.scrollBy(0, pixelsToMove);
+            
+            // Sottraiamo i pixel mossi, tenendo il "resto" decimale per il prossimo frame
+            scrollAccumulator -= pixelsToMove;
         }
+
+        const isAtBottom = (window.innerHeight + window.pageYOffset) >= document.documentElement.scrollHeight - 2;
+
+        if (isAtBottom) {
+            stopScrolling();
+        } else {
+            animationFrameId = requestAnimationFrame(performScroll);
+        }
+    }
 
         function startScrolling() {
             isScrolling = true;
@@ -209,6 +221,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function stopScrolling() {
             isScrolling = false;
+            scrollAccumulator = 0; // Reset fondamentale
             btn.classList.remove('active');
             btnText.innerText = "Autoscroll";
             btnIcon.innerText = "▶";

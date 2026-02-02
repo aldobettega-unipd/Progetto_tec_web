@@ -1228,6 +1228,16 @@ PROFILO PAGE
   display: block;
 }
 
+body.dark-mode #btn-open-modal {
+  background: #f6eec4;
+  border: none;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
 #btn-open-modal:hover {
   transform: scale(1.05);
 }
@@ -1289,6 +1299,8 @@ PROFILO PAGE
   color: var(--main-bg); /* Testo chiaro su sfondo scuro */
   border-color: var(--header-bg);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+
 }
 
 #logout-btn {
@@ -1540,6 +1552,11 @@ body.dark-mode .menu-btn.active {
     align-items: center;
     justify-content: center;
 }
+
+body.dark-mode .avatar-option-btn {
+  background-color: #f6eec4;
+}
+
 
 .avatar-option-btn img {
     width: 100%;
@@ -2212,7 +2229,7 @@ body.dark-mode #search-input {
     
     font-size: 1.05rem;
     line-height: 1.7;
-    color: var(--layout-text-color-accent);
+    color: var(--main-text);
     opacity: 0.9;
     margin: 0;
     max-width: 700px; /* Evita righe troppo lunghe */

@@ -32,6 +32,7 @@ fi
 if [ -d "$BASE_DIR/public" ]; then
     echo "🌐 Spostamento file in public_html..."
     mv "$BASE_DIR/public"/* "$TARGET_PUBLIC/"
+    mv "$BASE_DIR/public/.htaccess" "$TARGET_PUBLIC/"
     
     # 4. Elimina la cartella public ora vuota
     rmdir "$BASE_DIR/public"
@@ -39,3 +40,7 @@ if [ -d "$BASE_DIR/public" ]; then
 else
     echo "⚠️ Attenzione: Cartella ./public non trovata. Nulla da spostare in public_html."
 fi
+
+# Permessi generici per il web server (es. Apache/Nginx)
+chown -R www-data:www-data ./public_html
+chmod -R 755 ./public_html

@@ -22,13 +22,14 @@ abstract class Controller
         if (isset($_SESSION['flash_error'])) {
             $data['FLASH_ERROR'] = $_SESSION['flash_error'];
             unset($_SESSION['flash_error']);
+
         }
 
         $view_file = new Template("pages/{$view}");
 
         $view_file->set_dati_pagina($data);
 
-        $contenuto_vista = $view_file->get_pagina();
+        $contenuto_vista = $view_file->get_pagina(true);
 
         if ($layout) {
             $layout_data = [

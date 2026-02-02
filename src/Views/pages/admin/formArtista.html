@@ -6,8 +6,8 @@
             <p>Compila i seguenti dettagli.</p>
         </div>
 
-        <div class="alert-box ##VISIBILITY_ERROR##" role="alert">
-            <span class="alert-icon">⚠️</span>
+        <div class="alert-box ##VISIBILITY_ERROR##" role="alert" aria-live="assertive">
+            <span class="alert-icon" aria-hidden="true">⚠️</span>
             <span class="alert-text">##ERROR_MSG##</span>
         </div>
 
@@ -16,24 +16,33 @@
             <input type="hidden" name="id" value="##ID_VAL##">
 
             <div class="form-group">
-                <label for="nome">Nome Artista <span class="required">*</span></label>
+                <label for="nome">Nome Artista <span class="required" aria-hidden="true">*</span></label>
                 <input type="text" id="nome" name="nome" value="##NOME_VAL##" minlength="2" maxlength="50"
-                    aria-describedby="nomeHelp">
+                    aria-describedby="nomeHelp" required>
                 <small id="nomeHelp" class="form-text">Il nome deve essere univoco nel sistema.</small>
             </div>
 
             <div class="form-group">
-                <label for="lingua">Lingua di origine del nome<span class="required">*</span></label>
+                <label for="lingua">Lingua di origine del nome <span class="required"
+                        aria-hidden="true">*</span></label>
+
                 <select id="lingua" name="lingua" required class="custom-select-admin input-mini">
+                    <option value="" disabled selected>Seleziona...</option>
                     ##OPTIONS_LINGUA##
                 </select>
                 <small class="form-text">Utile per la pronuncia corretta.</small>
             </div>
 
             <div class="form-group">
-                <label for="descrizione">Descrizione <span class="required">*</span></label>
-                <textarea id="descrizione" name="descrizione" rows="6" minlength="10"
-                    maxlength="2000">##DESCRIZIONE_VAL##</textarea>
+                <label for="descrizione">Descrizione <span class="required" aria-hidden="true">*</span></label>
+
+                <textarea id="descrizione" name="descrizione" rows="6" minlength="10" maxlength="2000" required
+                    spellcheck="false">##DESCRIZIONE_VAL##</textarea>
+
+                <small class="form-text">
+                    Per frasi o parole in lingua straniera usa: <code lang="en">{en}Testo in inglese{/en}</code> (o fr,
+                    es ...)
+                </small>
             </div>
 
             <div class="form-actions">

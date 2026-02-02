@@ -7,8 +7,8 @@
     <button id="open-search-modal" class="btn-add-song" data-playlist-id="##ID_PLAYLIST##">
       + Aggiungi Canzone
     </button>
-        <img src="##BASE_URL##/img/icone/playlist.png" alt="" />
 
+    <img src="##BASE_URL##/img/icone/playlist.png" alt="">
   </div>
 
   <div class="content-grid">
@@ -18,14 +18,14 @@
   <div id="search-modal" class="hidden">
     <div class="modal-content">
       <div class="modal-header">
-        <h3>Cerca una canzone</h3>
-        <button id="close-search-modal" class="btn-close">×</button>
+        <h2>Cerca una canzone</h2>
+        <button id="close-search-modal" class="btn-close" aria-label="Chiudi ricerca">×</button>
       </div>
 
-      <input type="text" id="search-input" placeholder="Scrivi titolo o artista...">
+      <input type="text" id="search-input" placeholder="Scrivi titolo o artista..." aria-label="Cerca brano da aggiungere">
 
       <ul id="search-results">
-        </ul>
+      </ul>
     </div>
   </div>
 

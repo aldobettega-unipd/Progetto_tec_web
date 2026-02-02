@@ -7,7 +7,7 @@
     <button id="btn-open-modal" aria-label="Cambia foto profilo" aria-haspopup="dialog">
       <img src="##BASE_URL##/img/avatar/avatar##FOTO_PROFILO##.svg" id="current-profile-pic" alt="Foto profilo attuale" width="160"
         height="160" />
-    </button>
+
 
     <div class="profilo-menu">
       <a class="menu-btn js-tab-btn" id="logout-btn" href="##BASE_URL##/logout" aria-label="logout">
@@ -25,12 +25,13 @@
   </aside>
 
   <div class="profilo-content">
-    <section id="le-tue-playlist" role="tabpanel" aria-labelledby="tab-playlist" class="sezione-lista">
+    <section id="le-tue-playlist" role="tabpanel" aria-labelledby="titolo-playlist" class="sezione-lista">
       <div class="section-header">
-        <h2>Le tue playlist</h2>
+        <h2 id="titolo-playlist">Le tue playlist</h2>
+
 
         <a href="##BASE_URL##/profilo/playlist/new" class="btn-crea-link">
-          <button class="btn-crea">+ Crea playlist</button>
+          <span class="btn-crea">+ Crea playlist</span>
         </a>
       </div>
 
@@ -61,36 +62,37 @@
   <div class="modal-content">
     <h3 id="modal-title">Scegli il tuo avatar</h3>
 
-    <div class="avatar-grid">
-      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="1" aria-label="Seleziona avatar 1">
+    <div class="avatar-grid" role="radiogroup" aria-label="Seleziona un avatar">
+      <button type="button" class="avatar-option-btn js-avatar-btn" role="radio" aria-checked="false" data-id="1" aria-label="Avatar 1">
         <img src="##BASE_URL##/img/avatar/avatar1.svg" alt="" loading="lazy">
       </button>
-      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="2" aria-label="Seleziona avatar 2">
+      <button type="button" class="avatar-option-btn js-avatar-btn" role="radio" aria-checked="false" data-id="2" aria-label="Avatar 2">
         <img src="##BASE_URL##/img/avatar/avatar2.svg" alt="" loading="lazy">
       </button>
-      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="3" aria-label="Seleziona avatar 3">
+      <button type="button" class="avatar-option-btn js-avatar-btn" role="radio" aria-checked="false" data-id="3" aria-label="Avatar 3">
         <img src="##BASE_URL##/img/avatar/avatar3.svg" alt="" loading="lazy">
       </button>
-      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="4" aria-label="Seleziona avatar 4">
+      <button type="button" class="avatar-option-btn js-avatar-btn" role="radio" aria-checked="false" data-id="4" aria-label="Avatar 4">
         <img src="##BASE_URL##/img/avatar/avatar4.svg" alt="" loading="lazy">
       </button>
-      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="5" aria-label="Seleziona avatar 5">
+      <button type="button" class="avatar-option-btn js-avatar-btn" role="radio" aria-checked="false" data-id="5" aria-label="Avatar 5">
         <img src="##BASE_URL##/img/avatar/avatar5.svg" alt="" loading="lazy">
       </button>
-      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="6" aria-label="Seleziona avatar 6">
+      <button type="button" class="avatar-option-btn js-avatar-btn" role="radio" aria-checked="false" data-id="6" aria-label="Avatar 6">
         <img src="##BASE_URL##/img/avatar/avatar6.svg" alt="" loading="lazy">
       </button>
-      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="7" aria-label="Seleziona avatar 7">
+      <button type="button" class="avatar-option-btn js-avatar-btn" role="radio" aria-checked="false" data-id="7" aria-label="Avatar 7">
         <img src="##BASE_URL##/img/avatar/avatar7.svg" alt="" loading="lazy">
       </button>
-      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="8" aria-label="Seleziona avatar 8">
+      <button type="button" class="avatar-option-btn js-avatar-btn" role="radio" aria-checked="false" data-id="8" aria-label="Avatar 8">
         <img src="##BASE_URL##/img/avatar/avatar8.svg" alt="" loading="lazy">
       </button>
-      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="9" aria-label="Seleziona avatar 9">
+      <button type="button" class="avatar-option-btn js-avatar-btn" role="radio" aria-checked="false" data-id="9" aria-label="Avatar 9">
         <img src="##BASE_URL##/img/avatar/avatar9.svg" alt="" loading="lazy">
       </button>
-      <button type="button" class="avatar-option-btn js-avatar-btn" data-id="10" aria-label="Seleziona avatar 10">
+      <button type="button" class="avatar-option-btn js-avatar-btn" role="radio" aria-checked="false" data-id="10" aria-label="Avatar 10">
         <img src="##BASE_URL##/img/avatar/avatar10.svg" alt="" loading="lazy">
+>>>>>>> develop
       </button>
     </div>
 

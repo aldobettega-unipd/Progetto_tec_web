@@ -82,7 +82,7 @@ abstract class Controller
     {
         if (!Auth::isLogged()) {
             $_SESSION['flash_error'] = "Non sei loggato. Accedi per visualizzare il profilo!";
-            $this->redirect('/login');
+            $this->redirect(BASE_URL . '/login');
             exit;
         }
     }
@@ -91,7 +91,7 @@ abstract class Controller
     {
         if (Auth::isLogged()) {
             $_SESSION['flash_error'] = "Disconettiti dal tuo account per continuare";
-            $this->redirect('/');
+            $this->redirect(BASE_URL . '/');
             exit;
         }
     }
@@ -113,7 +113,7 @@ abstract class Controller
 
         if (!Auth::isAdmin()) {
             $_SESSION['flash_error'] = "Non hai il permesso, esegui l'accesso come amministratore!";
-            $this->redirect('/login');
+            $this->redirect(BASE_URL . '/login');
             exit;
         }
     }

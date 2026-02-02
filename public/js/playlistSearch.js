@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Chiamata API per cercare canzoni (passando anche playlist_id per sapere se sono già presenti)
-            const response = await fetch(`/api/search/songs?q=${query}&playlist_id=${currentPlaylistId}`);
+            const response = await fetch(`${BASE_URL}/api/search/songs?q=${query}&playlist_id=${currentPlaylistId}`);
             const songs = await response.json();
             renderResults(songs);
         } catch (err) { 
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function styleAsAdd(btn) { 
         btn.textContent = "+"; 
-        btn.style.cssText = "background:var(--wood-accent); color:white; border:none; border-radius:50%; width:32px; height:32px; cursor:pointer; font-weight:bold;"; 
+        btn.style.cssText = "background:var(--wood-accent); color:black; border:none; border-radius:50%; width:32px; height:32px; cursor:pointer; font-weight:bold;"; 
     }
 
     /**
@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function styleAsChecked(btn) { 
         btn.textContent = "✓"; 
-        btn.style.cssText = "background:#4CAF50; color:white; border:none; border-radius:50%; width:32px; height:32px; cursor:default;"; 
+        btn.style.cssText = "background:#4CAF50; color:black; border:none; border-radius:50%; width:32px; height:32px; cursor:default;"; 
         btn.disabled = true;
     }
 

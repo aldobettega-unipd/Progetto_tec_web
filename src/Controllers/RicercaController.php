@@ -12,7 +12,7 @@ class RicercaController extends Controller {
 
     public function __construct() {
         BreadcrumbHelper::reset();
-        BreadcrumbHelper::add('Home', '/');
+        BreadcrumbHelper::add('Home', BASE_URL . '/');
     }
 
     public function esegui_ricerca() {
@@ -90,7 +90,7 @@ class RicercaController extends Controller {
                     if (empty($lista)) continue;
 
                     $options_accordi .= "<div class='chord-row-group'>";
-                    $options_accordi .= "<h4>{$radice}</h4>";
+                    $options_accordi .= "<h2>{$radice}</h2>";
                     $options_accordi .= "<div class='chord-checkbox-list'>";
                     
                     foreach ($lista as $acc) {
@@ -133,6 +133,7 @@ class RicercaController extends Controller {
         BreadcrumbHelper::add('Esplora');
 
         $this->scriptPathList[] = 'search';
+        $this->page_description = "Cerca canzoni e artisti nel catalogo EasyGuitar.";
         
         $this->render('searchPage', [
             'SEARCH_VALUE'        => htmlspecialchars($query),

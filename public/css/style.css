@@ -1354,7 +1354,6 @@ body.dark-mode #btn-open-modal {
 }
 
 .menu-btn {
-  width: 100%;
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -1390,8 +1389,33 @@ body.dark-mode #btn-open-modal {
 }
 
 #logout-btn {
-  width: 87%;
-  text-decoration: none;
+  display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--layout-text-color-accent);
+    color: var(--layout-text-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+#logout-btn:hover {
+  box-shadow: 0 4px 12px rgba(227, 28, 37, 0.3);
+  transform: translateY(-1px);
+}
+
+body.dark-mode #logout-btn {
+  background-color: var(--layout-text-color);
+  color: var(--layout-text-color-accent);
+}
+
+#logout-btn span {
+  font-size: 0.9rem;
 }
 
 #logout-btn.active {
@@ -1429,7 +1453,7 @@ body.dark-mode #btn-open-modal {
 
 .btn-crea {
   background-color: var(--wood-accent);
-  color: #fff; 
+  color: var(--layout-text-color-accent); 
   border: none;
   border-radius: 50px;
   padding: 0.8em 1.5em;
@@ -1544,12 +1568,13 @@ body.dark-mode #btn-open-modal {
 
 
 /* 4. Bottone "Visualizza" (Versione Rossa) */
-.favorites-row .btn-visualizza {
-    color: white;
+.favorites-row {
+    color: var(--layout-text-color-accent);
+    background-color: white;
 }
 
 /* Hover sul bottone Visualizza dentro i preferiti */
-.favorites-row .btn-visualizza:hover {
+.favorites-row:hover {
     background-color: #fffffff2;
     color: var(--wood-accent);
 }
@@ -1603,6 +1628,7 @@ body.dark-mode .playlist-row {
 }
 body.dark-mode .playlist-row:hover {
     background-color: rgba(30, 30, 36, 1);
+    border-color: var(--wood-accent);
 }
 body.dark-mode .playlist-title {
     color: #fff;
@@ -1685,7 +1711,8 @@ body.dark-mode .avatar-option-btn {
 
 .avatar-option-btn.selected {
     border-color: var(--wood-accent);
-    transform: scale(1.15);
+    border-width: 5px;
+    transform: scale(1.40);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
@@ -1916,16 +1943,14 @@ body.dark-mode .playlist-form-container {
 
 /* 2. Il Link "Visualizza" (L'area attiva) */
 .btn-visualizza {
-    /* Stile estetico del bottone (rimane uguale) */
     text-decoration: none;
-    color: var(--wood-accent);
-    border: 2px solid var(--wood-accent);
+    color: var(--layout-text-color-accent);
+    border: 2px solid var(--layout-text-color-accent);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-weight: bold;
     transition: all 0.2s;
-    
-    /* TRUCCO UX: Espandiamo il click su tutta la riga */
+    background-color: white;
 }
 
 .btn-visualizza::after {
@@ -1944,7 +1969,7 @@ body.dark-mode .playlist-form-container {
    illumina il bottone come se lo stessimo premendo */
 .playlist-row:hover .btn-visualizza {
     background-color: var(--wood-accent);
-    color: white;
+    color: var(--layout-text-color-accent);
 }
 
 /* Mantieni il movimento fluido (senza scrollbars indesiderate) */
@@ -1998,7 +2023,7 @@ body.dark-mode .playlist-form-container {
 /* Bottone "+ Aggiungi Canzone" */
 .btn-add-song {
     background-color: var(--wood-accent);
-    color: #fff; /* Testo bianco */
+    color: var(--layout-text-color-accent);
     border: none;
     padding: 0.8rem 1.8rem;
     border-radius: 50px;
@@ -2116,7 +2141,7 @@ body.dark-mode .playlist-form-container {
     align-items: center;
     gap: 8px;
     
-    opacity: 0.5; /* Discreto di default */
+    opacity: 0.75; /* Discreto di default */
     transition: all 0.2s ease;
     padding: 6px 12px;
     border-radius: 8px;
@@ -2342,6 +2367,13 @@ body.dark-mode #search-input {
     transition: transform 0.3s ease;
 }
 
+.artist-profile-img {
+    width: 200px;
+    height: auto;
+    object-fit: cover; /* Mantiene le proporzioni se l'immagine non è quadrata */
+    border-radius: 10px; /* Opzionale: rende più carino il box */
+}
+
 .artista-page img:hover {
     transform: scale(1.05) rotate(2deg);
 }
@@ -2515,6 +2547,14 @@ body.dark-mode .search-input-wrapper:hover {
 
 .tab-link::before {
   font-size: 1.1rem;
+}
+
+.tab-link.active::after {
+    content: "✓";
+    font-size: 0.95rem;
+    font-weight: 800;
+    margin-left: 6px;
+    line-height: 1;
 }
 
 .tab-link[href*="tab=canzoni"]::before {
@@ -3553,10 +3593,10 @@ body.dark-mode .mini-search-input {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: var(--header-bg);
+    color: var(--brown-text);
 }
 
-.required { color: #e53935; }
+.required { color: #E2211D; }
 
 .form-group input[type="text"],
 .form-group textarea {
@@ -3658,7 +3698,7 @@ body.dark-mode .custom-select-admin {
 
 .btn-primary {
     background-color: var(--wood-accent);
-    color: #fff;
+    color: var(--layout-text-color-accent);
 }
 .btn-primary:hover {
     background-color: var(--highlighted-button);
@@ -4499,4 +4539,36 @@ body.dark-mode .plain-list .artist-inline {
 body.dark-mode .copyright-disclaimer {
     background-color: rgba(255, 255, 255, 0.03);
     border-color: rgba(255, 255, 255, 0.05);
+}
+
+
+/*======================================
+STILE AGGIUNTIVO FILTER MODAL
+==========================================
+*/
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* 2. Reset dello stile del fieldset (Sostituisce style inline) */
+.fieldset-reset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0; /* Fix per Flexbox */
+}
+
+/* 3. Stile del titolo visivo (Sostituisce style inline) */
+.filter-legend-text {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--layout-text-color); /* Assicura coerenza colore */
 }

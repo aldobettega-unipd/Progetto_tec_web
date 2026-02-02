@@ -26,21 +26,26 @@ class CarouselHelper {
                 $data = $item;
             }
 
-            $langAttr = '';
-            $linguaTrovata = '';
-            if (isset($item['lingua_canzone'])) {
-                $linguaTrovata = $item['lingua_canzone'];
-            } elseif (isset($item['lingua_artista'])) {
-                $linguaTrovata = $item['lingua_artista'];
+            $langCanzone = '';
+            $langArtista = '';
+            
+            if (!empty($item['lingua_canzone'])) {
+                $lingua = strtolower($item['lingua_canzone']);
+                if ($lingua !== 'it') $langCanzone = 'lang="' . htmlspecialchars($lingua) . '"';
             }
-            // il sito è in italiano, quindi non viene messo lang it
-            if (!empty($linguaTrovata)) {
-                $linguaLower = strtolower($linguaTrovata);
-                if ($linguaLower !== 'it') {
-                    $langAttr = 'lang="' . htmlspecialchars($linguaLower) . '"';
-                }
+
+            if (!empty($item['lingua_artista'])) {
+                $lingua = strtolower($item['lingua_artista']);
+                if ($lingua !== 'it') $langArtista = 'lang="' . htmlspecialchars($lingua) . '"';
             }
-            $data['LANG_ATTR'] = $langAttr;
+
+            $data['LANG_CANZONE'] = $langCanzone;
+            $data['LANG_ARTISTA'] = $langArtista;
+
+            // per artista card che ha solo artista
+            if(isset($item['lingua_artista']) && !isset($item['titolo_canzone'])) {
+                 $data['LANG_ATTR'] = $langArtista;
+            }
 
             $template->set_dati_pagina((array)$data);
 

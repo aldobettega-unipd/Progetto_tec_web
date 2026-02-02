@@ -2,23 +2,23 @@
 <html lang="it">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>##TITOLO_PAGINA## - EasyGuitar</title>
+  
+  <meta name="description" content="##DESCRIZIONE_PAGINA##">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
   <script src="##BASE_URL##/js/config.js.php" defer></script>
   <script src="##BASE_URL##/js/main.js" defer></script>
   ##IMPORT_SCRIPTS##
 
   <link rel="stylesheet" href="##BASE_URL##/css/style.css" type="text/css" />
-
   <link rel="icon" type="image/svg+xml" href="##BASE_URL##/img/logo1.svg" />
 
-  <title>##TITOLO_PAGINA## - EasyGuitar</title>
-  <meta name="description" content="##DESCRIZIONE_PAGINA##" />
 </head>
 
 <body class="##CLASSE_PAGINA##" data-logged-in="##UTENTE_LOGGATO##">
@@ -28,6 +28,7 @@
     <div class="header-wrapper">
       <div class="logo">
         <img src="##BASE_URL##/img/logo1.svg" alt="" />
+
         <span lang="en">EasyGuitar</span>
       </div>
       <nav class="menu" aria-label="Menu di navigazione principale">
@@ -40,16 +41,17 @@
     </div>
 
     <button id="dark-mode-toggle" class="bookmark-btn" title="Cambia Tema" aria-label="Cambia Tema">
-      <img src="##BASE_URL##/img/icone/sun.svg" class="icon-sun" alt="cambia a modo chiaro" />
 
-      <img src="##BASE_URL##/img/icone/moon.svg" class="icon-moon" alt="cambia a modo scuro" />
+      <img src="##BASE_URL##/img/icone/sun.svg" class="icon-sun" alt="Attiva modalità chiara" />
+      <img src="##BASE_URL##/img/icone/moon.svg" class="icon-moon" alt="Attiva modalità scura" />
+
     </button>
   </header>
 
-  <nav class="breadcrumb-nav" aria-label="Percorso di navigazione">
+  <nav class="breadcrumb-nav">
     ##BREADCRUMB##
-
   </nav>
+
 
   <main id="main-content" class="main-container" tabindex="-1">
     ##CONTENUTO_PRINCIPALE##
@@ -61,15 +63,33 @@
     </button>
     <div class="footer-container">
       <div class="footer-links">
-        <a href="##BASE_URL##/" lang="en"><span class="icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/home.png" alt="home" /></span>
-          Home</a>
-        <a href="##BASE_URL##/search"><span class="icon search-icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/search.png" alt="esplora" /></span>
-          Cerca</a>
-        <a href="##BASE_URL##/artisti"><span class="icon search-icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/artista.png" alt="artisti" /></span>
-          Artisti</a>
-        <a href="##BASE_URL##/canzoni"><span class="icon search-icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/music-notes.svg" alt="canzoni" /></span>
-          Canzoni</a>
-        ##LINKS_FOOTER##
+
+        <a href="##BASE_URL##/" lang="en">
+            <span class="icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/home.png" alt=""></span>
+            Home
+        </a>
+        <a href="##BASE_URL##/search">
+            <span class="icon search-icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/search.png" alt=""></span>
+            Cerca
+        </a>
+        <a href="##BASE_URL##/artisti">
+            <span class="icon search-icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/artista.png" alt=""></span>
+            Artisti
+        </a>
+        <a href="##BASE_URL##/canzoni">
+            <span class="icon search-icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/music-notes.svg" alt=""></span>
+            Canzoni
+        </a>
+        
+        <a href="##BASE_URL##/login" lang="en">
+            <span class="icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/login.webp" alt=""></span>
+            Login
+        </a>
+        <a href="##BASE_URL##/register">
+            <span class="icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/register.webp" alt=""></span>
+            Registrati
+        </a>
+
       </div>
 
       <div class="footer-bottom">
@@ -78,5 +98,4 @@
     </div>
   </footer>
 </body>
-
 </html>

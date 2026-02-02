@@ -1,20 +1,25 @@
 <section class="artista-page">
-  <img src="##BASE_URL##/img/artisti/##slug_artista##.jpeg" width="200" alt="##nome_artista##" />
+
+  <img src="##BASE_URL##/img/artisti/##slug_artista##.jpeg" class="artist-profile-img" alt="##nome_artista##">
+
   <h1 ##LANG_ATTR##>##nome_artista##</h1>
+  
   <p class="descrizione-artista">Descrizione: ##descrizione_artista##</p>
 </section>
 
-  
-  <section class="carosello-wrapper">
+<section class="carosello-wrapper">
     <div class="intestazione">
-            <h2>Canzoni dell'Artista</h2>
-      </div>
-    <button class="carrbutton prev">
-            <img src="##BASE_URL##/img/icone/carrouselbuttonl.png" alt="scroll to left" />
-        </button>
-        <button class="carrbutton next">
-            <img src="##BASE_URL##/img/icone/carrouselbuttonr.png" alt="scroll to right" />
-        </button>
+        <h2>Canzoni dell'Artista</h2>
+    </div>
+    
+    <button class="carrbutton prev" aria-label="Scorri indietro">
+        <img src="##BASE_URL##/img/icone/carrouselbuttonl.png" alt="">
+    </button>
+    
+    <button class="carrbutton next" aria-label="Scorri avanti">
+        <img src="##BASE_URL##/img/icone/carrouselbuttonr.png" alt="">
+    </button>
+
     <ul class="carosello-scroll" aria-label="Lista canzoni in evidenza">
       ##LISTA_CANZONI##
     </ul>

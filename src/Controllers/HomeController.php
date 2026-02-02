@@ -21,7 +21,7 @@ class HomeController extends Controller{
         $this->page_description = "Benvenuto nella nostra raccolta di canzoni e artisti.";
 
         BreadcrumbHelper::reset();
-        BreadcrumbHelper::add('Home', '/');
+        BreadcrumbHelper::add('Home', BASE_URL . '/');
 
         $this->render('homePage', [
             'LISTA_ARTISTI' => CarouselHelper::carousel($artisti, 'artistaCard'),

@@ -17,15 +17,15 @@ Class PlaylistController extends Controller {
         $this->Playlist = new PlaylistModel();
         $username = $_SESSION['user']['username'];
         BreadcrumbHelper::reset();
-        BreadcrumbHelper::add('Home', '/');
-        BreadcrumbHelper::add('Profilo', '/profilo');
+        BreadcrumbHelper::add('Home', BASE_URL . '/');
+        BreadcrumbHelper::add('Profilo', BASE_URL . '/profilo');
     }
 
     public function view_playlist_form(){
         $this->page_title = "Crea Playlist";
         $this->page_description = "Crea una nuova playlist per organizzare le tue canzoni preferite.";
         BreadcrumbHelper::add('Crea Playlist');
-        $redirect_to = $_GET['redirect'] ?? '/profilo';
+        $redirect_to = $_GET['redirect'] ?? BASE_URL . '/profilo';
         $this->render('playlistForm', ["REDIRECT_TO" => $redirect_to]);
     }
 

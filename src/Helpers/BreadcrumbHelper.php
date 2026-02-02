@@ -31,12 +31,14 @@ class BreadcrumbHelper
 
         foreach (self::$items as $i => $item) {
             $label = htmlspecialchars($item['label'], ENT_QUOTES, 'UTF-8');
+            
+            $langAttr = ($item['label'] === 'Home') ? ' lang="en"' : '';
 
             if ($i === $last || empty($item['url'])) {
-                $html .= '<li aria-current="page">' . $label . '</li>';
+                $html .= '<li aria-current="page"' . $langAttr . '>' . $label . '</li>';
             } else {
                 $url = htmlspecialchars($item['url'], ENT_QUOTES, 'UTF-8');
-                $html .= '<li><a href="' . $url . '">' . $label . '</a></li>';
+                $html .= '<li><a href="' . $url . '"' . $langAttr . '>' . $label . '</a></li>';
             }
         }
 

@@ -1,19 +1,17 @@
 <section id="ricerca">
 
     <div class="hero-content-wrapper">
-
         <h1 class="text-banner-title">
             Cerca la canzone e inizia a suonare
         </h1>
-        
         <p class="text-banner-sub" id="descr">
             Puoi cercare tra migliaia di canzoni e autori da tutto il mondo
         </p>
     </div>
 
     <div id="barraricerca">
-        <form action="/search" method="GET">
-            <input type="text" name="query" required placeholder="Cerca un brano..." />
+        <form action="##BASE_URL##/search" method="GET">
+            <input type="text" name="query" required placeholder="Cerca un brano..." aria-label="Cerca canzoni e autori" />
             <input type="submit" value="Cerca" />
         </form>
     </div>
@@ -27,14 +25,18 @@
     <div class="carosello-wrapper">
         <div class="intestazione">
             <h2>Lasciati ispirare</h2>
-            <a href="##BASE_URL##/artisti" aria-label="Mostra tutti gli artisti ordinati">Mostra tutti</a>
+
+            <a href="##BASE_URL##/artisti" aria-label="Mostra tutti gli artisti">Mostra tutti</a>
         </div>
-        <button class="carrbutton prev">
-            <img src="##BASE_URL##/img/icone/carrouselbuttonl.png" alt="scroll to left" />
+        
+        <button class="carrbutton prev" aria-label="Scorri indietro artisti">
+            <img src="##BASE_URL##/img/icone/carrouselbuttonl.png" alt="" aria-hidden="true" />
         </button>
-        <button class="carrbutton next">
-            <img src="##BASE_URL##/img/icone/carrouselbuttonr.png" alt="scroll to right" />
+        <button class="carrbutton next" aria-label="Scorri avanti artisti">
+            <img src="##BASE_URL##/img/icone/carrouselbuttonr.png" alt="" aria-hidden="true" />
+
         </button>
+        
         <ul class="carosello-scroll" aria-label="Lista artisti in evidenza">
             ##LISTA_ARTISTI##
         </ul>
@@ -45,14 +47,16 @@
     <div class="carosello-wrapper">
         <div class="intestazione">
             <h2>Il mix del momento</h2>
-            <a href="##BASE_URL##/canzoni" aria-label="Mostra tutte le canzone odrinate">Mostra tutti</a>
+            <a href="##BASE_URL##/canzoni" aria-label="Mostra tutti i brani">Mostra tutti</a>
         </div>
-        <button class="carrbutton prev">
-            <img src="##BASE_URL##/img/icone/carrouselbuttonl.png" alt="scroll to left" />
+        
+        <button class="carrbutton prev" aria-label="Scorri indietro canzoni">
+            <img src="##BASE_URL##/img/icone/carrouselbuttonl.png" alt="" aria-hidden="true" />
         </button>
-        <button class="carrbutton next">
-            <img src="##BASE_URL##/img/icone/carrouselbuttonr.png" alt="scroll to right" />
+        <button class="carrbutton next" aria-label="Scorri avanti canzoni">
+            <img src="##BASE_URL##/img/icone/carrouselbuttonr.png" alt="" aria-hidden="true" />
         </button>
+        
         <ul class="carosello-scroll" aria-label="Lista canzoni in evidenza">
             ##LISTA_CANZONI##
         </ul>

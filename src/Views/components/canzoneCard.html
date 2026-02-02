@@ -1,10 +1,14 @@
 <li>
   <article class="card-canzone">
-    <a href="##BASE_URL##/canzoni/##slug_canzone##" class="card-main-link" aria-label="Vai a ##titolo_canzone##"></a>
+
+    <a href="##BASE_URL##/canzoni/##slug_canzone##" class="card-main-link" aria-label="##titolo_canzone## (vai al testo)"></a>
+    
     <div class="card-content">
       <div class="music-icon" aria-hidden="true">♫</div>
-      <h3 ##LANG_ATTR##>##titolo_canzone##</h3>
-      <p class="author-name" ##LANG_ATTR##>di ##autore_canzone##</p>
+      
+      <h3 ##LANG_CANZONE##>##titolo_canzone##</h3>
+      <p class="author-name">di <span ##LANG_ARTISTA##>##autore_canzone##</span></p>
+      
       <div class="card-actions">
         <span class="btn-primary">Suona ora</span>
         <div class="secondary-action">

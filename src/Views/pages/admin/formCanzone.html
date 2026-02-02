@@ -6,8 +6,8 @@
             <p>Compila i seguenti dettagli.</p>
         </div>
 
-        <div class="alert-box ##VISIBILITY_ERROR##" role="alert">
-            <span class="alert-icon">⚠️</span>
+        <div class="alert-box ##VISIBILITY_ERROR##" role="alert" aria-live="assertive">
+            <span class="alert-icon" aria-hidden="true">⚠️</span>
             <span class="alert-text">##ERROR_MSG##</span>
         </div>
 
@@ -16,12 +16,12 @@
             <input type="hidden" name="id" value="##ID_VAL##">
 
             <div class="form-group">
-                <label for="titolo">Titolo Canzone <span class="required">*</span></label>
+                <label for="titolo">Titolo Canzone <span class="required" aria-hidden="true">*</span></label>
                 <input type="text" id="titolo" name="titolo" value="##TITOLO_VAL##" required maxlength="50">
             </div>
 
             <div class="form-group">
-                <label for="autore">Nome Autore <span class="required">*</span></label>
+                <label for="autore">Nome Autore <span class="required" aria-hidden="true">*</span></label>
                 <input type="text" id="autore" name="autore" value="##AUTORE_VAL##" required maxlength="50"
                     aria-describedby="autoreHelp">
                 <small id="autoreHelp" class="form-text">
@@ -30,18 +30,25 @@
             </div>
 
             <div class="form-group">
-                <label for="lingua">Lingua <span class="required">*</span></label>
+                <label for="lingua">Lingua <span class="required" aria-hidden="true">*</span></label>
 
                 <select id="lingua" name="lingua" required class="custom-select-admin input-mini">
+                    <option value="" disabled selected>Seleziona...</option>
                     ##OPTIONS_LINGUA##
                 </select>
-
                 <small class="form-text">Seleziona la lingua del testo.</small>
             </div>
 
             <div class="form-group">
-                <label for="testo">Testo e accordi canzone <span class="required">*</span></label>
-                <textarea id="testo" name="testo" rows="10" required minlength="20">##TESTO_VAL##</textarea>
+                <label for="testo">Testo e accordi canzone <span class="required" aria-hidden="true">*</span></label>
+
+                <textarea id="testo" name="testo" rows="10" required minlength="20" spellcheck="false"
+                    style="font-family: monospace;">##TESTO_VAL##</textarea>
+
+                <small id="textHelp" class="form-text">
+                    Usa <code lang="en">[Am]</code> per gli accordi.
+                    Per parti in altra lingua: <code lang="en">{en}Testo inglese{/en}</code>.
+                </small>
             </div>
 
             <div class="form-actions">

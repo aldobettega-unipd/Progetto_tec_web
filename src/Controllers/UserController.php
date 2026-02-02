@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         $this->User = new UserModel();
         BreadcrumbHelper::reset();
-        BreadcrumbHelper::add('Home', '/');
+        BreadcrumbHelper::add('Home', BASE_URL . '/');
     }
 
     public function view_register()
@@ -27,7 +27,7 @@ class UserController extends Controller
         $this->page_description = "Registrati per accedere a tutte le funzionalita` di EasyGuitar.";
 
         BreadcrumbHelper::add('Registrati');
-        $redirect = $_GET['redirect'] ?? '/profilo';
+        $redirect = $_GET['redirect'] ?? BASE_URL . '/profilo';
         $this->render('user/register', ["REDIRECT_TO" => $redirect]);
     }
 
@@ -37,7 +37,7 @@ class UserController extends Controller
         $password = $this->post('password');
 
         if (!$username || !$password) {
-            $this->redirect('/register');
+            $this->redirect(BASE_URL . '/register');
         }
 
 
@@ -46,7 +46,7 @@ class UserController extends Controller
             $this->login();
         } else {
             $_SESSION['flash_error'] = "Username gia` in uso"; //implementare controllo instantaeno in frontend con js
-            $this->redirect('/register');
+            $this->redirect(BASE_URL . '/register');
         }
     }
 
@@ -57,7 +57,7 @@ class UserController extends Controller
         $this->page_description = "Accedi al tuo account per gestire le tue playlist e scoprire nuova musica.";
         BreadcrumbHelper::add('Accedi');
 
-        $redirect = $_GET['redirect'] ?? '/profilo';
+        $redirect = $_GET['redirect'] ?? BASE_URL . '/profilo';
         $this->render('user/login', ["REDIRECT_TO" => $redirect]);
     }
 
@@ -78,13 +78,13 @@ class UserController extends Controller
                 'is_admin' => (bool) $user['is_admin']
             ];
 
-            $redirect_to = $user['is_admin'] ? '/admin' : $this->post('redirect_to');
+            $redirect_to = $user['is_admin'] ? BASE_URL . '/admin' : $this->post('redirect_to');
             $this->redirect($redirect_to);
 
         } else {
             http_response_code(401);
             $_SESSION['flash_error'] = "Username o password errati!";
-            $this->redirect('/login');
+            $this->redirect(BASE_URL . '/login');
         }
     }
 
@@ -92,7 +92,7 @@ class UserController extends Controller
     {
         session_unset();
         session_destroy();
-        $this->redirect('/login');
+        $this->redirect(BASE_URL . '/login');
     }
 
     public function delete_account()
@@ -102,7 +102,7 @@ class UserController extends Controller
         session_destroy();
         error_log($username);
         $this->User->delete_user($username);
-        $this->redirect('/');
+        $this->redirect(BASE_URL . '/');
     }
 
     public function view_profile()

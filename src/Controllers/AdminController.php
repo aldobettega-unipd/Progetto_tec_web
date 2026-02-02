@@ -20,7 +20,7 @@ class AdminController extends Controller
     {
         $this->Admin = new UserModel();
         BreadcrumbHelper::reset();
-        BreadcrumbHelper::add('Home', '/');
+        BreadcrumbHelper::add('Home', BASE_URL . '/');
     }
 
     public function view_profile_admin()
@@ -94,15 +94,12 @@ class AdminController extends Controller
         }
 
         
-        $optionsLingua = '';
-        if ($type === 'canzoni') {
-            $optionsLingua = $this->generateLanguageOptions(); 
-        }
+        $optionsLingua = $this->generateLanguageOptions(); 
 
         $placeholders = [
             'ERROR_MSG' => '',
             'VISIBILITY_ERROR' => 'hidden',
-            'FORM_ACTION' => "/admin/{$type}/save",
+            'FORM_ACTION' => BASE_URL . "/admin/{$type}/save",
             'TITOLO_PAGINA' => ($type === 'canzoni') ? 'Aggiungi Canzone' : 'Aggiungi Artista',
             'ID_VAL' => '', 
             
@@ -139,7 +136,7 @@ class AdminController extends Controller
 
         $this->render('admin/formArtista', [
             'TITOLO_PAGINA' => 'Modifica Artista',
-            'FORM_ACTION' => '/admin/artisti/update',
+            'FORM_ACTION' => BASE_URL . '/admin/artisti/update',
             'ERROR_MSG' => '',
             'VISIBILITY_ERROR' => 'hidden',
             
@@ -171,13 +168,13 @@ class AdminController extends Controller
         $artistaModel = new ArtistaModel();
         
         if ($artistaModel->update_artista($old_slug, $dati_aggiornati)) {
-            $this->redirect('/admin/gestione-contenuti');
+            $this->redirect(BASE_URL . '/admin/gestione-contenuti');
         } else {
             // Errore -> viene ricaricato il form così l'admin non perde i dati
             $optionsLingua = $this->generateLanguageOptions($_POST['lingua'] ?? '');
                 $this->render('admin/formArtista', [
                 'TITOLO_PAGINA' => 'Modifica Artista',
-                'FORM_ACTION' => '/admin/artisti/update',
+                'FORM_ACTION' => BASE_URL . '/admin/artisti/update',
                 'ERROR_MSG' => 'Errore durante l\'aggiornamento (Nome duplicato?)',
                 'VISIBILITY_ERROR' => '',
                 'ID_VAL' => $old_slug,
@@ -213,7 +210,7 @@ class AdminController extends Controller
         }
 
         if ($artistaModel->insert($dati_artista)) {
-            $this->redirect('/admin/gestione-contenuti');
+            $this->redirect(BASE_URL . '/admin/gestione-contenuti');
         } else {
             return $this->render('admin/formArtista', [
                 'ERROR_MSG' => "Errore Database: Impossibile creare l'artista.",
@@ -238,7 +235,7 @@ class AdminController extends Controller
 
         $this->render('admin/formCanzone', [
             'TITOLO_PAGINA' => 'Modifica Canzone',
-            'FORM_ACTION' => '/admin/canzoni/update',
+            'FORM_ACTION' => BASE_URL . '/admin/canzoni/update',
             'ERROR_MSG' => '',
             'VISIBILITY_ERROR' => 'hidden',
             
@@ -267,7 +264,7 @@ class AdminController extends Controller
 
             return $this->render('admin/formCanzone', [
                 'TITOLO_PAGINA' => 'Modifica Canzone',
-                'FORM_ACTION' => '/admin/canzoni/update',
+                'FORM_ACTION' => BASE_URL . '/admin/canzoni/update',
                 'ERROR_MSG' => "Errore: L'artista '$autore' non esiste.",
                 'VISIBILITY_ERROR' => '',
                 
@@ -293,7 +290,7 @@ class AdminController extends Controller
         $canzoneModel = new CanzoneModel();
         
         if ($canzoneModel->update_canzone($id, $dati)) {
-            $this->redirect('/admin/gestione-contenuti');
+            $this->redirect(BASE_URL . '/admin/gestione-contenuti');
         } else {
             $this->abort(500, "Errore durante l'aggiornamento della canzone.");
         }
@@ -326,7 +323,7 @@ class AdminController extends Controller
         $canzoneModel = new CanzoneModel();
 
         if ($canzoneModel->insert($dati_canzone)) {
-            $this->redirect('/admin/gestione-contenuti');
+            $this->redirect(BASE_URL . '/admin/gestione-contenuti');
         } else {
             return $this->render('admin/formCanzone', [
                 'ERROR_MSG' => "Errore Database: Impossibile inserire la canzone.",
@@ -338,7 +335,7 @@ class AdminController extends Controller
     private function generateLanguageOptions($selectedLang = null) {
         $lingue = ['IT', 'EN', 'FR', 'ES']; 
         
-        $options = '<option value="">Seleziona</option>';
+        $options = '';
 
         foreach ($lingue as $lang) {
             $selected = ($selectedLang && strtoupper($selectedLang) == $lang) ? 'selected' : '';

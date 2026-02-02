@@ -26,3 +26,10 @@ Aggiungere una colonna:
 
 Eliminare una riga:
     DELETE FROM nome_tabella WHERE condizione;
+
+
+
+accedere a server:
+  1. accedere a account laboratorio:        ssh msanguin@sshpaolotti.studenti.math.unipd.it -L 8080:tecweb:80 -L 8022:tecweb:22
+  2. accedere a server tecweb:              ssh msanguin@tecweb.studenti.math.unipd.it
+

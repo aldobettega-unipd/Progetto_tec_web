@@ -2,11 +2,13 @@
 namespace App\Core;
 
 
-Class Router {
-    
+class Router
+{
+
     private $routes = [];
 
-    public function add($uri, $controller, $method, $middleware = []){
+    public function add($uri, $controller, $method, $middleware = [])
+    {
 
         $this->routes[$uri] = [
             'controller' => $controller,
@@ -15,14 +17,26 @@ Class Router {
         ];
     }
 
-    public function dispatch($requestedUri){
+    public function dispatch($requestedUri)
+    {
 
         $uri = parse_url($requestedUri, PHP_URL_PATH);
-        
+
+        if (defined('BASE_PATH') && BASE_PATH !== '/') {
+            if (strpos($uri, BASE_PATH) === 0) {
+                $uri = substr($uri, strlen(BASE_PATH));
+            }
+        }
+
+        // evita stringa vuota
+        if ($uri === '') {
+            $uri = '/';
+        }
+
         $matchedRoute = null;
         $params = [];
 
-        foreach($this->routes as $routePath => $routeData){
+        foreach ($this->routes as $routePath => $routeData) {
             $pattern = preg_replace('/\{[a-zA-Z0-9-_]+:num\}/', '([0-9]+)', $routePath);
             $pattern = preg_replace('/\{[a-zA-Z0-9-_]+:alpha\}/', '([a-zA-Z-_]+)', $pattern);
             $pattern = preg_replace('/\{[a-zA-Z0-9-_]+:alphanum\}/', '([a-zA-Z0-9-_]+)', $pattern);
@@ -30,12 +44,12 @@ Class Router {
             $pattern = '#^' . $pattern . '$#';
 
             if (preg_match($pattern, $uri, $matches)) {
-                array_shift($matches); 
+                array_shift($matches);
 
                 $matchedRoute = $routeData;
                 $matchedRoute['pattern_originale'] = $routePath;
                 $params = $matches;
-                break; 
+                break;
             }
         }
 
@@ -51,7 +65,8 @@ Class Router {
     }
 
 
-    private function getNamedParams($routePath, $matches) {
+    private function getNamedParams($routePath, $matches)
+    {
         $namedParams = [];
         if (!empty($matches)) {
             preg_match_all('/\{([a-zA-Z0-9-_]+)(?::\w+)?\}/', $routePath, $paramKeys);
@@ -63,7 +78,8 @@ Class Router {
         return $namedParams;
     }
 
-    private function handleMiddleware($middleware, $params) {
+    private function handleMiddleware($middleware, $params)
+    {
         if (in_array('auth', $middleware)) {
             if (!\App\Core\Auth::isLogged()) {
                 header('Location: /login');
@@ -79,7 +95,7 @@ Class Router {
             }
         }
     }
-} 
+}
 
 /** 
  * aggiungo le pagine su index.php con $controller->add(<url>, <controller>, <metodo> )

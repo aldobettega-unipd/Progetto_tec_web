@@ -1,8 +1,6 @@
-CREATE DATABASE IF NOT EXISTS miosito;
+CREATE DATABASE IF NOT EXISTS msanguin;
 
-ALTER DATABASE miosito CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
-USE miosito;
+USE msanguin;
 
 CREATE TABLE utente (
     id_utente INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,

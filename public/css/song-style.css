@@ -127,7 +127,7 @@ body .song-header {
     border-radius: 50%;
 
     /* Colore inattivo (grigio/marrone) */
-    color: var(--layout-text-color-accent);
+    color: var(--layout-text-color);
     opacity: 0.8;
 
     display: flex;
@@ -668,7 +668,6 @@ body.dark-mode .btn-create-new-sm {
     padding: 15px;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    opacity:0.5;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -677,12 +676,6 @@ body.dark-mode .btn-create-new-sm {
     border: 2px solid var(--wood-accent);
     font-family: 'Poppins', sans-serif;
     transition: opacity 0.3 ease, transform 0.3s ease;
-}
-
-
-#autoscroll-widget:hover {
-    transform: scale(1.02);
-    opacity:0.9;
 }
 
 .scroll-btn-main {

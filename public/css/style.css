@@ -1997,38 +1997,100 @@ body.dark-mode #search-input {
 }
 
 /* =========================================
-    ARTISTA PAGE
-========================================= */
+   PAGINA ARTISTA (Restyling)
+   ========================================= */
 
-.artistipage-carosello-wrapper {
-  position: relative;
-  width: var(--container-width);
+/* 1. HERO SECTION (La scheda principale) */
+.artista-page {
+    /* Layout e Dimensioni */
+    width: var(--container-width);
+    margin: 3rem auto 4rem auto;
+    
+    /* Stile "Header Scuro" simile alla pagina canzoni */
+    background-color: var(--main-bg); 
+    color: var(--layout-text-color);
+    
+    /* Decorazione Box */
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden; /* Per eventuali effetti sfumati */
 
-  /* MODIFICA QUI: Riduco spazio tra i vari caroselli (era 3rem) */
-
-  padding: 0 2.2rem; /* Togliamo il padding verticale interno superfluo */
-  padding-top: 0.9rem;
+    /* GRIGLIA INTERNA: Immagine a sinistra, Testo a destra */
+    display: grid;
+    grid-template-columns: auto 1fr; /* Colonna auto per img, resto per testo */
+    grid-template-rows: auto 1fr;    /* Riga titolo, Riga descrizione */
+    column-gap: 2.5rem;
+    row-gap: 1rem;
+    align-items: start;
 }
 
-.artista-page h1,
-.artista-page p,
-.artista-page h2 {
-  padding: 0 1.2rem;
+/* Sfondo sfumato decorativo dietro (Opzionale) */
+.artista-page::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(228, 151, 83, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
 }
 
-.carosello-canzoni h2 {
-  margin: 0 1rem;
-  padding: 0 0.2rem;
-  border-left: 5px solid var(--wood-accent);
-}
-
+/* 2. IMMAGINE ARTISTA */
 .artista-page img {
-  margin: 1rem 1.2rem;
-  border-radius: 25%;
-  width: 200px;
-  height: 200px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* Posizionamento nella griglia: occupa 2 righe a sinistra */
+    grid-column: 1;
+    grid-row: 1 /span 2;
+    
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%; /* Cerchio perfetto */
+    
+    /* Bordo stile Admin/Profilo */
+    border: 5px solid var(--wood-accent);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    
+    transition: transform 0.3s ease;
 }
+
+.artista-page img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* 3. TITOLO (H1) */
+.artista-page h1 {
+    grid-column: 2;
+    grid-row: 1;
+    
+    margin: 0;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--wood-accent);
+    line-height: 1.1;
+    z-index: 1;
+    align-self: end; /* Si allinea al fondo della riga 1 */
+    padding: 0; /* Override del padding generico */
+}
+
+/* 4. DESCRIZIONE */
+.artista-page .descrizione-artista {
+    grid-column: 2;
+    grid-row: 2;
+    
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--layout-text-color-accent);
+    opacity: 0.9;
+    margin: 0;
+    max-width: 700px; /* Evita righe troppo lunghe */
+    z-index: 1;
+    padding: 0; /* Override */
+}
+
 
 
 /* =========================================

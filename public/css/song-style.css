@@ -355,6 +355,16 @@ body.dark-mode .chord-tag:hover {
     }
 }
 
+@media (max-width: 400px) {
+    .song-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .song-header .artist {
+        font-size: 1rem;
+    }
+}
+
 
 /* =========================================
    HEADER ACTIONS & DROPDOWN

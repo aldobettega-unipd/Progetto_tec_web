@@ -1055,7 +1055,7 @@ body.dark-mode .card-canzone:hover .btn-primary {
     color: black;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     #ricerca h1 { font-size: 2rem; }
     
     #barraricerca form {
@@ -1087,7 +1087,7 @@ body.dark-mode .card-canzone:hover .btn-primary {
     .card-item {
         width: 160px;
     }
-} 
+}  */
 
 
 #dark-mode-toggle img {
@@ -2611,7 +2611,10 @@ body.dark-mode .search-input-wrapper:hover {
   margin: 1rem auto;
 }
 
-
+.results-container .carosello-scroll {
+  justify-content: center;
+  gap: 1.5rem;
+}
 
 /* =========================================
    SEARCH PAGE FILTERS (Stile Corretto)
@@ -4114,7 +4117,34 @@ body.dark-mode .plain-list .artist-inline {
     .carrbutton.next {
         right: -1.2em;
     }
+
+    /*****************************************
+    ARTISTA PAGE
+    *****************************************/
+
+    .artista-page img {
+        height: 170px;
+        width: 170px;
+    }
+
+    .artista-page h1 {
+        font-size: 2rem;
+    }
+
+    .artista-page .descrizione-artista {
+        font-size: 0.9rem;
+    }
+
+    /*****************************************
+    LOGIN AND REGISTER PAGE
+    *****************************************/
+
+    .loginRegisterSection{
+        width: 60%;
+        margin-top: 4em;
+    }
 }
+
 
 /* --- MEDIA QUERY @ 600px --- */
 @media (max-width: 600px) {
@@ -4169,21 +4199,21 @@ body.dark-mode .plain-list .artist-inline {
         font-size: 0.85rem;
     }
     
-    /* Bottone Dark Mode - Posizionamento fisso mobile */
     .bookmark-btn {
-        position: fixed;
-        top: auto;
-        bottom: 20px;
-        left: auto;
-        right: 20px;
-        transform: none;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        padding: 0;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        z-index: 1000;
-    }
+    position: absolute;
+    top: 30px;
+    right: 12px;
+    left: auto;
+    bottom: auto;
+    transform: none;
+
+    border-radius: 100%;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+
+    z-index: 5;
+}
     
     .bookmark-btn.retracted {
         transform: none;
@@ -4279,6 +4309,7 @@ body.dark-mode .plain-list .artist-inline {
     
     .card-artista {
         width: 140px;
+        height: 230px;
     }
     
     .card-img-container {
@@ -4300,6 +4331,7 @@ body.dark-mode .plain-list .artist-inline {
     
     .card-canzone {
         width: 140px;
+        height: 190px;
     }
 
     .music-icon{
@@ -4344,6 +4376,69 @@ body.dark-mode .plain-list .artist-inline {
     
     .carrbutton img {
         width: 1em;
+    }
+
+    /******************************************
+    SEARCH PAGE
+    ******************************************/
+
+    .search-input-wrapper{
+        width: 80%;
+    }
+
+    #filtersPanel {
+        width: 85%;
+    }
+
+    .results-message{
+        text-align: center;
+        padding: 0;
+    }
+
+    /******************************************
+    ARTISTA PAGE
+    ******************************************/
+
+    .artista-page {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .artista-page img {
+    grid-column: auto;
+    grid-row: auto;
+
+    width: 160px;
+    height: 160px;
+    align-self: center;
+  }
+
+  .artista-page h1 {
+    grid-column: auto;
+    grid-row: auto;
+
+    font-size: 1.8rem;
+    align-self: flex-start;
+  }
+
+  .artista-page .descrizione-artista {
+    grid-column: auto;
+    grid-row: auto;
+
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  /*****************************************
+    LOGIN AND REGISTER PAGE
+    *****************************************/
+
+    .loginRegisterSection{
+        width: 60%;
+        margin-top: 4em;
+        margin-bottom: 4em;
     }
 }
 
@@ -4443,6 +4538,7 @@ body.dark-mode .plain-list .artist-inline {
     
     .card-artista {
         width: 120px;
+        height: 205px;
     }
     
     .card-img-container {
@@ -4463,6 +4559,7 @@ body.dark-mode .plain-list .artist-inline {
     
     .card-canzone {
         width: 120px;
+        height: 175px;
     }
     
     .card-canzone .card-content {

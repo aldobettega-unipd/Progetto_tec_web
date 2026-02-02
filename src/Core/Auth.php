@@ -28,27 +28,30 @@ class Auth {
     public static function getHeaderLinks() {
         if (self::isAdmin()) {
             $user = self::getUser();
-            return '<a href="/admin'. '">Admin</a>';
+            return '<a href="/admin" lang="en">Admin</a>';
         } elseif (self::isUser()) {
             $user = self::getUser();
             return '<a href="/profilo'. '">Profilo</a>';
         } else {
-            return '<a href="/login">Login</a>';
+            return '<a href="/login" lang="en">Login</a>';
         }
     }
 
     public static function getFooterLinks() {
         if (self::isAdmin()) {
-            $user = self::getUser();
-            return '<a href="/admin' . '"><span class="icon" aria-hidden="true"><img src="/img/icone/admin.webp" alt="icona admin" /></span>Admin</a>' . '
-            <a href="/logout"><span class="icon" aria-hidden="true"><img src="/img/icone/logout.webp" alt="icona logout" /></span>Logout</a>';
-        }elseif (self::isLogged()) {
-            $user = self::getUser();
-            return '<a href="/profilo"><span class="icon" aria-hidden="true"><img src="/img/icone/user.webp" alt="home" /></span>Profilo</a>' . '
-            <a href="/logout"><span class="icon" aria-hidden="true"><img src="/img/icone/logout.webp" alt="icona logout" /></span>Logout</a>';
+            return 
+            '<a href="/admin" lang="en"><span class="icon" aria-hidden="true"><img src="/img/icone/admin.webp" alt=""></span>Admin</a>' . 
+            '<a href="/logout" lang="en"><span class="icon" aria-hidden="true"><img src="/img/icone/logout.webp" alt=""></span>Logout</a>';
+        
+        } elseif (self::isLogged()) {
+            return 
+            '<a href="/profilo"><span class="icon" aria-hidden="true"><img src="/img/icone/user.webp" alt=""></span>Profilo</a>' . 
+            '<a href="/logout" lang="en"><span class="icon" aria-hidden="true"><img src="/img/icone/logout.webp" alt=""></span>Logout</a>';
+        
         } else {
-            return '<a href="/login"><span class="icon" aria-hidden="true"><img src="/img/icone/login.webp" alt="icona login" /></span>Login</a>' . '
-            <a href="/register"><span class="icon" aria-hidden="true"><img src="/img/icone/register.webp" alt="icona register" /></span>Registrati</a>';
+            return 
+            '<a href="/login" lang="en"><span class="icon" aria-hidden="true"><img src="/img/icone/login.webp" alt=""></span>Login</a>' . 
+            '<a href="/register"><span class="icon" aria-hidden="true"><img src="/img/icone/register.webp" alt=""></span>Registrati</a>';
         }
     }
 }

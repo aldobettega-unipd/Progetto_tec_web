@@ -8,6 +8,7 @@ use App\Core\Template;
 use App\Helpers\CarouselHelper;
 use App\Helpers\ListHelper;
 use App\Helpers\BreadcrumbHelper;
+use App\Helpers\TextHelper;
 
 Class ArtistaController extends Controller {
     private $Artista;
@@ -50,6 +51,8 @@ Class ArtistaController extends Controller {
         }
         $dati_artista['LANG_ATTR'] = $langAttr;
 
+        $descrizione_sicura = htmlspecialchars($dati_artista['descrizione_artista'], ENT_QUOTES, 'UTF-8');
+        $dati_artista['descrizione_artista'] = TextHelper::parseLanguageTags($descrizione_sicura, true);
 
         $canzoni = $this->Artista->get_canzoni($slug);
         $dati_artista["LISTA_CANZONI"] = CarouselHelper::carousel($canzoni, 'canzoneCard');

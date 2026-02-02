@@ -8,16 +8,30 @@ class CanzoneModel extends Model
     protected $table = "canzone";
 
 
-    public function get_dati_canzone($canzone)
-    {
-        $sql = "SELECT c.*, a.slug_artista FROM artista a INNER JOIN canzone c ON a.nome_artista = c.autore_canzone WHERE c.slug_canzone = ?";
-        return $this->fetchOne($sql, [$canzone]);
+    public function get_dati_canzone($slug_canzone) {
+        $sql = "SELECT c.*, a.lingua_artista, a.slug_artista 
+                FROM canzone c 
+                LEFT JOIN artista a ON c.autore_canzone = a.nome_artista 
+                WHERE c.slug_canzone = ?";
+        return $this->fetchOne($sql, [$slug_canzone]);
     }
 
     public function get_canzone_by_id($id)
     {
         $sql = "SELECT * FROM canzone WHERE id_canzone=?";
         return $this->fetchOne($sql, [$id]);
+    }
+
+    public function get_rand($limit = 15) {
+        $limit = (int)$limit;
+    
+        $sql = "SELECT c.*, a.lingua_artista, a.slug_artista 
+                FROM canzone c 
+                LEFT JOIN artista a ON c.autore_canzone = a.nome_artista 
+                ORDER BY RAND() 
+                LIMIT $limit";
+                
+        return $this->fetchAll($sql);
     }
 
     public function cerca_titolo($canzone)
@@ -83,9 +97,11 @@ class CanzoneModel extends Model
         return $this->fetchOne($sql, [$canzone]);
     }
 
-    public function get_all_songs()
-    {
-        $sql = "SELECT * FROM canzone ORDER BY titolo_canzone";
+    public function get_all_songs(){
+        $sql = "SELECT c.*, a.lingua_artista, a.slug_artista
+                FROM canzone c 
+                LEFT JOIN artista a ON c.autore_canzone = a.nome_artista 
+                ORDER BY c.titolo_canzone";
         return $this->fetchAll($sql);
     }
 

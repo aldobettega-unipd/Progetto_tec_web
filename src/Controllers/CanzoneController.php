@@ -55,12 +55,15 @@ class CanzoneController extends Controller
         }
 
         // Logica lingua
-        $langAttr = '';
+        $langCanzone = '';
         if (!empty($canzone['lingua_canzone'])) {
-            $lingua = strtolower($canzone['lingua_canzone']);
-            if ($lingua !== 'it') {
-                $langAttr = 'lang="' . htmlspecialchars($lingua) . '"';
-            }
+            $l = strtolower($canzone['lingua_canzone']);
+            if ($l !== 'it') $langCanzone = 'lang="' . htmlspecialchars($l) . '"';
+        }
+        $langArtista = '';
+        if (!empty($canzone['lingua_artista'])) {
+            $l = strtolower($canzone['lingua_artista']);
+            if ($l !== 'it') $langArtista = 'lang="' . htmlspecialchars($l) . '"';
         }
 
 
@@ -85,8 +88,9 @@ class CanzoneController extends Controller
         $this->render('canzonePage', [
             'ACCORDI_CANZONE' => TagAccordiHelper::generaTags($accordi),
             'TITOLO_CANZONE' => $canzone['titolo_canzone'],
-            'LANG_ATTR' => $langAttr,
+            'LANG_CANZONE' => $langCanzone, 
             'NOME_ARTISTA' => $canzone['autore_canzone'],
+            'LANG_ARTISTA' => $langArtista,
             'ID_CANZONE' => $canzone['id_canzone'],
             'SLUG_ARTISTA' => $slug_artista,
             'TESTO_CANZONE_HTML' => $htmlTesto,

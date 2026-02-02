@@ -22,23 +22,25 @@ class ListHelper
                 $data[strtoupper($key)] = $value;
             }
 
-            $langAttr = '';
-            $linguaTrovata = '';
+            $langCanzoneAttr = '';
+            $langArtistaAttr = '';
 
-            if (isset($item['lingua_canzone'])) {
-                $linguaTrovata = $item['lingua_canzone'];
-            } elseif (isset($item['lingua_artista'])) {
-                $linguaTrovata = $item['lingua_artista'];
+            if (!empty($item['lingua_canzone'])) {
+                $l = strtolower($item['lingua_canzone']);
+                if ($l !== 'it') $langCanzoneAttr = 'lang="' . htmlspecialchars($l) . '"';
             }
 
-            if (!empty($linguaTrovata)) {
-                $linguaLower = strtolower($linguaTrovata);
-                if ($linguaLower !== 'it') {
-                    $langAttr = 'lang="' . htmlspecialchars($linguaLower) . '"';
-                }
+            if (!empty($item['lingua_artista'])) {
+                $l = strtolower($item['lingua_artista']);
+                if ($l !== 'it') $langArtistaAttr = 'lang="' . htmlspecialchars($l) . '"';
             }
 
-            $data['LANG_ATTR'] = $langAttr;
+            $data['LANG_CANZONE'] = $langCanzoneAttr;
+            $data['LANG_ARTISTA'] = $langArtistaAttr;
+
+            if (isset($item['nome_artista']) && !isset($item['titolo_canzone'])) {
+                 $data['LANG_ATTR'] = $langArtistaAttr;
+            }
 
             foreach ($context as $key => $value) {
                 $data[strtoupper($key)] = $value;
@@ -102,11 +104,19 @@ class ListHelper
 
             foreach ($items as $item) {
 
-                $langAttr = '';
+                $langAttrCanzone = '';
                 if (!empty($item['lingua_canzone'])) {
                     $l = strtolower($item['lingua_canzone']);
                     if ($l !== 'it') {
-                        $langAttr = 'lang="' . htmlspecialchars($l) . '"';
+                        $langAttrCanzone = 'lang="' . htmlspecialchars($l) . '"';
+                    }
+                }
+
+                $langAttrArtista = '';
+                if (!empty($item['lingua_artista'])) {
+                    $l = strtolower($item['lingua_artista']);
+                    if ($l !== 'it') {
+                        $langAttrArtista = 'lang="' . htmlspecialchars($l) . '"';
                     }
                 }
 
@@ -117,9 +127,12 @@ class ListHelper
                 $html .= '<li>';
                 $html .= '<a href="' . $url . '">';
                 
-                $html .= '<strong class="entry-name" ' . $langAttr . '>' . $titolo . '</strong>';
+                // Applica attributo Canzone
+                $html .= '<strong class="entry-name" ' . $langAttrCanzone . '>' . $titolo . '</strong>';
                 
-                $html .= '<span class="artist-inline" ' . $langAttr .  '> - ' . $autore . '</span>';
+                // Applica attributo Artista
+                $html .= '<span class="artist-inline" ' . $langAttrArtista .  '> - ' . $autore . '</span>';
+                
                 $html .= '</a>';
                 $html .= '</li>';
             }

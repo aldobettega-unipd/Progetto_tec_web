@@ -1,6 +1,8 @@
 <?php
 namespace App\Helpers;
 
+use App\Helpers\TextHelper;
+
 class ChordParser
 {
 
@@ -60,7 +62,8 @@ class ChordParser
                         $html .= '<span class="lyric" aria-hidden="true"></span>';
                     }
                 } else {
-                    $html .= '<span class="lyric" lang="' . $lingua . '">' . $lyric . '</span>';
+                    $lyricHtml = TextHelper::parseLanguageTags($lyric, false);
+                    $html .= '<span class="lyric" lang="' . $lingua . '">' . $lyricHtml . '</span>';
                 }
                 $html .= '</span>';
             }

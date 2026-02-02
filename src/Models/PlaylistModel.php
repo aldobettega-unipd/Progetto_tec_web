@@ -22,7 +22,13 @@ class PlaylistModel extends Model {
     }
 
     public function get_canzoni_playlist($id_playlist) {
-        $sql = "SELECT p.nome_playlist, c.* FROM playlist p JOIN canzoni_playlist cp ON p.id_playlist = cp.playlist JOIN canzone c ON cp.canzone = c.id_canzone WHERE p.id_playlist = ?";
+        $sql = "SELECT p.nome_playlist, c.*, a.lingua_artista 
+                FROM playlist p 
+                JOIN canzoni_playlist cp ON p.id_playlist = cp.playlist 
+                JOIN canzone c ON cp.canzone = c.id_canzone 
+                LEFT JOIN artista a ON c.autore_canzone = a.nome_artista 
+                WHERE p.id_playlist = ?";
+                
         return $this->fetchAll($sql, [$id_playlist]) ?? [];
     }
 

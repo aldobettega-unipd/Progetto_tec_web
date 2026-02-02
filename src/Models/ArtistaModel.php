@@ -11,21 +11,21 @@ class ArtistaModel extends Model {
         return $this->fetchOne($sql, [$artista]);
     }
 
-public function cerca_artisti($testo) {
-    // Usiamo LOCATE per trovare la posizione della sottostringa
-    // Ordiniamo prima per posizione (più piccola = più rilevante)
-    // e poi alfabeticamente per i casi di parità
-    $sql = "SELECT *, LOCATE(?, nome_artista) as posizione 
-            FROM artista 
-            WHERE nome_artista LIKE ? 
-            ORDER BY posizione ASC, nome_artista ASC 
-            LIMIT 10";
-            
-    $param = "%" . $testo . "%";
-    
-    // Passiamo $testo per LOCATE e $param per il LIKE
-    return $this->fetchAll($sql, [$testo, $param]);
-}
+    public function cerca_artisti($testo) {
+        // Usiamo LOCATE per trovare la posizione della sottostringa
+        // Ordiniamo prima per posizione (più piccola = più rilevante)
+        // e poi alfabeticamente per i casi di parità
+        $sql = "SELECT *, LOCATE(?, nome_artista) as posizione 
+                FROM artista 
+                WHERE nome_artista LIKE ? 
+                ORDER BY posizione ASC, nome_artista ASC 
+                LIMIT 10";
+                
+        $param = "%" . $testo . "%";
+        
+        // Passiamo $testo per LOCATE e $param per il LIKE
+        return $this->fetchAll($sql, [$testo, $param]);
+    }
 
     public function find_artista_by_name($nome_artista) {
         $sql = "SELECT * FROM artista WHERE nome_artista = ?";

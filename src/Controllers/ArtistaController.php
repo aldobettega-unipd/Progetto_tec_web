@@ -40,6 +40,16 @@ Class ArtistaController extends Controller {
             $this->abort(404, "Ci dispiace, l'Artista #$slug non esiste nel nostro database.");
         }
 
+        // Logica per lingua artista
+        $langAttr = '';
+        if (!empty($dati_artista['lingua_artista'])) {
+            $lingua = strtolower($dati_artista['lingua_artista']);
+            if ($lingua !== 'it') {
+                $langAttr = 'lang="' . htmlspecialchars($lingua) . '"';
+            }
+        }
+        $dati_artista['LANG_ATTR'] = $langAttr;
+
 
         $canzoni = $this->Artista->get_canzoni($slug);
         $dati_artista["LISTA_CANZONI"] = CarouselHelper::carousel($canzoni, 'canzoneCard');

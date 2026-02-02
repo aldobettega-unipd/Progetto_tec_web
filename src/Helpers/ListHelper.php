@@ -23,10 +23,18 @@ class ListHelper
             }
 
             $langAttr = '';
+            $linguaTrovata = '';
+
             if (isset($item['lingua_canzone'])) {
-                $lingua = strtolower($item['lingua_canzone']);
-                if ($lingua !== 'it' && !empty($lingua)) {
-                    $langAttr = 'lang="' . htmlspecialchars($lingua) . '"';
+                $linguaTrovata = $item['lingua_canzone'];
+            } elseif (isset($item['lingua_artista'])) {
+                $linguaTrovata = $item['lingua_artista'];
+            }
+
+            if (!empty($linguaTrovata)) {
+                $linguaLower = strtolower($linguaTrovata);
+                if ($linguaLower !== 'it') {
+                    $langAttr = 'lang="' . htmlspecialchars($linguaLower) . '"';
                 }
             }
 
@@ -82,76 +90,86 @@ class ListHelper
     }
 
 
-    public static function costruisciListaCanzoni($dati_raggruppati)
-    {
-        $html_finale = '<div class="classic-index">';
+    
+    // Costruisce la lista HTML per la pagina "Tutte le Canzoni" (A-Z)
+    public static function costruisciListaCanzoni($groupedItems) {
+        $html = '<div class="classic-index">';
 
-        foreach ($dati_raggruppati as $lettera => $lista) {
-            $html_finale .= <<<HTML
-            <section class="letter-block" aria-labelledby="heading-{$lettera}">
-                <h2 id="heading-{$lettera}" class="letter-title">{$lettera}</h2>
-                <ul class="plain-list">
-HTML;
+        foreach ($groupedItems as $letter => $items) {
+            $html .= '<div class="letter-block">';
+            $html .= '<h2>' . htmlspecialchars($letter) . '</h2>';
+            $html .= '<ul class="plain-list">';
 
-            foreach ($lista as $canzone) {
-                $titolo = htmlspecialchars($canzone['titolo_canzone']);
-                $autore = htmlspecialchars($canzone['autore_canzone']);
-                $slug = htmlspecialchars($canzone['slug_canzone']);
-                $html_finale .= <<<HTML
-                    <li>
-                        <a href="/canzoni/{$slug}">
-                            <strong>{$titolo}</strong>
-                            <span class="artist-ref">- {$autore}</span>
-                        </a>
-                    </li>
-                    HTML;
+            foreach ($items as $item) {
+
+                $langAttr = '';
+                if (!empty($item['lingua_canzone'])) {
+                    $l = strtolower($item['lingua_canzone']);
+                    if ($l !== 'it') {
+                        $langAttr = 'lang="' . htmlspecialchars($l) . '"';
+                    }
+                }
+
+                $url = '/canzoni/' . $item['slug_canzone'];
+                $titolo = htmlspecialchars($item['titolo_canzone']);
+                $autore = htmlspecialchars($item['autore_canzone']);
+
+                $html .= '<li>';
+                $html .= '<a href="' . $url . '">';
+                
+                $html .= '<strong class="entry-name" ' . $langAttr . '>' . $titolo . '</strong>';
+                
+                $html .= '<span class="artist-inline" ' . $langAttr .  '> - ' . $autore . '</span>';
+                $html .= '</a>';
+                $html .= '</li>';
             }
 
-            $html_finale .= <<<HTML
-                </ul>
-            </section>
-            HTML;
+            $html .= '</ul>';
+            $html .= '</div>'; 
         }
 
-        $html_finale .= '</div>';
-
-        return $html_finale;
+        $html .= '</div>'; 
+        return $html;
     }
 
-    public static function costruisciListaArtisti($dati_raggruppati)
-    {
-        $html_finale = '<div class="classic-index">';
 
-        foreach ($dati_raggruppati as $lettera => $lista) {
+    public static function costruisciListaArtisti($groupedItems) {
+        $html = '<div class="classic-index">';
 
-            $html_finale .= <<<HTML
-            <section class="letter-block" aria-labelledby="heading-{$lettera}">
-                <h2 id="heading-{$lettera}" class="letter-title">{$lettera}</h2>
-                <ul class="plain-list">
-HTML;
+        foreach ($groupedItems as $letter => $items) {
+            $html .= '<div class="letter-block">';
+            $html .= '<h2>' . htmlspecialchars($letter) . '</h2>';
+            $html .= '<ul class="plain-list">';
 
-            foreach ($lista as $artista) {
-                $name = htmlspecialchars($artista['nome_artista']);
-                $slug = htmlspecialchars($artista['slug_artista']);
-                $html_finale .= <<<HTML
-                    <li>
-                        <a href="/artisti/{$slug}">
-                            <strong>{$name}</strong>
-                        </a>
-                    </li>
-                    HTML;
+            foreach ($items as $item) {
+                $langAttr = '';
+                
+                if (!empty($item['lingua_artista'])) {
+                    $l = strtolower($item['lingua_artista']);
+                    if ($l !== 'it') {
+                        $langAttr = 'lang="' . htmlspecialchars($l) . '"';
+                    }
+                }
+
+                $url = '/artisti/' . $item['slug_artista'];
+                $nome = htmlspecialchars($item['nome_artista']);
+
+                $html .= '<li>';
+                $html .= '<a href="' . $url . '">';
+                $html .= '<strong class="entry-name" ' . $langAttr . '>' . $nome . '</strong>';
+                $html .= '</a>';
+                $html .= '</li>';
             }
-            $html_finale .= <<<HTML
-                </ul>
-            </section>
-            HTML;
+
+            $html .= '</ul>';
+            $html .= '</div>';
         }
 
-        $html_finale .= '</div>'; // Chiudo il contenitore principale
-
-        return $html_finale;
+        $html .= '</div>';
+        return $html;
     }
 
+    
     public static function playlistChecklist($playlists) {
         $html = '<ul class="playlist-checklist">';
 

@@ -26,6 +26,22 @@ class CarouselHelper {
                 $data = $item;
             }
 
+            $langAttr = '';
+            $linguaTrovata = '';
+            if (isset($item['lingua_canzone'])) {
+                $linguaTrovata = $item['lingua_canzone'];
+            } elseif (isset($item['lingua_artista'])) {
+                $linguaTrovata = $item['lingua_artista'];
+            }
+            // il sito è in italiano, quindi non viene messo lang it
+            if (!empty($linguaTrovata)) {
+                $linguaLower = strtolower($linguaTrovata);
+                if ($linguaLower !== 'it') {
+                    $langAttr = 'lang="' . htmlspecialchars($linguaLower) . '"';
+                }
+            }
+            $data['LANG_ATTR'] = $langAttr;
+
             $template->set_dati_pagina((array)$data);
 
             $html .= $template->get_pagina();

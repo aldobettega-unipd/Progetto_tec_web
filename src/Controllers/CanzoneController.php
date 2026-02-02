@@ -53,6 +53,17 @@ class CanzoneController extends Controller
         if (!$canzone) {
             $this->abort(404, "Canzone non trovata nel database.");
         }
+
+        // Logica lingua
+        $langAttr = '';
+        if (!empty($canzone['lingua_canzone'])) {
+            $lingua = strtolower($canzone['lingua_canzone']);
+            if ($lingua !== 'it') {
+                $langAttr = 'lang="' . htmlspecialchars($lingua) . '"';
+            }
+        }
+
+
         $slug_artista = $this->Canzone->get_artista($slug)['slug_artista'];
         $accordi = $this->Canzone->get_accordi($canzone['id_canzone']);
         $accordi = array_column($accordi, 'accordo');
@@ -74,6 +85,7 @@ class CanzoneController extends Controller
         $this->render('canzonePage', [
             'ACCORDI_CANZONE' => TagAccordiHelper::generaTags($accordi),
             'TITOLO_CANZONE' => $canzone['titolo_canzone'],
+            'LANG_ATTR' => $langAttr,
             'NOME_ARTISTA' => $canzone['autore_canzone'],
             'ID_CANZONE' => $canzone['id_canzone'],
             'SLUG_ARTISTA' => $slug_artista,

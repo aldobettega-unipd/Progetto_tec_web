@@ -28,27 +28,33 @@ class Auth {
     public static function getHeaderLinks() {
         if (self::isAdmin()) {
             $user = self::getUser();
-            return '<a href="##BASE_URL##/admin'. '">Admin</a>';
+
+            return '<a href="##BASE_URL##/admin" lang="en">Admin</a>';
+
         } elseif (self::isUser()) {
             $user = self::getUser();
             return '<a href="##BASE_URL##/profilo'. '">Profilo</a>';
         } else {
-            return '<a href="##BASE_URL##/login">Login</a>';
+
+            return '<a href="##BASE_URL##/login" lang="en">Login</a>';
         }
     }
 
     public static function getFooterLinks() {
         if (self::isAdmin()) {
-            $user = self::getUser();
-            return '<a href="##BASE_URL##/admin' . '"><span class="icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/admin.webp" alt="icona admin" /></span>Admin</a>' . '
-            <a href="##BASE_URL##/logout"><span class="icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/logout.webp" alt="icona logout" /></span>Logout</a>';
-        }elseif (self::isLogged()) {
-            $user = self::getUser();
-            return '<a href="##BASE_URL##/profilo"><span class="icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/user.webp" alt="home" /></span>Profilo</a>' . '
-            <a href="##BASE_URL##/logout"><span class="icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/logout.webp" alt="icona logout" /></span>Logout</a>';
+            return 
+            '<a href="##BASE_URL##/admin" lang="en"><span class="icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/admin.webp" alt=""></span>Admin</a>' . 
+            '<a href="##BASE_URL##/logout" lang="en"><span class="icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/logout.webp" alt=""></span>Logout</a>';
+        
+        } elseif (self::isLogged()) {
+            return 
+            '<a href="##BASE_URL##/profilo"><span class="icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/user.webp" alt=""></span>Profilo</a>' . 
+            '<a href="##BASE_URL##/logout" lang="en"><span class="icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/logout.webp" alt=""></span>Logout</a>';
+        
         } else {
-            return '<a href="##BASE_URL##/login"><span class="icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/login.webp" alt="icona login" /></span>Login</a>' . '
-            <a href="##BASE_URL##/register"><span class="icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/register.webp" alt="icona register" /></span>Registrati</a>';
+            return 
+            '<a href="##BASE_URL##/login" lang="en"><span class="icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/login.webp" alt=""></span>Login</a>' . 
+            '<a href="##BASE_URL##/register"><span class="icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/register.webp" alt=""></span>Registrati</a>';
         }
     }
 }

@@ -1,13 +1,19 @@
 <section class="loginRegisterSection">
-    <h2>Accedi al tuo account</h2>
+    <h1>Accedi al tuo account</h1>
+    
     <form class="loginRegisterForm" action="##BASE_URL##/login/auth" method="POST">
+
         <input type="hidden" name="redirect_to" value="##REDIRECT_TO##">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" required>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required>
+        
+        <label for="username" lang="en">Username:</label>
+        <input type="text" name="username" id="username" required autocomplete="username">
+        
+        <label for="password" lang="en">Password:</label>
+        <input type="password" name="password" id="password" required autocomplete="current-password">
+        
         <button type="submit">Accedi</button>
     </form>
-    <p class="erroreLoginRegister">##FLASH_ERROR##</p>
+
+    <p class="erroreLoginRegister" role="alert" aria-live="polite">##FLASH_ERROR##</p>
     <p>Non hai un account? <a class="loginRegisterLink" href="##BASE_URL##/register">Registrati</a></p>
 </section>

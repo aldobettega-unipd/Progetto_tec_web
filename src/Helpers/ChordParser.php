@@ -47,8 +47,9 @@ class ChordParser
 
                     // 2. Inseriamo l'aria-label.
                     // Lo screen reader leggerà SOLO l'aria-label, ignorando il testo visivo interno.
-                    $html .= '<span class="chord" data-val="' . $chord . '" aria-label="Accordo ' . $labelAccessibile . '">';
-                    $html .= $chord; // Questo lo vede l'occhio, ma lo screen reader legge l'aria-label
+                    $html .= '<span class="chord" data-val="' . $chord . '">';
+                    $html .= '<span aria-hidden="true">' . $chord . '</span>';
+                    $html .= '<span class="sr-only">Accordo ' . $labelAccessibile . '</span>';
                     $html .= '</span>';
                 } else {
                     $html .= '<span class="chord spacer" aria-hidden="true">&nbsp;</span>';
@@ -68,8 +69,7 @@ class ChordParser
                 $html .= '</span>';
             }
 
-            $html .= '</div>
-            ';
+            $html .= '</div>';
         }
 
         return $html;

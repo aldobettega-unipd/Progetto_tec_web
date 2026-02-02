@@ -11,7 +11,7 @@ class ListHelper
         $path = 'components/' . $templateName; 
 
         if (empty($items)) {
-            return "<div class='empty-message'>Nessun elemento trovato</div>"; 
+            return "<div class='empty-message' role='alert'>Nessun elemento trovato</div>";
         }
 
         foreach ($items as $item) {
@@ -182,45 +182,29 @@ class ListHelper
         return $html;
     }
 
-    
     public static function playlistChecklist($playlists) {
         $html = '<ul class="playlist-checklist">';
 
-        // Caso: Nessuna playlist trovata
         if (empty($playlists)) {
-            // Usiamo una classe CSS per stilizzare il messaggio vuoto invece dell'inline style
             $html .= '<li class="empty-message">Nessuna playlist creata</li>';
             $html .= '</ul>';
             return $html;
         }
 
-        // Ciclo sui dati
-        // $id è la chiave dell'array (es. 1)
-        // $dati è l'array valore (es. ['Rock Anni 70', true])
         foreach ($playlists as $id => $dati) {
-            
-            // Estrapoliamo i dati posizionali
-            $nome = $dati[0] ?? 'Senza Nome'; // Indice 0: Nome
-            $isChecked = !empty($dati[1]);    // Indice 1: Checked (bool o int)
-            
-            // Sanitizzazione nome per sicurezza HTML
+            $nome = $dati[0] ?? 'Senza Nome';
+            $isChecked = !empty($dati[1]);
             $nomeSafe = htmlspecialchars($nome, ENT_QUOTES, 'UTF-8');
-            
-            // Attributo checked
             $checkedAttr = $isChecked ? 'checked' : '';
+            
+            $uniqueId = 'playlist_chk_' . $id;
 
             $html .= '<li>';
-            $html .= '    <label class="checkbox-container">';
+            $html .= '    <label class="checkbox-container" for="' . $uniqueId . '">';
+            $html .= '        <input type="checkbox" id="' . $uniqueId . '" name="playlist[]" value="' . $id . '" ' . $checkedAttr . '>';
             
-            // Input checkbox con value = ID
-            $html .= '        <input type="checkbox" value="' . $id . '" ' . $checkedAttr . '>';
-            
-            // Il quadrato personalizzato (checkmark)
             $html .= '        <span class="checkmark"></span>';
-            
-            // Il nome della playlist con l'attributo data-id-playlist
-            $html .= '        <span class="playlist-name" data-id-playlist="' . $id . '">' . $nomeSafe . '</span>';
-            
+            $html .= '        <span class="playlist-name">' . $nomeSafe . '</span>';
             $html .= '    </label>';
             $html .= '</li>';
         }

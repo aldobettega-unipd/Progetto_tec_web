@@ -4,22 +4,23 @@
 
     <form action="/search" method="GET" class="search-input-wrapper">
       <input type="text" name="query" class="search-bar-large" placeholder="Cerca canzone, artista..."
-        value="##SEARCH_VALUE##" autocomplete="off" />
+        value="##SEARCH_VALUE##" autocomplete="off" aria-label="Cerca nel catalogo" />
       <input type="hidden" name="tab" value="##TAB_CORRENTE##">
-      <button type="submit" class="btn-search-icon">
-        <img src="/img/icone/search.png" alt="search" />
+      <button type="submit" class="btn-search-icon" aria-label="Cerca">
+        <img src="/img/icone/search.png" alt="" aria-hidden="true" />
       </button>
     </form>
 
-    <nav class="telegram-tabs">
+    <nav class="telegram-tabs" aria-label="Filtra per tipo contenuto">
       <a href="/search?query=##SEARCH_VALUE##&tab=canzoni" class="tab-link ##ACTIVE_CANZONI##">Canzoni</a>
       <a href="/search?query=##SEARCH_VALUE##&tab=artisti" class="tab-link ##ACTIVE_ARTISTI##">Artisti</a>
     </nav>
 
     <div class="filters-wrapper ##VISIBILITY_FILTRI_BTN##">
-      <button type="button" class="btn-toggle-filters ##BTN_ACTIVE_CLASS##" id="filtersToggleBtn">
+      <button type="button" class="btn-toggle-filters ##BTN_ACTIVE_CLASS##" id="filtersToggleBtn" aria-expanded="false"
+        aria-controls="filtersPanel">
         <span>Filtri Avanzati</span>
-        <span class="arrow-icon">▼</span>
+        <span class="arrow-icon" aria-hidden="true">▼</span>
       </button>
 
       <div class="filters-panel ##PANEL_OPEN_CLASS##" id="filtersPanel">
@@ -36,9 +37,14 @@
               </select>
             </div>
 
-            <div class="filter-group">
-              <div class="chords-section-header">
-                <label>Filtra per Accordi:</label>
+            <fieldset class="filter-group fieldset-reset" aria-labelledby="label-accordi">
+              
+              <legend class="sr-only">Filtra per Accordi</legend>
+
+              <div class="chords-section-header" aria-hidden="true">
+                
+                <span id="label-accordi" class="filter-legend-text">Filtra per Accordi:</span>
+                
                 <div class="actions-links">
                   <button type="button" id="btnSelectAll">Seleziona Tutti</button>
                   <button type="button" id="btnDeselectAll">Deseleziona</button>
@@ -48,9 +54,9 @@
               <div class="chords-macro-grid">
                 ##OPTIONS_ACCORDI##
               </div>
-            </div>
-
-          </div> <button type="submit" class="btn-apply">Applica Filtri</button>
+            </fieldset>
+          </div> 
+          <button type="submit" class="btn-apply">Applica Filtri</button>
         </form>
       </div>
     </div>
@@ -58,10 +64,13 @@
 
   <div class="results-container" id="anchor-risultati">
     <div class="results-message">##MESSAGGIO_RISULTATI##</div>
-    <hr class="separator" />
+    
+    <div class="separator" aria-hidden="true"></div>
+    
     <div class="carosello-wrapper">
-      <ul class="carosello-scroll" aria-label="Risultati">
+      <ul class="carosello-scroll" aria-label="Risultati della ricerca">
         ##LISTA_RISULTATI##
       </ul>
     </div>
   </div>
+</div>

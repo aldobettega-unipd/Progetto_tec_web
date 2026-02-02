@@ -2343,6 +2343,13 @@ body.dark-mode #search-input {
     transition: transform 0.3s ease;
 }
 
+.artist-profile-img {
+    width: 200px;
+    height: auto;
+    object-fit: cover; /* Mantiene le proporzioni se l'immagine non è quadrata */
+    border-radius: 10px; /* Opzionale: rende più carino il box */
+}
+
 .artista-page img:hover {
     transform: scale(1.05) rotate(2deg);
 }
@@ -4500,4 +4507,36 @@ body.dark-mode .plain-list .artist-inline {
 body.dark-mode .copyright-disclaimer {
     background-color: rgba(255, 255, 255, 0.03);
     border-color: rgba(255, 255, 255, 0.05);
+}
+
+
+/*======================================
+STILE AGGIUNTIVO FILTER MODAL
+==========================================
+*/
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* 2. Reset dello stile del fieldset (Sostituisce style inline) */
+.fieldset-reset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0; /* Fix per Flexbox */
+}
+
+/* 3. Stile del titolo visivo (Sostituisce style inline) */
+.filter-legend-text {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--layout-text-color); /* Assicura coerenza colore */
 }

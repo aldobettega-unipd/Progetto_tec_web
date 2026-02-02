@@ -2,22 +2,21 @@
 <html lang="it">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>##TITOLO_PAGINA## - EasyGuitar</title>
+  
+  <meta name="description" content="##DESCRIZIONE_PAGINA##">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
   <script src="/js/main.js" defer></script>
   ##IMPORT_SCRIPTS##
 
-  <link rel="stylesheet" href="/css/style.css" type="text/css" />
-
-  <link rel="icon" type="image/svg+xml" href="/img/logo1.svg" />
-
-  <title>##TITOLO_PAGINA## - EasyGuitar</title>
-  <meta name="description" content="##DESCRIZIONE_PAGINA##" />
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="icon" type="image/svg+xml" href="/img/logo1.svg">
 </head>
 
 <body class="##CLASSE_PAGINA##" data-logged-in="##UTENTE_LOGGATO##">
@@ -26,7 +25,7 @@
   <header>
     <div class="header-wrapper">
       <div class="logo">
-        <img src="/img/logo1.svg" alt="" />
+        <img src="/img/logo1.svg" alt="">
         <span lang="en">EasyGuitar</span>
       </div>
       <nav class="menu" aria-label="Menu di navigazione principale">
@@ -39,26 +38,14 @@
     </div>
 
     <button id="dark-mode-toggle" class="bookmark-btn" title="Cambia Tema" aria-label="Cambia Tema">
-      <img src="/img/icone/sun.svg" class="icon-sun" alt="cambia a modo chiaro" />
-
-      <img src="/img/icone/moon.svg" class="icon-moon" alt="cambia a modo scuro" />
+      <img src="/img/icone/sun.svg" class="icon-sun" alt="Attiva modalità chiara">
+      <img src="/img/icone/moon.svg" class="icon-moon" alt="Attiva modalità scura">
     </button>
   </header>
 
-  <nav class="breadcrumb-nav" aria-label="Percorso di navigazione">
+  <div class="breadcrumb-nav">
     ##BREADCRUMB##
-
-    <!--<ol>
-            <li><a href="/">Home</a></li>
-            
-            <li class="active-crumb">
-                <svg class="pick-icon" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12,22 C12,22 4,16 4,9 C4,5 7,2 12,2 C17,2 20,5 20,9 C20,16 12,22 12,22 Z" />
-                </svg>
-                <span aria-current="page">Canzoni</span>
-            </li>
-        </ol>-->
-  </nav>
+  </div>
 
   <main id="main-content" class="main-container" tabindex="-1">
     ##CONTENUTO_PRINCIPALE##
@@ -70,15 +57,31 @@
     </button>
     <div class="footer-container">
       <div class="footer-links">
-        <a href="/" lang="en"><span class="icon" aria-hidden="true"><img src="/img/icone/home.png" alt="home" /></span>
-          Home</a>
-        <a href="/search"><span class="icon search-icon" aria-hidden="true"><img src="/img/icone/search.png" alt="esplora" /></span>
-          Cerca</a>
-        <a href="/artisti"><span class="icon search-icon" aria-hidden="true"><img src="/img/icone/artista.png" alt="artisti" /></span>
-          Artisti</a>
-        <a href="/canzoni"><span class="icon search-icon" aria-hidden="true"><img src="/img/icone/music-notes.svg" alt="canzoni" /></span>
-          Canzoni</a>
-        ##LINKS_FOOTER##
+        <a href="/" lang="en">
+            <span class="icon" aria-hidden="true"><img src="/img/icone/home.png" alt=""></span>
+            Home
+        </a>
+        <a href="/search">
+            <span class="icon search-icon" aria-hidden="true"><img src="/img/icone/search.png" alt=""></span>
+            Cerca
+        </a>
+        <a href="/artisti">
+            <span class="icon search-icon" aria-hidden="true"><img src="/img/icone/artista.png" alt=""></span>
+            Artisti
+        </a>
+        <a href="/canzoni">
+            <span class="icon search-icon" aria-hidden="true"><img src="/img/icone/music-notes.svg" alt=""></span>
+            Canzoni
+        </a>
+        
+        <a href="/login" lang="en">
+            <span class="icon" aria-hidden="true"><img src="/img/icone/login.webp" alt=""></span>
+            Login
+        </a>
+        <a href="/register">
+            <span class="icon" aria-hidden="true"><img src="/img/icone/register.webp" alt=""></span>
+            Registrati
+        </a>
       </div>
 
       <div class="footer-bottom">
@@ -87,5 +90,4 @@
     </div>
   </footer>
 </body>
-
 </html>

@@ -14,18 +14,22 @@
     ##LISTA_CANZONI##
   </div>
 
-  <div id="search-modal" class="hidden">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Cerca una canzone</h2>
-        <button id="close-search-modal" class="btn-close" aria-label="Chiudi ricerca">×</button>
-      </div>
+  <div id="search-modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
 
-      <input type="text" id="search-input" placeholder="Scrivi titolo o artista..." aria-label="Cerca brano da aggiungere">
-
-      <ul id="search-results">
-      </ul>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="modal-title">Cerca una canzone</h2>
+      <button id="close-search-modal" class="btn-close" aria-label="Chiudi ricerca">×</button>
     </div>
+
+    <input type="text" id="search-input" placeholder="Scrivi titolo o artista..." aria-label="Cerca brano da aggiungere"
+      autocomplete="off" aria-autocomplete="list" aria-controls="search-results">
+
+    <ul id="search-results" role="listbox">
+    </ul>
+
+    <div id="aria-live-region" class="sr-only" aria-live="polite" aria-atomic="true"></div>
   </div>
+</div>
 
 </section>

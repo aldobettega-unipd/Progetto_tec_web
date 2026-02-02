@@ -206,7 +206,7 @@ body .song-header {
     text-decoration: none;
 
     /* Colori Pillola */
-    background-color: var(--wood-accent);
+    background-color: var(--brown-text);
     color: var(--layout-text-color);
     transition: all 0.2s ease;
 }
@@ -272,7 +272,7 @@ body .song-header {
 .chord {
     font-weight: 700;
     font-size: 0.95rem;
-    color: var(--wood-accent);
+    color: var(--brown-text);
     margin-bottom: 2px;
     height: 1.3rem;
     /* Altezza fissa */

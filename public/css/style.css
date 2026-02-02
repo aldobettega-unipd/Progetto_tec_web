@@ -5,6 +5,7 @@
     --layout-text-color: #F7ECCC;
     --layout-text-color-accent: #141215;
     --main-text: #141215;
+    --brown-text: #9F5719;
 
     /* Colori Struttura */
     --main-bg: #F6EEC4;
@@ -38,6 +39,7 @@ html.dark-mode, body.dark-mode {
     --wood-accent: #ffd93d;
     --layout-text-color-accent: #1a1a20;
     --highlighted-button: #ffc03d;
+    --brown-text: #ffd93d;
 }
 
 
@@ -756,7 +758,7 @@ body.dark-mode .carosello-group h2 {
 
 .card-artista .btn-link {
     font-size: 0.85rem;
-    color: #333;
+    color: var(--brown-text);
     font-weight: 600;
     display: inline-block;
 }
@@ -795,7 +797,7 @@ body.dark-mode .carosello-group h2 {
 
 .card-canzone:hover .btn-primary,
 .card-canzone:focus-within .btn-primary {
-background-color: var(--wood-accent);
+    background-color: var(--wood-accent);
     color: #fff;                      /* Testo bianco (o scuro se preferisci contrasto) */
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Ombra leggera */
@@ -811,7 +813,7 @@ background-color: var(--wood-accent);
 
 .music-icon {
     font-size: 1.5rem;
-    color: #333;
+    color: var(--layout-text-color-accent);
     opacity: 1;
     margin-bottom: 0.5rem;
     flex-shrink: 0; /* Non si schiaccia mai */
@@ -863,8 +865,8 @@ background-color: var(--wood-accent);
     position: relative;
     z-index: 0;
     background-color: transparent;    /* Sfondo trasparente per leggerezza */
-    color: var(--wood-accent);        /* Testo colorato */
-    border: 1px solid var(--wood-accent); /* Solo un bordo sottile */
+    color: var(--brown-text);        /* Testo colorato */
+    border: 1px solid var(--brown-text); /* Solo un bordo sottile */
     
     padding: 0.35rem 0.8rem;          /* Dimensioni ridotte */
     border-radius: 50px;
@@ -953,12 +955,19 @@ body.dark-mode .btn-favorite.in-card:hover {
 body.dark-mode .card-artista,
 body.dark-mode .card-canzone {
     background-color: #1e1e24; /* Grigio scuro invece di bianco */
-    border-color: rgba(255,255,255,0.05);
 }
 
 body.dark-mode .card-artista h3,
 body.dark-mode .card-canzone h3 {
     color: #f0f0f0; /* Testo chiaro */
+}
+
+body.dark-mode .card-artista .btn-link {
+    color: var(--wood-accent);
+}
+
+body.dark-mode .card-artista:hover .btn-link {
+    color: var(--highlighted-button);
 }
 
 body.dark-mode .author-name {
@@ -967,6 +976,15 @@ body.dark-mode .author-name {
 
 body.dark-mode .card-canzone .btn-primary:hover {
     color: var(--layout-text-color-accent); /* Testo scuro su sfondo arancio */
+}
+
+body.dark-mode .card-canzone .btn-primary {
+    color: var(--wood-accent);
+    border-color: var(--wood-accent);
+}
+
+body.dark-mode .card-canzone:hover .btn-primary {
+    color: black;
 }
 
 @media (max-width: 768px) {
@@ -2249,7 +2267,7 @@ body.dark-mode #search-input {
     border-radius: 50%; /* Cerchio perfetto */
     
     /* Bordo stile Admin/Profilo */
-    border: 5px solid var(--wood-accent);
+    border: 5px solid var(--brown-text);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
     z-index: 1;
     
@@ -2268,7 +2286,7 @@ body.dark-mode #search-input {
     margin: 0;
     font-size: 2.8rem;
     font-weight: 800;
-    color: var(--wood-accent);
+    color: var(--brown-text);
     line-height: 1.1;
     z-index: 1;
     align-self: end; /* Si allinea al fondo della riga 1 */
@@ -2409,7 +2427,6 @@ body.dark-mode .search-input-wrapper:hover {
   border-radius: 40px;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--layout-text-color);
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
@@ -2425,8 +2442,7 @@ body.dark-mode .search-input-wrapper:hover {
 }
 
 .tab-link:not(.active):hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--wood-accent);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .tab-link::before {
@@ -2490,8 +2506,7 @@ body.dark-mode .search-input-wrapper:hover {
 }
 
 .btn-toggle-filters {
-    background-color: rgba(87, 53, 36, 0.8); /* Header bg semitrasparente */
-    border: 2px solid var(--wood-accent);
+    background-color: var(--header-bg);
     color: #fff;
     padding: 10px 25px;
     border-radius: 50px;
@@ -2628,7 +2643,7 @@ body.dark-mode .custom-select option {
 .actions-links button {
     background: none;
     border: none;
-    color: #aaa;
+    color: var(--layout-text-color);
     font-size: 0.85rem;
     text-decoration: underline;
     cursor: pointer;
@@ -3749,7 +3764,7 @@ body.dark-mode .styled-form.submitted textarea:invalid {
 .letter-block h2 {
     font-size: 1.6rem;
     font-weight: 800;
-    color: var(--wood-accent);
+    color: var(--brown-text);
     margin: 0 0 0.8rem 0;
     padding-bottom: 0.4rem;
     border-bottom: 2px solid rgba(0,0,0,0.1);
@@ -3832,16 +3847,17 @@ body.dark-mode .styled-form.submitted textarea:invalid {
    DARK MODE OVERRIDES
    ========================================= */
 body.dark-mode .letter-block {
-    background-color: rgba(255,255,255,0.03); /* Sfondo appena visibile */
-    border-color: rgba(255,255,255,0.05);
+    background-color: #1a1a20; /* Sfondo appena visibile */
+    border-color: rgba(255,255,255,0.5);
 }
 
 body.dark-mode .letter-block h2 {
-    border-bottom-color: rgba(255,255,255,0.1);
+    color: var(--brown-text);
+    border-bottom-color: rgba(255,255,255,0.5);
 }
 
 body.dark-mode .plain-list li {
-    border-bottom-color: rgba(255,255,255,0.1);
+    border-bottom-color: rgba(255,255,255,0.5);
 }
 
 body.dark-mode .plain-list .artist-ref,

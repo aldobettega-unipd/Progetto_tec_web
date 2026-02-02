@@ -12,6 +12,11 @@ class CanzoneModel extends Model {
         return $this->fetchOne($sql, [$canzone]);
     }
 
+    public function get_canzone_by_id($id) {
+        $sql = "SELECT * FROM canzone WHERE id_canzone=?";
+        return $this->fetchOne($sql, [$id]);
+    }
+
     public function cerca_titolo($canzone) {
         $canzone = "%$canzone%";
         $sql = "SELECT titolo_canzone FROM canzone WHERE titolo_canzone LIKE ?";
@@ -95,5 +100,33 @@ class CanzoneModel extends Model {
     public function get_playlist($username, $id_canzone) {
         $sql = "SELECT * FROM playlist p JOIN canzoni_playlist cp ON p.id_playlist = cp.playlist WHERE p.id_username = ? AND cp.canzone = ? ORDER BY nome_playlist";
         return $this->fetchAll($sql, [$username, $id_canzone]);
+    }
+
+    public function update_canzone($id, $dati_aggiornati) {
+        try {
+            $sql = "UPDATE canzone SET 
+                    titolo_canzone = ?,
+                    autore_canzone = ?,
+                    lingua_canzone = ?,
+                    testo_canzone = ?,
+                    slug_canzone = ?
+                WHERE id_canzone = ?
+                ";
+
+            $params = [
+                $dati_aggiornati['titolo_canzone'],
+                $dati_aggiornati['autore_canzone'],
+                $dati_aggiornati['lingua_canzone'],
+                $dati_aggiornati['testo_canzone'],
+                $dati_aggiornati['slug_canzone'],
+                $id
+            ];
+
+            $this->query($sql, $params);
+        } catch(\PDOException $e) {
+            error_log("Errore aggiornamento canzone: " . $e->getMessage());
+            return false;
+        }
+        
     }
 }

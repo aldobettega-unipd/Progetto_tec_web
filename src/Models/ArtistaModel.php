@@ -42,4 +42,27 @@ class ArtistaModel extends Model {
             return false;
         }
     }
+
+    public function update_artista($old_slug, $dati_aggiornati) {
+        try {
+            $sql = "UPDATE artista SET 
+                    nome_artista = ?,
+                    descrizione_artista = ?,
+                    slug_artista = ?
+                    WHERE slug_artista = ?";
+
+            $params = [
+                $dati_aggiornati['nome_artista'],
+                $dati_aggiornati['descrizione_artista'],
+                $dati_aggiornati['slug_artista'],
+                $old_slug
+            ];
+
+            $this->query($sql, $params);
+            return true;
+        } catch (\PDOException $e) {
+            error_log("Errore aggiornamento artista: " . $e->getMessage());
+            return false;
+        }
+    }
 }

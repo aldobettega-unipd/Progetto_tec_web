@@ -98,6 +98,11 @@ set_exception_handler(function ($e) {
     $router->add('/admin/canzoni/save', AdminController::class, 'save_canzone', ['auth', 'admin']);
     $router->add('/admin/artisti/save', AdminController::class, 'save_artista', ['auth', 'admin']);
 
+    $router->add('/admin/artisti/edit/{slug:alphanum}', AdminController::class, 'view_edit_artista', ['auth', 'admin']);
+    $router->add('/admin/canzoni/edit/{slug:alphanum}', AdminController::class, 'view_edit_canzone', ['auth', 'admin']);
+    $router->add('/admin/artisti/update', AdminController::class, 'update_artista', ['auth', 'admin']);
+    $router->add('/admin/canzoni/update', AdminController::class, 'update_canzone', ['auth', 'admin']);
+
     $router->add('/api/admin/users/delete', ApiAdminController::class, 'delete_user', ['auth', 'admin']);
     $router->add('/api/admin/canzoni/delete', ApiAdminController::class, 'delete_canzone', ['auth', 'admin']);
     $router->add('/api/admin/artisti/delete', ApiAdminController::class, 'delete_artista', ['auth', 'admin']);

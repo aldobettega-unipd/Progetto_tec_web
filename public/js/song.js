@@ -1,26 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-<<<<<<< HEAD
 
-    
-    const authModal = document.getElementById('auth-modal');
-    const closeAuthBtn = document.getElementById('close-auth-modal');
-=======
-    // --- 0. SETUP & VARIABILI ---
->>>>>>> 6db5a21 (commit marco)
     const playlistToggleBtn = document.getElementById('playlist-toggle');
     const playlistMenu = document.getElementById('playlist-menu');
     const processingItems = new Set();
 
     const currentSongId = playlistToggleBtn ? playlistToggleBtn.dataset.songId : null;
 
-<<<<<<< HEAD
-    
-    const currentSongId = playlistToggleBtn.dataset.songId;
-
-=======
-    // --- 3. GESTIONE MENU A TENDINA ---
->>>>>>> 6db5a21 (commit marco)
     if (playlistToggleBtn && playlistMenu) {
 
         const closeMenu = () => {

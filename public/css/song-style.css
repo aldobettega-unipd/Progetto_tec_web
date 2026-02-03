@@ -309,7 +309,7 @@ body.dark-mode .song-header {
     /* Gradiente scuro sopra l'immagine */
     background-image:
         linear-gradient(to bottom, rgba(17, 16, 21, 0.85), rgba(17, 16, 21, 0.98)),
-        url('/img/fretboard-bg.webp');
+        url('/img/fretboard1.webp');
     border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 

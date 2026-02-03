@@ -279,15 +279,55 @@ Il design dell'interfaccia è stato guidato dal principio *"Mobile First"*, cons
 - *Performance Percepita:* L'uso di chiamate asincrone (AJAX) per la ricerca nei modali evita il ricaricamento completo della pagina, mantenendo l'interfaccia reattiva e "app-like".
 
 = Implementazione Back-End (PHP)
+
+L'infrastruttura di back-end è stata interamente realizzata in PHP "vanilla", senza l'utilizzo di framework esterni..
+
 == Routing
+La gestione delle richieste HTTP è centralizzata attraverso un router personalizzato.
+Attraverso il file `.htaccess` le configurazioni del server sono state riscritte per inviare tutte le richieste al file `public/index.php` (entry point unico) che agisce da Front Controller.
+Il router analizza l'URI della richiesta, identifica la risorsa desiderata (es. una pagina artista o una playlist) e delega l'elaborazione al Controller specifico.
+Questo approccio ha permesso di implementare URL semantici ("SEO-friendly") come `/artisti/nome-artista` invece di query string complesse, migliorando sia l'indicizzazione che la leggibilità per l'utente.
+Inoltre, il router gestisce centralmente le eccezioni, reindirizzando automaticamente verso pagine di errore 404 quando non trova un url valido.
+
 == Gestione dei dati
+L'accesso e la manipolazione dei dati persistenti avvengono attraverso il layer dei *Models*, secondo il pattern MVC adottato.
+Ogni entità del dominio (Utente, Artista, Canzone, Playlist) dispone di una classe dedicata (es. `CanzoneModel`) che astrae la complessità delle query SQL.
+Questa astrazione permette ai Controller di invocare metodi ad alto livello (come `get_all_songs()` o `get_canzone_by_id()`) senza dover scrivere SQL grezzo, garantendo un codice più pulito, sicuro e manutenibile.
+I dati recuperati vengono restituiti sotto forma di array associativi, pronti per essere iniettati nelle Viste.
+Particolare attenzione è stata posta nell'uso di *Prepared Statements* per prevenire vulnerabilità di tipo SQL Injection.
+
 == Autenticazione
+Il sistema di autenticazione gestisce l'identità degli utenti e la sicurezza delle sessioni.
+Le password degli utenti non vengono salvate in chiaro, ma vengono sottoposte a hashing prima di essere memorizzate nel database, garantendo la sicurezza delle credenziali.
+Il meccanismo di login verifica le credenziali fornite e, in caso di successo, inizializza una sessione PHP sicura, memorizzando l'identificativo dell'utente e il suo ruolo (amministratore o utente base).
+Questo sistema di ruoli permette di proteggere le rotte sensibili: il router verifica i permessi prima di concedere l'accesso alle pagine di amministrazione o di gestione del profilo, reindirizzando gli utenti non autorizzati alla pagina di login.
+
 == API Interne
+Per supportare le funzionalità dinamiche del front-end senza ricaricare l'intera pagina, sono state sviluppate delle API interne in php.
+Queste API, gestite da specifici Controller (es. `ApiUserController`), ricevono richieste asincrone (AJAX) e restituiscono dati in formato JSON.
+Un esempio chiave è l'API per la ricerca rapida: quando un utente digita nel modale di aggiunta brani a una playlist, una chiamata asincrona interroga il database e restituisce in tempo reale i risultati filtrati, migliorando drasticamente l'usabilità dell'applicazione.
+
 
 = Implementazione Front-End (HTML/CSS/JS)
+
+Il front-end di EasyGuitar è stato sviluppato con un approccio, utilizzando HTML5, CSS3 e JavaScript.
+
 == Validazione Form
+La validazione dei dati inseriti dagli utenti avviene su due livelli per garantire sicurezza e usabilità.
+Lato client, si sfrutta la validazione nativa HTML5 (attributi `required`, `type="email"`, ecc.) combinata con JavaScript per fornire un feedback immediato all'utente prima dell'invio dei dati.
+Questo previene errori banali e migliora l'esperienza d'uso.
+Tuttavia, per garantire la sicurezza e l'integrità dei dati, una seconda validazione rigorosa viene sempre eseguita lato server (PHP) dai Controller, assicurando che nessun dato malformato o malevolo possa raggiungere il database.
+In caso di errore, il sistema restituisce messaggi chiari e accessibili, associati ai campi errati.
+
 == AJAX e Fetch
-== Gestione Modali
+L'interattività dell'interfaccia è gestita tramite JavaScript asincrono, utilizzando principalmente l'API `Fetch`.
+Questa tecnologia è fondamentale per le operazioni che non richiedono un cambio di contesto, come:
+- L'aggiunta o rimozione di un brano dai preferiti direttamente dalle card e dalle playlist nella pagina dedicata.
+- La ricerca istantanea di canzoni all'interno del modale delle playlist.
+- La gestione dell'eliminazione dei contenuti da parte dell'amminstratore.
+- La modifica della foto profilo per l'utente autenticato.
+L'uso di AJAX permette di aggiornare solo porzioni specifiche della pagina, mantenendo l'applicazione reattiva e fluida, migliorando drasticamente l'usabilità del sito.
+
 
 = Accessibilità
 Il progetto EasyGuitar è stato sviluppato ponendo l'accessibilità non come una funzionalità accessoria, ma come un requisito non funzionale primario. Il sito aderisce agli standard *WCAG 2.1* (Web Content Accessibility Guidelines) di livello *AA*, garantendo un'esperienza inclusiva per utenti con disabilità visive, motorie o cognitive.

@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModalSearch();
     });
+<<<<<<< HEAD
 
     /**
      * Gestisce la digitazione nell'input di ricerca.
@@ -50,6 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+=======
+ 
+>>>>>>> develop
     modal.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeModalSearch();

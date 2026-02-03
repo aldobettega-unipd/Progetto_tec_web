@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>##TITOLO_PAGINA## - EasyGuitar</title>
-  
+
   <meta name="description" content="##DESCRIZIONE_PAGINA##">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -56,12 +56,32 @@
     ##CONTENUTO_PRINCIPALE##
   </main>
 
+  <div id="auth-modal" class="auth-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true"
+    aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="auth-modal-content">
+      <button type="button" class="btn-close-modal" id="close-auth-modal" aria-label="Chiudi finestra">
+        &times;
+      </button>
+
+      <h3 id="modal-title">Ehi, Musicista! 🎸</h3>
+
+      <p id="modal-desc">Per salvare le canzoni nei preferiti o nelle playlist devi accedere al tuo account.
+      </p>
+
+      <div class="auth-buttons">
+        <a href="/login?redirect=##REDIRECT_URL##" class="btn-login-modal">Accedi</a>
+        <a href="/register?redirect=##REDIRECT_URL##" class="btn-register-modal">Registrati</a>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <button id="back-to-top-btn" class="back-to-top-btn" title="Torna su" aria-label="Torna a inizio pagina">
       <span aria-hidden="true">↑</span>
     </button>
     <div class="footer-container">
       <div class="footer-links">
+
 
         <a href="##BASE_URL##/" lang="en">
             <span class="icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/home.webp" alt=""></span>
@@ -78,8 +98,9 @@
         <a href="##BASE_URL##/canzoni">
             <span class="icon search-icon" aria-hidden="true"><img src="##BASE_URL##/img/icone/music-notes.svg" alt=""></span>
             Canzoni
+
         </a>
-        
+
         ##LINKS_FOOTER##
       </div>
 
@@ -89,4 +110,5 @@
     </div>
   </footer>
 </body>
+
 </html>

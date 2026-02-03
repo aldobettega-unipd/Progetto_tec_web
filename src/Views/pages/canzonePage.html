@@ -10,8 +10,9 @@
                     <button type="button" id="playlist-toggle" class="btn-add-playlist" aria-expanded="false"
                         aria-controls="playlist-menu" data-song-id="##ID_CANZONE##">
                         <span>Salva</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+
+                        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="12" y1="5" x2="12" y2="19"></line>
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                         </svg>
@@ -21,6 +22,7 @@
                         <div class="dropdown-header">Le tue Playlist</div>
                         ##LISTA_PLAYLIST##
                         <a href="##BASE_URL##/profilo/playlist/new?redirect=##REDIRECT_URL##" class="btn-create-new-sm">+ Nuova Playlist</a>
+
                     </div>
                 </div>
             </div>
@@ -38,21 +40,24 @@
 
 
         <div id="autoscroll-widget" role="region" aria-label="Controlli scorrimento automatico">
-            <button id="scrollToggle" class="scroll-btn-main">
-                <span id="scrollIcon">▶</span>
+
+            <button id="scrollToggle" class="scroll-btn-main" aria-pressed="false" aria-controls="main-content"
+                aria-label="Avvia scorrimento automatico">
+                <span id="scrollIcon" aria-hidden="true">▶</span>
                 <span id="scrollText">Autoscroll</span>
             </button>
 
             <div class="scroll-speed-ctrl">
-                <label for="scrollSpeed">
-                    <span>Velocità</span>
-                    <span id="speedValDisplay">1.5x</span>
-                </label>
-                <input type="range" id="scrollSpeed" class="speed-slider" min="1" max="10" step="0.1" value="1.5">
+                <label for="scrollSpeed" id="speedLabel">Velocità scorrimento</label>
+
+                <output id="speedValDisplay" for="scrollSpeed" aria-hidden="true">1.5x</output>
+
+                <input type="range" id="scrollSpeed" class="speed-slider" min="1" max="10" step="0.1" value="1.5"
+                    aria-labelledby="speedLabel" aria-valuetext="1.5 per">
             </div>
         </div>
-    </div>
 
+<<<<<<< HEAD
     <div class="copyright-disclaimer">
         <p>
             <strong>⚠️ Disclaimer Didattico:</strong> Questo sito è un progetto universitario sviluppato esclusivamente a fini di studio e ricerca accademica, senza alcuno scopo di lucro. 
@@ -75,7 +80,17 @@
                 <a href="##BASE_URL##/login?redirect=##REDIRECT_URL##" class="btn-login-modal">Accedi</a>
                 <a href="##BASE_URL##/register?redirect=##REDIRECT_URL##" class="btn-register-modal">Registrati</a>
             </div>
+=======
+        <div class="copyright-disclaimer">
+            <p>
+                <strong>⚠️ Disclaimer Didattico:</strong> Questo sito è un progetto universitario sviluppato
+                esclusivamente a fini di studio e ricerca accademica, senza alcuno scopo di lucro.
+                Tutti i testi e gli accordi presenti in questa pagina rimangono proprietà intellettuale esclusiva dei
+                rispettivi autori ed editori.
+                Non si intende violare alcun copyright.
+            </p>
+>>>>>>> develop
         </div>
-    </div>
 
-</div>
+
+    </div>

@@ -41,7 +41,6 @@ function initDarkMode() {
 }
 
 function initBackToTop() {
-  // Nota: Ho corretto il selettore per usare l'ID che è più veloce/sicuro
   const topBtn = document.getElementById('back-to-top-btn');
 
   if (!topBtn) return;
@@ -98,16 +97,11 @@ function initProfileAction() {
       button.addEventListener('click', () => {
         const targetSection = button.getAttribute('data-section');
 
-        // Rimuovi classe active da tutti i pulsanti
         menuButtons.forEach(btn => btn.classList.remove('active'));
-
-        // Aggiungi classe active al pulsante cliccato
         button.classList.add('active');
 
-        // Nascondi tutte le sezioni
         contentSections.forEach(section => section.classList.remove('active'));
 
-        // Mostra la sezione corrispondente
         const sectionToShow = document.querySelector(`[data-content="${targetSection}"]`);
         if (sectionToShow) {
           sectionToShow.classList.add('active');
@@ -122,35 +116,98 @@ function initProfileAction() {
 }
 
 
-// --- 1. CONFIGURAZIONE & UTILITY ---
 
-// Elementi del banner
-const authModal = document.getElementById('auth-modal');
-const closeModalBtn = document.getElementById('close-auth-modal');
-
-// Funzione: Controlla se l'utente è loggato (dal body)
 function isUserLoggedIn() {
   return document.body.dataset.loggedIn === 'true';
 }
 
-// Funzione: Mostra Banner
+
+
+const authModal = document.getElementById('auth-modal');
+const closeModalBtn = document.getElementById('close-auth-modal');
+const mainContent = document.getElementById('main-content'); 
+let lastFocusedElement = null;
+
 function showLoginBanner() {
-  if (authModal) {
-    authModal.classList.add('show');
-    authModal.setAttribute('aria-hidden', 'false');
+  if (!authModal) return;
+
+  lastFocusedElement = document.activeElement;
+
+  // Mostra il modale
+  authModal.classList.add('show');
+  authModal.setAttribute('aria-hidden', 'false');
+
+  // --- PUNTO CHIAVE: Disabilita lo sfondo ---
+  if (mainContent) {
+      // 'inert' impedisce click e focus su tutto il sito
+      mainContent.setAttribute('inert', ''); 
+      // 'aria-hidden' è una sicurezza extra per vecchi screen reader
+      mainContent.setAttribute('aria-hidden', 'true'); 
+  }
+
+  // Sposta focus nel modale
+  setTimeout(() => {
+      closeModalBtn.focus();
+  }, 50);
+  
+  // Nota: Con 'inert', la funzione handleModalKeydown (il loop del TAB) 
+  // diventa meno critica per "uscire", ma serve ancora per "ciclare" dentro il modale.
+  authModal.addEventListener('keydown', handleModalKeydown);
+}
+
+function hideLoginBanner() {
+  if (!authModal) return;
+
+  authModal.classList.remove('show');
+  authModal.setAttribute('aria-hidden', 'true');
+
+  // --- PUNTO CHIAVE: Riabilita lo sfondo ---
+  if (mainContent) {
+      mainContent.removeAttribute('inert');
+      mainContent.removeAttribute('aria-hidden');
+  }
+
+  authModal.removeEventListener('keydown', handleModalKeydown);
+
+  if (lastFocusedElement) {
+      lastFocusedElement.focus();
   }
 }
 
-// Funzione: Nascondi Banner
-function hideLoginBanner() {
-  if (authModal) {
-    authModal.classList.remove('show');
-    authModal.setAttribute('aria-hidden', 'true');
-  }
+
+function handleModalKeydown(e) {
+    if (e.key === 'Escape') {
+        hideLoginBanner();
+        return;
+    }
+
+    if (e.key === 'Tab') {
+        const focusableElements = authModal.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        
+        if (focusableElements.length === 0) return;
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+        if (e.shiftKey) { 
+            if (document.activeElement === firstElement) {
+                e.preventDefault();
+                lastElement.focus();
+            }
+        } 
+        else { 
+            if (document.activeElement === lastElement) {
+                e.preventDefault();
+                firstElement.focus();
+            }
+        }
+    }
+
 }
+
 function initToggleLoginBanner() {
-  // Eventi chiusura Banner (X o Click fuori)
   if (closeModalBtn) closeModalBtn.addEventListener('click', hideLoginBanner);
+  
   if (authModal) {
     authModal.addEventListener('click', (e) => {
       if (e.target === authModal) hideLoginBanner();
@@ -158,7 +215,6 @@ function initToggleLoginBanner() {
   }
 }
 
-// Chiamata API generica per aggiungere/rimuovere
     async function toggleSongInPlaylist(playlistId, songId, isAdding) {
         const endpoint = isAdding ? `${BASE_URL}/api/playlist/add-song` : `${BASE_URL}/api/playlist/remove-song`;
 
@@ -177,32 +233,28 @@ function initToggleLoginBanner() {
             if (!res.success) {
                 throw new Error(res.message || "Errore API");
             }
-            return true; // Successo
+            return true;
 
         } catch (err) {
             console.error(err);
-            // Opzionale: alert("Errore: " + err.message);
-            return false; // Fallimento
+            return false;
         }
     }
 
-//gestion pulsante preferiti
 function initFavButton(){
   const allFavBtns = document.querySelectorAll('.btn-favorite');
 
     allFavBtns.forEach(btn => {
         btn.addEventListener('click', async function(e) {
-            // STOP PROPAGATION: Impedisce che il click passi al link della card sottostante
             e.stopPropagation(); 
             e.preventDefault();
-            // CHECK LOGIN
             if (!isUserLoggedIn()) {
                 showLoginBanner();
                 return;
             }
 
             const favPlaylistId = this.dataset.idPreferiti;
-            const songId = this.dataset.songId; // Recuperiamo l'ID specifico di QUESTA card
+            const songId = this.dataset.songId;
 
             if (!favPlaylistId || !songId) {
                 console.error("Dati mancanti sul bottone preferiti");
@@ -212,14 +264,12 @@ function initFavButton(){
             const isRemoving = this.classList.contains('active');
             const isAdding = !isRemoving;
 
-            // UI Ottimistica
             this.classList.toggle('active');
 
             // Chiamata API
             const success = await toggleSongInPlaylist(favPlaylistId, songId, isAdding);
 
             if (!success) {
-                // Rollback
                 this.classList.toggle('active');
             }
         });

@@ -515,6 +515,111 @@ footer {
     /*transform: translate(-0%, -15%);*/
 }
 
+/* ------------------------------------------------------------
+   Modale autenticazione
+   ------------------------------------------------------------ */
+
+
+/* Sfondo scuro che copre tutto lo schermo */
+.auth-modal-overlay {
+    display: none;
+    /*  Nascosto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Velo scuro */
+    z-index: 9999;
+    /* Sopra a TUTTO, anche al menu playlist */
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    /* Effetto sfocato moderno */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Quando è attivo */
+.auth-modal-overlay.show {
+    display: flex;
+    /* Flex per centrare il contenuto */
+    opacity: 1;
+}
+
+/* La finestrella bianca */
+.auth-modal-content {
+    background-color: var(--main-bg);
+    /* Il tuo beige */
+    padding: 2rem;
+    border-radius: 16px;
+    color: var(--main-text);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    position: relative;
+    border: 2px solid var(--wood-accent);
+}
+
+.auth-modal-overlay.show .auth-modal-content {
+    transform: translateY(0);
+}
+
+.auth-modal-content h3 {
+    margin-top: 0;
+    color: var(--wood-accent);
+}
+
+/* Bottoni */
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-login-modal,
+.btn-register-modal {
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.btn-login-modal {
+    background-color: var(--wood-accent);
+    color: #fff;
+}
+
+.btn-register-modal {
+    background-color: transparent;
+    border: 2px solid var(--wood-accent);
+    color: var(--wood-accent);
+}
+
+.btn-login-modal:hover,
+.btn-register-modal:hover {
+    transform: scale(1.05);
+}
+
+/* Croce di chiusura */
+.btn-close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #888;
+}
+
+
 /* ======
    MAIN 
    ====== */

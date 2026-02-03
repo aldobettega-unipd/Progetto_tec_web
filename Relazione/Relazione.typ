@@ -140,10 +140,12 @@ Sviluppato nell'ambito del corso di Tecnologie Web, EasyGuitar dimostra come l'a
 
 == Overview
 
-L’analisi dei requisiti è stata condotta attraverso un confronto diretto con Marco Sanguin, componente del gruppo e ideatore del sito, nonchè appassionato chitarrista. Grazie alla sua esperienza personale come musicista, è emersa l’importanza di progettare una pagina dedicata alle canzoni che fosse pulita, chiara e piacevole alla vista. In particolare, sono stati individuati come requisiti fondamentali la presenza di un sistema di autoscroll regolabile e una modalità di visualizzazione degli accordi pensata per rispondere alle reali esigenze di un musicista durante l’esecuzione.
+L’analisi dei requisiti è stata condotta attraverso un confronto tra i componenti del gruppo, guidato in particolare da Marco Sanguin, ideatore del sito e chitarrista amatoriale. Grazie alla sua esperienza personale come musicista, è emersa l’importanza di progettare una pagina dedicata alle canzoni che fosse pulita, chiara e piacevole alla vista. Si è resa evidente anche la necessità di creare un sito con una attenzione particolare all'accessibilità in quanto molte pagine web simile la trascurano completamente.
+ Sono stati individuati come requisiti fondamentali la presenza di un sistema di autoscroll regolabile e una modalità di visualizzazione degli accordi pensata per rispondere alle reali esigenze di un musicista durante l’esecuzione.
+
 
 == Analisi dell'Utenza (Target)
-L'analisi ha identificato come target primario non il neofita alla ricerca di tutorial didattici, bensì il *chitarrista appassionato* e competente. Questo profilo di utenza possiede già le competenze tecniche per l'esecuzione e considera il sito web come un supporto strumentale (un "leggio digitale") piuttosto che educativo.
+L'analisi ha identificato come target primario non il neofita alla ricerca di tutorial didattici, bensì il *chitarrista appassionato*. Questo profilo di utenza possiede già alcune competenze tecniche per l'esecuzione e considera il sito web come un supporto strumentale (un "leggio digitale") piuttosto che educativo.
 
 Le necessità fondamentali di questo utente sono:
 

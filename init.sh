@@ -42,5 +42,4 @@ else
 fi
 
 # Permessi generici per il web server (es. Apache/Nginx)
-chown -R www-data:www-data ./public_html
 chmod -R 755 ./public_html

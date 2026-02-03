@@ -47,7 +47,7 @@ class ListHelper
             }
 
             $template->set_dati_pagina($data);
-            $html .= $template->get_pagina();
+            $html .= $template->get_pagina(true);
         }
 
         return $html;

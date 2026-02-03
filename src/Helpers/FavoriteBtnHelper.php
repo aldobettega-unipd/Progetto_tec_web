@@ -21,7 +21,7 @@ class FavoriteBtnHelper
         ];
 
         $Template->set_dati_pagina($data);
-        return $Template->get_pagina();
+        return $Template->get_pagina(true);
     
     }
 

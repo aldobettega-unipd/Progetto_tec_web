@@ -1,19 +1,29 @@
 <section class="loginRegisterSection">
     <h1>Accedi al tuo account</h1>
-    
-    <form class="loginRegisterForm" action="/login/auth" method="POST">
+
+    <form class="loginRegisterForm" action="/login/auth" method="POST" novalidate>
         <input type="hidden" name="redirect_to" value="##REDIRECT_TO##">
-        
-        <label for="username" lang="en">Username:</label>
-        <input type="text" name="username" id="username" required autocomplete="username">
-        
-        <label for="password" lang="en">Password:</label>
-        <input type="password" name="password" id="password" required autocomplete="current-password">
-        
+
+        <div class="form-field">
+            <label for="username" lang="en">Username:</label>
+            <input type="text" name="username" id="username" required autocomplete="username"
+                aria-invalid="false" aria-describedby="username-error">
+            <span id="username-error" class="field-error" role="alert" aria-live="polite"></span>
+        </div>
+
+        <div class="form-field">
+            <label for="password" lang="en">Password:</label>
+            <input type="password" name="password" id="password" required autocomplete="current-password"
+                 aria-invalid="false" aria-describedby="password-error">
+            <span id="password-error" class="field-error" role="alert" aria-live="polite"></span>
+        </div>
+
         <button type="submit">Accedi</button>
     </form>
 
     <p class="erroreLoginRegister" role="alert" aria-live="polite">##FLASH_ERROR##</p>
-    
+
     <p>Non hai un account? <a class="loginRegisterLink" href="/register">Registrati</a></p>
 </section>
+
+<script src="/js/login-validation.js"></script>

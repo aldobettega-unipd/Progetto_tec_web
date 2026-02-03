@@ -8,6 +8,7 @@
 #let dipartimento = "DIPARTIMENTO DI MATEMATICA"
 #let corso-laurea = "LAUREA TRIENNALE IN INFORMATICA"
 
+// (La variabile studenti è stata rimossa dal frontespizio ma la lasciamo qui se servisse altrove)
 #let studenti = (
   (nome: "Enrique Hernandez Gris", matricola: "2169844"),
   (nome: "Marco Sanguin", matricola: "2103121"),
@@ -57,7 +58,7 @@
 // =============================================================================
 #align(center + horizon)[
 
-  // LOGO (Decommenta se hai il file)
+  // LOGO
   #image("/Relazione/img/unipd.png", width: 40%)
   #v(1cm)
 
@@ -81,22 +82,26 @@
   #v(0.5em)
   #line(length: 100%, stroke: 1pt)
 
-  #v(3fr) // Spinge i nomi verso il basso ma non troppo
+  #v(3fr) 
 
-  // GRIGLIA STUDENTI (Layout 2 colonne per 4 persone)
-  #text(size: 12pt, weight: "bold")[Componenti del gruppo:]
+  // --- SEZIONE CREDENZIALI E CONTATTI (SOSTITUISCE IL GRUPPO) ---
+  #text(size: 12pt, weight: "bold")[Informazioni di Accesso e Contatto:]
   #v(1em)
 
-  #grid(
-    columns: (1fr, 1fr),
-    row-gutter: 2em,
-    align: center,
-    // Generiamo i blocchi per ogni studente
-    ..studenti.map(s => [
-      #text(weight: "bold")[#s.nome] \
-      Matricola: #s.matricola
-    ])
-  )
+  #align(center)[
+    #grid(
+      columns: (auto, auto),
+      align: (right + horizon, left + horizon), // Allinea etichette a dx e valori a sx
+      column-gutter: 1.5em,
+      row-gutter: 1em,
+
+      [*Utente Amministratore:*], [username: `admin`, password: `admin`],
+      [*Utente Base:*],           [username: `user`,  password: `user`],
+      [*Indirizzo Sito:*],        [#link("http://localhost:8000")[http://tecweb.studenti.math.unipd.it/msanguin]],
+      [*Referente:*],             [#link("mailto:aldo.bettega@studenti.unipd.it")[aldo.bettega\@studenti.unipd.it]]
+    )
+  ]
+  // ---------------------------------------------------------------
 
   #v(2fr)
 
@@ -227,44 +232,49 @@ La struttura del progetto riflette la separazione logica del pattern MVC, manten
   width: 100%,
   [
     ```text
-    /Progetto_tec_web
-    ├── /public           
-    │   ├── /css
-    │   ├── /img
-    │   └── /js
-    └── /src                 
-        ├── /App
-        │   ├── /Controllers
-        │   └── /Models
-        ├── /Core
-        └── /Views
-            ├── /admin
-            ├── /auth
-            └── /layouts
+├── public
+│   ├── css
+│   ├── img
+│   ├── index.php
+│   └── js
+└── src
+    ├── Controllers
+    │   ├── Api
+    │   └── Base
+    ├── Core
+    ├── Exceptions
+    ├── Helpers
+    ├── Models
+    └── Views
+        ├── components
+        ├── layouts
+        └── pages 
+
     ```
   ]
 )
 
 == Database
-La persistenza dei dati è affidata a un database relazionale *MySQL*. L'interazione avviene tramite l'estensione *PDO (PHP Data Objects)*, scelta per la sua flessibilità tra i diversi tipi di database.
+La persistenza dei dati è gestita tramite **MySQL**, configurato con il charset `utf8mb4` per garantire il pieno supporto ai caratteri internazionali e speciali, essenziali in un catalogo musicale multilingua.
 
-Lo schema E-R è stato progettato per supportare le funzionalità sociali e di catalogazione:
+Lo schema è stato progettato per ottimizzare le relazioni e la navigazione:
 
-- *Entità Principali:* `Utenti`, `Artisti`, `Canzoni`, `Playlist`
-- **Relazioni:**
-  - **1:N (Uno a Molti):** Un Artista possiede più Canzoni; Un Utente possiede più Playlist.
-  - **N:M (Molti a Molti):** Questa è la relazione più critica del sistema.
-    - *Playlist_Canzoni:* Permette a una canzone di essere presente in più playlist e a una playlist di contenere più canzoni.
-    - *Preferiti:* Gestita come una relazione diretta tra Utente e Canzone.
+- *Gestione Utenti (`utente`):* I ruoli sono definiti tramite un flag booleano `is_admin` (0 per utenti, 1 per amministratori). La sicurezza è garantita dal campo `hash_password` e la personalizzazione avviene tramite `foto_profilo` (riferimento a un set predefinito di avatar).
+- *Contenuti e Routing (`artista`, `canzone`):* Entrambe le tabelle includono un campo `slug` (`slug_artista`, `slug_canzone`) utilizzato per generare URL leggibili ("SEO-friendly") e puliti, gestiti dal Router custom. La relazione tra canzoni e artisti prevede vincoli di integrità referenziale (`ON DELETE CASCADE`).
+- *Relazioni Molti-a-Molti:*
+  - *Playlist (`canzoni_playlist`):* Tabella di giunzione che collega `playlist` e `canzone`, permettendo a una canzone di appartenere a più raccolte e viceversa.
+  - *Filtri Accordi (`accordi_canzone`):* Gli accordi non sono salvati come semplice testo nella canzone, ma normalizzati in questa tabella. Ciò consente di eseguire query complesse per filtrare i brani in base agli accordi specifici che l'utente sa suonare.
 
-[Image of database entity relationship diagram for music playlist system]
+Di seguito viene mostrato lo schema relazionale del database:
+  #image("/Relazione/img/schema_db.jpeg", width: 100%)
+
 
 == Design e UX (User Experience)
-Il design dell'interfaccia è stato guidato dal principio **"Mobile First"**, considerando che il caso d'uso tipico prevede l'utente con lo strumento in braccio e il dispositivo (spesso smartphone o tablet) posizionato su un leggio o sulle gambe.
+Il design dell'interfaccia è stato guidato dal principio *"Mobile First"*, considerando che il caso d'uso tipico prevede l'utente con lo strumento in braccio e il dispositivo (spesso smartphone o tablet) posizionato su un leggio o sulle gambe.
 
-- **Dark Mode Funzionale:** La modalità scura non è solo una scelta estetica, ma un requisito funzionale per ridurre l'affaticamento visivo e il consumo energetico durante sessioni prolungate. La preferenza viene salvata nel `LocalStorage` del browser per garantire la persistenza tra le visite.
-- **Feedback Immediato:** Ogni azione critica (aggiunta ai preferiti, eliminazione playlist) è accompagnata da feedback visivi (toast notification o cambio di stato delle icone) e semantici (aggiornamenti ARIA) per confermare l'avvenuta operazione senza interrompere il flusso di navigazione.
-- **Performance Percepita:** L'uso di chiamate asincrone (AJAX) per la ricerca nei modali evita il ricaricamento completo della pagina, mantenendo l'interfaccia reattiva e "app-like".
+- *Dark Mode Funzionale:* La modalità scura non è solo una scelta estetica, ma un requisito funzionale per ridurre l'affaticamento visivo e il consumo energetico durante sessioni prolungate. La preferenza viene salvata nel `LocalStorage` del browser per garantire la persistenza tra le visite.
+- *Feedback Immediato:* Ogni azione critica (aggiunta ai preferiti, eliminazione playlist) è accompagnata da feedback visivi (toast notification o cambio di stato delle icone) e semantici (aggiornamenti ARIA) per confermare l'avvenuta operazione senza interrompere il flusso di navigazione.
+- *Performance Percepita:* L'uso di chiamate asincrone (AJAX) per la ricerca nei modali evita il ricaricamento completo della pagina, mantenendo l'interfaccia reattiva e "app-like".
 
 = Implementazione Back-End (PHP)
 == Routing

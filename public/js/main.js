@@ -1,3 +1,4 @@
+globalThis.BASE_URL = '/msanguin';
 
 document.addEventListener('DOMContentLoaded', () => {
   initDarkMode();
@@ -159,7 +160,7 @@ function initToggleLoginBanner() {
 
 // Chiamata API generica per aggiungere/rimuovere
     async function toggleSongInPlaylist(playlistId, songId, isAdding) {
-        const endpoint = isAdding ? '${BASE_URL}/api/playlist/add-song' : '${BASE_URL}/api/playlist/remove-song';
+        const endpoint = isAdding ? `${BASE_URL}/api/playlist/add-song` : `${BASE_URL}/api/playlist/remove-song`;
 
         try {
             const response = await fetch(endpoint, {

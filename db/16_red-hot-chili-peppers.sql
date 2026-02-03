@@ -87,7 +87,7 @@ INSERT IGNORE INTO accordi_canzone (id_canzone, accordo) VALUES
 (@last_song_id, 'SOL');
 
 INSERT INTO canzone (titolo_canzone, autore_canzone, lingua_canzone, testo_canzone, slug_canzone) VALUES 
-('Can’t Stop', 'Red Hot Chili Peppers', 'en', '[MIm] Can''t stop, addicted to the shindig
+('Can''t Stop', 'Red Hot Chili Peppers', 'en', '[MIm] Can''t stop, addicted to the shindig
 [RE] Chop top, he says I''m gonna win big
 [SIm] Choose not a life of imitation
 [DO]Distant cousin to the reservation

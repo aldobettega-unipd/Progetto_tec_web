@@ -487,6 +487,7 @@ footer {
     position: absolute;
     top: 0;
     left: 50%;
+    transform: translate(-50%, -50%);
 
     width: 30px;
     height: 30px;
@@ -511,7 +512,7 @@ footer {
     background-color: var(--wood-accent);
     color: white;
     box-shadow: 0 0 15px rgba(227, 147, 77, 0.6);
-    transform: translate(-0%, -15%);
+    /*transform: translate(-0%, -15%);*/
 }
 
 /* ======
@@ -1055,7 +1056,7 @@ body.dark-mode .card-canzone:hover .btn-primary {
     color: black;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     #ricerca h1 { font-size: 2rem; }
     
     #barraricerca form {
@@ -1087,7 +1088,7 @@ body.dark-mode .card-canzone:hover .btn-primary {
     .card-item {
         width: 160px;
     }
-} 
+}  */
 
 
 #dark-mode-toggle img {
@@ -1197,6 +1198,7 @@ REGISTER AND LOGIN PAGES
   margin-left: auto;
   margin-right: auto;
   margin-top: 5em;
+  margin-bottom: 4em;
   width: 90%;
   max-width: 450px;
   background-color: var(--header-bg);
@@ -1596,7 +1598,7 @@ body.dark-mode #logout-btn {
     pointer-events: auto;
     background: transparent;
     border: none;
-    color: #e74c3c; /* Rosso */
+    color: #DE2F1B; /* Rosso */
     cursor: pointer;
     padding: 8px;
     border-radius: 50%;
@@ -1604,12 +1606,10 @@ body.dark-mode #logout-btn {
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease;
-    opacity: 0.7;
 }
 
 .btn-delete-playlist:hover {
-    background-color: rgba(231, 76, 60, 0.1);
-    opacity: 1;
+    background-color: rgba(222, 47, 27, 0.1);
     transform: scale(1.1);
 }
 
@@ -1795,38 +1795,6 @@ body.dark-mode .btn-secondary {
 
 body.dark-mode .btn-secondary:hover {
     background-color: rgba(255,255,255,0.1);
-}
-
-/* 9. MEDIA QUERY MOBILE */
-@media (max-width: 900px) {
-    .profilo-container {
-        flex-direction: column;
-        gap: 2rem;
-        width: 95%;
-    }
-
-    .dati-profilo {
-        width: 100%;
-        position: static;
-        padding: 1.5rem;
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-template-areas: 
-            "img info"
-            "menu menu";
-        gap: 1rem;
-        text-align: left;
-    }
-
-    #btn-open-modal { grid-area: img; margin: 0 auto; }
-    .dati-profilo h2  { grid-area: info; align-self: center; justify-content: flex-start;}
-    .profilo-menu     { grid-area: menu; flex-direction: row; overflow-x: auto; padding-bottom: 5px; }
-
-    .menu-btn {
-        flex: 1;
-        justify-content: center;
-        white-space: nowrap;
-    }
 }
 
 
@@ -2276,36 +2244,6 @@ body.dark-mode #search-input {
     border-color: rgba(255,255,255,0.2);
 }
 
-/* --- 8. MOBILE RESPONSIVE --- */
-@media (max-width: 600px) {
-    .playlist-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-    
-    .btn-add-song {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .song-list-item {
-        padding: 1rem;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-    
-    .song-actions {
-        margin-left: 0;
-        align-self: flex-end; /* Sposta il tasto rimuovi a destra su mobile */
-    }
-    
-    .song-title {
-        font-size: 1rem;
-    }
-}
-
 /* =========================================
    PAGINA ARTISTA (Restyling)
    ========================================= */
@@ -2611,7 +2549,10 @@ body.dark-mode .search-input-wrapper:hover {
   margin: 1rem auto;
 }
 
-
+.results-container .carosello-scroll {
+  justify-content: center;
+  gap: 1.5rem;
+}
 
 /* =========================================
    SEARCH PAGE FILTERS (Stile Corretto)
@@ -2958,8 +2899,11 @@ body.dark-mode .custom-select option {
     border-bottom: 1px solid #ddd;
     position: relative; /* FONDAMENTALE per posizionare il menu */
     margin: 0;
-    width: 100%;
 }
+
+.song-list-item:last-child {
+        margin-bottom: 4rem;
+    }
 
 .listaCanzoniInPlaylist .content-grid {
     display: flex !important;
@@ -3805,12 +3749,6 @@ body.dark-mode .styled-form.submitted textarea:invalid {
   margin: 3em 3em;
 }
 
-@media (max-width: 768px) {
-  .header-playlist img {
-    display: none;
-  }
-}
-
 
 /* ============================================================
    PAGINE INDICIZZATE (Canzoni & Artisti Ordinati)
@@ -4005,6 +3943,25 @@ body.dark-mode .plain-list .artist-inline {
    MEDIA QUERIES - HEADER, FOOTER, HOMEPAGE
 ========================================= */
 
+@media (max-width: 1100px) {
+    /*****************************************
+    PROFILE PAGE
+    *****************************************/
+    .profilo-container {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .dati-profilo {
+        position: static;
+    }
+
+    .profilo-content {
+        width: 75%;
+    }
+}
+
 /* --- MEDIA QUERY @ 900px --- */
 @media (max-width: 900px) {
     /* HEADER */
@@ -4114,7 +4071,88 @@ body.dark-mode .plain-list .artist-inline {
     .carrbutton.next {
         right: -1.2em;
     }
+
+    /*****************************************
+    ARTISTA PAGE
+    *****************************************/
+
+    .artista-page img {
+        height: 170px;
+        width: 170px;
+    }
+
+    .artista-page h1 {
+        font-size: 2rem;
+    }
+
+    .artista-page .descrizione-artista {
+        font-size: 0.9rem;
+    }
+
+    /*****************************************
+    LOGIN AND REGISTER PAGE
+    *****************************************/
+
+    .loginRegisterSection{
+        width: 60%;
+        margin-top: 4em;
+    }
+    
+    /********************************************
+    PROFILE PAGE
+    ********************************************/
+    .profilo-content h2{
+        font-size: 1.5rem;
+    }
+
+    .playlist-info h3{
+        font-size: 1.1rem;
+    }
+
+    .playlist-info span{
+        font-size: 0.8rem;
+    }
+
+    .btn-visualizza{
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .btn-crea{
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    /*************************************************
+    PLAYLIST PAGE
+    *************************************************/
+    .header-playlist h1{
+        font-size: 1.6rem;
+    }
+
+    .header-playlist p{
+        font-size: 0.9rem;
+    }
+
+    #open-search-modal{
+        font-size: 0.9rem;
+        padding: 0.6rem 1.5rem;
+    }
+
+    .header-playlist img{
+        height: 80px;
+        width: 80px;
+    }
+
+    /*************************************************
+    FORM MODIFICA CANZONI E ARTISTI
+    *************************************************/
+
+    .admin-form-card {
+        width: 70%;
+    }
 }
+
 
 /* --- MEDIA QUERY @ 600px --- */
 @media (max-width: 600px) {
@@ -4169,21 +4207,21 @@ body.dark-mode .plain-list .artist-inline {
         font-size: 0.85rem;
     }
     
-    /* Bottone Dark Mode - Posizionamento fisso mobile */
     .bookmark-btn {
-        position: fixed;
-        top: auto;
-        bottom: 20px;
-        left: auto;
-        right: 20px;
-        transform: none;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        padding: 0;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        z-index: 1000;
-    }
+    position: absolute;
+    top: 30px;
+    right: 12px;
+    left: auto;
+    bottom: auto;
+    transform: none;
+
+    border-radius: 100%;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+
+    z-index: 5;
+}
     
     .bookmark-btn.retracted {
         transform: none;
@@ -4279,6 +4317,7 @@ body.dark-mode .plain-list .artist-inline {
     
     .card-artista {
         width: 140px;
+        height: 230px;
     }
     
     .card-img-container {
@@ -4300,6 +4339,7 @@ body.dark-mode .plain-list .artist-inline {
     
     .card-canzone {
         width: 140px;
+        height: 190px;
     }
 
     .music-icon{
@@ -4344,6 +4384,136 @@ body.dark-mode .plain-list .artist-inline {
     
     .carrbutton img {
         width: 1em;
+    }
+
+    /******************************************
+    SEARCH PAGE
+    ******************************************/
+
+    .search-input-wrapper{
+        width: 80%;
+    }
+
+    #filtersPanel {
+        width: 85%;
+    }
+
+    .results-message{
+        text-align: center;
+        padding: 0;
+    }
+
+    /******************************************
+    ARTISTA PAGE
+    ******************************************/
+
+    .artista-page {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .artista-page img {
+    grid-column: auto;
+    grid-row: auto;
+
+    width: 160px;
+    height: 160px;
+    align-self: center;
+  }
+
+  .artista-page h1 {
+    grid-column: auto;
+    grid-row: auto;
+
+    font-size: 1.8rem;
+    align-self: flex-start;
+  }
+
+  .artista-page .descrizione-artista {
+    grid-column: auto;
+    grid-row: auto;
+
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  /*****************************************
+    LOGIN AND REGISTER PAGE
+    *****************************************/
+
+    .loginRegisterSection{
+        width: 60%;
+        margin-top: 4em;
+        margin-bottom: 4em;
+    }
+
+    /*****************************************
+    PLAYLIST PAGE
+    *****************************************/
+    .playlist-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .btn-add-song {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .song-list-item {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .song-actions {
+        margin-left: 0;
+        align-self: flex-end;
+    }
+    
+    .song-title {
+        font-size: 1rem;
+    }
+
+    /******************************************
+    ADMIN FORM PAGES
+    ******************************************/
+
+    .admin-form-page {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .admin-form-card {
+        max-width: 95%;
+        padding: 1.5rem;
+        border-radius: 15px;
+    }
+
+    .form-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-header p {
+        font-size: 0.9rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input[type="text"],
+    .form-group textarea {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .form-actions .btn-primary {
+        font-size: 1rem;
     }
 }
 
@@ -4443,6 +4613,7 @@ body.dark-mode .plain-list .artist-inline {
     
     .card-artista {
         width: 120px;
+        height: 205px;
     }
     
     .card-img-container {
@@ -4463,6 +4634,7 @@ body.dark-mode .plain-list .artist-inline {
     
     .card-canzone {
         width: 120px;
+        height: 175px;
     }
     
     .card-canzone .card-content {
@@ -4515,6 +4687,13 @@ body.dark-mode .plain-list .artist-inline {
     
     .footer-links {
         font-size: 0.85rem;
+    }
+
+    /*****************************************
+    PROFILE PAGE
+    *****************************************/
+    .dati-profilo {
+        width: 75%;
     }
 }
 

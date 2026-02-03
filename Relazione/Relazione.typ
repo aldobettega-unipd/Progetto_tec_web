@@ -288,17 +288,128 @@ Il design dell'interfaccia è stato guidato dal principio *"Mobile First"*, cons
 == Gestione Modali
 
 = Accessibilità
+Il progetto EasyGuitar è stato sviluppato ponendo l'accessibilità non come una funzionalità accessoria, ma come un requisito non funzionale primario. Il sito aderisce agli standard *WCAG 2.1* (Web Content Accessibility Guidelines) di livello *AA*, garantendo un'esperienza inclusiva per utenti con disabilità visive, motorie o cognitive.
+
+L'obiettivo è stato quello di creare un "leggio digitale" che fosse universalmente fruibile, indipendentemente dal dispositivo di input utilizzato (mouse, tastiera, touch o screen reader) o dalle condizioni ambientali (es. scarsa illuminazione su un palco).
+
 == Navigazione
-== Colori
+La navigazione è stata progettata per essere intuitiva, prevedibile e completa, permettendo all'utente di orientarsi nel sistema con il minimo sforzo cognitivo.
+
+- *Struttura Gerarchica e Breadcrumb:*
+  Per mitigare il rischio di disorientamento, ogni pagina interna (escluse Home e Landing Page) implementa un sistema di *Breadcrumb*. Questo elemento, marcato semanticamente con `nav` e `aria-label="Breadcrumb"`, permette all'utente di visualizzare istantaneamente la propria posizione nella gerarchia del sito (es. _Home > Artisti > Nome Artista_) e di risalire rapidamente ai livelli superiori.
+
+- *Menu Responsive e Skip Links:*
+  In ottica *Mobile First*, la barra di navigazione si adatta dinamicamente: su desktop si presenta estesa, mentre su dispositivi mobili si adatta al dispositivo. Per gli utenti che navigano da tastiera, è stato implementato un link nascosto *"Salta al contenuto principale"* (Skip Link) all'inizio del `body`. Questo permette di bypassare i blocchi ripetitivi (come l'header) e accedere direttamente al `main`, migliorando drasticamente l'efficienza di navigazione tramite tasto `Tab`.
+
+- *Gestione del Focus e Modali (Focus Trap):*
+  Un'attenzione particolare è stata dedicata ai componenti interattivi sovrapposti, come il modale di ricerca nelle Playlist. All'apertura del modale:
+  1. Il focus viene spostato programmaticamente all'interno della finestra di dialogo.
+  2. Viene attivata una *"Focus Trap"* (trappola del focus): l'utente che naviga con `Tab` cicla esclusivamente tra gli elementi del modale, senza rischiare di interagire accidentalmente con la pagina sottostante oscurata.
+  3. Alla chiusura, il focus viene riportato all'elemento che aveva originato l'azione, preservando il contesto di navigazione.
+  Il modale è correttamente marcato con `role="dialog"` e `aria-modal="true"`.
+
+- *Attributi ARIA e Feedback Semantico:*
+  Per garantire la comprensione dello stato del sistema agli utenti non vedenti, sono stati impiegati attributi ARIA specifici:
+  - `aria-current="page"`: applicato al link del menu attivo per indicare la pagina corrente.
+  - `aria-live="polite"`: utilizzato nella ricerca AJAX per annunciare i risultati (o l'assenza di essi) agli screen reader senza interrompere la lettura corrente.
+  - `aria-expanded`: per comunicare lo stato (aperto/chiuso) del menu mobile e dei pannelli a soffietto.
+
+== Colori e Contrasto
+La gestione cromatica di EasyGuitar risponde a una doppia esigenza: estetica (identità visiva) e funzionale (leggibilità in contesti di performance).
+
+- *Supporto Nativo alla Dark Mode:*
+  Considerando il caso d'uso tipico del musicista (spesso in ambienti con luci soffuse), è stata implementata una modalità scura attivabile tramite toggle globale. La preferenza viene salvata nel `LocalStorage` per garantire la persistenza. Questa modalità non è una semplice inversione di colori, ma una palette studiata *ad hoc* per ridurre l'affaticamento visivo mantenendo i rapporti di contrasto corretti.
+
+- *Rapporto di Contrasto (WCAG AA):*
+  Tutti i testi essenziali rispettano il rapporto di contrasto minimo di *4.5:1* rispetto allo sfondo, verificato tramite strumenti come *WebAIM Contrast Checker*. Questo vale sia per il tema chiaro (testo scuro su sfondo chiaro) che per il tema scuro (testo chiaro su sfondo scuro). Particolare attenzione è stata posta ai testi colorati sugli sfondi testurizzati (es. texture legno), dove è stato applicato un overlay semitrasparente o un'ombra (`text-shadow`) per garantire la leggibilità.
+
+- *Indipendenza dal Colore:*
+  Le informazioni non sono mai veicolate esclusivamente tramite il colore. Ad esempio, i messaggi di errore nei form non sono solo rossi, ma sono accompagnati da un'icona distintiva e da un messaggio testuale esplicito (associato via `aria-describedby`). I link all'interno del corpo del testo sono distinguibili non solo per il colore differente, ma anche per la sottolineatura o il grassetto, garantendo l'accessibilità anche a utenti affetti da daltonismo o discromatopsia.
 
 = Test e Validazione
-== Strumenti usati
+La fase di testing e validazione ha rappresentato uno step cruciale dell'intero ciclo di sviluppo. L'approccio adottato è stato ibrido: da una parte una verifica continua e manuale durante la stesura del codice, dall'altra una validazione automatica finale mediante strumenti dedicati.
+Questo doppio binario ha permesso di correggere tempestivamente errori strutturali e di garantire un buon livello di accessibilità e robustezza del prodotto finale.
+
+== Strumenti usati (Validazione Automatica)
+Per la validazione del codice e la verifica della conformità agli standard, sono stati impiegati i seguenti strumenti software:
+
+- *Total Validator Base:*
+  Utilizzato per un'analisi complessiva delle pagine. Questo tool ha permesso di verificare simultaneamente la validità del markup HTML, la conformità agli standard CSS e il rispetto delle linee guida WCAG 2.1. È stato fondamentale per individuare errori di sintassi nidificati e attributi mancanti (come le etichette per i form). È stato principalmente usato nella fase finale, per un controllo accurato del sito.
+
+- *Nu Html Checker (W3C):*
+  Lo strumento ufficiale del W3C è stato impiegato per garantire che il codice rispettasse rigorosamente la sintassi HTML5 e le regole XML-like richieste dal progetto (chiusura dei tag, annidamento corretto). È stato usato durante buona parte del progetto, verso la fase finale, utile per la sua semplicità di utilizzo.
+
+- *Colour Contrast Analyser & Color Safe:*
+  Dati i requisiti stringenti di accessibilità visiva, questi strumenti sono stati essenziali per la definizione della palette cromatica.
+  - *Colour Contrast Analyser* è stato usato per verificare puntualmente il rapporto di contrasto (minimo 4.5:1 per il livello AA) tra testo e sfondo, specialmente nella modalità *Dark Mode*.
+  - *Color Safe* ha guidato la scelta di colori accessibili in fase di design, permettendo di bilanciare l'estetica con la leggibilità.
+
 == Test manuali
+La validazione automatica, per quanto potente, non può sostituire il giudizio umano. Per questo motivo, sono stati condotti test manuali approfonditi per verificare la reale usabilità del sito.
+
+- *Navigazione tramite Screen Reader (NVDA):*
+  È stato utilizzato lo screen reader *NVDA* (NonVisual Desktop Access) per simulare l'esperienza di un utente affetto da disabilità visiva. Il test si è concentrato sulla verifica della semantica degli elementi e sul corretto funzionamento degli attributi ARIA implementati (come `aria-live` per la ricerca dinamica). Si è verificato che le notifiche di errore e i risultati della ricerca venissero annunciati correttamente senza sovrapposizioni audio.
+
+- *Navigazione da Tastiera:*
+  È stato verificato che tutte le funzionalità del sito fossero fruibili senza l'ausilio del mouse. In particolare:
+  - Il focus visibile è sempre presente e chiaro.
+  - L'ordine di tabulazione è logico e segue la struttura visiva della pagina.
+  - Le "Focus Trap" all'interno dei modali funzionano correttamente, impedendo al focus di uscire dalla finestra di dialogo attiva.
+  - Il link "Salta al contenuto principale" funziona come previsto.
+
+- *Compatibilità Browser (Cross-browser):*
+  Il sito è stato testato sui principali browser moderni (*Google Chrome, Mozilla Firefox, Brave Browser*) per garantire che il rendering grafico e le funzionalità JavaScript fossero consistenti indipendentemente dal motore di rendering utilizzato dall'utente.
+
+- *Responsive Design e Mobile:*
+  Oltre all'utilizzo di dispositivi fisici, è stata sfruttata intensivamente la *Modalità Ispeziona* dei browser desktop simulando diverse risoluzioni (smartphone, tablet, landscape).
+  Questo ha permesso di verificare:
+  - Il corretto collasso del menu di navigazione in formato "Hamburger".
+  - La leggibilità dei testi senza necessità di zoom.
+  - Il dimensionamento adeguato delle aree cliccabili (touch targets) per evitare errori di digitazione su schermi touch.
 
 = Organizzazione del gruppo
-== Suddivisione dei compiti
-== Metodologia di lavoro
+Questa sezione illustra la metodologia adottata dal team per trasformare l'idea progettuale iniziale in un prodotto software finito. Il gruppo ha operato seguendo una logica di suddivisione funzionale, che ha permesso di parallelizzare lo sviluppo e ottimizzare le competenze individuali.
 
-= Conclusione e sviluppi futuri
-== Cosa abbiamo imparato
-== Possibili miglioramenti
+== Suddivisione dei compiti
+Per garantire una copertura completa di tutti gli aspetti dell'ingegneria web, ogni componente si è focalizzato su una specifica area di competenza, assumendone la responsabilità tecnica dall'analisi alla realizzazione.
+
+- *Enrique Hernandez Gris:*
+  Ha curato l'architettura strutturale delle viste (HTML5 semantico) e la logica di presentazione del catalogo. Si è occupato dell'integrazione dei dati nelle pagine principali e dello sviluppo dell'interfaccia di ricerca, garantendo la coerenza visiva tra le varie sezioni del sito.
+
+- *Luca Slongo:*
+  Si è specializzato nell'esperienza utente (User Experience) e nel design dell'interfaccia. Ha definito la palette cromatica in ottica di accessibilità, ha curato la responsività del sito per i dispositivi mobili e ha sviluppato componenti chiave per la navigazione come la Breadcrumb, l'Homepage e la gestione del Profilo Utente.
+
+- *Marco Sanguin:*
+  Ha gestito la logica dinamica lato client e l'interazione asincrona (API). Sfruttando le sue competenze musicali, ha ingegnerizzato il sistema di *Chord Parsing* per la visualizzazione intelligente degli accordi nella pagina Canzone. Si è inoltre occupato del deployment finale dell'applicazione sul server di produzione.
+
+- *Aldo Bettega:*
+  Ha progettato l'architettura del database e il layer di astrazione dei dati (Models), ottimizzando le query SQL. Ha sviluppato la logica di backend per la ricerca avanzata e ha realizzato l'intero ecosistema del Pannello di Amministrazione, gestendo la sicurezza e la manipolazione dei contenuti.
+
+== Metodologia di Lavoro
+L'organizzazione del team è stata improntata alla flessibilità, adottando un approccio agile che ha permesso di conciliare lo sviluppo incrementale del software con gli impegni accademici paralleli.
+
+Per garantire un flusso di lavoro efficiente, sono stati utilizzati strumenti specifici per la gestione della comunicazione e del codice:
+
+- *Comunicazione Sincrona:* La piattaforma *Discord* è stata il punto di riferimento per le riunioni periodiche di allineamento. Questi incontri sono stati fondamentali per monitorare i progressi, risolvere blocchi bloccanti e pianificare le attività successive.
+- *Gestione Asincrona:* Il versionamento del codice è stato affidato a *Git* tramite un repository *GitHub* condiviso. Questo ha permesso di lavorare in parallelo sulle diverse feature, mantenendo uno storico delle modifiche e facilitando l'integrazione del codice (merge).
+
+Nonostante la netta suddivisione dei compiti illustrata in precedenza, il gruppo ha mantenuto un approccio fortemente collaborativo. La specializzazione dei singoli membri non ha creato compartimenti stagni; al contrario, è stato costante il supporto trasversale (peer review e debugging congiunto), garantendo che ogni componente del team acquisisse una conoscenza approfondita dell'intero ecosistema del progetto.
+
+= Conclusioni e Sviluppi Futuri
+La realizzazione di EasyGuitar ha rappresentato per il gruppo di lavoro un'opportunità fondamentale per declinare le conoscenze teoriche in un progetto software completo. L'esperienza ha permesso di affrontare le complessità reali dello sviluppo web, ponendo l'accento non solo sulla correttezza formale del codice, ma sull'impatto sociale della tecnologia attraverso l'accessibilità.
+
+== Competenze Acquisite
+Il percorso di sviluppo ha permesso di consolidare competenze trasversali, unendo l'ingegneria del software alla sensibilità per la User Experience (UX):
+
+- *Dominio Tecnologico:* La scelta didattica di operare senza l'ausilio di framework ha imposto una comprensione profonda del linguaggio PHP e del pattern architetturale MVC. È stata inoltre affinata la capacità di gestire l'interattività lato client (JavaScript, manipolazione del DOM) e di progettare schemi di base di dati relazionali efficienti.
+- *Sensibilità Inclusiva:* Al di là degli aspetti tecnici, il progetto ha radicato nel team la filosofia dello "User-Centered Design". Si è compreso come l'aderenza agli standard WCAG non sia un mero adempimento formale, ma un requisito etico necessario per garantire il diritto all'accesso alle informazioni a ogni categoria di utente.
+
+== Prospettive Future
+L'analisi dei risultati ottenuti evidenzia come EasyGuitar, pur essendo un prodotto completo nelle sue funzionalità core, presenti ampi margini di evoluzione.
+Guardando al futuro, l'obiettivo non risiede tanto nell'espansione indiscriminata delle funzionalità, quanto nel consolidamento della qualità del software esistente.
+
+Sarebbe auspicabile dare continuità al progetto focalizzandosi su tre direttrici principali:
+- *Evoluzione del Codice:* Un'attività costante di *refactoring* e ottimizzazione della codebase per garantire performance sempre più elevate e una maggiore manutenibilità nel tempo.
+- *Accessibilità Incrementale:* L'accessibilità non è un traguardo statico ma un processo in divenire. L'intento è quello di affinare ulteriormente l'interfaccia utente, recependo i feedback reali per abbattere ogni residua barriera tecnologica.
+- *Filosofia del Progetto:* Mantenere inalterata la visione originale di uno strumento essenziale e privo di distrazioni, continuando a sviluppare soluzioni che mettano la musica e l'esecutore al centro dell'esperienza digitale.
+

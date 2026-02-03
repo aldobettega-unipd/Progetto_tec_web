@@ -314,8 +314,19 @@ class AdminController extends Controller
         $artistaEsistente = $artistaModel->find_artista_by_name($dati_canzone['autore_canzone']);
 
         if (!$artistaEsistente) {
+            $optionsLingua = $this->generateLanguageOptions($dati_canzone['lingua_canzone']);
             return $this->render('admin/formCanzone', [
+                'TITOLO_PAGINA' => 'Aggiungi Canzone',
+                'FORM_ACTION' => '/admin/canzoni/save',
                 'ERROR_MSG' => "Errore: L'artista '{$dati_canzone['autore_canzone']}' non esiste nel database.",
+                'VISIBILITY_ERROR' => '',
+                
+                // Ripopolazione dati utente per non perderli a causa dell'errore
+                'ID_VAL' => '',
+                'TITOLO_VAL' => $dati_canzone['titolo_canzone'],
+                'AUTORE_VAL' => $dati_canzone['autore_canzone'],
+                'TESTO_VAL' => $dati_canzone['testo_canzone'],
+                'OPTIONS_LINGUA' => $optionsLingua,
                 'USERNAME' => $_SESSION['user']['username']
             ]);
         }

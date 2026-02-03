@@ -40,7 +40,6 @@ function initDarkMode() {
 }
 
 function initBackToTop() {
-  // Nota: Ho corretto il selettore per usare l'ID che è più veloce/sicuro
   const topBtn = document.getElementById('back-to-top-btn');
 
   if (!topBtn) return;
@@ -97,16 +96,11 @@ function initProfileAction() {
       button.addEventListener('click', () => {
         const targetSection = button.getAttribute('data-section');
 
-        // Rimuovi classe active da tutti i pulsanti
         menuButtons.forEach(btn => btn.classList.remove('active'));
-
-        // Aggiungi classe active al pulsante cliccato
         button.classList.add('active');
 
-        // Nascondi tutte le sezioni
         contentSections.forEach(section => section.classList.remove('active'));
 
-        // Mostra la sezione corrispondente
         const sectionToShow = document.querySelector(`[data-content="${targetSection}"]`);
         if (sectionToShow) {
           sectionToShow.classList.add('active');
@@ -121,18 +115,15 @@ function initProfileAction() {
 }
 
 
-// --- 1. CONFIGURAZIONE & UTILITY ---
-
-// Elementi del banner
 const authModal = document.getElementById('auth-modal');
 const closeModalBtn = document.getElementById('close-auth-modal');
 
-// Funzione: Controlla se l'utente è loggato (dal body)
+
 function isUserLoggedIn() {
   return document.body.dataset.loggedIn === 'true';
 }
 
-// Funzione: Mostra Banner
+
 function showLoginBanner() {
   if (authModal) {
     authModal.classList.add('show');
@@ -140,7 +131,6 @@ function showLoginBanner() {
   }
 }
 
-// Funzione: Nascondi Banner
 function hideLoginBanner() {
   if (authModal) {
     authModal.classList.remove('show');
@@ -148,7 +138,7 @@ function hideLoginBanner() {
   }
 }
 function initToggleLoginBanner() {
-  // Eventi chiusura Banner (X o Click fuori)
+
   if (closeModalBtn) closeModalBtn.addEventListener('click', hideLoginBanner);
   if (authModal) {
     authModal.addEventListener('click', (e) => {
@@ -157,7 +147,6 @@ function initToggleLoginBanner() {
   }
 }
 
-// Chiamata API generica per aggiungere/rimuovere
     async function toggleSongInPlaylist(playlistId, songId, isAdding) {
         const endpoint = isAdding ? '/api/playlist/add-song' : '/api/playlist/remove-song';
 
@@ -176,32 +165,28 @@ function initToggleLoginBanner() {
             if (!res.success) {
                 throw new Error(res.message || "Errore API");
             }
-            return true; // Successo
+            return true;
 
         } catch (err) {
             console.error(err);
-            // Opzionale: alert("Errore: " + err.message);
-            return false; // Fallimento
+            return false;
         }
     }
 
-//gestion pulsante preferiti
 function initFavButton(){
   const allFavBtns = document.querySelectorAll('.btn-favorite');
 
     allFavBtns.forEach(btn => {
         btn.addEventListener('click', async function(e) {
-            // STOP PROPAGATION: Impedisce che il click passi al link della card sottostante
             e.stopPropagation(); 
             e.preventDefault();
-            // CHECK LOGIN
             if (!isUserLoggedIn()) {
                 showLoginBanner();
                 return;
             }
 
             const favPlaylistId = this.dataset.idPreferiti;
-            const songId = this.dataset.songId; // Recuperiamo l'ID specifico di QUESTA card
+            const songId = this.dataset.songId;
 
             if (!favPlaylistId || !songId) {
                 console.error("Dati mancanti sul bottone preferiti");
@@ -211,14 +196,12 @@ function initFavButton(){
             const isRemoving = this.classList.contains('active');
             const isAdding = !isRemoving;
 
-            // UI Ottimistica
             this.classList.toggle('active');
 
             // Chiamata API
             const success = await toggleSongInPlaylist(favPlaylistId, songId, isAdding);
 
             if (!success) {
-                // Rollback
                 this.classList.toggle('active');
             }
         });

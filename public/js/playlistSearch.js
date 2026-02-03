@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModalSearch();
     });
-
+ 
     modal.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeModalSearch();

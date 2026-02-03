@@ -115,31 +115,98 @@ function initProfileAction() {
 }
 
 
-const authModal = document.getElementById('auth-modal');
-const closeModalBtn = document.getElementById('close-auth-modal');
-
 
 function isUserLoggedIn() {
   return document.body.dataset.loggedIn === 'true';
 }
 
 
+
+const authModal = document.getElementById('auth-modal');
+const closeModalBtn = document.getElementById('close-auth-modal');
+const mainContent = document.getElementById('main-content'); 
+let lastFocusedElement = null;
+
 function showLoginBanner() {
-  if (authModal) {
-    authModal.classList.add('show');
-    authModal.setAttribute('aria-hidden', 'false');
+  if (!authModal) return;
+
+  lastFocusedElement = document.activeElement;
+
+  // Mostra il modale
+  authModal.classList.add('show');
+  authModal.setAttribute('aria-hidden', 'false');
+
+  // --- PUNTO CHIAVE: Disabilita lo sfondo ---
+  if (mainContent) {
+      // 'inert' impedisce click e focus su tutto il sito
+      mainContent.setAttribute('inert', ''); 
+      // 'aria-hidden' è una sicurezza extra per vecchi screen reader
+      mainContent.setAttribute('aria-hidden', 'true'); 
   }
+
+  // Sposta focus nel modale
+  setTimeout(() => {
+      closeModalBtn.focus();
+  }, 50);
+  
+  // Nota: Con 'inert', la funzione handleModalKeydown (il loop del TAB) 
+  // diventa meno critica per "uscire", ma serve ancora per "ciclare" dentro il modale.
+  authModal.addEventListener('keydown', handleModalKeydown);
 }
 
 function hideLoginBanner() {
-  if (authModal) {
-    authModal.classList.remove('show');
-    authModal.setAttribute('aria-hidden', 'true');
+  if (!authModal) return;
+
+  authModal.classList.remove('show');
+  authModal.setAttribute('aria-hidden', 'true');
+
+  // --- PUNTO CHIAVE: Riabilita lo sfondo ---
+  if (mainContent) {
+      mainContent.removeAttribute('inert');
+      mainContent.removeAttribute('aria-hidden');
+  }
+
+  authModal.removeEventListener('keydown', handleModalKeydown);
+
+  if (lastFocusedElement) {
+      lastFocusedElement.focus();
   }
 }
-function initToggleLoginBanner() {
 
+
+function handleModalKeydown(e) {
+    if (e.key === 'Escape') {
+        hideLoginBanner();
+        return;
+    }
+
+    if (e.key === 'Tab') {
+        const focusableElements = authModal.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        
+        if (focusableElements.length === 0) return;
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+        if (e.shiftKey) { 
+            if (document.activeElement === firstElement) {
+                e.preventDefault();
+                lastElement.focus();
+            }
+        } 
+        else { 
+            if (document.activeElement === lastElement) {
+                e.preventDefault();
+                firstElement.focus();
+            }
+        }
+    }
+
+}
+
+function initToggleLoginBanner() {
   if (closeModalBtn) closeModalBtn.addEventListener('click', hideLoginBanner);
+  
   if (authModal) {
     authModal.addEventListener('click', (e) => {
       if (e.target === authModal) hideLoginBanner();

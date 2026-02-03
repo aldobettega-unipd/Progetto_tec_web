@@ -81,7 +81,7 @@ class ListHelper
 
         ksort($grouped);
 
-        /* Opzionale: Se vuoi che '#' sia alla fine invece che all'inizio
+        /* Opzionale: se si vuole'#' alla fine invece che all'inizio
         if (isset($grouped['#'])) {
             $hashGroup = $grouped['#'];
             unset($grouped['#']);
@@ -92,8 +92,6 @@ class ListHelper
     }
 
 
-    
-    // Costruisce la lista HTML per la pagina "Tutte le Canzoni" (A-Z)
     public static function costruisciListaCanzoni($groupedItems) {
         $html = '<div class="classic-index">';
 
@@ -127,10 +125,8 @@ class ListHelper
                 $html .= '<li>';
                 $html .= '<a href="' . $url . '">';
                 
-                // Applica attributo Canzone
                 $html .= '<strong class="entry-name" ' . $langAttrCanzone . '>' . $titolo . '</strong>';
                 
-                // Applica attributo Artista
                 $html .= '<span class="artist-inline" ' . $langAttrArtista .  '> - ' . $autore . '</span>';
                 
                 $html .= '</a>';
@@ -201,9 +197,9 @@ class ListHelper
 
             $html .= '<li>';
             $html .= '    <label class="checkbox-container" for="' . $uniqueId . '">';
-            $html .= '        <input type="checkbox" id="' . $uniqueId . '" name="playlist[]" value="' . $id . '" ' . $checkedAttr . '>';
+            $html .= '        <input type="checkbox" id="' . $uniqueId . '" name="playlist[]" value="' . $id . '" ' . 'class="visually-hidden"' . $checkedAttr . '>';
             
-            $html .= '        <span class="checkmark"></span>';
+            $html .= '        <span class="checkmark" aria-hidden="true"></span>';
             $html .= '        <span class="playlist-name">' . $nomeSafe . '</span>';
             $html .= '    </label>';
             $html .= '</li>';

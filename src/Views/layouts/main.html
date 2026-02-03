@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>##TITOLO_PAGINA## - EasyGuitar</title>
-  
+
   <meta name="description" content="##DESCRIZIONE_PAGINA##">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -51,6 +51,25 @@
     ##CONTENUTO_PRINCIPALE##
   </main>
 
+  <div id="auth-modal" class="auth-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true"
+    aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="auth-modal-content">
+      <button type="button" class="btn-close-modal" id="close-auth-modal" aria-label="Chiudi finestra">
+        &times;
+      </button>
+
+      <h3 id="modal-title">Ehi, Musicista! 🎸</h3>
+
+      <p id="modal-desc">Per salvare le canzoni nei preferiti o nelle playlist devi accedere al tuo account.
+      </p>
+
+      <div class="auth-buttons">
+        <a href="/login?redirect=##REDIRECT_URL##" class="btn-login-modal">Accedi</a>
+        <a href="/register?redirect=##REDIRECT_URL##" class="btn-register-modal">Registrati</a>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <button id="back-to-top-btn" class="back-to-top-btn" title="Torna su" aria-label="Torna a inizio pagina">
       <span aria-hidden="true">↑</span>
@@ -58,22 +77,22 @@
     <div class="footer-container">
       <div class="footer-links">
         <a href="/" lang="en">
-            <span class="icon" aria-hidden="true"><img src="/img/icone/home.png" alt=""></span>
-            Home
+          <span class="icon" aria-hidden="true"><img src="/img/icone/home.png" alt=""></span>
+          Home
         </a>
         <a href="/search">
-            <span class="icon search-icon" aria-hidden="true"><img src="/img/icone/search.png" alt=""></span>
-            Cerca
+          <span class="icon search-icon" aria-hidden="true"><img src="/img/icone/search.png" alt=""></span>
+          Cerca
         </a>
         <a href="/artisti">
-            <span class="icon search-icon" aria-hidden="true"><img src="/img/icone/artista.png" alt=""></span>
-            Artisti
+          <span class="icon search-icon" aria-hidden="true"><img src="/img/icone/artista.png" alt=""></span>
+          Artisti
         </a>
         <a href="/canzoni">
-            <span class="icon search-icon" aria-hidden="true"><img src="/img/icone/music-notes.svg" alt=""></span>
-            Canzoni
+          <span class="icon search-icon" aria-hidden="true"><img src="/img/icone/music-notes.svg" alt=""></span>
+          Canzoni
         </a>
-        
+
         ##LINKS_FOOTER##
       </div>
 
@@ -83,4 +102,5 @@
     </div>
   </footer>
 </body>
+
 </html>

@@ -93,6 +93,9 @@ class AdminController extends Controller
             $this->abort(404, "Il tipo di contenuto '$type' non è gestito.");
         }
 
+        BreadcrumbHelper::add('Profilo', '/admin');
+        BreadcrumbHelper::add('Gestione Contenuti', '/admin/gestione-contenuti');
+        BreadcrumbHelper::add(($type === 'canzoni') ? 'Aggiungi Canzone' : 'Aggiungi Artista');
         
         $optionsLingua = $this->generateLanguageOptions(); 
 
@@ -128,6 +131,10 @@ class AdminController extends Controller
         if (!$artista) {
             $this->abort(404, "Artista non trovato");
         }
+
+        BreadcrumbHelper::add('Profilo', '/admin');
+        BreadcrumbHelper::add('Gestione Contenuti', '/admin/gestione-contenuti');
+        BreadcrumbHelper::add('Modifica Artista');
 
         $this->page_title = "Modifica Artista";
         $this->scriptPathList[] = 'admin';
@@ -227,6 +234,10 @@ class AdminController extends Controller
         if (!$canzone) {
             $this->abort(404, "Canzone non trovata");
         }
+
+        BreadcrumbHelper::add('Profilo', '/admin');
+        BreadcrumbHelper::add('Gestione Contenuti', '/admin/gestione-contenuti');
+        BreadcrumbHelper::add('Modifica Canzone');
 
         $this->page_title = "Modifica Canzone";
         $this->scriptPathList[] = 'admin';

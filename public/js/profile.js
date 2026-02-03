@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // DISABILITATO
                 btnSave.disabled = true;
                 btnSave.classList.add('disabled');
-                btnSave.style.opacity = '0.6';
+                btnSave.style.opacity = '1';
                 btnSave.style.cursor = 'not-allowed';
             }
         }

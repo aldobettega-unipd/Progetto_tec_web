@@ -11,7 +11,7 @@ CREATE TABLE utente (
 );
 
 CREATE TABLE artista (
-    nome_artista VARCHAR(50) PRIMARY KEY
+    nome_artista VARCHAR(50) PRIMARY KEY,
     descrizione_artista TEXT NOT NULL,
     slug_artista VARCHAR(30) NOT NULL,
     lingua_artista VARCHAR(3) DEFAULT NULL

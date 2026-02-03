@@ -1,14 +1,50 @@
 <section class="loginRegisterSection">
 
     <h1>Registrati per creare un nuovo account</h1>
-    <form class="loginRegisterForm" action="##BASE_URL##/register/save" method="POST">
+    <form class="loginRegisterForm" action="##BASE_URL##/register/save" method="POST" novalidate>
+
         <input type="hidden" name="redirect_to" value="##REDIRECT_TO##">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" required>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required>
+        
+        <div class="form-field">
+            <label for="username" lang="en">Username:</label>
+            <input 
+                type="text" 
+                name="username" 
+                id="username" 
+                required 
+                minlength="3"
+                maxlength="30"
+                pattern="[a-zA-Z0-9_-]+"
+                autocomplete="username"
+                aria-invalid="false"
+                aria-describedby="username-error username-hint">
+            <span id="username-hint" class="field-hint">3-30 caratteri (lettere, numeri, _ o -)</span>
+            <span id="username-error" class="field-error" role="alert" aria-live="polite"></span>
+        </div>
+        
+        <div class="form-field">
+            <label for="password" lang="en">Password:</label>
+            <input 
+                type="password" 
+                name="password" 
+                id="password" 
+                required 
+                minlength="4"
+                maxlength="128"
+                autocomplete="new-password"
+                aria-invalid="false"
+                aria-describedby="password-error password-hint">
+            <span id="password-hint" class="field-hint">Minimo 4 caratteri</span>
+            <span id="password-error" class="field-error" role="alert" aria-live="polite"></span>
+        </div>
+        
         <button type="submit">Crea account</button>
     </form>
-    <p class="erroreLoginRegister">##FLASH_ERROR##</p>
+
+    <p class="erroreLoginRegister" role="alert" aria-live="polite">##FLASH_ERROR##</p>
+    
     <p>Hai già un account? <a class="loginRegisterLink" href="##BASE_URL##/login">Accedi</a></p>
 </section>
+
+<script src="/js/register-validation.js"></script>
+

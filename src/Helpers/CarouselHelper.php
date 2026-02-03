@@ -49,7 +49,7 @@ class CarouselHelper {
 
             $template->set_dati_pagina((array)$data);
 
-            $html .= $template->get_pagina();
+            $html .= $template->get_pagina(true);
             
         }
 

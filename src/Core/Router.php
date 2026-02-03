@@ -82,7 +82,7 @@ class Router
     {
         if (in_array('auth', $middleware)) {
             if (!\App\Core\Auth::isLogged()) {
-                header('Location: /login');
+                header('Location: ' . BASE_URL .  '/login');
                 exit;
             }
         }

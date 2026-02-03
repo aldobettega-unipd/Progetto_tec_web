@@ -120,7 +120,7 @@ class ListHelper
                     }
                 }
 
-                $url = '/canzoni/' . $item['slug_canzone'];
+                $url = BASE_URL . '/canzoni/' . $item['slug_canzone'];
                 $titolo = htmlspecialchars($item['titolo_canzone']);
                 $autore = htmlspecialchars($item['autore_canzone']);
 
@@ -164,7 +164,7 @@ class ListHelper
                     }
                 }
 
-                $url = '/artisti/' . $item['slug_artista'];
+                $url = BASE_URL . '/artisti/' . $item['slug_artista'];
                 $nome = htmlspecialchars($item['nome_artista']);
 
                 $html .= '<li>';

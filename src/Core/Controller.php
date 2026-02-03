@@ -33,7 +33,6 @@ abstract class Controller
 
         if ($layout) {
             $layout_data = [
-                'BASE_URL' => BASE_URL,
                 'CLASSE_PAGINA' => strtolower($view),
                 'LINK_UTENTE' => Auth::getHeaderLinks(),
                 'LINKS_FOOTER' => Auth::getFooterLinks(),
@@ -41,7 +40,8 @@ abstract class Controller
                 'TITOLO_PAGINA' => $this->page_title,
                 'DESCRIZIONE_PAGINA' => $this->page_description,
                 'BREADCRUMB' => BreadcrumbHelper::render(),
-                'UTENTE_LOGGATO' => (Auth::isUser()) ? "true" : "false"
+                'UTENTE_LOGGATO' => (Auth::isUser()) ? "true" : "false",
+                'BASE_URL' => BASE_URL
             ];
 
             $layout_file = new Template("layouts/{$layout}");

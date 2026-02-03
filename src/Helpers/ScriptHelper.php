@@ -7,7 +7,7 @@ class ScriptHelper
     static public function import_script($scriptPathList) {
         $output = '';
         foreach ($scriptPathList as $path) {
-            $output .= '<script src="##BASE_URL##/js/' . $path . '.js"></script>
+            $output .= '<script src="'.BASE_URL. '/js/' . $path . '.js"></script>
             ';
         }
         return $output;

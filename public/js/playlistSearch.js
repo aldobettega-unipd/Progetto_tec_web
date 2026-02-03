@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target === modal) closeModalSearch();
     });
 
-<<<<<<< HEAD
     /**
      * Gestisce la digitazione nell'input di ricerca.
      * Esegue una chiamata API solo se ci sono almeno 2 caratteri.
@@ -48,11 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
             renderResults(songs);
         } catch (err) { 
             console.error("Errore ricerca:", err); 
-=======
+        }
+    });
+
     modal.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeModalSearch();
->>>>>>> develop
         }
     });
 
